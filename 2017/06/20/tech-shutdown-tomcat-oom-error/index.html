@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tomcat关闭报内存溢出异解决方案 | Leeyom的个人站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在项目开发的时候，每次关闭Tomcat控制台都会报内存溢出的异常，因为是warning级别的警告，并且开发阶段也并不影响项目的运行，所以呢也就没有去在意。但是当把项目打包部署到Linux服务器上后，启动Tomcat，然后再停止，又出现内存溢出的情况，然后再启动，发现Tomcat启动再也无法启动，只能重启服务器，才意识到这个问题是比较严重的问题。通过查找一系列的资料，终于把这个问题解决了，所以记录一">
+<meta name="keywords" content="Tomcat,内存溢出,异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat关闭报内存溢出异解决方案">
+<meta property="og:url" content="http://leeyom.top/2017/06/20/tech-shutdown-tomcat-oom-error/index.html">
+<meta property="og:site_name" content="Leeyom的个人站">
+<meta property="og:description" content="在项目开发的时候，每次关闭Tomcat控制台都会报内存溢出的异常，因为是warning级别的警告，并且开发阶段也并不影响项目的运行，所以呢也就没有去在意。但是当把项目打包部署到Linux服务器上后，启动Tomcat，然后再停止，又出现内存溢出的情况，然后再启动，发现Tomcat启动再也无法启动，只能重启服务器，才意识到这个问题是比较严重的问题。通过查找一系列的资料，终于把这个问题解决了，所以记录一">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-14T05:42:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tomcat关闭报内存溢出异解决方案">
+<meta name="twitter:description" content="在项目开发的时候，每次关闭Tomcat控制台都会报内存溢出的异常，因为是warning级别的警告，并且开发阶段也并不影响项目的运行，所以呢也就没有去在意。但是当把项目打包部署到Linux服务器上后，启动Tomcat，然后再停止，又出现内存溢出的情况，然后再启动，发现Tomcat启动再也无法启动，只能重启服务器，才意识到这个问题是比较严重的问题。通过查找一系列的资料，终于把这个问题解决了，所以记录一">
+  
+    <link rel="alternative" href="/atom.xml" title="Leeyom的个人站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Leeyom</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags/">分类</a></li>
+                        
+                            <li><a href="/about/">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wangleeyom/" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/leeyomwang" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/404/" style="font-size: 10px;">404</a> <a href="/tags/ActiveMQ/" style="font-size: 10px;">ActiveMQ</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/FastDFS/" style="font-size: 10px;">FastDFS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/PageHelper/" style="font-size: 10px;">PageHelper</a> <a href="/tags/RBAC/" style="font-size: 10px;">RBAC</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/centOS/" style="font-size: 10px;">centOS</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/easyUI/" style="font-size: 13.33px;">easyUI</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/helloWorld/" style="font-size: 10px;">helloWorld</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring mvc</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlserver/" style="font-size: 10px;">sqlserver</a> <a href="/tags/ssm/" style="font-size: 10px;">ssm</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/swagger2/" style="font-size: 10px;">swagger2</a> <a href="/tags/tomact/" style="font-size: 10px;">tomact</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/书单/" style="font-size: 10px;">书单</a> <a href="/tags/内存溢出/" style="font-size: 10px;">内存溢出</a> <a href="/tags/分页/" style="font-size: 10px;">分页</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/反向代理/" style="font-size: 10px;">反向代理</a> <a href="/tags/图床/" style="font-size: 10px;">图床</a> <a href="/tags/多模块/" style="font-size: 10px;">多模块</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/摘抄/" style="font-size: 13.33px;">摘抄</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/第一篇博文/" style="font-size: 10px;">第一篇博文</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/负载均衡/" style="font-size: 10px;">负载均衡</a> <a href="/tags/递归查询/" style="font-size: 10px;">递归查询</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tlong.tv/">TLongTv</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zealer.com/">ZEALER</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://login926.top/">Login926</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.sfantree.com/">popy32</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://ehlxr.me/">小桥流水人家</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://patrickphang.github.io/">Patrick&#39;s Blog</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sunhy.top">依然安恋</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://itsay.tech">张大侠</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.mapan.win/">不思凡</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://linyy.name/">林洋洋博客</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.belongwithme.cn/">Zane的个人站</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://lzp.ucaner.cn/">lzp</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.imain.net/">曾小晨</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.artisanbox.org/">工匠盒子</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://yzlee666.github.io/">肥胖的猪</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Leeyom</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Leeyom</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags/">分类</a></li>
+                
+                    <li><a href="/about/">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangleeyom/" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/leeyomwang" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-tech-shutdown-tomcat-oom-error" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/tech-shutdown-tomcat-oom-error/" class="article-date">
+      <time datetime="2017-06-20T13:13:20.000Z" itemprop="datePublished">2017-06-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Tomcat关闭报内存溢出异解决方案
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/">Tomcat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存溢出/">内存溢出</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异常/">异常</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>在项目开发的时候，每次关闭Tomcat控制台都会报内存溢出的异常，因为是warning级别的警告，并且开发阶段也并不影响项目的运行，所以呢也就没有去在意。但是当把项目打包部署到Linux服务器上后，启动Tomcat，然后再停止，又出现内存溢出的情况，然后再启动，发现Tomcat启动再也无法启动，只能重启服务器，才意识到这个问题是比较严重的问题。通过查找一系列的资料，终于把这个问题解决了，所以记录一下这个问题解决过程，给以后可能会遇到这个问题的朋友一个解决方案。</p>
+<a id="more"></a>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><ul>
+<li>JDK 1.8</li>
+<li>Tomcat 8</li>
+<li>MySQL 5.7</li>
+<li>IDEA 2017.1</li>
+</ul>
+<h2 id="异常信息"><a href="#异常信息" class="headerlink" title="异常信息"></a>异常信息</h2><p>首先来看下我遇到的异常信息是什么：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">1</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">2</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">3</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">4</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">5</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">6</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">7</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">8</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">9</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [DefaultQuartzScheduler_Worker-<span class="number">10</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:<span class="number">519</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [Timer-<span class="number">0</span>] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> java.util.TimerThread.mainLoop(Timer.java:<span class="number">552</span>)</span><br><span class="line"> java.util.TimerThread.run(Timer.java:<span class="number">505</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:<span class="number">534</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:<span class="number">534</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:<span class="number">534</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads</span><br><span class="line">警告: The web application [LeadermentEnterpriseSystemV2] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:<span class="number">143</span>)</span><br><span class="line"> com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:<span class="number">43</span>)</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.coyote.AbstractProtocol stop</span><br><span class="line">信息: Stopping ProtocolHandler [<span class="string">"http-nio-8080"</span>]</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.coyote.AbstractProtocol stop</span><br><span class="line">信息: Stopping ProtocolHandler [<span class="string">"ajp-nio-8009"</span>]</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.coyote.AbstractProtocol destroy</span><br><span class="line">信息: Destroying ProtocolHandler [<span class="string">"http-nio-8080"</span>]</span><br><span class="line">六月 <span class="number">20</span>, <span class="number">2017</span> <span class="number">2</span>:<span class="number">16</span>:<span class="number">22</span> 下午 org.apache.coyote.AbstractProtocol destroy</span><br><span class="line">信息: Destroying ProtocolHandler [<span class="string">"ajp-nio-8009"</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="异常原因分析及解决方案"><a href="#异常原因分析及解决方案" class="headerlink" title="异常原因分析及解决方案"></a>异常原因分析及解决方案</h2><p>我总结了下，出现以上的异常主要有以下几个原因：</p>
+<ol>
+<li>mysql jdbc 未注销</li>
+<li>shiro 权限框架会话验证调度器未关闭</li>
+<li>c3p0连接池链接未关闭</li>
+</ol>
+<p>下面来逐一的分析下为什么会出现上面这样的情况：</p>
+<h3 id="mysql-jdbc-未注销"><a href="#mysql-jdbc-未注销" class="headerlink" title="mysql jdbc 未注销"></a>mysql jdbc 未注销</h3><p>在<code>tomcat 6.0.24</code>版本之后，加入了一个<code>memory leak listener</code>(JreMemoryLeakPreventionListener，有兴趣可详细查去源码), 在tomcat stop、undeployed、reloaded的时候，他会检测当前应用的classloader，查看是否有引用泄露。<br>tomcat定义了一系列的引用泄露规则：</p>
+<ul>
+<li>threadlocal保持引用</li>
+<li>线程池保持引用</li>
+<li>驱动注册</li>
+</ul>
+<p>如有引用泄露，则提示错误，例如<code>his is very likely to create a memory leak</code>类似这样的错误。对于<code>The web application [LeadermentEnterpriseSystemV2] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.</code>这种异常其实就是MySQL的JDBC驱动无法注销的原因所造成的。我在网上查找了很多的解决方案，其中比较权威的stackoverflow给出的解决方案邮两种：</p>
+<ol>
+<li><p>将MySQL的驱动放到Tomcat的lib目录下面，同时移除WEB-INF/lib目录下的MySQL 驱动，但是我实验了下，对于我现在这种情况并不生效。</p>
+</li>
+<li><p>创建一个 <code>ServletContextListener</code>,然后在 contextDestroyed 方法中手动注销。</p>
+<p>这个方案中又分为两步：</p>
+<ul>
+<li>2.1 将MySQL JDBC驱动在pom.xml文件中更新成最新的版本(5.1.42)。</li>
+<li>2.2 新建 JdbcDriverListener.java 文件，具体内容如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdbcDriverListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Logger logger = Logger.getLogger(UserAccountsHandler.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent sce)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent sce)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 解决Tomcat mysql 驱动内存泄漏，手动注销JDBC</span></span><br><span class="line">        Enumeration&lt;Driver&gt; drivers = DriverManager.getDrivers();</span><br><span class="line">        Driver d = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (drivers.hasMoreElements()) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                d = drivers.nextElement();</span><br><span class="line">                DriverManager.deregisterDriver(d);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (SQLException ex) &#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        AbandonedConnectionCleanupThread.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>不要忘记在web.xml文件中注册该监听器：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>com.leaderment.common.listener.JdbcDriverListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这样的话就可以解决MySQL驱动无法注销的问题。</p>
+<h3 id="shiro-权限框架会话验证调度器未关闭"><a href="#shiro-权限框架会话验证调度器未关闭" class="headerlink" title="shiro 权限框架会话验证调度器未关闭"></a>shiro 权限框架会话验证调度器未关闭</h3><p>这个问题是应为shiro权限框架里有用到quartz，所以会出现<code>appears to have started a thread named [DefaultQuartzScheduler_Worker-1]</code>等异常。我的解决办法就是将shiro的配置文件中的</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionValidationScheduler"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionValidationInterval"</span> <span class="attr">value</span>=<span class="string">"1800000"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionManager"</span> <span class="attr">ref</span>=<span class="string">"sessionManager"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>代码给注释掉，自己重新写了个过滤器，去判定session是否过期，而不采用shiro的会话验证器，所以该问题也就这样被解决。</p>
+<h3 id="c3p0连接池链接未关闭"><a href="#c3p0连接池链接未关闭" class="headerlink" title="c3p0连接池链接未关闭"></a>c3p0连接池链接未关闭</h3><p>修改applicationContext.xml文件，添加属性 <code>destroy-method=&quot;close&quot;</code>，即可解决数据库连接未关闭的问题。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span> <span class="attr">destroy-method</span>=<span class="string">"close"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.user&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.jdbcUrl&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driverClass&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"idleConnectionTestPeriod"</span> <span class="attr">value</span>=<span class="string">"60"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxIdleTime"</span> <span class="attr">value</span>=<span class="string">"60"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"testConnectionOnCheckin"</span> <span class="attr">value</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"testConnectionOnCheckout"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"preferredTestQuery"</span> <span class="attr">value</span>=<span class="string">"SELECT 1"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最终的原因归根结底就是Tomcat的进程无法释放的问题，那么造成这个问题出现的就是上面三个原因，只有通过一步步的排查才能根本上解决问题。这个问题花费了我一两天的时间，虽然有些地方不算是彻底解决，但是至少Tomcat停止的时候，不在报内存溢出的警告了。我的强迫症总算好受一点了。如果有更好的解决方案，可以在评论区留言一起讨论。</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/20/tech-shutdown-tomcat-oom-error/">Tomcat关闭报内存溢出异解决方案</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Leeyom 的个人博客">Leeyom</a></p>
+        <p><span>发布时间:</span>2017年06月20日 - 21时13分</p>
+        <p><span>最后更新:</span>2017年10月14日 - 13时42分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/20/tech-shutdown-tomcat-oom-error/" title="Tomcat关闭报内存溢出异解决方案">http://leeyom.top/2017/06/20/tech-shutdown-tomcat-oom-error/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://leeyom.top/2017/06/20/tech-shutdown-tomcat-oom-error/　　作者: Leeyom" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/07/23/tech-java-activemq-note/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Java消息中间件ActiveMQ学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/17/tech-hexo-theme-change/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo主题更换记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5F00;&#x53D1;&#x73AF;&#x5883;" class="headerlink" title="&#x5F00;&#x53D1;&#x73AF;&#x5883;"></a>&#x5F00;&#x53D1;&#x73AF;&#x5883;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常信息"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5F02;&#x5E38;&#x4FE1;&#x606F;" class="headerlink" title="&#x5F02;&#x5E38;&#x4FE1;&#x606F;"></a>&#x5F02;&#x5E38;&#x4FE1;&#x606F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常原因分析及解决方案"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5F02;&#x5E38;&#x539F;&#x56E0;&#x5206;&#x6790;&#x53CA;&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="headerlink" title="&#x5F02;&#x5E38;&#x539F;&#x56E0;&#x5206;&#x6790;&#x53CA;&#x89E3;&#x51B3;&#x65B9;&#x6848;"></a>&#x5F02;&#x5E38;&#x539F;&#x56E0;&#x5206;&#x6790;&#x53CA;&#x89E3;&#x51B3;&#x65B9;&#x6848;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql-jdbc-未注销"><span class="toc-number">3.1.</span> <span class="toc-text"><a href="#mysql-jdbc-&#x672A;&#x6CE8;&#x9500;" class="headerlink" title="mysql jdbc &#x672A;&#x6CE8;&#x9500;"></a>mysql jdbc &#x672A;&#x6CE8;&#x9500;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shiro-权限框架会话验证调度器未关闭"><span class="toc-number">3.2.</span> <span class="toc-text"><a href="#shiro-&#x6743;&#x9650;&#x6846;&#x67B6;&#x4F1A;&#x8BDD;&#x9A8C;&#x8BC1;&#x8C03;&#x5EA6;&#x5668;&#x672A;&#x5173;&#x95ED;" class="headerlink" title="shiro &#x6743;&#x9650;&#x6846;&#x67B6;&#x4F1A;&#x8BDD;&#x9A8C;&#x8BC1;&#x8C03;&#x5EA6;&#x5668;&#x672A;&#x5173;&#x95ED;"></a>shiro &#x6743;&#x9650;&#x6846;&#x67B6;&#x4F1A;&#x8BDD;&#x9A8C;&#x8BC1;&#x8C03;&#x5EA6;&#x5668;&#x672A;&#x5173;&#x95ED;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c3p0连接池链接未关闭"><span class="toc-number">3.3.</span> <span class="toc-text"><a href="#c3p0&#x8FDE;&#x63A5;&#x6C60;&#x94FE;&#x63A5;&#x672A;&#x5173;&#x95ED;" class="headerlink" title="c3p0&#x8FDE;&#x63A5;&#x6C60;&#x94FE;&#x63A5;&#x672A;&#x5173;&#x95ED;"></a>c3p0&#x8FDE;&#x63A5;&#x6C60;&#x94FE;&#x63A5;&#x672A;&#x5173;&#x95ED;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'wangleeyom',
+      repo: 'wangleeyom.github.io',
+      oauth: {
+        client_id: '157bc01270305e8af592',
+        client_secret: 'ada3e7cf31cbe08c9c4bd7cd1af069096342409d',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/07/23/tech-java-activemq-note/" title="上一篇: Java消息中间件ActiveMQ学习笔记">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/06/17/tech-hexo-theme-change/" title="下一篇: Hexo主题更换记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/life-mac-tools-collection/">mac重装系统软件清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/linux-note/">Linux折腾笔记（不间断更新）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/08/zookeeper-install/">zookeeper安装教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/fontend-backend-separation/">关于前后端分离的思考和总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/tech-java-book-list/">Java开发工程师进阶书单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/27/tech-rbac-model/">RBAC权限模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/tech-hexo-error/">hexo指令错误修复记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/tech-swagger-annotation/">swagger注解总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/23/tech-spring-mvc-swagger2/">Spring MVC中使用Swagger2构建Restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/tech-spring-boot-note/">spring boot 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/tech-java-Integer-cache-problem/">java 中 Integer 的缓存问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/01/tech-maven-multi-module-ssm/">Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/tech-java-activemq-note/">Java消息中间件ActiveMQ学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tech-shutdown-tomcat-oom-error/">Tomcat关闭报内存溢出异解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/17/tech-hexo-theme-change/">Hexo主题更换记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/tech-trigger-procedure-note/">触发器与存储过程讲义</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/tech-db-three/">数据库三范式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/10/tech-jvm-summary-note/">《深入理解Java虚拟机》总结笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/tech-spring-hibernateTemplate-solution/">Spring注解异常'sessionFactory' or 'hibernateTemplate' is required的解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/life-2016-summary/">我的2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/22/tech-centos-fastDFS/">centOS上搭建FastDFS图片服务器教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/tech-nginx-summary/">nginx的反向代理与负载均衡总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/tech-intellij-idea/">IntelliJ IDEA 使用技巧汇总(长期更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/09/life-chrome-plugin/">chrome浏览器插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/tech-centOS-nginx/">在centOS上安装nginx教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/05/tech-mybatis-pagehelper/">mybatis 分页插件PageHelper使用及总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/26/tech-easyui-datagrid/">easyUI datagrid 动态表头的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/05/life-tuchuang-picu/">七牛云+U图床解决编博客插图麻烦事儿</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/05/tech-hexo-github-error/">Hexo+Github博客css和js404导致博客页面空白</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/tech-Hibernate-addScalar-addEntity/">Hibernate SQL查询addScalar()和addEntity()区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/tech-sqlserver-oracle-recursion-diff/">sqlserver、oracle、MySQL 递归查询的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/tech-pc-multi-tomact/">一台机子上面启动多个tomact的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/tech-easyui-tree/">easyUI tree组件的构建以及异步加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/tech-db-find-neighbouring/">Oracle如何查询某条记录的上下两条记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/29/tech-hexo-advance/">hexo博客进阶教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/25/tech-hexo-github/">hexo+github搭建个人博客网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/life-hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Leeyom
+            </div>
+            <div class="footer-right">
+                Write the Code. Debug the World!
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+    <div style="text-align:center;margin:0 auto;padding-top:10px;position:relative;left:-30px;">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17147440号</a>
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 18;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'leeyom-blog-space/Lobby'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</html>

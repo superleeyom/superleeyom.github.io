@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于前后端分离的思考和总结 | Leeyom的个人站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
+<meta name="keywords" content="java,前后端分离">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于前后端分离的思考和总结">
+<meta property="og:url" content="http://leeyom.top/2017/11/04/fontend-backend-separation/index.html">
+<meta property="og:site_name" content="Leeyom的个人站">
+<meta property="og:description" content="我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-20T11:55:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于前后端分离的思考和总结">
+<meta name="twitter:description" content="我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
+  
+    <link rel="alternative" href="/atom.xml" title="Leeyom的个人站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Leeyom</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags/">分类</a></li>
+                        
+                            <li><a href="/about/">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wangleeyom/" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/leeyomwang" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/404/" style="font-size: 10px;">404</a> <a href="/tags/ActiveMQ/" style="font-size: 10px;">ActiveMQ</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/FastDFS/" style="font-size: 10px;">FastDFS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/PageHelper/" style="font-size: 10px;">PageHelper</a> <a href="/tags/RBAC/" style="font-size: 10px;">RBAC</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/centOS/" style="font-size: 10px;">centOS</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/easyUI/" style="font-size: 13.33px;">easyUI</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/helloWorld/" style="font-size: 10px;">helloWorld</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring mvc</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlserver/" style="font-size: 10px;">sqlserver</a> <a href="/tags/ssm/" style="font-size: 10px;">ssm</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/swagger2/" style="font-size: 10px;">swagger2</a> <a href="/tags/tomact/" style="font-size: 10px;">tomact</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/书单/" style="font-size: 10px;">书单</a> <a href="/tags/内存溢出/" style="font-size: 10px;">内存溢出</a> <a href="/tags/分页/" style="font-size: 10px;">分页</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/反向代理/" style="font-size: 10px;">反向代理</a> <a href="/tags/图床/" style="font-size: 10px;">图床</a> <a href="/tags/多模块/" style="font-size: 10px;">多模块</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/摘抄/" style="font-size: 13.33px;">摘抄</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/第一篇博文/" style="font-size: 10px;">第一篇博文</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/负载均衡/" style="font-size: 10px;">负载均衡</a> <a href="/tags/递归查询/" style="font-size: 10px;">递归查询</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tlong.tv/">TLongTv</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zealer.com/">ZEALER</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://login926.top/">Login926</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.sfantree.com/">popy32</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://ehlxr.me/">小桥流水人家</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://patrickphang.github.io/">Patrick&#39;s Blog</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sunhy.top">依然安恋</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://itsay.tech">张大侠</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.mapan.win/">不思凡</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://linyy.name/">林洋洋博客</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.belongwithme.cn/">Zane的个人站</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://lzp.ucaner.cn/">lzp</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.imain.net/">曾小晨</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.artisanbox.org/">工匠盒子</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://yzlee666.github.io/">肥胖的猪</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Leeyom</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Leeyom</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags/">分类</a></li>
+                
+                    <li><a href="/about/">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangleeyom/" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/leeyomwang" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-fontend-backend-separation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/04/fontend-backend-separation/" class="article-date">
+      <time datetime="2017-11-04T12:43:51.000Z" itemprop="datePublished">2017-11-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于前后端分离的思考和总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前后端分离/">前后端分离</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。</p>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>首先在此之前，我跟大多数人一样，心中有如下的疑问？</p>
+<ol>
+<li>什么是前后端分离？</li>
+<li>前后端分离的意义大不大？</li>
+<li>如何进行前后端分离？</li>
+</ol>
+<p>那么文章将围绕这三个疑问进行展开，当然文章的重点还是总结如何进行前后端分离。</p>
+<h1 id="什么是前后端分离？"><a href="#什么是前后端分离？" class="headerlink" title="什么是前后端分离？"></a>什么是前后端分离？</h1><p>前后端分离：就是前后端只通过JSON进行交流，前端通过ajax请求后台，后台返回json格式的数据（当然json只是一种可选的格式，并不是唯一的）。前端可以通过Vue、Angular实现组件化，降低前后端的耦合程度。</p>
+<h1 id="前后端分离的意义大不大？"><a href="#前后端分离的意义大不大？" class="headerlink" title="前后端分离的意义大不大？"></a>前后端分离的意义大不大？</h1><ol>
+<li>如果系统的业务比较复杂，网站前端变化远比后端变化频繁，则意义大。</li>
+<li>该网站尚处于原始开发模式，数据逻辑与表现逻辑混杂不清，则意义大。</li>
+<li>该网站要适配多平台，需要对设备的兼容性有要求，则意义大。</li>
+<li>该网站将业务拆分成微服务，则意义大。</li>
+</ol>
+<h1 id="如何进行前后端分离？"><a href="#如何进行前后端分离？" class="headerlink" title="如何进行前后端分离？"></a>如何进行前后端分离？</h1><p>那如何进行前后端分离，这里我只针对后台来讨论，因为现在主要负责后台的开发，那至于说前端如何请求数据，前端数据的缓存等等这个就不在这里讨论了。要想实现前后端解耦，后端必须遵守RESTful API的设计准则。RESTful API 是目前比较成熟的一套互联网应用程序的 API 设计理论，至于具体什么是 RESTful API，可以参考阮一峰老师的博文：<a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">RESTful API 设计指南</a>，便会对RESTful API 有个大概的了解。那要搭建一个RESTful API的后台项目具体需要考虑哪些东西呢？我根据我自己的实际开发，总结了如下几个点：</p>
+<ol>
+<li><strong>统一响应结构。</strong></li>
+<li><strong>前台请求规范。</strong></li>
+<li><strong>API接口文档。</strong></li>
+<li><strong>统一异常处理。</strong></li>
+<li><strong>后台参数验证。</strong></li>
+<li><strong>跨域请求处理。</strong></li>
+<li><strong>请求鉴权机制。</strong></li>
+</ol>
+<p>接下来将逐一的对每个点进行总结。</p>
+<h1 id="统一响应结构"><a href="#统一响应结构" class="headerlink" title="统一响应结构"></a>统一响应结构</h1><p>我们在开发之前，需要跟前后端约定好，每次ajax请求，后端都需要返回一个统一的数据格式。如果格式不统一，前端请求每次拿到的数据很乱，如果前端页面变化的比较频繁，那么后期维护的成本很大。下面就是一个json格式的响应结构：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    data : &#123; <span class="comment">// 请求数据，对象或数组均可</span></span><br><span class="line">        user_id: <span class="number">123</span>,</span><br><span class="line">        user_name: <span class="string">"tutuge"</span>,</span><br><span class="line">        user_avatar_url: <span class="string">"http://tutuge.me/avatar.jpg"</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;,</span><br><span class="line">    msg : <span class="string">"请求成功！"</span>, <span class="comment">// 请求状态描述，调试用</span></span><br><span class="line">    code: <span class="number">500</span>, <span class="comment">// 业务自定义状态码，比如500表示请求失败，200表示请求成功</span></span><br><span class="line">    extra : &#123; <span class="comment">// 全局附加数据，字段、内容不定，可能为null</span></span><br><span class="line">        type: <span class="number">1</span>,</span><br><span class="line">        desc: <span class="string">"签到成功！"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对应的java的实体类<code>ResultBean.java</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResultBean</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据集</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Object data = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String msg = <span class="string">"Request Success！"</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 业务自定义状态码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Integer code = <span class="number">200</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 全局附加数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Object etxra = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCode</span><span class="params">(Integer code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getEtxra</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> etxra;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEtxra</span><span class="params">(Object etxra)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.etxra = etxra;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="前台请求规范"><a href="#前台请求规范" class="headerlink" title="前台请求规范"></a>前台请求规范</h1><p>后台的响应结构已经确定好，那么前端的请求是不是得规范一下呢，答案肯定是的！因为我们采用的是RESTful API设计原则，我们会严格按照约定来使用 HTTP method：</p>
+<ul>
+<li>GET: 查询<ul>
+<li>若查询参数在3个以下（包含3个），采用如下的请求方式：<code>http://localhost:8080/app/getUserList?age=12&amp;name=Jack&amp;sex=1</code>，将参数拼接到url后面，后台采用@RequestParam注解接收。</li>
+<li>若查询参数在三个以上，这里就采用POST请求，后台用@RequestBody注解将参数自动解析成查询的实体实例。</li>
+</ul>
+</li>
+<li>POST: 创建<ul>
+<li>请求参数类型为body，也就是json对象，将对应的参数封装成一个类，然后后台使用@RequestBody注解将参数自动解析成该类的一个实例。</li>
+</ul>
+</li>
+<li>PUT: 修改<ul>
+<li>第一个主键参数，他的请求url为：<code>http://localhost:8080/app/updateUser/{userId}</code>，采用@PathVariable注解接收。</li>
+<li>第二个请求参数，类型为body，json对象，跟POST创建请求一样，只是该json对象只放修改的属性内容，采用@RequestBody注解接收。</li>
+</ul>
+</li>
+<li>DELETE: 删除<ul>
+<li>请求url：<code>http://localhost:8080/app/deleteUser/{userId}</code></li>
+<li>后台采用@PathVariable注解接收参数。</li>
+</ul>
+</li>
+</ul>
+<p>其实关于GET查询这里，如果查询参数在三个以上的话，并不说一定要采用GET请求。我思考了下，这里用POST请求的方式更加合理，post请求参数类型可以为body，也就是用json对象。后台用@RequestBody注解将参数自动解析成查询的实体实例。虽然说不符合RESTful API设计原则，但是我觉得这里的<strong><em>业务合理性大于设计准则</em></strong>，因为像京东商城，他们的复杂的查询都是采用都是POST的请求方式，所以到底采用哪种方式，还是得根据业务需求来。</p>
+<h1 id="API接口文档"><a href="#API接口文档" class="headerlink" title="API接口文档"></a>API接口文档</h1><p>写后台的同学有没有这样的烦劳，每次写完相关的接口，都要写相关的接口文档，然后跟前端小伙伴进行联调，过程很是繁琐和费时间。那为了解决这些问题，Swagger2 就是一个很好的解决方案，它与 spring mvc 整合后，我们只需要少量的注解，它便可以自动的帮我们生成一份 RESTful API 文档，大大的减轻了劳动力。因为之前有写过一篇关于这个问题文章：<a href="http://leeyom.top/2017/09/23/tech-spring-mvc-swagger2/">Spring MVC中使用Swagger2构建Restful API</a>，这里就不在重复叙述了。</p>
+<h1 id="统一异常处理"><a href="#统一异常处理" class="headerlink" title="统一异常处理"></a>统一异常处理</h1><p>采用spring的AOP（面向切面编程），编写一个全局的异常处理切面类，统一处理所有的异常。定义一个类，然后用<code>@ControllerAdvice</code>注解将其标注即可，同时用<code>@ResponseBody</code>注解表示返回值可序列化为JSON字符串。代码如下(<code>ExceptionAspect.java</code>)：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 全局异常处理切面</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> leeyom</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017年10月19日 10:41</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionAspect</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger log = Logger.getLogger(ExceptionAspect.class);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 400 - Bad Request</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ResponseStatus</span>(HttpStatus.BAD_REQUEST)</span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(HttpMessageNotReadableException.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultBean <span class="title">handleHttpMessageNotReadableException</span><span class="params">(HttpMessageNotReadableException e)</span> </span>&#123;</span><br><span class="line">        ResultBean resultBean = <span class="keyword">new</span> ResultBean();</span><br><span class="line">        resultBean.setCode(<span class="number">400</span>);</span><br><span class="line">        resultBean.setMsg(<span class="string">"Could not read json..."</span>);</span><br><span class="line">        log.error(<span class="string">"Could not read json..."</span>, e);</span><br><span class="line">        <span class="keyword">return</span> resultBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 400 - Bad Request</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ResponseStatus</span>(HttpStatus.BAD_REQUEST)</span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(&#123;MethodArgumentNotValidException.class&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultBean <span class="title">handleValidationException</span><span class="params">(MethodArgumentNotValidException e)</span> </span>&#123;</span><br><span class="line">        ResultBean resultBean = <span class="keyword">new</span> ResultBean();</span><br><span class="line">        resultBean.setCode(<span class="number">400</span>);</span><br><span class="line">        resultBean.setMsg(<span class="string">"参数检验异常！"</span>);</span><br><span class="line">        log.error(<span class="string">"参数检验异常！"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> resultBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 405 - Method Not Allowed。HttpRequestMethodNotSupportedException</span></span><br><span class="line"><span class="comment">     * 是ServletException的子类,需要Servlet API支持</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ResponseStatus</span>(HttpStatus.METHOD_NOT_ALLOWED)</span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(HttpRequestMethodNotSupportedException.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultBean <span class="title">handleHttpRequestMethodNotSupportedException</span><span class="params">(HttpRequestMethodNotSupportedException e)</span> </span>&#123;</span><br><span class="line">        ResultBean resultBean = <span class="keyword">new</span> ResultBean();</span><br><span class="line">        resultBean.setCode(<span class="number">405</span>);</span><br><span class="line">        resultBean.setMsg(<span class="string">"请求方法不支持！"</span>);</span><br><span class="line">        log.error(<span class="string">"请求方法不支持！"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> resultBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 415 - Unsupported Media Type。HttpMediaTypeNotSupportedException</span></span><br><span class="line"><span class="comment">     * 是ServletException的子类,需要Servlet API支持</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ResponseStatus</span>(HttpStatus.UNSUPPORTED_MEDIA_TYPE)</span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(&#123;HttpMediaTypeNotSupportedException.class&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultBean <span class="title">handleHttpMediaTypeNotSupportedException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        ResultBean resultBean = <span class="keyword">new</span> ResultBean();</span><br><span class="line">        resultBean.setCode(<span class="number">415</span>);</span><br><span class="line">        resultBean.setMsg(<span class="string">"内容类型不支持！"</span>);</span><br><span class="line">        log.error(<span class="string">"内容类型不支持！"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> resultBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 401 - Internal Server Error</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ResponseStatus</span>(HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(TokenException.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultBean <span class="title">handleTokenException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        ResultBean resultBean = <span class="keyword">new</span> ResultBean();</span><br><span class="line">        resultBean.setCode(<span class="number">401</span>);</span><br><span class="line">        resultBean.setMsg(<span class="string">"Token已失效"</span>);</span><br><span class="line">        log.error(<span class="string">"Token已失效"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> resultBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 500 - Internal Server Error</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ResponseStatus</span>(HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(Exception.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultBean <span class="title">handleException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        ResultBean resultBean = <span class="keyword">new</span> ResultBean();</span><br><span class="line">        resultBean.setCode(<span class="number">500</span>);</span><br><span class="line">        resultBean.setMsg(<span class="string">"内部服务器错误！"</span>);</span><br><span class="line">        log.error(<span class="string">"内部服务器错误！"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> resultBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 400 - Bad Request</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ResponseStatus</span>(HttpStatus.BAD_REQUEST)</span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(ValidationException.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultBean <span class="title">handleValidationException</span><span class="params">(ValidationException e)</span> </span>&#123;</span><br><span class="line">        ResultBean resultBean = <span class="keyword">new</span> ResultBean();</span><br><span class="line">        resultBean.setCode(<span class="number">400</span>);</span><br><span class="line">        resultBean.setMsg(<span class="string">"参数验证失败！"</span>);</span><br><span class="line">        log.error(<span class="string">"参数验证失败！"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> resultBean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了能让<code>@ControllerAdvice</code>注解生效，还需要在spring MVC的配置文件：<code>spring-mvc.xml</code>添加如下一句：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.artisan.*"</span> <span class="attr">use-default-filters</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span> <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 控制器增强，使一个Contoller成为全局的异常处理类，类中用@ExceptionHandler方法注解的方法可以处理所有Controller发生的异常 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span> <span class="attr">expression</span>=<span class="string">"org.springframework.web.bind.annotation.ControllerAdvice"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样就完成了全局的异常处理，一旦后台出现异常，就返回给前台指定的异常的JSON数据。前台开发人员看到此异常后，就应该立即反馈给后台开发人员。</p>
+<h1 id="后台参数验证"><a href="#后台参数验证" class="headerlink" title="后台参数验证"></a>后台参数验证</h1><p>前台在请求之前也会进行参数验证，但是为了程序更加严谨，后台也需要进行参数验证，这样做的好处就是，可以防止<code>脏数据</code>的出现，过滤掉一些不符合要求的请求。打个比方吧，就比如新增一个用户，<code>username</code>和<code>password</code>都是必填字段，假如说前端没有做判断，这个时候用户点击保存，后台没做参数验证，就将这个脏数据保存进数据库。</p>
+<p>这里我们将采用<code>Hibernate Validator</code>框架去实现后台的参数校验。别看到这里有<code>hibernate</code>这个单词，其实跟<code>hibernate</code>这个orm框架一毛钱关系都没有，他们之间是没有任何的依赖关系的。在<code>pom.xml</code>中添加如下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Hibernate Validator--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-validator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.0.4.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在spring的配置文件<code>applicationConext.xml</code>中装配参数验证器：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Hibernate Validator--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.validation.beanvalidation.MethodValidationPostProcessor"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在对应的controller的请求方法中，对需要验证的请求参数用<code>@Valid</code>进行标注，表示这个实体类的有些属性是需要进行参数验证的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"新增User"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/"</span>, method = RequestMethod.POST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResultBean <span class="title">add</span><span class="params">(@ApiParam(value = <span class="string">"新增User实体"</span>, required = <span class="keyword">true</span>)</span> @RequestBody @Valid User user) </span>&#123;</span><br><span class="line">   ResultBean resultBean = <span class="keyword">new</span> ResultBean();</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">       userService.insert(user);</span><br><span class="line">   &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">       resultBean.setCode(StatusCode.HTTP_FAILURE);</span><br><span class="line">       resultBean.setMsg(<span class="string">"Create User Failed！"</span>);</span><br><span class="line">       LOGGER.error(<span class="string">"新增User！参数信息：User = "</span> + user.toString(), e);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> resultBean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对应的<code>User.java</code>实体类中，需要使用<code>@NotEmpty</code>标注某个属性是不能为空：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 主键</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"u_id"</span>)</span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">    <span class="keyword">private</span> Integer uId;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用户名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"user_name"</span>)</span><br><span class="line">    <span class="meta">@NotEmpty</span></span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 密码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@NotEmpty</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生日</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 性别</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Integer sex;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 年龄</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那当然是不止<code>@NotEmpty</code>这一个检验注解，<code>Hibernate Validator</code>框架给我们提供了丰富的校验注解，常用的如下：</p>
+<ul>
+<li>Bean Validation 中内置的 constraint：<ul>
+<li><strong>@Null</strong>：被注释的元素必须为 null</li>
+<li><strong>@NotNull</strong>：被注释的元素必须不为 null</li>
+<li><strong>@AssertTrue</strong>：被注释的元素必须为 true</li>
+<li><strong>@AssertFalse</strong>：被注释的元素必须为 false</li>
+<li><strong>@Min(value)</strong>：被注释的元素必须是一个数字，其值必须大于等于指定的最小值</li>
+<li><strong>@Max(value)</strong>：被注释的元素必须是一个数字，其值必须小于等于指定的最大值</li>
+<li><strong>@DecimalMin(value)</strong>：被注释的元素必须是一个数字，其值必须大于等于指定的最小值</li>
+<li><strong>@DecimalMax(value)</strong>：被注释的元素必须是一个数字，其值必须小于等于指定的最大值</li>
+<li><strong>@Size(max, min)</strong>：被注释的元素的大小必须在指定的范围内</li>
+<li><strong>@Digits (integer, fraction)</strong>：被注释的元素必须是一个数字，其值必须在可接受的范围内</li>
+<li><strong>@Past</strong>：被注释的元素必须是一个过去的日期</li>
+<li><strong>@Future</strong>：被注释的元素必须是一个将来的日期</li>
+<li><strong>@Pattern(value)</strong>：被注释的元素必须符合指定的正则表达式</li>
+</ul>
+</li>
+<li>Hibernate Validator 附加的 constraint：<ul>
+<li><strong>@Email</strong>：被注释的元素必须是电子邮箱地址</li>
+<li><strong>@Length</strong>：被注释的字符串的大小必须在指定的范围内</li>
+<li><strong>@NotEmpty</strong>：被注释的字符串的必须非空</li>
+<li><strong>@Range</strong>：被注释的元素必须在合适的范围内</li>
+</ul>
+</li>
+</ul>
+<p>这样我们的项目就集成了<code>Bean Validation</code>特性，就可以使用这些注解要进行参数校验了。</p>
+<h1 id="跨域请求处理"><a href="#跨域请求处理" class="headerlink" title="跨域请求处理"></a>跨域请求处理</h1><p>前端是纯静态的页面，通过ajax请求后台，但是我们知道，ajax存在一个问题就是不支持跨域访问的。也就是说，前后端两个应用必须在同一个域名下才能访问。那该怎么样才能解决这个问题呢？这里采用的是CORS（Cross Origin Resource Sharing）方案，翻译过来就是：<strong>跨域资源共享</strong>。CORS技术很简单，现在大多数的浏览器都已经支持了，只需后台将CORS相应头写入response对象中即可。</p>
+<p>那后台就需要编写一个过滤器：<code>CorsFilter.java</code>，拦截所有的http请求，然后将CORS响应头写入到response对象中即可，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 处理跨域的过滤器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Leeyom Wang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017年10月19日 14:47</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOGGER = Logger.getLogger(CorsFilter.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String allowOrigin;</span><br><span class="line">    <span class="keyword">private</span> String allowMethods;</span><br><span class="line">    <span class="keyword">private</span> String allowCredentials;</span><br><span class="line">    <span class="keyword">private</span> String allowHeaders;</span><br><span class="line">    <span class="keyword">private</span> String exposeHeaders;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        allowOrigin = filterConfig.getInitParameter(<span class="string">"allowOrigin"</span>);</span><br><span class="line">        allowMethods = filterConfig.getInitParameter(<span class="string">"allowMethods"</span>);</span><br><span class="line">        allowCredentials = filterConfig.getInitParameter(<span class="string">"allowCredentials"</span>);</span><br><span class="line">        allowHeaders = filterConfig.getInitParameter(<span class="string">"allowHeaders"</span>);</span><br><span class="line">        exposeHeaders = filterConfig.getInitParameter(<span class="string">"exposeHeaders"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过CORS技术实现AJAX跨域访问, 只要将CORS响应头写入response对象中即可</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> req</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> res</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> chain</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> ServletException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest req, ServletResponse res, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        HttpServletResponse response = (HttpServletResponse) res;</span><br><span class="line">        <span class="keyword">if</span> (StringUtil.isNotEmpty(allowOrigin)) &#123;</span><br><span class="line">            <span class="comment">//允许访问的客户端域名，例如：http://web.xxx.com，若为*，则表示从任意域都能访问，即不做任何限制；</span></span><br><span class="line">            response.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, allowOrigin);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (StringUtil.isNotEmpty(allowMethods)) &#123;</span><br><span class="line">            <span class="comment">//允许访问的请求方式，多个用逗号分割，例如：GET,POST,PUT,DELETE,OPTIONS；</span></span><br><span class="line">            response.setHeader(<span class="string">"Access-Control-Allow-Methods"</span>, allowMethods);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (StringUtil.isNotEmpty(allowCredentials)) &#123;</span><br><span class="line">            <span class="comment">//是否允许请求带有验证信息，若要获取客户端域下的cookie时，需要将其设置为true；</span></span><br><span class="line">            response.setHeader(<span class="string">"Access-Control-Allow-Credentials"</span>, allowCredentials);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (StringUtil.isNotEmpty(allowHeaders)) &#123;</span><br><span class="line">            <span class="comment">//允许服务端访问的客户端请求头，多个请求头用逗号分割，例如：Content-Type,Access-Token,timestamp</span></span><br><span class="line">            response.setHeader(<span class="string">"Access-Control-Allow-Headers"</span>, allowHeaders);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (StringUtil.isNotEmpty(exposeHeaders)) &#123;</span><br><span class="line">            <span class="comment">//允许客户端访问的服务端响应头，多个响应头用逗号分割。</span></span><br><span class="line">            response.setHeader(<span class="string">"Access-Control-Expose-Headers"</span>, exposeHeaders);</span><br><span class="line">        &#125;</span><br><span class="line">        chain.doFilter(req, res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>web.xml</code>中配置CorsFilter过滤器：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 通过CORS技术实现AJAX跨域访问 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>corsFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.artisan.common.filter.CorsFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>allowOrigin<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>allowMethods<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>GET,POST,PUT,DELETE,OPTIONS<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>allowCredentials<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>allowHeaders<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Content-Type,Access-Token,timestamp<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样我们就解决了跨域的问题。</p>
+<h1 id="请求鉴权机制"><a href="#请求鉴权机制" class="headerlink" title="请求鉴权机制"></a>请求鉴权机制</h1><p>由于http请求是无状态的，我们后端写好了API接口，然后发布出去，如果不做安全控制，谁都可以调用，这很明显是非常不安全的，所以我们需要采用JWT（Json web token）鉴权机制去保护我们的API接口安全，整个的思路如下：</p>
+<ol>
+<li>用户登陆后，服务器端使用 jjwt(当然也可以采用其他的方式，比如时间戳，签名url) 生成 Token ，保存在 Redis 中，以用户名作为 Key，同时将此token值返回给前端。</li>
+<li>通过设置 Redis 键的 TTL 来实现 Token 自动过期。</li>
+<li>前端将token值存到localStorage中，后面每次请求，都将次token放到header（请求头）中。</li>
+<li>服务端通过在 Filter 中拦截请求判断 Token 是否有效，如果有效，则请求通过，无效，返回401，提示无此权限。</li>
+<li>由于 Redis 是基于 Key-Value 进行存储，因此可以实现新的 Token 将覆盖旧的 Token ，保证一个用户在一个时间段只有一个可用 Token，但是如果有些系统允许当前用户可以多处登陆，则不需要处理这一步。</li>
+<li>从头至尾，整个过程没有涉及cookie，所以CSRF或者XXS等相关的攻击 是不可能发生的。</li>
+</ol>
+<p>首先定义一个管理token的接口，<code>TokenManager.java</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对Token进行操作的接口</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> leeyom</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017年10月19日 10:41</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TokenManager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建一个token关联上指定用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userId 指定用户的id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 生成的token</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">TokenModel <span class="title">createToken</span><span class="params">(<span class="keyword">long</span> userId)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 检查token是否有效</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> model token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 是否有效</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">checkToken</span><span class="params">(TokenModel model)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 从字符串中解析token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> authentication 加密后的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">TokenModel <span class="title">getToken</span><span class="params">(String authentication)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 清除token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userId 登录用户的id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteToken</span><span class="params">(<span class="keyword">long</span> userId)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保证一个用户在一个时间段只有一个可用 Token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasToken</span><span class="params">(<span class="keyword">long</span> userId)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其对应的接口实现类<code>RedisTokenManager.java</code>，对token进行增删改查操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过Redis存储和验证token的实现类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> leeyom</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017年10月19日 10:41</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span> com.artisan.authorization.manager.TokenManager</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisTokenManager</span> <span class="keyword">implements</span> <span class="title">TokenManager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> RedisTemplate&lt;Long, String&gt; redis;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> SimpleDateFormat SDF = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMddHHmmss"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRedis</span><span class="params">(RedisTemplate redis)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.redis = redis;</span><br><span class="line">        <span class="comment">//泛型设置成Long后必须更改对应的序列化方案</span></span><br><span class="line">        redis.setKeySerializer(<span class="keyword">new</span> JdkSerializationRedisSerializer());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TokenModel <span class="title">createToken</span><span class="params">(<span class="keyword">long</span> userId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//uuid</span></span><br><span class="line">        String uuid = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">        <span class="comment">//时间戳</span></span><br><span class="line">        String timestamp = SDF.format(<span class="keyword">new</span> Date());</span><br><span class="line">        <span class="comment">//token =&gt; userId_timestamp_uuid;</span></span><br><span class="line">        String token = userId + <span class="string">"_"</span> + timestamp + <span class="string">"_"</span> + uuid;</span><br><span class="line">        TokenModel model = <span class="keyword">new</span> TokenModel(userId, uuid, timestamp);</span><br><span class="line">        <span class="comment">//存储到redis并设置过期时间(有效期为2个小时)</span></span><br><span class="line">        redis.boundValueOps(userId).set(Base64Util.encodeData(token), Constants.TOKEN_EXPIRES_HOUR, TimeUnit.HOURS);</span><br><span class="line">        <span class="keyword">return</span> model;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TokenModel <span class="title">getToken</span><span class="params">(String authentication)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (authentication == <span class="keyword">null</span> || authentication.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] param = authentication.split(<span class="string">"_"</span>);</span><br><span class="line">        <span class="keyword">if</span> (param.length != <span class="number">3</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//使用userId和源token简单拼接成的token，可以增加加密措施</span></span><br><span class="line">        <span class="keyword">long</span> userId = Long.parseLong(param[<span class="number">0</span>]);</span><br><span class="line">        String timestamp = param[<span class="number">1</span>];</span><br><span class="line">        String uuid = param[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TokenModel(userId, uuid, timestamp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkToken</span><span class="params">(TokenModel model)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (model == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        String token = redis.boundValueOps(model.getUserId()).get();</span><br><span class="line">        <span class="keyword">if</span> (token == <span class="keyword">null</span> || !(Base64Util.decodeData(token)).equals(model.getToken())) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果验证成功，说明此用户进行了一次有效操作，延长token的过期时间(2个小时)</span></span><br><span class="line">        redis.boundValueOps(model.getUserId()).expire(Constants.TOKEN_EXPIRES_HOUR, TimeUnit.HOURS);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteToken</span><span class="params">(<span class="keyword">long</span> userId)</span> </span>&#123;</span><br><span class="line">        redis.delete(userId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasToken</span><span class="params">(<span class="keyword">long</span> userId)</span> </span>&#123;</span><br><span class="line">        String token = redis.boundValueOps(userId).get();</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.notNull(token)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>利用spring的APO技术，编写一个切面类<code>SecurityAspect.java</code>，拦截所有Controller类的方法，并从请求头中获取token，最后对token有效性进行判断，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * token有效性判断切面</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> leeyom</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017年10月19日 10:41</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityAspect</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOGGER = Logger.getLogger(SecurityAspect.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    TokenManager tokenManager;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Around</span>(<span class="string">"@annotation(org.springframework.web.bind.annotation.RequestMapping)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">execute</span><span class="params">(ProceedingJoinPoint pjp)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="comment">//SimpleDateFormat是线程不安全的，设置为static，多线程情况下会报java.lang.NumberFormatException: multiple points</span></span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMddHHmmss"</span>);</span><br><span class="line">        <span class="comment">// 从切点上获取目标方法</span></span><br><span class="line">        MethodSignature methodSignature = (MethodSignature) pjp.getSignature();</span><br><span class="line">        LOGGER.debug(<span class="string">"methodSignature : "</span> + methodSignature);</span><br><span class="line">        Method method = methodSignature.getMethod();</span><br><span class="line">        LOGGER.debug(<span class="string">"Method : "</span> + method.getName() + <span class="string">" : "</span> + method.isAnnotationPresent(IgnoreSecurity.class));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果是获取Swagger API文档，直接调用目标方法，生产环境下需要注释掉</span></span><br><span class="line">        String methodName = method.getName();</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"getDocumentation"</span>.equals(methodName)) &#123;</span><br><span class="line">            <span class="keyword">return</span> pjp.proceed();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 若目标方法忽略了安全性检查,则直接调用目标方法</span></span><br><span class="line">        <span class="keyword">if</span> (method.isAnnotationPresent(IgnoreSecurity.class)) &#123;</span><br><span class="line">            <span class="keyword">return</span> pjp.proceed();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 从 request header 中获取当前 token</span></span><br><span class="line">        String authentication = WebContextUtil.getRequest().getHeader(Constants.DEFAULT_TOKEN_NAME);</span><br><span class="line">        <span class="comment">// 从 request header 中获取时间戳</span></span><br><span class="line">        String timestampStr = WebContextUtil.getRequest().getHeader(Constants.TIME_STAMP);</span><br><span class="line">        TokenModel tokenModel = tokenManager.getToken(Base64Util.decodeData(authentication));</span><br><span class="line"></span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        Date timestamp = sdf.parse(timestampStr);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//验证时间戳是否超过五分钟，如果超过五分钟，则服务端删除此token，防止抓包</span></span><br><span class="line">        <span class="keyword">if</span> (((date.getTime()) - timestamp.getTime()) / <span class="number">60000</span> &gt; <span class="number">5</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (tokenModel != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">//删除token</span></span><br><span class="line">                tokenManager.deleteToken(tokenModel.getUserId());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> TokenException(<span class="string">"请求超时~"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查 token 有效性</span></span><br><span class="line">        <span class="keyword">if</span> (!tokenManager.checkToken(tokenModel)) &#123;</span><br><span class="line">            String message = <span class="string">"token "</span> + Base64Util.decodeData(authentication) + <span class="string">" is invalid！！！"</span>;</span><br><span class="line">            LOGGER.debug(<span class="string">"message : "</span> + message);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> TokenException(message);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 调用目标方法</span></span><br><span class="line">        <span class="keyword">return</span> pjp.proceed();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>若要使SecurityAspect生效，则需要在SpringMVC配置文件中添加如下Spring 配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 支持Controller的AOP代理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最后还需要在<code>web.xml</code>中添加Access-Token,以及时间戳timestamp。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>allowHeaders<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Content-Type,Access-Token,timestamp<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>那为什么要请求头要带一个时间戳呢？其实是防止人家抓包：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//验证时间戳是否超过五分钟，如果超过五分钟，则服务端删除此token，防止抓包</span></span><br><span class="line"><span class="keyword">if</span> (((date.getTime()) - timestamp.getTime()) / <span class="number">60000</span> &gt; <span class="number">5</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (tokenModel != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="comment">//删除token</span></span><br><span class="line">      tokenManager.deleteToken(tokenModel.getUserId());</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> TokenException(<span class="string">"请求超时~"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ok，这样我们的后端的API接口就有安全保障了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上便是我自己在实际开发中对于前后端分离的一些思考，可能有些地方考虑的不够周全，但是也算是一个基础的RESTful API接口平台了，文章相关的示例代码我已经整理成了一个基本的项目，托管在github，大家可以自由下载，github地址：<a href="https://github.com/wangleeyom/code-artisan" target="_blank" rel="noopener">https://github.com/wangleeyom/code-artisan</a>，如果对你有帮助的话，就点个star，有疑惑的地方，就在文章下面评论吧，大家一起讨论。</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/04/fontend-backend-separation/">关于前后端分离的思考和总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Leeyom 的个人博客">Leeyom</a></p>
+        <p><span>发布时间:</span>2017年11月04日 - 20时43分</p>
+        <p><span>最后更新:</span>2017年11月20日 - 19时55分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/04/fontend-backend-separation/" title="关于前后端分离的思考和总结">http://leeyom.top/2017/11/04/fontend-backend-separation/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://leeyom.top/2017/11/04/fontend-backend-separation/　　作者: Leeyom" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/11/08/zookeeper-install/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          zookeeper安装教程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/15/tech-java-book-list/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java开发工程师进阶书单</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是前后端分离？"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x4EC0;&#x4E48;&#x662F;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#xFF1F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前后端分离的意义大不大？"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x7684;&#x610F;&#x4E49;&#x5927;&#x4E0D;&#x5927;&#xFF1F;" class="headerlink" title="&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x7684;&#x610F;&#x4E49;&#x5927;&#x4E0D;&#x5927;&#xFF1F;"></a>&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x7684;&#x610F;&#x4E49;&#x5927;&#x4E0D;&#x5927;&#xFF1F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何进行前后端分离？"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#xFF1F;" class="headerlink" title="&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#xFF1F;"></a>&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#xFF1F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#统一响应结构"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x7EDF;&#x4E00;&#x54CD;&#x5E94;&#x7ED3;&#x6784;" class="headerlink" title="&#x7EDF;&#x4E00;&#x54CD;&#x5E94;&#x7ED3;&#x6784;"></a>&#x7EDF;&#x4E00;&#x54CD;&#x5E94;&#x7ED3;&#x6784;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前台请求规范"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x524D;&#x53F0;&#x8BF7;&#x6C42;&#x89C4;&#x8303;" class="headerlink" title="&#x524D;&#x53F0;&#x8BF7;&#x6C42;&#x89C4;&#x8303;"></a>&#x524D;&#x53F0;&#x8BF7;&#x6C42;&#x89C4;&#x8303;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API接口文档"><span class="toc-number">7.</span> <span class="toc-text"><a href="#API&#x63A5;&#x53E3;&#x6587;&#x6863;" class="headerlink" title="API&#x63A5;&#x53E3;&#x6587;&#x6863;"></a>API&#x63A5;&#x53E3;&#x6587;&#x6863;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#统一异常处理"><span class="toc-number">8.</span> <span class="toc-text"><a href="#&#x7EDF;&#x4E00;&#x5F02;&#x5E38;&#x5904;&#x7406;" class="headerlink" title="&#x7EDF;&#x4E00;&#x5F02;&#x5E38;&#x5904;&#x7406;"></a>&#x7EDF;&#x4E00;&#x5F02;&#x5E38;&#x5904;&#x7406;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#后台参数验证"><span class="toc-number">9.</span> <span class="toc-text"><a href="#&#x540E;&#x53F0;&#x53C2;&#x6570;&#x9A8C;&#x8BC1;" class="headerlink" title="&#x540E;&#x53F0;&#x53C2;&#x6570;&#x9A8C;&#x8BC1;"></a>&#x540E;&#x53F0;&#x53C2;&#x6570;&#x9A8C;&#x8BC1;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跨域请求处理"><span class="toc-number">10.</span> <span class="toc-text"><a href="#&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x5904;&#x7406;" class="headerlink" title="&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x5904;&#x7406;"></a>&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x5904;&#x7406;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#请求鉴权机制"><span class="toc-number">11.</span> <span class="toc-text"><a href="#&#x8BF7;&#x6C42;&#x9274;&#x6743;&#x673A;&#x5236;" class="headerlink" title="&#x8BF7;&#x6C42;&#x9274;&#x6743;&#x673A;&#x5236;"></a>&#x8BF7;&#x6C42;&#x9274;&#x6743;&#x673A;&#x5236;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">12.</span> <span class="toc-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'wangleeyom',
+      repo: 'wangleeyom.github.io',
+      oauth: {
+        client_id: '157bc01270305e8af592',
+        client_secret: 'ada3e7cf31cbe08c9c4bd7cd1af069096342409d',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/11/08/zookeeper-install/" title="上一篇: zookeeper安装教程">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/10/15/tech-java-book-list/" title="下一篇: Java开发工程师进阶书单">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/life-mac-tools-collection/">mac重装系统软件清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/linux-note/">Linux折腾笔记（不间断更新）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/08/zookeeper-install/">zookeeper安装教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/fontend-backend-separation/">关于前后端分离的思考和总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/tech-java-book-list/">Java开发工程师进阶书单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/27/tech-rbac-model/">RBAC权限模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/tech-hexo-error/">hexo指令错误修复记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/tech-swagger-annotation/">swagger注解总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/23/tech-spring-mvc-swagger2/">Spring MVC中使用Swagger2构建Restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/tech-spring-boot-note/">spring boot 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/tech-java-Integer-cache-problem/">java 中 Integer 的缓存问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/01/tech-maven-multi-module-ssm/">Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/tech-java-activemq-note/">Java消息中间件ActiveMQ学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tech-shutdown-tomcat-oom-error/">Tomcat关闭报内存溢出异解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/17/tech-hexo-theme-change/">Hexo主题更换记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/tech-trigger-procedure-note/">触发器与存储过程讲义</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/tech-db-three/">数据库三范式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/10/tech-jvm-summary-note/">《深入理解Java虚拟机》总结笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/tech-spring-hibernateTemplate-solution/">Spring注解异常'sessionFactory' or 'hibernateTemplate' is required的解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/life-2016-summary/">我的2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/22/tech-centos-fastDFS/">centOS上搭建FastDFS图片服务器教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/tech-nginx-summary/">nginx的反向代理与负载均衡总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/tech-intellij-idea/">IntelliJ IDEA 使用技巧汇总(长期更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/09/life-chrome-plugin/">chrome浏览器插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/tech-centOS-nginx/">在centOS上安装nginx教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/05/tech-mybatis-pagehelper/">mybatis 分页插件PageHelper使用及总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/26/tech-easyui-datagrid/">easyUI datagrid 动态表头的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/05/life-tuchuang-picu/">七牛云+U图床解决编博客插图麻烦事儿</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/05/tech-hexo-github-error/">Hexo+Github博客css和js404导致博客页面空白</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/tech-Hibernate-addScalar-addEntity/">Hibernate SQL查询addScalar()和addEntity()区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/tech-sqlserver-oracle-recursion-diff/">sqlserver、oracle、MySQL 递归查询的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/tech-pc-multi-tomact/">一台机子上面启动多个tomact的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/tech-easyui-tree/">easyUI tree组件的构建以及异步加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/tech-db-find-neighbouring/">Oracle如何查询某条记录的上下两条记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/29/tech-hexo-advance/">hexo博客进阶教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/25/tech-hexo-github/">hexo+github搭建个人博客网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/life-hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Leeyom
+            </div>
+            <div class="footer-right">
+                Write the Code. Debug the World!
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+    <div style="text-align:center;margin:0 auto;padding-top:10px;position:relative;left:-30px;">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17147440号</a>
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 18;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'leeyom-blog-space/Lobby'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</html>

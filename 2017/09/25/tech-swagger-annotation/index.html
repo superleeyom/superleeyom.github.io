@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>swagger注解总结 | Leeyom的个人站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="总结常用的swagger注解。">
+<meta name="keywords" content="swagger">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swagger注解总结">
+<meta property="og:url" content="http://leeyom.top/2017/09/25/tech-swagger-annotation/index.html">
+<meta property="og:site_name" content="Leeyom的个人站">
+<meta property="og:description" content="总结常用的swagger注解。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-14T05:40:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swagger注解总结">
+<meta name="twitter:description" content="总结常用的swagger注解。">
+  
+    <link rel="alternative" href="/atom.xml" title="Leeyom的个人站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Leeyom</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags/">分类</a></li>
+                        
+                            <li><a href="/about/">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wangleeyom/" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/leeyomwang" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/404/" style="font-size: 10px;">404</a> <a href="/tags/ActiveMQ/" style="font-size: 10px;">ActiveMQ</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/FastDFS/" style="font-size: 10px;">FastDFS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/PageHelper/" style="font-size: 10px;">PageHelper</a> <a href="/tags/RBAC/" style="font-size: 10px;">RBAC</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/centOS/" style="font-size: 10px;">centOS</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/easyUI/" style="font-size: 13.33px;">easyUI</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/helloWorld/" style="font-size: 10px;">helloWorld</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring mvc</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlserver/" style="font-size: 10px;">sqlserver</a> <a href="/tags/ssm/" style="font-size: 10px;">ssm</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/swagger2/" style="font-size: 10px;">swagger2</a> <a href="/tags/tomact/" style="font-size: 10px;">tomact</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/书单/" style="font-size: 10px;">书单</a> <a href="/tags/内存溢出/" style="font-size: 10px;">内存溢出</a> <a href="/tags/分页/" style="font-size: 10px;">分页</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/反向代理/" style="font-size: 10px;">反向代理</a> <a href="/tags/图床/" style="font-size: 10px;">图床</a> <a href="/tags/多模块/" style="font-size: 10px;">多模块</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/摘抄/" style="font-size: 13.33px;">摘抄</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/第一篇博文/" style="font-size: 10px;">第一篇博文</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/负载均衡/" style="font-size: 10px;">负载均衡</a> <a href="/tags/递归查询/" style="font-size: 10px;">递归查询</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tlong.tv/">TLongTv</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zealer.com/">ZEALER</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://login926.top/">Login926</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.sfantree.com/">popy32</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://ehlxr.me/">小桥流水人家</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://patrickphang.github.io/">Patrick&#39;s Blog</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sunhy.top">依然安恋</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://itsay.tech">张大侠</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.mapan.win/">不思凡</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://linyy.name/">林洋洋博客</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.belongwithme.cn/">Zane的个人站</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://lzp.ucaner.cn/">lzp</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.imain.net/">曾小晨</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.artisanbox.org/">工匠盒子</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://yzlee666.github.io/">肥胖的猪</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Leeyom</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Leeyom</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags/">分类</a></li>
+                
+                    <li><a href="/about/">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangleeyom/" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/leeyomwang" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-tech-swagger-annotation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/25/tech-swagger-annotation/" class="article-date">
+      <time datetime="2017-09-25T14:35:59.000Z" itemprop="datePublished">2017-09-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      swagger注解总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swagger/">swagger</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>总结常用的swagger注解。</p>
+<a id="more"></a>
+<h1 id="快速预览"><a href="#快速预览" class="headerlink" title="快速预览"></a>快速预览</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="#Api">@Api</a></td>
+<td style="text-align:center">将当前注解所在的类作为 Swagger 资源</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ApiImplicitParam">@ApiImplicitParam</a></td>
+<td style="text-align:center">代表某个接口中的一个参数</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ApiImplicitParams">@ApiImplicitParams</a></td>
+<td style="text-align:center">代表某个接口中的多个参数，由多个ApiImplicitParam对象组成</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ApiModel">@ApiModel</a></td>
+<td style="text-align:center">为 Swagger 模型提供额外的信息</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ApiModelProperty">@ApiModelProperty</a></td>
+<td style="text-align:center">添加和使用模型属性数据</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ApiOperation">@ApiOperation</a></td>
+<td style="text-align:center">对特定操作路径的 http 方法进行描述</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ApiParam">@ApiParam</a></td>
+<td style="text-align:center">为操作参数添加其他元数据</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ApiResponse">@ApiResponse</a></td>
+<td style="text-align:center">描述一个操作可能的回应</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ApiResponses">@ApiResponses</a></td>
+<td style="text-align:center">描述一个操作的多个回应，由多个ApiResponse对象组成</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#Authorization">@Authorization</a></td>
+<td style="text-align:center">声明要在资源或操作上使用的授权方案。</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#AuthorizationScope">@AuthorizationScope</a></td>
+<td style="text-align:center">描述一个OAuth2的授权范围</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ResponseHeader">@ResponseHeader</a></td>
+<td style="text-align:center">表示可以作为响应的部分表头</td>
+</tr>
+</tbody>
+</table>
+<p>最新版本还增加了一些用于 Swagger 定义级别添加扩展和元数据的注释：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="#SwaggerDefinition">@SwaggerDefinition</a></td>
+<td style="text-align:center">定义级别属性将添加到生成的 Swagger定义中</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#Info">@Info</a></td>
+<td style="text-align:center">一个 Swagger 定义通用的元数据</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#Contact">@Contact</a></td>
+<td style="text-align:center">为一个 Swagger 定义添加联系人相关属性</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#License">@License</a></td>
+<td style="text-align:center">为一个Swagger 定义添加许可证</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#Extension">@Extension</a></td>
+<td style="text-align:center">添加带有包含属性的扩展</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#ExtensionProperty">@ExtensionProperty</a></td>
+<td style="text-align:center">向扩展添加自定义属性</td>
+</tr>
+</tbody>
+</table>
+<h1 id="注解详解"><a href="#注解详解" class="headerlink" title="注解详解"></a>注解详解</h1><h2 id="Api"><a href="#Api" class="headerlink" title="@Api"></a><a id="Api">@Api</a></h2><p>用来标记当前Controller类为swagger文档资源，使用如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>(value = <span class="string">"/CounterfeitSellerPurchaseAccount"</span>, description = <span class="string">"跟卖订单购买账号接口"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CounterfeitSellerPurchaseAccountHandler</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>属性配置：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名称</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">value</td>
+<td style="text-align:center">url的路径值</td>
+</tr>
+<tr>
+<td style="text-align:center">tags</td>
+<td style="text-align:center">如果设置这个值、value的值会被覆盖</td>
+</tr>
+<tr>
+<td style="text-align:center">description</td>
+<td style="text-align:center">对api资源的描述</td>
+</tr>
+<tr>
+<td style="text-align:center">basePath</td>
+<td style="text-align:center">基本路径可以不配置</td>
+</tr>
+<tr>
+<td style="text-align:center">position</td>
+<td style="text-align:center">如果配置多个Api 想改变显示的顺序位置</td>
+</tr>
+<tr>
+<td style="text-align:center">produces</td>
+<td style="text-align:center">For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td style="text-align:center">consumes</td>
+<td style="text-align:center">For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td style="text-align:center">protocols</td>
+<td style="text-align:center">Possible values: http, https, ws, wss.</td>
+</tr>
+<tr>
+<td style="text-align:center">authorizations</td>
+<td style="text-align:center">高级特性认证时配置</td>
+</tr>
+<tr>
+<td style="text-align:center">hidden</td>
+<td style="text-align:center">配置为true 将在文档中隐藏</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ApiOperation"><a href="#ApiOperation" class="headerlink" title="@ApiOperation"></a><a id="ApiOperation">@ApiOperation</a></h2><p>该注解主要作用在方法上，对该方法进行描述，说明方法的作用，使用如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"新增购买账号"</span>, notes = <span class="string">"根据purchaseAccount创建新的购买账户"</span>)</span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/addPurchaseAccount"</span>, method = RequestMethod.PUT)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">addPurchaseAccount</span><span class="params">(@ApiParam(value = <span class="string">"新增购买账号实体"</span>, required = <span class="keyword">true</span>)</span> @RequestBody CounterfeitSellerPurchaseAccount purchaseAccount, HttpServletRequest request) </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>属性配置：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名称</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">value</td>
+<td style="text-align:center">url的路径值</td>
+</tr>
+<tr>
+<td style="text-align:center">tags</td>
+<td style="text-align:center">如果设置这个值、value的值会被覆盖</td>
+</tr>
+<tr>
+<td style="text-align:center">description</td>
+<td style="text-align:center">对api资源的描述</td>
+</tr>
+<tr>
+<td style="text-align:center">basePath</td>
+<td style="text-align:center">基本路径可以不配置</td>
+</tr>
+<tr>
+<td style="text-align:center">position</td>
+<td style="text-align:center">如果配置多个Api 想改变显示的顺序位置</td>
+</tr>
+<tr>
+<td style="text-align:center">produces</td>
+<td style="text-align:center">For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td style="text-align:center">consumes</td>
+<td style="text-align:center">For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td style="text-align:center">protocols</td>
+<td style="text-align:center">Possible values: http, https, ws, wss.</td>
+</tr>
+<tr>
+<td style="text-align:center">authorizations</td>
+<td style="text-align:center">高级特性认证时配置</td>
+</tr>
+<tr>
+<td style="text-align:center">hidden</td>
+<td style="text-align:center">配置为true 将在文档中隐藏</td>
+</tr>
+<tr>
+<td style="text-align:center">response</td>
+<td style="text-align:center">返回的对象</td>
+</tr>
+<tr>
+<td style="text-align:center">responseContainer</td>
+<td style="text-align:center">这些对象是有效的 “List”, “Set” or “Map”.，其他无效</td>
+</tr>
+<tr>
+<td style="text-align:center">httpMethod</td>
+<td style="text-align:center">“GET”, “HEAD”, “POST”, “PUT”, “DELETE”, “OPTIONS” and “PATCH”</td>
+</tr>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">http的状态码 默认 200</td>
+</tr>
+<tr>
+<td style="text-align:center">extensions</td>
+<td style="text-align:center">扩展属性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ApiParam"><a href="#ApiParam" class="headerlink" title="@ApiParam"></a><a id="ApiParam">@ApiParam</a></h2><p>该标签的主要作用是描述请求参数的属性，感觉它的作用跟<a href="#ApiImplicitParam">@ApiImplicitParam</a>有点类似，使用示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"新增购买账号"</span>, notes = <span class="string">"根据purchaseAccount创建新的购买账户"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/addPurchaseAccount"</span>, method = RequestMethod.PUT)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addPurchaseAccount</span><span class="params">(@ApiParam(value = <span class="string">"新增购买账号实体"</span>, required = <span class="keyword">true</span>)</span> @RequestBody CounterfeitSellerPurchaseAccount purchaseAccount, HttpServletRequest request) </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>属性配置：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名称</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">属性名称</td>
+</tr>
+<tr>
+<td style="text-align:center">value</td>
+<td style="text-align:center">属性值</td>
+</tr>
+<tr>
+<td style="text-align:center">defaultValue</td>
+<td style="text-align:center">默认属性值</td>
+</tr>
+<tr>
+<td style="text-align:center">allowableValues</td>
+<td style="text-align:center">可以不配置</td>
+</tr>
+<tr>
+<td style="text-align:center">required</td>
+<td style="text-align:center">是否属性必填</td>
+</tr>
+<tr>
+<td style="text-align:center">access</td>
+<td style="text-align:center">不过多描述</td>
+</tr>
+<tr>
+<td style="text-align:center">allowMultiple</td>
+<td style="text-align:center">默认为false</td>
+</tr>
+<tr>
+<td style="text-align:center">hidden</td>
+<td style="text-align:center">隐藏该属性</td>
+</tr>
+<tr>
+<td style="text-align:center">example</td>
+<td style="text-align:center">举例子</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ApiResponse"><a href="#ApiResponse" class="headerlink" title="@ApiResponse"></a><a id="ApiResponse">@ApiResponse</a></h2><p>响应设置，比如当前请求响应为400，则提示”Invalid Order”，使用示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/order"</span>, method = POST)</span><br><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"Place an order for a pet"</span>, response = Order.class)</span><br><span class="line"><span class="meta">@ApiResponse</span>(code = <span class="number">400</span>, message = <span class="string">"Invalid Order"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title">placeOrder</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      @ApiParam(value = <span class="string">"order placed for purchasing the pet"</span>, required = <span class="keyword">true</span>)</span> Order order) </span>&#123;</span><br><span class="line">    storeData.add(order);</span><br><span class="line">    <span class="keyword">return</span> ok(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>属性说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名称</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">http的状态码</td>
+</tr>
+<tr>
+<td style="text-align:center">message</td>
+<td style="text-align:center">描述</td>
+</tr>
+<tr>
+<td style="text-align:center">response</td>
+<td style="text-align:center">默认响应类 Void</td>
+</tr>
+<tr>
+<td style="text-align:center">reference</td>
+<td style="text-align:center">参考ApiOperation中配置</td>
+</tr>
+<tr>
+<td style="text-align:center">responseHeaders</td>
+<td style="text-align:center">参考 ResponseHeader 属性配置说明</td>
+</tr>
+<tr>
+<td style="text-align:center">responseContainer</td>
+<td style="text-align:center">参考ApiOperation中配置</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ApiResponses"><a href="#ApiResponses" class="headerlink" title="@ApiResponses"></a><a id="ApiResponses">@ApiResponses</a></h2><p>设置一组响应集，使用示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/order"</span>, method = POST)</span><br><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"Place an order for a pet"</span>, response = Order.class)</span><br><span class="line"><span class="meta">@ApiResponses</span>(&#123; </span><br><span class="line">    <span class="meta">@ApiResponse</span>(code = <span class="number">400</span>, message = <span class="string">"Invalid Order"</span>),</span><br><span class="line">    <span class="meta">@ApiResponse</span>(code = <span class="number">500</span>, message = <span class="string">"Server Error"</span>) </span><br><span class="line">&#125;)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title">placeOrder</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      @ApiParam(value = <span class="string">"order placed for purchasing the pet"</span>, required = <span class="keyword">true</span>)</span> Order order) </span>&#123;</span><br><span class="line">    storeData.add(order);</span><br><span class="line">    <span class="keyword">return</span> ok(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ApiImplicitParam"><a href="#ApiImplicitParam" class="headerlink" title="@ApiImplicitParam"></a><a id="ApiImplicitParam">@ApiImplicitParam</a></h2><p>对方法的请求参数的描述，使用示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"获取购买账户详情"</span>, notes = <span class="string">"根据url的accountId来获取购买账户详情信息"</span>)</span><br><span class="line">    <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"accountId"</span>, value = <span class="string">"账户ID"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"long"</span>, paramType = <span class="string">"path"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/getPurchaseAccount/&#123;accountId&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CounterfeitSellerPurchaseAccount <span class="title">getPurchaseAccount</span><span class="params">(@PathVariable <span class="keyword">long</span> accountId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sellerPurchaseAccountService.getPurchaseAccountById(accountId);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>属性说明：</p>
+<ul>
+<li>paramType：参数放在哪个地方<ul>
+<li>header：请求参数的获取：@RequestHeader</li>
+<li>query：请求参数的获取：@RequestParam</li>
+<li>path：（用于restful接口）url后面跟着的请求参数的获取：@PathVariable</li>
+<li>body：（不常用）</li>
+<li>form：（不常用）</li>
+</ul>
+</li>
+<li>name：参数名</li>
+<li>dataType：参数类型，long，string，int</li>
+<li>required：参数是否必须传</li>
+<li>value：参数的意思</li>
+<li>defaultValue：参数的默认值</li>
+</ul>
+<h2 id="ApiImplicitParams"><a href="#ApiImplicitParams" class="headerlink" title="@ApiImplicitParams"></a><a id="ApiImplicitParams">@ApiImplicitParams</a></h2><p>这个注解自然就是说一组参数的使用说明，使用示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"获取购买账号列表"</span>, notes = <span class="string">"获取购买账号列表"</span>)</span><br><span class="line">    <span class="meta">@ApiImplicitParams</span>(&#123;</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(paramType = <span class="string">"query"</span>, name = <span class="string">"limit"</span>, value = <span class="string">"分页参数"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"int"</span>),</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(paramType = <span class="string">"query"</span>, name = <span class="string">"offset"</span>, value = <span class="string">"分页参数2"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"int"</span>),</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(paramType = <span class="string">"query"</span>, name = <span class="string">"countryId"</span>, value = <span class="string">"国家id，查询参数，默认为null"</span>, required = <span class="keyword">false</span>, dataType = <span class="string">"int"</span>),</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(paramType = <span class="string">"query"</span>, name = <span class="string">"deliveryFullName"</span>, value = <span class="string">"账号名字，查询参数，默认为null"</span>, required = <span class="keyword">false</span>, dataType = <span class="string">"string"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/getPurchaseAccountList"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPurchaseAccountList</span><span class="params">(@RequestParam(value = <span class="string">"countryId"</span>, required = <span class="keyword">false</span>)</span> Integer countryId, @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"deliveryFullName"</span>, required = <span class="keyword">false</span>)</span> String deliveryFullName, @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"limit"</span>)</span> Integer limit, @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"offset"</span>)</span> Integer offset, HttpServletRequest request) </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ResponseHeader"><a href="#ResponseHeader" class="headerlink" title="@ResponseHeader"></a><a id="ResponseHeader">@ResponseHeader</a></h2><p>用于描述一个响应的请求头，使用示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiResponses</span>(value = &#123; </span><br><span class="line">      <span class="meta">@ApiResponse</span>(code = <span class="number">400</span>, message = <span class="string">"Invalid ID supplied"</span>, </span><br><span class="line">                   responseHeaders = <span class="meta">@ResponseHeader</span>(name = <span class="string">"X-Rack-Cache"</span>, description = <span class="string">"Explains whether or not a cache was used"</span>, response = Boolean.class)),</span><br><span class="line">      <span class="meta">@ApiResponse</span>(code = <span class="number">404</span>, message = <span class="string">"Pet not found"</span>) &#125;)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Response <span class="title">getPetById</span><span class="params">(...)</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ApiModel"><a href="#ApiModel" class="headerlink" title="@ApiModel"></a><a id="ApiModel">@ApiModel</a></h2><p>如果我么的请求参数是一个比较复杂的对象，比如 User 对象，就需要我们使用该属性对 User 对象进行描述，使用示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"User"</span>, description = <span class="string">"用户对象"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"姓名"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"地址"</span>)</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"年龄"</span>,access = <span class="string">"hidden"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"性别"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sex;</span><br><span class="line">    .......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value=<span class="string">"创建用户-传递复杂对象"</span>, notes=<span class="string">"传递复杂对象DTO，json格式传递数据"</span>,produces = <span class="string">"application/json"</span>)</span><br><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/users-3"</span>, method= RequestMethod.POST)</span><br><span class="line"><span class="comment">//json格式传递对象使用RequestBody注解</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">postUser3</span><span class="params">(@RequestBody User user)</span> </span>&#123;</span><br><span class="line">    users.put(user.getId(),user);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ApiModelProperty"><a href="#ApiModelProperty" class="headerlink" title="@ApiModelProperty"></a><a id="ApiModelProperty">@ApiModelProperty</a></h2><p>该注解用于描述复杂请求对象的属性，参考<a href="#ApiModel">@ApiModel</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/09/25/tech-swagger-annotation/">swagger注解总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Leeyom 的个人博客">Leeyom</a></p>
+        <p><span>发布时间:</span>2017年09月25日 - 22时35分</p>
+        <p><span>最后更新:</span>2017年10月14日 - 13时40分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/25/tech-swagger-annotation/" title="swagger注解总结">http://leeyom.top/2017/09/25/tech-swagger-annotation/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://leeyom.top/2017/09/25/tech-swagger-annotation/　　作者: Leeyom" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/09/26/tech-hexo-error/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          hexo指令错误修复记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/23/tech-spring-mvc-swagger2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring MVC中使用Swagger2构建Restful API</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#快速预览"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5FEB;&#x901F;&#x9884;&#x89C8;" class="headerlink" title="&#x5FEB;&#x901F;&#x9884;&#x89C8;"></a>&#x5FEB;&#x901F;&#x9884;&#x89C8;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注解详解"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x6CE8;&#x89E3;&#x8BE6;&#x89E3;" class="headerlink" title="&#x6CE8;&#x89E3;&#x8BE6;&#x89E3;"></a>&#x6CE8;&#x89E3;&#x8BE6;&#x89E3;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Api"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#Api" class="headerlink" title="@Api"></a><a id="Api">@Api</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApiOperation"><span class="toc-number">2.2.</span> <span class="toc-text"><a href="#ApiOperation" class="headerlink" title="@ApiOperation"></a><a id="ApiOperation">@ApiOperation</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApiParam"><span class="toc-number">2.3.</span> <span class="toc-text"><a href="#ApiParam" class="headerlink" title="@ApiParam"></a><a id="ApiParam">@ApiParam</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApiResponse"><span class="toc-number">2.4.</span> <span class="toc-text"><a href="#ApiResponse" class="headerlink" title="@ApiResponse"></a><a id="ApiResponse">@ApiResponse</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApiResponses"><span class="toc-number">2.5.</span> <span class="toc-text"><a href="#ApiResponses" class="headerlink" title="@ApiResponses"></a><a id="ApiResponses">@ApiResponses</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApiImplicitParam"><span class="toc-number">2.6.</span> <span class="toc-text"><a href="#ApiImplicitParam" class="headerlink" title="@ApiImplicitParam"></a><a id="ApiImplicitParam">@ApiImplicitParam</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApiImplicitParams"><span class="toc-number">2.7.</span> <span class="toc-text"><a href="#ApiImplicitParams" class="headerlink" title="@ApiImplicitParams"></a><a id="ApiImplicitParams">@ApiImplicitParams</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ResponseHeader"><span class="toc-number">2.8.</span> <span class="toc-text"><a href="#ResponseHeader" class="headerlink" title="@ResponseHeader"></a><a id="ResponseHeader">@ResponseHeader</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApiModel"><span class="toc-number">2.9.</span> <span class="toc-text"><a href="#ApiModel" class="headerlink" title="@ApiModel"></a><a id="ApiModel">@ApiModel</a></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApiModelProperty"><span class="toc-number">2.10.</span> <span class="toc-text"><a href="#ApiModelProperty" class="headerlink" title="@ApiModelProperty"></a><a id="ApiModelProperty">@ApiModelProperty</a></span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'wangleeyom',
+      repo: 'wangleeyom.github.io',
+      oauth: {
+        client_id: '157bc01270305e8af592',
+        client_secret: 'ada3e7cf31cbe08c9c4bd7cd1af069096342409d',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/09/26/tech-hexo-error/" title="上一篇: hexo指令错误修复记录">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/09/23/tech-spring-mvc-swagger2/" title="下一篇: Spring MVC中使用Swagger2构建Restful API">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/life-mac-tools-collection/">mac重装系统软件清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/linux-note/">Linux折腾笔记（不间断更新）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/08/zookeeper-install/">zookeeper安装教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/fontend-backend-separation/">关于前后端分离的思考和总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/tech-java-book-list/">Java开发工程师进阶书单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/27/tech-rbac-model/">RBAC权限模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/tech-hexo-error/">hexo指令错误修复记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/tech-swagger-annotation/">swagger注解总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/23/tech-spring-mvc-swagger2/">Spring MVC中使用Swagger2构建Restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/tech-spring-boot-note/">spring boot 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/tech-java-Integer-cache-problem/">java 中 Integer 的缓存问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/01/tech-maven-multi-module-ssm/">Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/tech-java-activemq-note/">Java消息中间件ActiveMQ学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tech-shutdown-tomcat-oom-error/">Tomcat关闭报内存溢出异解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/17/tech-hexo-theme-change/">Hexo主题更换记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/tech-trigger-procedure-note/">触发器与存储过程讲义</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/tech-db-three/">数据库三范式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/10/tech-jvm-summary-note/">《深入理解Java虚拟机》总结笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/tech-spring-hibernateTemplate-solution/">Spring注解异常'sessionFactory' or 'hibernateTemplate' is required的解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/life-2016-summary/">我的2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/22/tech-centos-fastDFS/">centOS上搭建FastDFS图片服务器教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/tech-nginx-summary/">nginx的反向代理与负载均衡总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/tech-intellij-idea/">IntelliJ IDEA 使用技巧汇总(长期更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/09/life-chrome-plugin/">chrome浏览器插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/tech-centOS-nginx/">在centOS上安装nginx教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/05/tech-mybatis-pagehelper/">mybatis 分页插件PageHelper使用及总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/26/tech-easyui-datagrid/">easyUI datagrid 动态表头的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/05/life-tuchuang-picu/">七牛云+U图床解决编博客插图麻烦事儿</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/05/tech-hexo-github-error/">Hexo+Github博客css和js404导致博客页面空白</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/tech-Hibernate-addScalar-addEntity/">Hibernate SQL查询addScalar()和addEntity()区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/tech-sqlserver-oracle-recursion-diff/">sqlserver、oracle、MySQL 递归查询的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/tech-pc-multi-tomact/">一台机子上面启动多个tomact的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/tech-easyui-tree/">easyUI tree组件的构建以及异步加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/tech-db-find-neighbouring/">Oracle如何查询某条记录的上下两条记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/29/tech-hexo-advance/">hexo博客进阶教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/25/tech-hexo-github/">hexo+github搭建个人博客网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/life-hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Leeyom
+            </div>
+            <div class="footer-right">
+                Write the Code. Debug the World!
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+    <div style="text-align:center;margin:0 auto;padding-top:10px;position:relative;left:-30px;">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17147440号</a>
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 18;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'leeyom-blog-space/Lobby'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</html>

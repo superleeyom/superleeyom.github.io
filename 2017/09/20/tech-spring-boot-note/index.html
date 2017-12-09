@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>spring boot 学习笔记 | Leeyom的个人站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="spring boot 学习笔记，记录，总结。">
+<meta name="keywords" content="spring boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring boot 学习笔记">
+<meta property="og:url" content="http://leeyom.top/2017/09/20/tech-spring-boot-note/index.html">
+<meta property="og:site_name" content="Leeyom的个人站">
+<meta property="og:description" content="spring boot 学习笔记，记录，总结。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-10T11:59:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring boot 学习笔记">
+<meta name="twitter:description" content="spring boot 学习笔记，记录，总结。">
+  
+    <link rel="alternative" href="/atom.xml" title="Leeyom的个人站" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Leeyom</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags/">分类</a></li>
+                        
+                            <li><a href="/about/">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wangleeyom/" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/leeyomwang" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/404/" style="font-size: 10px;">404</a> <a href="/tags/ActiveMQ/" style="font-size: 10px;">ActiveMQ</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/FastDFS/" style="font-size: 10px;">FastDFS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/PageHelper/" style="font-size: 10px;">PageHelper</a> <a href="/tags/RBAC/" style="font-size: 10px;">RBAC</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/centOS/" style="font-size: 10px;">centOS</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/easyUI/" style="font-size: 13.33px;">easyUI</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/helloWorld/" style="font-size: 10px;">helloWorld</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring mvc</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sqlserver/" style="font-size: 10px;">sqlserver</a> <a href="/tags/ssm/" style="font-size: 10px;">ssm</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/swagger2/" style="font-size: 10px;">swagger2</a> <a href="/tags/tomact/" style="font-size: 10px;">tomact</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/书单/" style="font-size: 10px;">书单</a> <a href="/tags/内存溢出/" style="font-size: 10px;">内存溢出</a> <a href="/tags/分页/" style="font-size: 10px;">分页</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/反向代理/" style="font-size: 10px;">反向代理</a> <a href="/tags/图床/" style="font-size: 10px;">图床</a> <a href="/tags/多模块/" style="font-size: 10px;">多模块</a> <a href="/tags/存储过程/" style="font-size: 10px;">存储过程</a> <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/摘抄/" style="font-size: 13.33px;">摘抄</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/第一篇博文/" style="font-size: 10px;">第一篇博文</a> <a href="/tags/触发器/" style="font-size: 10px;">触发器</a> <a href="/tags/负载均衡/" style="font-size: 10px;">负载均衡</a> <a href="/tags/递归查询/" style="font-size: 10px;">递归查询</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tlong.tv/">TLongTv</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zealer.com/">ZEALER</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://login926.top/">Login926</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.sfantree.com/">popy32</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://ehlxr.me/">小桥流水人家</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://patrickphang.github.io/">Patrick&#39;s Blog</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sunhy.top">依然安恋</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://itsay.tech">张大侠</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.mapan.win/">不思凡</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://linyy.name/">林洋洋博客</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.belongwithme.cn/">Zane的个人站</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://lzp.ucaner.cn/">lzp</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.imain.net/">曾小晨</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.artisanbox.org/">工匠盒子</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://yzlee666.github.io/">肥胖的猪</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Leeyom</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Leeyom</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags/">分类</a></li>
+                
+                    <li><a href="/about/">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangleeyom/" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/leeyomwang" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-tech-spring-boot-note" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/20/tech-spring-boot-note/" class="article-date">
+      <time datetime="2017-09-20T13:26:27.000Z" itemprop="datePublished">2017-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring boot 学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/spring-boot/">spring boot</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-boot/">spring boot</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>spring boot 学习笔记，记录，总结。</p>
+<a id="more"></a>
+<p>参考<a href="https://github.com/dyc87112" target="_blank" rel="noopener">程序猿DD</a>大佬的<a href="http://blog.didispace.com/Spring-Boot%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">Spring Boot基础教程</a>，整理的学习笔记。</p>
+<h1 id="工程配置"><a href="#工程配置" class="headerlink" title="工程配置"></a>工程配置</h1><ol>
+<li><strong>spring-boot-properties-demo</strong>：<ul>
+<li><strong>内容</strong>：<ul>
+<li>属性配置文件的自定义属性与加载。</li>
+<li><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-properties-demo/src/main/resources/application.properties" target="_blank" rel="noopener">属性配置文件的参数引用和随机数</a>。</li>
+<li>多环境配置，根据不同的环境将属性配置文件切换为生产、开发、测试。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="Web开发"><a href="#Web开发" class="headerlink" title="Web开发"></a>Web开发</h1><ol>
+<li><p><strong>spring-boot-restful-demo</strong>：</p>
+<ul>
+<li><strong>内容</strong>：<ul>
+<li>构建RESTful API。</li>
+<li>总结常用的spring MVC注解，参见<a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-restful-demo/src/main/java/com/leeyom/controller/UserController.java" target="_blank" rel="noopener">UserController.java</a>注释。</li>
+<li>采用chrome浏览器的Postman插件测试各接口的调用情况。</li>
+</ul>
+</li>
+<li><strong>笔记</strong>：<ul>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-restful-demo/src/main/java/com/leeyom/controller/UserController.java" target="_blank" rel="noopener">@RestController</a></strong>：Spring4之后加入的注解，原来在@Controller中返回json需要@ResponseBody来配合，如果直接用@RestController替代@Controller就不需要再配置。</li>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-restful-demo/src/main/java/com/leeyom/controller/UserController.java" target="_blank" rel="noopener">@ModelAttribute</a></strong>: 绑定请求参数到指定的对象。</li>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-restful-demo/src/main/java/com/leeyom/controller/UserController.java" target="_blank" rel="noopener">@PathVariable</a></strong>：获取请求url中的动态参数。</li>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-restful-demo/src/main/java/com/leeyom/controller/UserController.java" target="_blank" rel="noopener">@RequestParam</a></strong>: 接受简单类型的属性，也可以接受对象类型。类似@RequestParam(“id”)等价于request.getParameter(“id”);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>spring-boot-template-demo</strong>：</p>
+<ul>
+<li><strong>内容</strong>：<ul>
+<li>spring boot 配置 <a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-template-demo/src/main/resources/templates/index.html" target="_blank" rel="noopener">thymeleaf</a> 模板引擎。</li>
+<li>修改模板文件的后缀，以及默认路径。</li>
+<li>Web应用的统一异常处理。</li>
+</ul>
+</li>
+<li><strong>笔记</strong>：<ul>
+<li>如果需要修改模板文件的后缀，以及默认路径，只需要在application.properties文件里修改如下的属性即可:<ul>
+<li><pre><code class="properties"># 是否启用缓存
+spring.thymeleaf.cache=true
+# 检查当前模板文件是否存在
+spring.thymeleaf.check-template-location=true
+# 设置模板文件的Content-Type
+spring.thymeleaf.content-type=text/html
+# 是否启用thymeleaf模板引擎
+spring.thymeleaf.enabled=true
+# 编码格式
+spring.thymeleaf.encoding=UTF-8
+# Comma-separated list of view names that should be excluded from resolution.
+spring.thymeleaf.excluded-view-names=
+# 模板文件的模式
+spring.thymeleaf.mode=HTML5
+# 模板文件的路径
+spring.thymeleaf.prefix=classpath:/templates/
+# 模板文件的后缀
+spring.thymeleaf.suffix=.html
+</code></pre>
+</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-template-demo/src/main/java/com/leeyom/web/GlobalExceptionHandler.java" target="_blank" rel="noopener">@ControllerAdvice</a></strong>：定义一个统一的异常处理类。</li>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-template-demo/src/main/java/com/leeyom/web/GlobalExceptionHandler.java" target="_blank" rel="noopener">@ExceptionHandler</a></strong>：用来定义函数针对的异常类型。这里定义的是顶级的异常父类 Execption，也就是只要其他的 handler 里面的有抛出任何的异常，都会触发这个方法，然后将其映射到 error.html页面中，也可以根据抛出的具体Exception类型匹配@ExceptionHandler中配置的异常类型来匹配错误映射和处理。    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>spring-boot-swagger-demo</strong>：<ul>
+<li><strong>内容</strong>：<ul>
+<li>Spring Boot中使用Swagger2构建RESTful API 文档。</li>
+</ul>
+</li>
+<li><strong>笔记</strong>：<ul>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-swagger-demo/src/main/java/com/leeyom/controller/UserController.java" target="_blank" rel="noopener">@ApiOperation</a></strong>：给API增加说明</li>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-swagger-demo/src/main/java/com/leeyom/controller/UserController.java" target="_blank" rel="noopener">@ApiImplicitParam</a></strong>：给单个参数添加说明</li>
+<li><strong><a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-swagger-demo/src/main/java/com/leeyom/controller/UserController.java" target="_blank" rel="noopener">@ApiImplicitParams</a></strong>：给多个参数添加说明</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="安全管理"><a href="#安全管理" class="headerlink" title="安全管理"></a>安全管理</h1><ol>
+<li><strong>spring-boot-shiro-demo</strong>：   <ul>
+<li><strong>内容</strong>：<ul>
+<li>Spring boot 整合 shiro 进行权限控制和会话管理。</li>
+</ul>
+</li>
+<li><strong>笔记</strong>：<ul>
+<li>数据库表结构参考<code>resources</code>下面的<a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-shiro-demo/src/main/resources/db.sql" target="_blank" rel="noopener">db.sql</a>。</li>
+<li>数据库连接池采用阿里巴巴的<code>Druid(德鲁伊)</code>，配置文件<a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-shiro-demo/src/main/java/com/leeyom/config/DruidConfig.java" target="_blank" rel="noopener">DruidConfig.java</a>。</li>
+<li>集成shiro，可以对用户进行授权和认证以及会话管理，核心配置文件<a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-shiro-demo/src/main/java/com/leeyom/config/ShiroConfig.java" target="_blank" rel="noopener">ShiroConfig.java</a>。</li>
+<li>集成模板引擎thymeleaf，pom里面引入<code>thymeleaf-extras-shiro</code>依赖，这样在模板引擎里面可以使用shiro标签进行权限粗细度的控制。</li>
+<li>采用redis来管理session会话，redis配置文件<a href="https://github.com/wangleeyom/spring-boot-learning/blob/master/spring-boot-shiro-demo/src/main/java/com/leeyom/config/RedisConfig.java" target="_blank" rel="noopener">RedisConfig.java</a>。</li>
+<li>集成分页插件<code>PageHelper</code>，详情见<a href="https://pagehelper.github.io/" target="_blank" rel="noopener">分页插件 PageHelper</a>。</li>
+<li>集成大牛封装好的<code>通用Mapper</code>插件，详情见<a href="https://mapperhelper.github.io/docs/" target="_blank" rel="noopener">通用Mapper</a>。</li>
+<li>mybatis相关的工具、源码、文档、插件、示例参考：<a href="http://www.mybatis.tk/" target="_blank" rel="noopener">MyBatis 相关工具</a>。</li>
+</ul>
+</li>
+<li><strong>问题</strong>：<ul>
+<li>无法注入mapper，经过检查发现，在程序启动的入口处（Application.java），需要对dao包进行扫描，添加注解<code>@MapperScan(basePackages = &quot;com.leeyom.dao&quot;)</code>既可以解决问题。</li>
+<li><code>Application.java</code>应该和service、dao、controller等package同级的位置，不然会引起扫描不到注解的问题，这里是需要注意的一点。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/09/20/tech-spring-boot-note/">spring boot 学习笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Leeyom 的个人博客">Leeyom</a></p>
+        <p><span>发布时间:</span>2017年09月20日 - 21时26分</p>
+        <p><span>最后更新:</span>2017年10月10日 - 19时59分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/20/tech-spring-boot-note/" title="spring boot 学习笔记">http://leeyom.top/2017/09/20/tech-spring-boot-note/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://leeyom.top/2017/09/20/tech-spring-boot-note/　　作者: Leeyom" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/09/23/tech-spring-mvc-swagger2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Spring MVC中使用Swagger2构建Restful API
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/09/tech-java-Integer-cache-problem/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java 中 Integer 的缓存问题</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#工程配置"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5DE5;&#x7A0B;&#x914D;&#x7F6E;" class="headerlink" title="&#x5DE5;&#x7A0B;&#x914D;&#x7F6E;"></a>&#x5DE5;&#x7A0B;&#x914D;&#x7F6E;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web开发"><span class="toc-number">2.</span> <span class="toc-text"><a href="#Web&#x5F00;&#x53D1;" class="headerlink" title="Web&#x5F00;&#x53D1;"></a>Web&#x5F00;&#x53D1;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安全管理"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5B89;&#x5168;&#x7BA1;&#x7406;" class="headerlink" title="&#x5B89;&#x5168;&#x7BA1;&#x7406;"></a>&#x5B89;&#x5168;&#x7BA1;&#x7406;</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'wangleeyom',
+      repo: 'wangleeyom.github.io',
+      oauth: {
+        client_id: '157bc01270305e8af592',
+        client_secret: 'ada3e7cf31cbe08c9c4bd7cd1af069096342409d',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/09/23/tech-spring-mvc-swagger2/" title="上一篇: Spring MVC中使用Swagger2构建Restful API">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/09/09/tech-java-Integer-cache-problem/" title="下一篇: java 中 Integer 的缓存问题">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/life-mac-tools-collection/">mac重装系统软件清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/linux-note/">Linux折腾笔记（不间断更新）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/08/zookeeper-install/">zookeeper安装教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/fontend-backend-separation/">关于前后端分离的思考和总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/tech-java-book-list/">Java开发工程师进阶书单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/27/tech-rbac-model/">RBAC权限模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/26/tech-hexo-error/">hexo指令错误修复记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/tech-swagger-annotation/">swagger注解总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/23/tech-spring-mvc-swagger2/">Spring MVC中使用Swagger2构建Restful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/20/tech-spring-boot-note/">spring boot 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/09/tech-java-Integer-cache-problem/">java 中 Integer 的缓存问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/01/tech-maven-multi-module-ssm/">Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/tech-java-activemq-note/">Java消息中间件ActiveMQ学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/tech-shutdown-tomcat-oom-error/">Tomcat关闭报内存溢出异解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/17/tech-hexo-theme-change/">Hexo主题更换记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/27/tech-trigger-procedure-note/">触发器与存储过程讲义</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/tech-db-three/">数据库三范式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/10/tech-jvm-summary-note/">《深入理解Java虚拟机》总结笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/tech-spring-hibernateTemplate-solution/">Spring注解异常'sessionFactory' or 'hibernateTemplate' is required的解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/life-2016-summary/">我的2016</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/22/tech-centos-fastDFS/">centOS上搭建FastDFS图片服务器教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/tech-nginx-summary/">nginx的反向代理与负载均衡总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/tech-intellij-idea/">IntelliJ IDEA 使用技巧汇总(长期更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/09/life-chrome-plugin/">chrome浏览器插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/08/tech-centOS-nginx/">在centOS上安装nginx教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/05/tech-mybatis-pagehelper/">mybatis 分页插件PageHelper使用及总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/26/tech-easyui-datagrid/">easyUI datagrid 动态表头的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/05/life-tuchuang-picu/">七牛云+U图床解决编博客插图麻烦事儿</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/05/tech-hexo-github-error/">Hexo+Github博客css和js404导致博客页面空白</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/tech-Hibernate-addScalar-addEntity/">Hibernate SQL查询addScalar()和addEntity()区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/tech-sqlserver-oracle-recursion-diff/">sqlserver、oracle、MySQL 递归查询的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/tech-pc-multi-tomact/">一台机子上面启动多个tomact的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/tech-easyui-tree/">easyUI tree组件的构建以及异步加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/tech-db-find-neighbouring/">Oracle如何查询某条记录的上下两条记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/29/tech-hexo-advance/">hexo博客进阶教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/25/tech-hexo-github/">hexo+github搭建个人博客网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/life-hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Leeyom
+            </div>
+            <div class="footer-right">
+                Write the Code. Debug the World!
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+    <div style="text-align:center;margin:0 auto;padding-top:10px;position:relative;left:-30px;">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17147440号</a>
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 18;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'leeyom-blog-space/Lobby'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</html>
