@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Leeyom的个人站">
 <meta property="og:description" content="最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-16T05:46:24.000Z">
+<meta property="og:updated_time" content="2017-12-18T14:36:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker初探">
 <meta name="twitter:description" content="最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。">
@@ -341,9 +341,18 @@
 <li><code>RUN</code> 用于执行命令。</li>
 </ul>
 </li>
-<li>开始构建镜像，在<code>Dockerfile</code>文件所在目录，也就是文件夹<code>mynginx</code>下面，终端执行：<code>docker build -t nginx:v2 .</code>，后面有个点，代表上下文路径。<ul>
+<li><p>开始构建镜像，在<code>Dockerfile</code>文件所在目录，也就是文件夹<code>mynginx</code>下面，终端执行：<code>docker build -t nginx:v2 .</code>，后面有个点，代表上下文路径。</p>
+<ul>
 <li>镜像构建命令：<code>docker build [选项] &lt;上下文路径/URL/-&gt;</code></li>
-<li>这里我们指定镜像名称为<code>nginx:v2</code>，通过命令：<code>docker run nginx:v2</code>即可运行该镜像</li>
+<li>这里我们指定镜像名称为<code>nginx:v2</code>，通过命令：<code>docker run -d -p 80:80 --name webserver nginx:v2</code>即可运行该镜像，访问<a href="http://localhost/，发现nginx默认启动的页面已经被修改。" target="_blank" rel="noopener">http://localhost/，发现nginx默认启动的页面已经被修改。</a></li>
+</ul>
+</li>
+<li><p>Dockerfile指令</p>
+<ul>
+<li>COPY：复制文件。</li>
+<li>ADD：更高级的复制指令，如果<code>源路径</code>为一个<code>tar</code>压缩文件的话，压缩格式为<code>gzip</code>，<code>bzip2</code>以及<code>xz</code>的情况下，<code>ADD</code>指令将会自动解压缩这个压缩文件到<code>目标路径</code>去。在 COPY 和 ADD 指令中选择的时候，可以遵循这样的原则，所有的文件复制均使用 COPY 指令，仅在需要自动解压缩的场合使用 ADD 。</li>
+<li>CMD：容器启动命令，指定容器启动程序及参数。</li>
+<li>ENTRYPOINT：入口点</li>
 </ul>
 </li>
 </ol>
@@ -359,7 +368,7 @@
         <p><span>本文标题:</span><a href="/2017/12/14/docker-preliminary-study/">Docker初探</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Leeyom 的个人博客">Leeyom</a></p>
         <p><span>发布时间:</span>2017年12月14日 - 21时30分</p>
-        <p><span>最后更新:</span>2017年12月16日 - 13时46分</p>
+        <p><span>最后更新:</span>2017年12月18日 - 22时36分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/12/14/docker-preliminary-study/" title="Docker初探">http://leeyom.top/2017/12/14/docker-preliminary-study/</a>
             <span class="copy-path" data-clipboard-text="原文: http://leeyom.top/2017/12/14/docker-preliminary-study/　　作者: Leeyom" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
