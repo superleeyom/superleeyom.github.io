@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://leeyom.top/tags/index.html</loc>
+    
+    <lastmod>2017-12-21T15:02:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://leeyom.top/2017/11/12/linux-note/</loc>
     
     <lastmod>2017-12-21T14:03:09.000Z</lastmod>
@@ -285,13 +292,6 @@
     <loc>http://leeyom.top/board/index.html</loc>
     
     <lastmod>2017-06-17T08:49:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://leeyom.top/tags/index.html</loc>
-    
-    <lastmod>2017-06-17T08:45:34.000Z</lastmod>
     
   </url>
   
