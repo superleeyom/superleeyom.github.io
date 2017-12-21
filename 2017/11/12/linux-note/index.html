@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://image.leeyom.top/blog/171130/ic63aiB8gg.png?imageslim">
 <meta property="og:image" content="http://image.leeyom.top/blog/171130/D26kDhB916.png?imageslim">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20171112151049907266113.png">
-<meta property="og:updated_time" content="2017-12-19T14:10:31.000Z">
+<meta property="og:updated_time" content="2017-12-21T14:03:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux折腾笔记（不间断更新）">
 <meta name="twitter:description" content="整理并记录折腾linux过程中的一些笔记资料，linux版本是 ubuntu 16.04 LTS。">
@@ -284,7 +284,24 @@
           
         <p>整理并记录折腾linux过程中的一些笔记资料，linux版本是 ubuntu 16.04 LTS。</p>
 <a id="more"></a>
-<h1 id="Tomcat端口占用问题"><a href="#Tomcat端口占用问题" class="headerlink" title="Tomcat端口占用问题"></a>Tomcat端口占用问题</h1><ol>
+<h2 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h2><ul>
+<li>去<a href="http://pinyin.sogou.com/linux/" target="_blank" rel="noopener">http://pinyin.sogou.com/linux/</a>下载安装包。</li>
+<li>添加源：<code>sudo add-apt-repository ppa:fcitx-team/nightly</code></li>
+<li>然后更新：<code>sudo apt-get update</code></li>
+<li>开始安装<code>fcitx</code><ul>
+<li>执行命令：<code>sudo apt-get install fcitx</code></li>
+<li>出现错误，执行：<code>sudo apt-get -f install</code></li>
+<li>然后再次执行：<code>sudo apt-get install fcitx</code></li>
+</ul>
+</li>
+<li>安装fcitx的配置工具：<code>sudo apt-get install fcitx-config-gtk</code></li>
+<li>安装fcitx的table-all包：<code>sudo apt-get install fcitx-table-all</code></li>
+<li>安装im-switch工具：<code>sudo apt-get install im-switch</code></li>
+<li>进入到搜狗输入法安装包所在文件夹，执行：<code>sudo dpkg -i sougoupingyin_2.1.0.deb</code></li>
+<li>最后注销，重启，系统设置–&gt;语言支持，将键盘输入法系统设置为fcitx。</li>
+<li>搜索出fcitx配置，将sogou输入法设为默认即可。</li>
+</ul>
+<h2 id="Tomcat端口占用问题"><a href="#Tomcat端口占用问题" class="headerlink" title="Tomcat端口占用问题"></a>Tomcat端口占用问题</h2><ol>
 <li><p>linux环境下解决tomcat 8080端口被占用的方法：</p>
 <ul>
 <li>先查看是否有tomcat在运行，执行命令：<code>ps -ef |grep tomcat</code>，若出现如下的内容，说明tomcat正在运行<br><img src="http://image.leeyom.top/blog/171130/gEhm4IF65L.png?imageslim" alt="mark"></li>
@@ -300,7 +317,7 @@
 </ul>
 </li>
 </ol>
-<h1 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h1><p>ubuntu自带的主题感觉很丑，所以准备换个扁平化的主题-<code>Flatabulous</code>。安装步骤如下：</p>
+<h2 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h2><p>ubuntu自带的主题感觉很丑，所以准备换个扁平化的主题-<code>Flatabulous</code>。安装步骤如下：</p>
 <ul>
 <li>安装Unity 图形化管理工具-<code>Unity Tweak Tool</code>，安装命令：<ul>
 <li><code>sudo apt-get install unity-tweak-tool</code>。</li>
@@ -326,9 +343,9 @@
 <li>最后重启系统。</li>
 </ul>
 <p>最终效果图如下：</p>
-<p align="center"><img src="http://og1m51u2s.bkt.clouddn.com/20171112151049907266113.png"></p>
+<p align="center"><img src="http://og1m51u2s.bkt.clouddn.com/20171112151049907266113.png" width="80%" height="80%"></p>
 
-<h1 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h1><p>基本步骤如下：</p>
+<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>基本步骤如下：</p>
 <ul>
 <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">下载地址</a>。</li>
 <li>安装版本为：<code>jdk-8u151-linux-x64.tar.gz</code>。</li>
@@ -355,8 +372,8 @@ export CLASSPATH
 </ul>
 </li>
 </ul>
-<h1 id="安装zookeeper"><a href="#安装zookeeper" class="headerlink" title="安装zookeeper"></a>安装zookeeper</h1><p>详情见：<a href="http://leeyom.top/2017/11/08/zookeeper-install/">zookeeper安装教程</a>。</p>
-<h1 id="VMware安装ubuntu问题"><a href="#VMware安装ubuntu问题" class="headerlink" title="VMware安装ubuntu问题"></a>VMware安装ubuntu问题</h1><h2 id="VMware-tools-无法安装问题"><a href="#VMware-tools-无法安装问题" class="headerlink" title="VMware tools 无法安装问题"></a>VMware tools 无法安装问题</h2><p>使用VMware Workstation安装Ubuntu 16.04，<code>安装VMware Tools</code>选项按钮为灰色，如果不安装<code>VMware Tools</code>，则会出现以下几个问题：</p>
+<h2 id="安装zookeeper"><a href="#安装zookeeper" class="headerlink" title="安装zookeeper"></a>安装zookeeper</h2><p>详情见：<a href="http://leeyom.top/2017/11/08/zookeeper-install/">zookeeper安装教程</a>。</p>
+<h2 id="VMware安装ubuntu问题"><a href="#VMware安装ubuntu问题" class="headerlink" title="VMware安装ubuntu问题"></a>VMware安装ubuntu问题</h2><h3 id="VMware-tools-无法安装问题"><a href="#VMware-tools-无法安装问题" class="headerlink" title="VMware tools 无法安装问题"></a>VMware tools 无法安装问题</h3><p>使用VMware Workstation安装Ubuntu 16.04，<code>安装VMware Tools</code>选项按钮为灰色，如果不安装<code>VMware Tools</code>，则会出现以下几个问题：</p>
 <ul>
 <li>物理机无法向直接向虚拟机复制和粘贴。</li>
 <li>虚拟机的分辨率无法进行自动适配。</li>
@@ -372,12 +389,12 @@ export CLASSPATH
 <li>中间会有一些询问项，一路回车即可。</li>
 <li>安装完成后，重启系统即可。</li>
 </ol>
-<h2 id="Ubuntu登陆后花屏"><a href="#Ubuntu登陆后花屏" class="headerlink" title="Ubuntu登陆后花屏"></a>Ubuntu登陆后花屏</h2><p><strong>虚拟机 –&gt; 设置 –&gt; 显示器 –&gt;加速3D图形加速前面的勾去掉就可以了</strong>，降低显卡的的负担。</p>
-<h2 id="显示器分辨率问题"><a href="#显示器分辨率问题" class="headerlink" title="显示器分辨率问题"></a>显示器分辨率问题</h2><p>ubuntu登录后报错：<code>could not apply the stored configuration for monitors</code>，意思是无法将存储的配置应用于当前的显示器。解决办法就是：</p>
+<h3 id="Ubuntu登陆后花屏"><a href="#Ubuntu登陆后花屏" class="headerlink" title="Ubuntu登陆后花屏"></a>Ubuntu登陆后花屏</h3><p><strong>虚拟机 –&gt; 设置 –&gt; 显示器 –&gt;加速3D图形加速前面的勾去掉就可以了</strong>，降低显卡的的负担。</p>
+<h3 id="显示器分辨率问题"><a href="#显示器分辨率问题" class="headerlink" title="显示器分辨率问题"></a>显示器分辨率问题</h3><p>ubuntu登录后报错：<code>could not apply the stored configuration for monitors</code>，意思是无法将存储的配置应用于当前的显示器。解决办法就是：</p>
 <ul>
 <li>终端执行<code>sudo rm -f ~/.config/monitors.xml</code>，移除掉之前的显示器配置文件即可，之后会自动生成当前分辨率分配置文件。</li>
 </ul>
-<h1 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h1><p>为了在windows平台使用<code>SecureCRT</code>和<code>Xshell</code>等终端工具连接ubuntu等linux服务器，linux服务器需要安装<code>SSH</code>，执行如下的命令：</p>
+<h2 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h2><p>为了在windows平台使用<code>SecureCRT</code>和<code>Xshell</code>等终端工具连接ubuntu等linux服务器，linux服务器需要安装<code>SSH</code>，执行如下的命令：</p>
 <ul>
 <li><code>sudo apt-get install openssh-server</code></li>
 </ul>
@@ -402,7 +419,7 @@ export CLASSPATH
         <p><span>本文标题:</span><a href="/2017/11/12/linux-note/">Linux折腾笔记（不间断更新）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Leeyom 的个人博客">Leeyom</a></p>
         <p><span>发布时间:</span>2017年11月12日 - 22时44分</p>
-        <p><span>最后更新:</span>2017年12月19日 - 22时10分</p>
+        <p><span>最后更新:</span>2017年12月21日 - 22时03分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/11/12/linux-note/" title="Linux折腾笔记（不间断更新）">http://leeyom.top/2017/11/12/linux-note/</a>
             <span class="copy-path" data-clipboard-text="原文: http://leeyom.top/2017/11/12/linux-note/　　作者: Leeyom" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -440,7 +457,7 @@ export CLASSPATH
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Tomcat端口占用问题"><span class="toc-number">1.</span> <span class="toc-text"><a href="#Tomcat&#x7AEF;&#x53E3;&#x5360;&#x7528;&#x95EE;&#x9898;" class="headerlink" title="Tomcat&#x7AEF;&#x53E3;&#x5360;&#x7528;&#x95EE;&#x9898;"></a>Tomcat&#x7AEF;&#x53E3;&#x5360;&#x7528;&#x95EE;&#x9898;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主题美化"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x4E3B;&#x9898;&#x7F8E;&#x5316;" class="headerlink" title="&#x4E3B;&#x9898;&#x7F8E;&#x5316;"></a>&#x4E3B;&#x9898;&#x7F8E;&#x5316;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装JDK"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5B89;&#x88C5;JDK" class="headerlink" title="&#x5B89;&#x88C5;JDK"></a>&#x5B89;&#x88C5;JDK</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装zookeeper"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x5B89;&#x88C5;zookeeper" class="headerlink" title="&#x5B89;&#x88C5;zookeeper"></a>&#x5B89;&#x88C5;zookeeper</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VMware安装ubuntu问题"><span class="toc-number">5.</span> <span class="toc-text"><a href="#VMware&#x5B89;&#x88C5;ubuntu&#x95EE;&#x9898;" class="headerlink" title="VMware&#x5B89;&#x88C5;ubuntu&#x95EE;&#x9898;"></a>VMware&#x5B89;&#x88C5;ubuntu&#x95EE;&#x9898;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VMware-tools-无法安装问题"><span class="toc-number">5.1.</span> <span class="toc-text"><a href="#VMware-tools-&#x65E0;&#x6CD5;&#x5B89;&#x88C5;&#x95EE;&#x9898;" class="headerlink" title="VMware tools &#x65E0;&#x6CD5;&#x5B89;&#x88C5;&#x95EE;&#x9898;"></a>VMware tools &#x65E0;&#x6CD5;&#x5B89;&#x88C5;&#x95EE;&#x9898;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu登陆后花屏"><span class="toc-number">5.2.</span> <span class="toc-text"><a href="#Ubuntu&#x767B;&#x9646;&#x540E;&#x82B1;&#x5C4F;" class="headerlink" title="Ubuntu&#x767B;&#x9646;&#x540E;&#x82B1;&#x5C4F;"></a>Ubuntu&#x767B;&#x9646;&#x540E;&#x82B1;&#x5C4F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示器分辨率问题"><span class="toc-number">5.3.</span> <span class="toc-text"><a href="#&#x663E;&#x793A;&#x5668;&#x5206;&#x8FA8;&#x7387;&#x95EE;&#x9898;" class="headerlink" title="&#x663E;&#x793A;&#x5668;&#x5206;&#x8FA8;&#x7387;&#x95EE;&#x9898;"></a>&#x663E;&#x793A;&#x5668;&#x5206;&#x8FA8;&#x7387;&#x95EE;&#x9898;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装SSH"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x5B89;&#x88C5;SSH" class="headerlink" title="&#x5B89;&#x88C5;SSH"></a>&#x5B89;&#x88C5;SSH</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装搜狗输入法"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5B89;&#x88C5;&#x641C;&#x72D7;&#x8F93;&#x5165;&#x6CD5;" class="headerlink" title="&#x5B89;&#x88C5;&#x641C;&#x72D7;&#x8F93;&#x5165;&#x6CD5;"></a>&#x5B89;&#x88C5;&#x641C;&#x72D7;&#x8F93;&#x5165;&#x6CD5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat端口占用问题"><span class="toc-number">2.</span> <span class="toc-text"><a href="#Tomcat&#x7AEF;&#x53E3;&#x5360;&#x7528;&#x95EE;&#x9898;" class="headerlink" title="Tomcat&#x7AEF;&#x53E3;&#x5360;&#x7528;&#x95EE;&#x9898;"></a>Tomcat&#x7AEF;&#x53E3;&#x5360;&#x7528;&#x95EE;&#x9898;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题美化"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x4E3B;&#x9898;&#x7F8E;&#x5316;" class="headerlink" title="&#x4E3B;&#x9898;&#x7F8E;&#x5316;"></a>&#x4E3B;&#x9898;&#x7F8E;&#x5316;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装JDK"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x5B89;&#x88C5;JDK" class="headerlink" title="&#x5B89;&#x88C5;JDK"></a>&#x5B89;&#x88C5;JDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装zookeeper"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x5B89;&#x88C5;zookeeper" class="headerlink" title="&#x5B89;&#x88C5;zookeeper"></a>&#x5B89;&#x88C5;zookeeper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VMware安装ubuntu问题"><span class="toc-number">6.</span> <span class="toc-text"><a href="#VMware&#x5B89;&#x88C5;ubuntu&#x95EE;&#x9898;" class="headerlink" title="VMware&#x5B89;&#x88C5;ubuntu&#x95EE;&#x9898;"></a>VMware&#x5B89;&#x88C5;ubuntu&#x95EE;&#x9898;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VMware-tools-无法安装问题"><span class="toc-number">6.1.</span> <span class="toc-text"><a href="#VMware-tools-&#x65E0;&#x6CD5;&#x5B89;&#x88C5;&#x95EE;&#x9898;" class="headerlink" title="VMware tools &#x65E0;&#x6CD5;&#x5B89;&#x88C5;&#x95EE;&#x9898;"></a>VMware tools &#x65E0;&#x6CD5;&#x5B89;&#x88C5;&#x95EE;&#x9898;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu登陆后花屏"><span class="toc-number">6.2.</span> <span class="toc-text"><a href="#Ubuntu&#x767B;&#x9646;&#x540E;&#x82B1;&#x5C4F;" class="headerlink" title="Ubuntu&#x767B;&#x9646;&#x540E;&#x82B1;&#x5C4F;"></a>Ubuntu&#x767B;&#x9646;&#x540E;&#x82B1;&#x5C4F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示器分辨率问题"><span class="toc-number">6.3.</span> <span class="toc-text"><a href="#&#x663E;&#x793A;&#x5668;&#x5206;&#x8FA8;&#x7387;&#x95EE;&#x9898;" class="headerlink" title="&#x663E;&#x793A;&#x5668;&#x5206;&#x8FA8;&#x7387;&#x95EE;&#x9898;"></a>&#x663E;&#x793A;&#x5668;&#x5206;&#x8FA8;&#x7387;&#x95EE;&#x9898;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装SSH"><span class="toc-number">7.</span> <span class="toc-text"><a href="#&#x5B89;&#x88C5;SSH" class="headerlink" title="&#x5B89;&#x88C5;SSH"></a>&#x5B89;&#x88C5;SSH</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://leeyom.top/2017/11/12/linux-note/</loc>
+    
+    <lastmod>2017-12-21T14:03:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://leeyom.top/2017/12/14/docker-preliminary-study/</loc>
     
     <lastmod>2017-12-19T14:15:05.000Z</lastmod>
@@ -173,13 +180,6 @@
     <loc>http://leeyom.top/2017/11/04/fontend-backend-separation/</loc>
     
     <lastmod>2017-12-19T14:10:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://leeyom.top/2017/11/12/linux-note/</loc>
-    
-    <lastmod>2017-12-19T14:10:31.000Z</lastmod>
     
   </url>
   
