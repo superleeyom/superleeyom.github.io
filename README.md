@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="http://leeyom.top"><img src="http://s1.wailian.download/2017/10/31/blog.png" alt="Leeyom的个人站"></a>
+  <a href="http://leeyom.top"><img src="http://image.leeyom.top/20171225151421354757669.png" alt="Leeyom的个人站"></a>
 </p>
 
 <p align="center">
@@ -22,7 +22,8 @@
 
 # 主题
 
-采用的是[hexo-theme-spfk](https://github.com/luuman/hexo-theme-spfk)主题，稍微做了点小修改，在此基础上将字体的颜色由黑色改成蓝色。
+- ~~采用的是[hexo-theme-spfk](https://github.com/luuman/hexo-theme-spfk)主题，稍微做了点小修改，在此基础上将字体的颜色由黑色改成蓝色。~~
+- 由于spfk主题的图片缩放有问题，文章不好排版，所以换回了[NexT](https://github.com/iissnan/hexo-theme-next)主题。
 
 # 评论
 
@@ -35,3 +36,5 @@
 # 总结
 
 博客注重的是内容，安安心心写东西，其他的就别折腾啦。
+
+
