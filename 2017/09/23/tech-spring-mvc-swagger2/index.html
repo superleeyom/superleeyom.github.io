@@ -354,16 +354,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/09/23/tech-spring-mvc-swagger2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/09/23/tech-spring-mvc-swagger2/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -515,9 +505,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
+      <div id="gitalk-container"></div>
     </div>
 
   
@@ -899,51 +887,27 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
 
-    
-      <style>
-        a.gitment-editor-footer-tip { display: none; }
-        .gitment-container.gitment-footer-container { display: none; }
-      </style>
-    
 
+
+  
     
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
       <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'wangleeyom',
-            repo: 'wangleeyom.github.io',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'ada3e7cf31cbe08c9c4bd7cd1af069096342409d',
-            
-                client_id: '157bc01270305e8af592'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
+        const gitalk = new Gitalk({
+          clientID: '792c881ac9c6bffd043b',
+          clientSecret: 'fe521e533e11c59225a69ab40869ccab18328fff',
+          repo: 'blog-comment-system',
+          owner: 'wangleeyom',
+          admin: 'wangleeyom'.split(','),
+          pagerDirection: 'last',
+          // facebook-like distraction free mode
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
       </script>
     
-
-
-
-
-
   
 
 
