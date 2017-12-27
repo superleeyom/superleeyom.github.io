@@ -27,7 +27,7 @@
 
 # 评论
 
-- 评论系统采用的是~~[gitment](https://github.com/imsun/gitment)~~，采用的当前博客的仓库的issue作为评论系统，请不要添加新的 issues，可以在任意 issues区添加评论以交流，thanks。:satisfied:
+- ~~评论系统采用的是[gitment](https://github.com/imsun/gitment)，采用的当前博客的仓库的issue作为评论系统，请不要添加新的 issues，可以在任意 issues区添加评论以交流，thanks。:satisfied:~~
 - 评论系统已经切换为[gitalk](https://github.com/gitalk/gitalk)。
 
 # 图床
