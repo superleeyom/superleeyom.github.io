@@ -86,7 +86,7 @@
     <entry>
       <title><![CDATA[Docker初探]]></title>
       <url>/2017/12/14/docker-preliminary-study/</url>
-      <content type="html"><![CDATA[<p>最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。</p>
+      <content type="html"><![CDATA[<p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。</p>
 <a id="more"></a>
 <h1 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h1><p><a href="https://github.com/moby/moby" target="_blank" rel="noopener">Docker</a>目前在 github 上差不多四万六千多个 star，可见其火爆程度。那 Docker 到底是什么呢？Docker 是由 go 语言编写的，基于 Linux 内核，对进程进行封装隔离，属于属于操作系统层面的虚拟化技术。Docker 在容器的基础上，进行了进一步的封装，从文件系统、网络互联到进程隔离等等，极大的简化了容器的创建和维护。使得 Docker 技术比虚拟机技术更为轻便、快捷。</p>
 <h1 id="为什么要使用Docker"><a href="#为什么要使用Docker" class="headerlink" title="为什么要使用Docker"></a>为什么要使用Docker</h1><p>当我们使用微服务架构后，我们将原本一个系统，按照业务拆分成多个子系统，而这多个子系统，都是部署在独立的环境中，互相隔离。在没有Docker出现之前，我们是通过虚拟机的方式部署多个子系统，那样是非常的消耗计算机资源。而有了Docker，同样相同配置的计算机，我们可以部署更多的应用。并且Docker启动的速度非常的快，基本是秒级和毫秒级别的，而虚拟机启动的速度，大家想想就知道了。</p>
@@ -187,7 +187,7 @@
     <entry>
       <title><![CDATA[mac重装系统软件清单]]></title>
       <url>/2017/11/30/life-mac-tools-collection/</url>
-      <content type="html"><![CDATA[<p>mac重装系统软件清单。</p>
+      <content type="html"><![CDATA[<p>由于有严重的强迫症，系统用久了后，总想重装一下，不然总觉得心里少了点什么。自从系统升级到macOS 10.12后，很明显感觉到发热量大了，果然苹果公司老是喜欢修复机器过于流畅的bug，无奈只能重新安装OSX 10.11.6，将自己常用的软件进行总结，方便恢复软件安装。</p>
 <a id="more"></a>
 <h1 id="系统增强"><a href="#系统增强" class="headerlink" title="系统增强"></a>系统增强</h1><ul>
 <li><strong>BetterZip</strong> : 解压工具</li>
@@ -356,11 +356,55 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Linux折腾笔记（不间断更新）]]></title>
+      <title><![CDATA[Linux折腾笔记]]></title>
       <url>/2017/11/12/linux-note/</url>
-      <content type="html"><![CDATA[<p>整理并记录折腾linux过程中的一些笔记资料，linux版本是 ubuntu 16.04 LTS。</p>
+      <content type="html"><![CDATA[<p>由于主要是做服务端开发，总会少不了和linux打交道，鉴于我老容易健忘的习惯，我决定还是专门用一篇文章来记录自己在使用linux的一些笔记，主要是哪天记不起来了，可以再翻出来看看，免得再花时间在网上找教程，主要使用的linux版本为centOS，Ubuntu这两个版本，如果有不对的地方，还希望大家指出。</p>
 <a id="more"></a>
+<h2 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h2><ul>
+<li>linux版本为centOS 6.7。</li>
+<li>下载地址：<a href="http://redis.io/download" target="_blank" rel="noopener">http://redis.io/download</a>，下载最新版本。</li>
+<li>利用FTP上传工具，将源码包上传到<code>/usr/local/</code>目录。</li>
+<li><p>将<code>redis-4.0.6.tar.gz</code>源码包解压，解压成功后，删除源码包，如果权限不够，需要加上<code>sudo</code>权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar xzf redis-4.0.6.tar.gz</span><br><span class="line">$ rm -f redis-4.0.6.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入到redis源码解压后的目录，然后开始编译。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd redis-4.0.6/</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译完成后，目录下会出现编译后的redis服务程序 <code>redis-server</code>,还有用于测试的客户端程序 <code>redis-cli</code>,两个程序位于安装目录 src 目录下。</p>
+</li>
+<li><p>进入到src目录下面，启动redis服务，注意此时redis还不能后台运行，按<code>ctrl+c</code>就会结束服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd src</span><br><span class="line">$ ./redis-server</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.leeyom.top/blog/180124/cmb3jcC32F.png" alt="启动redis服务"></p>
+</li>
+<li><p>默认情况，Redis不是在后台运行，我们需要把redis放在后台运行，编辑redis的配置文件<code>redis.conf</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim redis.conf</span><br><span class="line">将daemonize的值改为yes</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认情况下，Redis默认的连接密码为null，但是为了安全我们需要设置一个密码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim redis.conf</span><br><span class="line">将requirepass前面的注释去掉，然后设置密码，比如设置为root</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>让reids开机自启。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br><span class="line">加入</span><br><span class="line">/usr/local/redis-4.0.6/src/redis-server /usr/local/redis-4.0.6/redis.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动redis后台服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/local/redis-4.0.6/src/redis-server /usr/local/redis-4.0.6/redis.conf</span><br></pre></td></tr></table></figure>
+<p>打印如下内容，启动成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">$ Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=25640, just started</span><br><span class="line">$ Configuration loaded</span><br></pre></td></tr></table></figure>
+<p>最好检测下redis进程是否已经启动，若出现redis-server等关键字，说明服务启动成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep redis</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务启动后，还需要将<code>redis.conf</code>配置文件中的 <code>bind 127.0.0.1</code> 注释掉，不注释掉的话，只能本机访问，其他的IP将无法访问reids。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># IF YOU ARE SURE YOU WANT YOUR INSTANCE TO LISTEN TO ALL THE INTERFACES</span><br><span class="line"># JUST COMMENT THE FOLLOWING LINE.</span><br><span class="line"># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span><br><span class="line"># bind 127.0.0.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>停止Redis服务。<br>如果有启动过redis客户端，执行如下的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/local/redis-4.0.6/src/redis-cli shutdown</span><br></pre></td></tr></table></figure>
+<p>或者直接暴力一点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pkill redis-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个就是整个redis安装的过程，以及需要注意的地方。</p>
+</li>
+</ul>
 <h2 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h2><ul>
+<li>linux版本为Ubuntu 16.04。</li>
 <li>去<a href="http://pinyin.sogou.com/linux/" target="_blank" rel="noopener">http://pinyin.sogou.com/linux/</a>下载安装包。</li>
 <li>添加源：<code>sudo add-apt-repository ppa:fcitx-team/nightly</code></li>
 <li>然后更新：<code>sudo apt-get update</code></li>
@@ -423,6 +467,7 @@
 
 <h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>基本步骤如下：</p>
 <ul>
+<li>linux版本为Ubuntu 16.04。</li>
 <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">下载地址</a>。</li>
 <li>安装版本为：<code>jdk-8u151-linux-x64.tar.gz</code>。</li>
 <li>我习惯将软件安装到<code>/usr/local/develop-tools/</code>目录，方便管理，如果没有<code>develop-tools</code>目录，先创建该目录。</li>
@@ -430,20 +475,14 @@
 <li><code>sudo tar -zxvf jdk-8u151-linux-x64.tar.gz -C /usr/local/develop-tools/</code></li>
 </ul>
 </li>
-<li>编辑全局环境变量：<ul>
+<li><p>编辑全局环境变量：</p>
+<ul>
 <li>编辑配置文件：<code>sudo vim /etc/profile</code></li>
-<li>在该文件的最尾巴，添加下面内容：<pre><code class="xml"># JDK
-JAVA_HOME=/usr/local/develop-tools/jdk1.8.0_151
-JRE_HOME=$JAVA_HOME/jre
-PATH=$PATH:$JAVA_HOME/bin
-CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-export JAVA_HOME
-export JRE_HOME
-export PATH
-export CLASSPATH
-</code></pre>
+<li><p>在该文件的最尾巴，添加下面内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># JDK</span><br><span class="line">JAVA_HOME=/usr/local/develop-tools/jdk1.8.0_151</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export JAVA_HOME</span><br><span class="line">export JRE_HOME</span><br><span class="line">export PATH</span><br><span class="line">export CLASSPATH</span><br></pre></td></tr></table></figure>
 </li>
-<li>执行命令，刷新该配置：<code>source /etc/profile</code></li>
+<li><p>执行命令，刷新该配置：<code>source /etc/profile</code></p>
+</li>
 <li>检查JDK是否生效：<code>java -version</code></li>
 </ul>
 </li>
@@ -470,7 +509,10 @@ export CLASSPATH
 <ul>
 <li>终端执行<code>sudo rm -f ~/.config/monitors.xml</code>，移除掉之前的显示器配置文件即可，之后会自动生成当前分辨率分配置文件。</li>
 </ul>
-<h2 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h2><p>为了在windows平台使用<code>SecureCRT</code>和<code>Xshell</code>等终端工具连接ubuntu等linux服务器，linux服务器需要安装<code>SSH</code>，执行如下的命令：</p>
+<h2 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h2><ul>
+<li>linux版本为Ubuntu 16.04。</li>
+</ul>
+<p>为了在windows平台使用<code>SecureCRT</code>和<code>Xshell</code>等终端工具连接ubuntu等linux服务器，linux服务器需要安装<code>SSH</code>，执行如下的命令：</p>
 <ul>
 <li><code>sudo apt-get install openssh-server</code></li>
 </ul>
@@ -503,7 +545,7 @@ export CLASSPATH
     <entry>
       <title><![CDATA[zookeeper安装教程]]></title>
       <url>/2017/11/08/zookeeper-install/</url>
-      <content type="html"><![CDATA[<p>zookeeper安装教程。</p>
+      <content type="html"><![CDATA[<p>ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。本篇记录了在Ubuntu系统上安装ZooKeeper的教程。</p>
 <a id="more"></a>
 <h1 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h1><h2 id="支持平台"><a href="#支持平台" class="headerlink" title="支持平台"></a>支持平台</h2><table>
 <thead>
@@ -919,7 +961,7 @@ export CLASSPATH
     <entry>
       <title><![CDATA[swagger注解总结]]></title>
       <url>/2017/09/25/tech-swagger-annotation/</url>
-      <content type="html"><![CDATA[<p>总结常用的swagger注解。</p>
+      <content type="html"><![CDATA[<p>随着互联网技术的发展，现在的网站架构基本都由原来的后端渲染，变成了前端渲染、先后端分离的形态，而且前端技术和后端技术在各自的道路上越走越远。前端和后端的唯一联系，变成了API接口，API文档变成了前后端开发人员联系的纽带，变得越来越重要，swagger就是一款让你更好的书写API文档的框架，本篇主要总结常用的swagger注解。</p>
 <a id="more"></a>
 <h1 id="快速预览"><a href="#快速预览" class="headerlink" title="快速预览"></a>快速预览</h1><table>
 <thead>
@@ -1227,7 +1269,7 @@ export CLASSPATH
 </tbody>
 </table>
 <h2 id="ApiResponses"><a href="#ApiResponses" class="headerlink" title="@ApiResponses"></a><a id="ApiResponses">@ApiResponses</a></h2><p>设置一组响应集，使用示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/order"</span>, method = POST)</span><br><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"Place an order for a pet"</span>, response = Order.class)</span><br><span class="line"><span class="meta">@ApiResponses</span>(&#123; </span><br><span class="line">    <span class="meta">@ApiResponse</span>(code = <span class="number">400</span>, message = <span class="string">"Invalid Order"</span>),</span><br><span class="line">    <span class="meta">@ApiResponse</span>(code = <span class="number">500</span>, message = <span class="string">"Server Error"</span>) </span><br><span class="line">&#125;)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title">placeOrder</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      @ApiParam(value = <span class="string">"order placed for purchasing the pet"</span>, required = <span class="keyword">true</span>)</span> Order order) </span>&#123;</span><br><span class="line">    storeData.add(order);</span><br><span class="line">    <span class="keyword">return</span> ok(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/order"</span>, method = POST)</span><br><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"Place an order for a pet"</span>, response = Order.class)</span><br><span class="line"><span class="meta">@ApiResponses</span>(&#123;</span><br><span class="line">    <span class="meta">@ApiResponse</span>(code = <span class="number">400</span>, message = <span class="string">"Invalid Order"</span>),</span><br><span class="line">    <span class="meta">@ApiResponse</span>(code = <span class="number">500</span>, message = <span class="string">"Server Error"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title">placeOrder</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      @ApiParam(value = <span class="string">"order placed for purchasing the pet"</span>, required = <span class="keyword">true</span>)</span> Order order) </span>&#123;</span><br><span class="line">    storeData.add(order);</span><br><span class="line">    <span class="keyword">return</span> ok(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="ApiImplicitParam"><a href="#ApiImplicitParam" class="headerlink" title="@ApiImplicitParam"></a><a id="ApiImplicitParam">@ApiImplicitParam</a></h2><p>对方法的请求参数的描述，使用示例如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"获取购买账户详情"</span>, notes = <span class="string">"根据url的accountId来获取购买账户详情信息"</span>)</span><br><span class="line">    <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"accountId"</span>, value = <span class="string">"账户ID"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"long"</span>, paramType = <span class="string">"path"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/getPurchaseAccount/&#123;accountId&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CounterfeitSellerPurchaseAccount <span class="title">getPurchaseAccount</span><span class="params">(@PathVariable <span class="keyword">long</span> accountId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sellerPurchaseAccountService.getPurchaseAccountById(accountId);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>属性说明：</p>
@@ -1249,7 +1291,7 @@ export CLASSPATH
 <h2 id="ApiImplicitParams"><a href="#ApiImplicitParams" class="headerlink" title="@ApiImplicitParams"></a><a id="ApiImplicitParams">@ApiImplicitParams</a></h2><p>这个注解自然就是说一组参数的使用说明，使用示例如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"获取购买账号列表"</span>, notes = <span class="string">"获取购买账号列表"</span>)</span><br><span class="line">    <span class="meta">@ApiImplicitParams</span>(&#123;</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(paramType = <span class="string">"query"</span>, name = <span class="string">"limit"</span>, value = <span class="string">"分页参数"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"int"</span>),</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(paramType = <span class="string">"query"</span>, name = <span class="string">"offset"</span>, value = <span class="string">"分页参数2"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"int"</span>),</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(paramType = <span class="string">"query"</span>, name = <span class="string">"countryId"</span>, value = <span class="string">"国家id，查询参数，默认为null"</span>, required = <span class="keyword">false</span>, dataType = <span class="string">"int"</span>),</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(paramType = <span class="string">"query"</span>, name = <span class="string">"deliveryFullName"</span>, value = <span class="string">"账号名字，查询参数，默认为null"</span>, required = <span class="keyword">false</span>, dataType = <span class="string">"string"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/getPurchaseAccountList"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPurchaseAccountList</span><span class="params">(@RequestParam(value = <span class="string">"countryId"</span>, required = <span class="keyword">false</span>)</span> Integer countryId, @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"deliveryFullName"</span>, required = <span class="keyword">false</span>)</span> String deliveryFullName, @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"limit"</span>)</span> Integer limit, @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"offset"</span>)</span> Integer offset, HttpServletRequest request) </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="ResponseHeader"><a href="#ResponseHeader" class="headerlink" title="@ResponseHeader"></a><a id="ResponseHeader">@ResponseHeader</a></h2><p>用于描述一个响应的请求头，使用示例如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiResponses</span>(value = &#123; </span><br><span class="line">      <span class="meta">@ApiResponse</span>(code = <span class="number">400</span>, message = <span class="string">"Invalid ID supplied"</span>, </span><br><span class="line">                   responseHeaders = <span class="meta">@ResponseHeader</span>(name = <span class="string">"X-Rack-Cache"</span>, description = <span class="string">"Explains whether or not a cache was used"</span>, response = Boolean.class)),</span><br><span class="line">      <span class="meta">@ApiResponse</span>(code = <span class="number">404</span>, message = <span class="string">"Pet not found"</span>) &#125;)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Response <span class="title">getPetById</span><span class="params">(...)</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiResponses</span>(value = &#123;</span><br><span class="line">      <span class="meta">@ApiResponse</span>(code = <span class="number">400</span>, message = <span class="string">"Invalid ID supplied"</span>,</span><br><span class="line">                   responseHeaders = <span class="meta">@ResponseHeader</span>(name = <span class="string">"X-Rack-Cache"</span>, description = <span class="string">"Explains whether or not a cache was used"</span>, response = Boolean.class)),</span><br><span class="line">      <span class="meta">@ApiResponse</span>(code = <span class="number">404</span>, message = <span class="string">"Pet not found"</span>) &#125;)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Response <span class="title">getPetById</span><span class="params">(...)</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="ApiModel"><a href="#ApiModel" class="headerlink" title="@ApiModel"></a><a id="ApiModel">@ApiModel</a></h2><p>如果我么的请求参数是一个比较复杂的对象，比如 User 对象，就需要我们使用该属性对 User 对象进行描述，使用示例如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"User"</span>, description = <span class="string">"用户对象"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"姓名"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"地址"</span>)</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"年龄"</span>,access = <span class="string">"hidden"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"性别"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sex;</span><br><span class="line">    .......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value=<span class="string">"创建用户-传递复杂对象"</span>, notes=<span class="string">"传递复杂对象DTO，json格式传递数据"</span>,produces = <span class="string">"application/json"</span>)</span><br><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/users-3"</span>, method= RequestMethod.POST)</span><br><span class="line"><span class="comment">//json格式传递对象使用RequestBody注解</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">postUser3</span><span class="params">(@RequestBody User user)</span> </span>&#123;</span><br><span class="line">    users.put(user.getId(),user);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

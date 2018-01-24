@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。">
+<meta name="description" content="Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。">
 <meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker初探">
 <meta property="og:url" content="http://leeyom.top/2017/12/14/docker-preliminary-study/index.html">
 <meta property="og:site_name" content="Leeyom的个人站">
-<meta property="og:description" content="最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。">
+<meta property="og:description" content="Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T14:15:05.000Z">
+<meta property="og:updated_time" content="2018-01-24T14:32:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker初探">
-<meta name="twitter:description" content="最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。">
+<meta name="twitter:description" content="Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。">
 
 
 
@@ -387,7 +387,7 @@
       
 
       
-        <p>最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。</p>
+        <p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。最近准备着手搭建一套微服务框架，其中准备用Docker进行容器化部署，所以就补习下Docker方面的知识。</p>
 <a id="more"></a>
 <h1 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h1><p><a href="https://github.com/moby/moby" target="_blank" rel="noopener">Docker</a>目前在 github 上差不多四万六千多个 star，可见其火爆程度。那 Docker 到底是什么呢？Docker 是由 go 语言编写的，基于 Linux 内核，对进程进行封装隔离，属于属于操作系统层面的虚拟化技术。Docker 在容器的基础上，进行了进一步的封装，从文件系统、网络互联到进程隔离等等，极大的简化了容器的创建和维护。使得 Docker 技术比虚拟机技术更为轻便、快捷。</p>
 <h1 id="为什么要使用Docker"><a href="#为什么要使用Docker" class="headerlink" title="为什么要使用Docker"></a>为什么要使用Docker</h1><p>当我们使用微服务架构后，我们将原本一个系统，按照业务拆分成多个子系统，而这多个子系统，都是部署在独立的环境中，互相隔离。在没有Docker出现之前，我们是通过虚拟机的方式部署多个子系统，那样是非常的消耗计算机资源。而有了Docker，同样相同配置的计算机，我们可以部署更多的应用。并且Docker启动的速度非常的快，基本是秒级和毫秒级别的，而虚拟机启动的速度，大家想想就知道了。</p>
