@@ -1361,13 +1361,14 @@
     <entry>
       <title><![CDATA[spring boot 学习笔记]]></title>
       <url>/2017/09/20/tech-spring-boot-note/</url>
-      <content type="html"><![CDATA[<p>spring boot 学习笔记，记录，总结。</p>
+      <content type="html"><![CDATA[<p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域成为领导者。之前有写过spring boot的一些笔记，但是感觉写的很乱，所以重新整理了下，方便他人和自己查看。</p>
 <a id="more"></a>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#hello-world">Hello World</a><ul>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#官方推荐目录">官方推荐目录</a></li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#热部署">热部署</a></li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#实例中涉及到的注解">实例中涉及到的注解</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#项目源码">项目源码</a></li>
 </ul>
 </li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#快速web开发">快速Web开发</a><ul>
@@ -1376,6 +1377,7 @@
 <li style="list-style: none"><input type="checkbox" checked> <a href="#参数校验">参数校验</a></li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#自定义过滤器">自定义过滤器</a></li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#读取properties">读取Properties</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#项目源码-1">项目源码</a></li>
 </ul>
 </li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#spring-data-jpa-的使用">Spring Data JPA 的使用</a><ul>
@@ -1384,16 +1386,46 @@
 <li style="list-style: none"><input type="checkbox" checked> <a href="#基本查询">基本查询</a></li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#复杂查询">复杂查询</a></li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#关联查询">关联查询</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#项目源码-2">项目源码</a></li>
 </ul>
 </li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#模板引擎-thymeleaf">模板引擎Thymeleaf</a><ul>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#简单上手">简单上手</a></li>
 <li style="list-style: none"><input type="checkbox" checked> <a href="#常用标签汇总">常用标签汇总</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#项目源码-3">项目源码</a></li>
 </ul>
 </li>
-<li style="list-style: none"><input type="checkbox"> JPA 和 Thymeleaf 实践</li>
-<li style="list-style: none"><input type="checkbox"> 使用Swagger2构建RESTful API 文档</li>
-<li style="list-style: none"><input type="checkbox"> Spring Boot 集成 MyBatis</li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#jpa-和-thymeleaf-实践">JPA 和 Thymeleaf 实践</a><ul>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#多环境配置">多环境配置</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#添加servlet支持">添加Servlet支持</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#效果图">效果图</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#项目源码-4">项目源码</a></li>
+</ul>
+</li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#使用swagger2构建restful-api-文档">使用Swagger2构建RESTful API 文档</a><ul>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#restful-api设计准则">RESTful API设计准则</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#swagger注解总结">swagger注解总结</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#快速上手-1">快速上手</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#项目源码-5">项目源码</a></li>
+</ul>
+</li>
+<li style="list-style: none"><input type="checkbox"> <a href="#spring-boot-集成-myBatis">Spring Boot 集成 MyBatis</a><ul>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#mybatis原理简介">Mybatis原理简介</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#官方组件包使用">官方组件包使用</a><ul>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#xml版本">XML版本</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#注解版本">注解版本</a></li>
+<li style="list-style: none"><input type="checkbox" checked> <a href="#项目源码-6">项目源码</a></li>
+</ul>
+</li>
+<li style="list-style: none"><input type="checkbox"> <a href="#第三方组件包使用">第三方组件包使用</a><ul>
+<li style="list-style: none"><input type="checkbox"> <a href="#集成-mybatis-generator">集成 mybatis generator</a></li>
+<li style="list-style: none"><input type="checkbox"> <a href="#集成分页插件-pagehelper">集成分页插件 PageHelper</a></li>
+<li style="list-style: none"><input type="checkbox"> <a href="#集成通用-mapper-插件">集成通用 Mapper 插件</a></li>
+<li style="list-style: none"><input type="checkbox"> <a href="#项目源码-7">项目源码</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li style="list-style: none"><input type="checkbox"> MyBatis Druid 多数据源</li>
 <li style="list-style: none"><input type="checkbox"> 集成 Redis 实现数据缓存和 Session 共享</li>
 <li style="list-style: none"><input type="checkbox"> 集成 dubbo+zookeeper</li>
@@ -1464,6 +1496,7 @@
 </ul>
 </li>
 </ul>
+<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><p>源码参考：<a href="https://github.com/wangleeyom/spring-boot-learning/tree/master/spring-boot-helloworld" target="_blank" rel="noopener">spring-boot-helloworld</a></p>
 <h1 id="快速Web开发"><a href="#快速Web开发" class="headerlink" title="快速Web开发"></a>快速Web开发</h1><h2 id="Json的支持"><a href="#Json的支持" class="headerlink" title="Json的支持"></a>Json的支持</h2><p>在使用SSM架构编写controller的时候，如果要返回json格式的数据，需要如下几步：</p>
 <ol>
 <li>在pom文件中添加解析json的库，比如<code>gson</code>、<code>fastjson</code>。</li>
@@ -1528,6 +1561,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> LeeyomProperties leeyomProperties;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testProperties</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"title:"</span> + leeyomProperties.getTitle());</span><br><span class="line">    System.out.println(<span class="string">"description:"</span> + leeyomProperties.getDescription());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>打印结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title:leeyom</span><br><span class="line">description:一只有梦想的咸鱼</span><br></pre></td></tr></table></figure>
+<h2 id="项目源码-1"><a href="#项目源码-1" class="headerlink" title="项目源码"></a>项目源码</h2><p>源码参考：<a href="https://github.com/wangleeyom/spring-boot-learning/tree/master/spring-boot-fastweb" target="_blank" rel="noopener">spring-boot-fastweb</a></p>
 <h1 id="Spring-Data-JPA-的使用"><a href="#Spring-Data-JPA-的使用" class="headerlink" title="Spring Data JPA 的使用"></a>Spring Data JPA 的使用</h1><h2 id="JPA简单概念"><a href="#JPA简单概念" class="headerlink" title="JPA简单概念"></a>JPA简单概念</h2><p>Spring Data JPA 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的一套 JPA 应用框架，可使开发者用极简的代码即可实现对数据的访问和操作。它提供了包括增删改查等在内的常用功能，且易于扩展。学习并使用 Spring Data JPA 可以极大提高开发效率。</p>
 <h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><ul>
 <li><p>添加相关的依赖：</p>
@@ -1580,6 +1614,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addree Hong Kong</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h2 id="项目源码-2"><a href="#项目源码-2" class="headerlink" title="项目源码"></a>项目源码</h2><p>源码参考：<a href="https://github.com/wangleeyom/spring-boot-learning/tree/master/spring-boot-jpa" target="_blank" rel="noopener">spring-boot-jpa</a></p>
 <h1 id="模板引擎-Thymeleaf"><a href="#模板引擎-Thymeleaf" class="headerlink" title="模板引擎 Thymeleaf"></a>模板引擎 Thymeleaf</h1><h2 id="简单上手"><a href="#简单上手" class="headerlink" title="简单上手"></a>简单上手</h2><ul>
 <li><p>添加相关的依赖。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1600,130 +1635,270 @@
 <h2 id="常用标签汇总"><a href="#常用标签汇总" class="headerlink" title="常用标签汇总"></a>常用标签汇总</h2><table>
 <thead>
 <tr>
-<th>关键字</th>
+<th style="text-align:center">关键字</th>
 <th style="text-align:center">功能介绍</th>
-<th>案例</th>
+<th style="text-align:center">案例</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>th:id</code></td>
+<td style="text-align:center"><code>th:id</code></td>
 <td style="text-align:center">替换id</td>
-<td><code>&lt;input th:id=&quot;&#39;xxx&#39; + ${collect.id}&quot;/&gt;</code></td>
+<td style="text-align:center"><code>&lt;input th:id=&quot;&#39;xxx&#39; + ${collect.id}&quot;/&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:text</code></td>
+<td style="text-align:center"><code>th:text</code></td>
 <td style="text-align:center">文本替换</td>
-<td><code>&lt;p th:text=&quot;${collect.description}&quot;&gt;description&lt;/p&gt;</code></td>
+<td style="text-align:center"><code>&lt;p th:text=&quot;${collect.description}&quot;&gt;description&lt;/p&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:utext</code></td>
+<td style="text-align:center"><code>th:utext</code></td>
 <td style="text-align:center">支持html的文本替换</td>
-<td><code>&lt;p th:utext=&quot;${htmlcontent}&quot;&gt;conten&lt;/p&gt;</code></td>
+<td style="text-align:center"><code>&lt;p th:utext=&quot;${htmlcontent}&quot;&gt;conten&lt;/p&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:object</code></td>
+<td style="text-align:center"><code>th:object</code></td>
 <td style="text-align:center">替换对象</td>
-<td><code>&lt;div th:object=&quot;${session.user}&quot;&gt;</code></td>
+<td style="text-align:center"><code>&lt;div th:object=&quot;${session.user}&quot;&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:value</code></td>
+<td style="text-align:center"><code>th:value</code></td>
 <td style="text-align:center">属性赋值</td>
-<td><code>&lt;input th:value=&quot;${user.name}&quot; /&gt;</code></td>
+<td style="text-align:center"><code>&lt;input th:value=&quot;${user.name}&quot; /&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:with</code></td>
+<td style="text-align:center"><code>th:with</code></td>
 <td style="text-align:center">变量赋值运算</td>
-<td><code>&lt;div th:with=&quot;isEven=${prodStat.count}%2==0&quot;&gt;&lt;/div&gt;</code></td>
+<td style="text-align:center"><code>&lt;div th:with=&quot;isEven=${prodStat.count}%2==0&quot;&gt;&lt;/div&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:style</code></td>
+<td style="text-align:center"><code>th:style</code></td>
 <td style="text-align:center">设置样式</td>
-<td><code>th:style=&quot;&#39;display:&#39; + @{(${sitrue} ? &#39;none&#39; : &#39;inline-block&#39;)} + &#39;&#39;&quot;</code></td>
+<td style="text-align:center"><code>th:style=&quot;&#39;display:&#39; + @{(${sitrue} ? &#39;none&#39; : &#39;inline-block&#39;)} + &#39;&#39;&quot;</code></td>
 </tr>
 <tr>
-<td><code>th:onclick</code></td>
+<td style="text-align:center"><code>th:onclick</code></td>
 <td style="text-align:center">点击事件</td>
-<td><code>th:onclick=&quot;&#39;getCollect()&#39;&quot;</code></td>
+<td style="text-align:center"><code>th:onclick=&quot;&#39;getCollect()&#39;&quot;</code></td>
 </tr>
 <tr>
-<td><code>th:each</code></td>
+<td style="text-align:center"><code>th:each</code></td>
 <td style="text-align:center">循环</td>
-<td><code>&lt;tr th:each=&quot;user,userStat:${users}&quot;&gt;</code></td>
+<td style="text-align:center"><code>&lt;tr th:each=&quot;user,userStat:${users}&quot;&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:if</code></td>
+<td style="text-align:center"><code>th:if</code></td>
 <td style="text-align:center">条件判断</td>
-<td><code>&lt;a th:if=&quot;${userId == collect.userId}&quot; &gt;</code></td>
+<td style="text-align:center"><code>&lt;a th:if=&quot;${userId == collect.userId}&quot; &gt;</code></td>
 </tr>
 <tr>
-<td><code>th:unless</code></td>
+<td style="text-align:center"><code>th:unless</code></td>
 <td style="text-align:center">和th:if判断相反</td>
-<td><code>&lt;a th:href=&quot;@{/login}&quot; th:unless=${session.user != null}&gt;Login&lt;/a&gt;</code></td>
+<td style="text-align:center"><code>&lt;a th:href=&quot;@{/login}&quot; th:unless=${session.user != null}&gt;Login&lt;/a&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:href</code></td>
+<td style="text-align:center"><code>th:href</code></td>
 <td style="text-align:center">链接地址</td>
-<td><code>&lt;a th:href=&quot;@{/login}&quot; th:unless=${session.user != null}&gt;Login&lt;/a&gt; /&gt;</code></td>
+<td style="text-align:center"><code>&lt;a th:href=&quot;@{/login}&quot; th:unless=${session.user != null}&gt;Login&lt;/a&gt; /&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:switch</code></td>
+<td style="text-align:center"><code>th:switch</code></td>
 <td style="text-align:center">多路选择 配合th:case 使用</td>
-<td><code>&lt;div th:switch=&quot;${user.role}&quot;&gt;</code></td>
+<td style="text-align:center"><code>&lt;div th:switch=&quot;${user.role}&quot;&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:case</code></td>
+<td style="text-align:center"><code>th:case</code></td>
 <td style="text-align:center">th:switch的一个分支</td>
-<td><code>&lt;p th:case=&quot;&#39;admin&#39;&quot;&gt;User is an administrator&lt;/p&gt;</code></td>
+<td style="text-align:center"><code>&lt;p th:case=&quot;&#39;admin&#39;&quot;&gt;User is an administrator&lt;/p&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:fragment</code></td>
+<td style="text-align:center"><code>th:fragment</code></td>
 <td style="text-align:center">布局标签，定义一个代码片段，方便其它地方引用</td>
-<td><code>&lt;div th:fragment=&quot;alert&quot;&gt;</code></td>
+<td style="text-align:center"><code>&lt;div th:fragment=&quot;alert&quot;&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:include</code></td>
+<td style="text-align:center"><code>th:include</code></td>
 <td style="text-align:center">布局标签，替换内容到引入的文件</td>
-<td><code>&lt;head th:include=&quot;layout :: htmlhead&quot; th:with=&quot;title=&#39;xx&#39;&quot;&gt;&lt;/head&gt; /&gt;</code></td>
+<td style="text-align:center"><code>&lt;head th:include=&quot;layout :: htmlhead&quot; th:with=&quot;title=&#39;xx&#39;&quot;&gt;&lt;/head&gt; /&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:replace</code></td>
+<td style="text-align:center"><code>th:replace</code></td>
 <td style="text-align:center">布局标签，替换整个标签到引入的文件</td>
-<td><code>&lt;div th:replace=&quot;fragments/header :: title&quot;&gt;&lt;/div&gt;</code></td>
+<td style="text-align:center"><code>&lt;div th:replace=&quot;fragments/header :: title&quot;&gt;&lt;/div&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:selected</code></td>
+<td style="text-align:center"><code>th:selected</code></td>
 <td style="text-align:center">selected选择框选中</td>
-<td><code>th:selected=&quot;(${xxx.id} == ${configObj.dd})&quot;</code></td>
+<td style="text-align:center"><code>th:selected=&quot;(${xxx.id} == ${configObj.dd})&quot;</code></td>
 </tr>
 <tr>
-<td><code>th:src</code></td>
+<td style="text-align:center"><code>th:src</code></td>
 <td style="text-align:center">图片类地址引入</td>
-<td><code>&lt;img class=&quot;img-responsive&quot; alt=&quot;App Logo&quot; th:src=&quot;@{/img/logo.png}&quot; /&gt;</code></td>
+<td style="text-align:center"><code>&lt;img class=&quot;img-responsive&quot; alt=&quot;App Logo&quot; th:src=&quot;@{/img/logo.png}&quot; /&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:inline</code></td>
+<td style="text-align:center"><code>th:inline</code></td>
 <td style="text-align:center">定义js脚本可以使用变量</td>
-<td><code>&lt;script type=&quot;text/javascript&quot; th:inline=&quot;javascript&quot;&gt;</code></td>
+<td style="text-align:center"><code>&lt;script type=&quot;text/javascript&quot; th:inline=&quot;javascript&quot;&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:action</code></td>
+<td style="text-align:center"><code>th:action</code></td>
 <td style="text-align:center">表单提交的地址</td>
-<td><code>&lt;form action=&quot;subscribe.html&quot; th:action=&quot;@{/subscribe}&quot;&gt;</code></td>
+<td style="text-align:center"><code>&lt;form action=&quot;subscribe.html&quot; th:action=&quot;@{/subscribe}&quot;&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:remove</code></td>
+<td style="text-align:center"><code>th:remove</code></td>
 <td style="text-align:center">删除某个属性</td>
-<td><code>&lt;tr th:remove=&quot;all/body/tag/all-but-first/none&quot;&gt;</code></td>
+<td style="text-align:center"><code>&lt;tr th:remove=&quot;all/body/tag/all-but-first/none&quot;&gt;</code></td>
 </tr>
 <tr>
-<td><code>th:attr</code></td>
+<td style="text-align:center"><code>th:attr</code></td>
 <td style="text-align:center">设置标签属性，多个属性可以用逗号分隔</td>
-<td><code>th:attr=&quot;src=@{/image/aa.jpg},title=#{logo}&quot;</code></td>
+<td style="text-align:center"><code>th:attr=&quot;src=@{/image/aa.jpg},title=#{logo}&quot;</code></td>
 </tr>
 </tbody>
 </table>
-]]></content>
+<h2 id="项目源码-3"><a href="#项目源码-3" class="headerlink" title="项目源码"></a>项目源码</h2><p>源码参考：<a href="https://github.com/wangleeyom/spring-boot-learning/tree/master/spring-boot-thymeleaf" target="_blank" rel="noopener">spring-boot-thymeleaf</a></p>
+<h1 id="JPA-和-Thymeleaf-实践"><a href="#JPA-和-Thymeleaf-实践" class="headerlink" title="JPA 和 Thymeleaf 实践"></a>JPA 和 Thymeleaf 实践</h1><h2 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h2><p>在实际开发中，开发环境、测试环境、生产环境对应的数据库，或者其他的端口信息都有不同，在发布新的版本的时候，我们需要将配置文件进行相应的修改，但是有时候我们总会忘记或者记错，这样就会导致线上出问题，所以根据不同的环境可以将属性配置文件切换为开发、测试、生产，分別对应的配置文件为：<code>application-dev.properties</code>、<code>application-test.properties</code>、<code>application-prod.properties</code>。只需要在总的配置文件<code>application.properties</code>中将属性配置文件切换为开发环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将属性配置文件切换为开发环境</span><br><span class="line">spring.profiles.active = dev</span><br></pre></td></tr></table></figure></p>
+<h2 id="添加Servlet支持"><a href="#添加Servlet支持" class="headerlink" title="添加Servlet支持"></a>添加Servlet支持</h2><p>一个完整的web应用需要添加servlet支持，在spring boot的启动类<code>Application.java</code>中继承<code>SpringBootServletInitializer</code>类，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title">configure</span><span class="params">(SpringApplicationBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> builder.sources(Application.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><ul>
+<li>用户列表：<br><img src="http://image.leeyom.top/blog/180113/F7L5Lc0F8d.png" alt="用户列表"></li>
+<li>新增用户：<br><img src="http://image.leeyom.top/blog/180113/IIfHd81LLJ.png" alt="新增用户"></li>
+<li>编辑用户：<br><img src="http://image.leeyom.top/blog/180113/0DE7GdAaae.png" alt="编辑用户"></li>
+<li>删除用户：<br><img src="http://image.leeyom.top/blog/180113/FmagcGG1gd.png" alt="删除用户"></li>
+</ul>
+<h2 id="项目源码-4"><a href="#项目源码-4" class="headerlink" title="项目源码"></a>项目源码</h2><p>源码参考：<a href="https://github.com/wangleeyom/spring-boot-learning/tree/master/spring-boot-jpa-thymeleaf" target="_blank" rel="noopener">spring-boot-jpa-thymeleaf</a></p>
+<h1 id="使用Swagger2构建RESTful-API-文档"><a href="#使用Swagger2构建RESTful-API-文档" class="headerlink" title="使用Swagger2构建RESTful API 文档"></a>使用Swagger2构建RESTful API 文档</h1><h2 id="RESTful-API设计准则"><a href="#RESTful-API设计准则" class="headerlink" title="RESTful API设计准则"></a>RESTful API设计准则</h2><p>现在越来越多的项目开始进行前后端分离，那为了方便前后端进行通信，就需要一套 API 准则，RESTful API 是目前比较成熟的一套互联网应用程序的 API 设计理论，RESTful API具体设计如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">请求类型</th>
+<th style="text-align:center">URL</th>
+<th style="text-align:center">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">/users</td>
+<td style="text-align:center">查询用户列表</td>
+</tr>
+<tr>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">/users</td>
+<td style="text-align:center">创建一个用户</td>
+</tr>
+<tr>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">/users/id</td>
+<td style="text-align:center">根据id查询一个用户</td>
+</tr>
+<tr>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">/users/id</td>
+<td style="text-align:center">根据id更新一个用户</td>
+</tr>
+<tr>
+<td style="text-align:center">DELETE</td>
+<td style="text-align:center">/users/id</td>
+<td style="text-align:center">根据id删除一个用户</td>
+</tr>
+</tbody>
+</table>
+<p>如果对RESTful API设计准则还不是很清楚的话，推荐可以看下阮一峰老师的博文：<a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">《RESTful API 设计指南》</a>，便会对RESTful API 有个大概的了解。</p>
+<h2 id="swagger注解总结"><a href="#swagger注解总结" class="headerlink" title="swagger注解总结"></a>swagger注解总结</h2><p>这里就不详述了，我之前有写过总结这些注解的一篇文章，当然也可以参考官方的文档，链接如下：</p>
+<ul>
+<li><a href="http://www.leeyom.top/2017/09/25/tech-swagger-annotation/" target="_blank" rel="noopener">swagger注解总结</a></li>
+<li><a href="https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X" target="_blank" rel="noopener">Swagger Core Annotations</a></li>
+</ul>
+<h2 id="快速上手-1"><a href="#快速上手-1" class="headerlink" title="快速上手"></a>快速上手</h2><ul>
+<li><p>添加<code>swagger2</code>依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建<code>swagger2</code>配置<code>SwaggerConfig.java</code>，设置API接口扫描包、作者、版本等等相关信息：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">"com.leeyom.controller"</span>))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"Spring Boot中使用Swagger2构建RESTful API"</span>)</span><br><span class="line">                .description(<span class="string">"更多Spring Boot相关文章请关注：http://leeyom.top/"</span>)</span><br><span class="line">                .termsOfServiceUrl(<span class="string">"http://leeyom.top/"</span>)</span><br><span class="line">                .contact(<span class="string">"Leeyom"</span>)</span><br><span class="line">                .version(<span class="string">"1.0"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加文档：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>(description = <span class="string">"用户管理"</span>, tags = <span class="string">"UserController"</span>, basePath = <span class="string">"/user"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建一个线程安全的map，模拟数据库，存放用户信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> Map&lt;Long, User&gt; users = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取用户列表</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value = <span class="string">"获取用户列表"</span>, notes = <span class="string">"获取所有用户信息"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">getUserList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; userList = <span class="keyword">new</span> ArrayList&lt;User&gt;(users.values());</span><br><span class="line">        <span class="keyword">return</span> userList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> user 新增用户实体</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value = <span class="string">"创建用户"</span>, notes = <span class="string">"根据User对象创建用户"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/"</span>, method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addUser</span><span class="params">(@ApiParam(value = <span class="string">"新增用户实体封装"</span>, required = <span class="keyword">true</span>)</span> @RequestBody User user) </span>&#123;</span><br><span class="line">        users.put(user.getId(), user);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取用户信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id 用户主键id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value = <span class="string">"获取用户详细信息"</span>, notes = <span class="string">"根据url的id来获取用户详细信息"</span>)</span><br><span class="line">    <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"id"</span>, value = <span class="string">"用户ID"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"Long"</span>, paramType = <span class="string">"path"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/&#123;id&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> users.get(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id   用户id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> user 更新实体封装</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value = <span class="string">"更新用户详细信息"</span></span><br><span class="line">    , notes = <span class="string">"根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息"</span>)</span><br><span class="line">    <span class="meta">@ApiImplicitParams</span>(&#123;</span><br><span class="line">            <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"id"</span>, value = <span class="string">"用户ID"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"Long"</span></span><br><span class="line">            , paramType = <span class="string">"path"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/&#123;id&#125;"</span>, method = RequestMethod.PUT)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">updateUser</span><span class="params">(@PathVariable Long id, @ApiParam(value = <span class="string">"更新实体封装"</span>, required = <span class="keyword">true</span>)</span></span></span><br><span class="line"><span class="function">    @RequestBody User user) </span>&#123;</span><br><span class="line">        User oldUser = users.get(id);</span><br><span class="line">        oldUser.setAge(user.getAge());</span><br><span class="line">        oldUser.setName(user.getName());</span><br><span class="line">        users.put(id, oldUser);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id 用户id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value = <span class="string">"删除用户"</span>, notes = <span class="string">"根据url的id来指定删除对象"</span>)</span><br><span class="line">    <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"id"</span>, value = <span class="string">"用户ID"</span>, required = <span class="keyword">true</span>, dataType = <span class="string">"Long"</span>, paramType = <span class="string">"path"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/&#123;id&#125;"</span>, method = RequestMethod.DELETE)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">deleteUser</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">        users.remove(id);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动Spring Boot程序，访问：<a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a>，出现如下的结果：<br><img src="http://image.leeyom.top/blog/180115/c1Ggail8Jh.png" alt="API接口文档"></p>
+</li>
+<li>SSM架构的项目中，整合swagger可以参考我以前的写一篇博文，就是配置那里有点小区别，其他的没啥区别。<ul>
+<li><a href="http://www.leeyom.top/2017/09/23/tech-spring-mvc-swagger2/" target="_blank" rel="noopener">Spring MVC中使用Swagger2构建Restful API</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="项目源码-5"><a href="#项目源码-5" class="headerlink" title="项目源码"></a>项目源码</h2><p>源码参考：<a href="https://github.com/wangleeyom/spring-boot-learning/tree/master/spring-boot-restful-swagger" target="_blank" rel="noopener">spring-boot-restful-swagger</a></p>
+<h1 id="Spring-Boot-集成-MyBatis"><a href="#Spring-Boot-集成-MyBatis" class="headerlink" title="Spring Boot 集成 MyBatis"></a>Spring Boot 集成 MyBatis</h1><h2 id="Mybatis原理简介"><a href="#Mybatis原理简介" class="headerlink" title="Mybatis原理简介"></a>Mybatis原理简介</h2><p>MyBatis的工作流程如下：</p>
+<ul>
+<li>首先加载mapper配置的sql映射文件，或者注解相关的sql内容。</li>
+<li>通过读取配置文件，创建会话工厂 SqlSessionFactory。</li>
+<li>然后通过会话工厂，创建会话对象 SqlSession，会话对象其实就是一个接口，是对某个数据库增删改查的封装。</li>
+<li>创建执行器 Executor 。</li>
+<li>封装sql对象，执行器将待处理的 SQL 信息封装到 MappedStatement 对象中，该对象包括 SQL 语句、输入参数映射信息和输出结果映射信息。</li>
+<li>正式开始操作数据库，返回操作结果，结束流程。</li>
+</ul>
+<p>流程图如下：</p>
+<p><img src="http://image.leeyom.top/2018012315167174589667.png" alt="mybatis工作流程图"></p>
+<h2 id="官方组件包使用"><a href="#官方组件包使用" class="headerlink" title="官方组件包使用"></a>官方组件包使用</h2><h3 id="XML版本"><a href="#XML版本" class="headerlink" title="XML版本"></a>XML版本</h3><ul>
+<li><p>引入mybatis核心依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>除了mybatis的核心依赖，还需要mysql数据库驱动包<code>mysql-connector-java</code>等等，这里就不贴出来了，完整的可以看项目源码。</p>
+</li>
+<li><p>配置<code>application.properties</code>，主要是配置mybatis和数据库连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># mybatis</span><br><span class="line">mybatis.config-location=classpath:mybatis/mybatis-config.xml</span><br><span class="line">mybatis.mapper-locations=classpath:mybatis/mapper/*.xml</span><br><span class="line">mybatis.type-aliases-package=com.leeyom.pojo</span><br><span class="line"></span><br><span class="line"># dataSource</span><br><span class="line">spring.datasource.driverClassName=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/spring-boot-mybatis</span><br><span class="line">?useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=root</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>mybatis.config-location</code>：配置 <code>mybatis-config.xml</code> 路径，<code>mybatis-config.xml</code> 中配置 MyBatis 基础属性。</li>
+<li><code>mybatis.mapper-locations</code>：配置 Mapper 对应的 XML 文件路径。</li>
+<li><code>mybatis.type-aliases-package</code>：配置项目中实体类包路径。</li>
+<li><code>spring.datasource.*</code>：数据源配置。</li>
+</ul>
+</li>
+<li><p>配置 <code>mybatis-config.xml</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">"http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置别名--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">alias</span>=<span class="string">"Integer"</span> <span class="attr">type</span>=<span class="string">"java.lang.Integer"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">alias</span>=<span class="string">"Long"</span> <span class="attr">type</span>=<span class="string">"java.lang.Long"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">alias</span>=<span class="string">"HashMap"</span> <span class="attr">type</span>=<span class="string">"java.util.HashMap"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">alias</span>=<span class="string">"LinkedHashMap"</span> <span class="attr">type</span>=<span class="string">"java.util.LinkedHashMap"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">alias</span>=<span class="string">"ArrayList"</span> <span class="attr">type</span>=<span class="string">"java.util.ArrayList"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">alias</span>=<span class="string">"LinkedList"</span> <span class="attr">type</span>=<span class="string">"java.util.LinkedList"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>该配置文件的主要作用是配置mybatis的基础属性，比如这里可以设置别名，也还可以设置第三方分页等等。设置别名的好处就是，打个比方在编写mapper.xml的时候</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resultType=<span class="string">"java.lang.Integer"</span></span><br></pre></td></tr></table></figure>
+<p>可以简写为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resultType=<span class="string">"Integer"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置包扫描器，在spring boot的启动类上面添加注解<code>@MapperScan(&quot;com.leeyom.mapper&quot;)</code>，<code>com.leeyom.mapper</code>为mapper接口的package路径。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@MapperScan</span>(<span class="string">"com.leeyom.mapper"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写 UserMapper.xml，其实我觉得xml方式的的最大的好处就是可以复写sql，可以将重复使用的sql抽离出来，例如这里我抽离两个sql：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--查询结果封装--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sql</span> <span class="attr">id</span>=<span class="string">"Base_Column_List"</span>&gt;</span></span><br><span class="line">    id, user_name, password, user_sex, nick_name</span><br><span class="line"><span class="tag">&lt;/<span class="name">sql</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--条件查询封装--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sql</span> <span class="attr">id</span>=<span class="string">"Base_Where_List"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userName != null  and userName != ''"</span>&gt;</span></span><br><span class="line">        and user_name = #&#123;userName&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userSex != null and userSex != ''"</span>&gt;</span></span><br><span class="line">        and user_sex = #&#123;userSex&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sql</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后在其他的sql里面进行复用：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--查询所有--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectAll"</span> <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></span><br><span class="line">    select</span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"Base_Column_List"</span>/&gt;</span></span><br><span class="line">    from users</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--分页查询--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getUserListByPage"</span> <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span> <span class="attr">parameterType</span>=<span class="string">"com.leeyom.param.UserParam"</span>&gt;</span></span><br><span class="line">    select</span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"Base_Column_List"</span>/&gt;</span></span><br><span class="line">    from users</span><br><span class="line">    where 1=1</span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"Base_Where_List"</span>/&gt;</span></span><br><span class="line">    order by id desc</span><br><span class="line">    limit #&#123;pageNumber&#125; , #&#123;pageSize&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>是不是简化了sql的代码呢？</p>
+</li>
+<li><p>编写 UserMapper.java：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteByPrimaryKey</span><span class="params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(User record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">User <span class="title">selectByPrimaryKey</span><span class="params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">selectAll</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKey</span><span class="params">(User record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">getUserListByPage</span><span class="params">(UserParam userParam)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个就是spring boot 集成mybatis的以xml方式操作数据库，虽然说配置要有点多，但是xml的方式可以极大的复用sql，并且可以高度定制化sql，sql语句与java代码解耦，在实际的开发中使用的还是蛮多的。像UserMapper.java、User.java、UserMapper.xml我们都可以使用<a href="https://github.com/wangleeyom/mybatis-generator" target="_blank" rel="noopener">mybatis-generator</a>自动生成，还是挺方便的。</p>
+</li>
+</ul>
+<h3 id="注解版本"><a href="#注解版本" class="headerlink" title="注解版本"></a>注解版本</h3><ul>
+<li><p>注解版本其实就是xml版本的简化，不再需要<code>UserMapper.xml</code>、<code>mybatis-config.xml</code>等相关的xml配置文件，只需要在<code>application.properties</code>配置映射实体类所在的package。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mybatis</span><br><span class="line">mybatis.type-aliases-package=com.leeyom.pojo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对应的sql写在Mapper中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Delete</span>(<span class="string">"DELETE FROM users WHERE id =#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteByPrimaryKey</span><span class="params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Insert</span>(<span class="string">"INSERT INTO users(user_name,password,user_sex,nick_name)</span></span><br><span class="line"><span class="string">    VALUES(#&#123;userName&#125;, #&#123;password&#125;, #&#123;userSex&#125; ,#&#123;nickName&#125;)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(User record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"SELECT * FROM users WHERE id = #&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function">User <span class="title">selectByPrimaryKey</span><span class="params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"SELECT * FROM users"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"userSex"</span>, column = <span class="string">"user_sex"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"nickName"</span>, column = <span class="string">"nick_name"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">selectAll</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Update</span>(<span class="string">"UPDATE users SET user_name=#&#123;userName&#125;,password=#&#123;password&#125;,user_sex=#&#123;userSex&#125;,</span></span><br><span class="line"><span class="string">    nick_name=#&#123;nickName&#125; WHERE id =#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKey</span><span class="params">(User record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SelectProvider</span>(type = UserSql.class, method = <span class="string">"getUserListByPage"</span>)</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">getUserListByPage</span><span class="params">(UserParam userParam)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@SelectProvider</span>(type = UserSql.class, method = <span class="string">"getCount"</span>)</span><br><span class="line">    <span class="function">Long <span class="title">getCount</span><span class="params">(UserParam userParam)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>建议使用#，使用$有 SQL 注入的可能性！</p>
+</li>
+<li><p>对于动态的sql，mybatis也做出了相应的优化，他的主要原理还是拼接sql，创建一个动态的sql类<code>UserSql.java</code>，添加如下的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getUserListByPage</span><span class="params">(UserParam userParam)</span> </span>&#123;</span><br><span class="line">       StringBuffer sql = <span class="keyword">new</span> StringBuffer(<span class="string">"select id, user_name, password, user_sex, nick_name"</span>);</span><br><span class="line">       sql.append(<span class="string">" from users where 1=1 "</span>);</span><br><span class="line">       <span class="keyword">if</span> (userParam != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">if</span> (StringUtils.isNotBlank(userParam.getUserName())) &#123;</span><br><span class="line">               sql.append(<span class="string">" and user_name = #&#123;userName&#125;"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (StringUtils.isNotBlank(userParam.getUserSex())) &#123;</span><br><span class="line">               sql.append(<span class="string">" and user_sex = #&#123;userSex&#125;"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       sql.append(<span class="string">" order by id desc"</span>);</span><br><span class="line">       sql.append(<span class="string">" limit "</span> + userParam.getPageNumber() + <span class="string">","</span> + userParam.getPageSize());</span><br><span class="line">       log.info(<span class="string">"getUserListByPage sql is :"</span> + sql.toString());</span><br><span class="line">       <span class="keyword">return</span> sql.toString();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>然后在Mapper里面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SelectProvider</span>(type = UserSql.class, method = <span class="string">"getUserListByPage"</span>)</span><br><span class="line"><span class="function">List&lt;User&gt; <span class="title">getUserListByPage</span><span class="params">(UserParam userParam)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>当然这样拼接是非常繁琐的，mybatis也推出了结构化SQL来解决这个问题，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getCount</span><span class="params">(UserParam userParam)</span> </span>&#123;</span><br><span class="line">    String sql = <span class="keyword">new</span> SQL() &#123;&#123;</span><br><span class="line">        SELECT(<span class="string">"count(1)"</span>);</span><br><span class="line">        FROM(<span class="string">"users"</span>);</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isNotBlank(userParam.getUserName())) &#123;</span><br><span class="line">            WHERE(<span class="string">"user_name = #&#123;userName&#125;"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isNotBlank(userParam.getUserSex())) &#123;</span><br><span class="line">            WHERE(<span class="string">"user_sex = #&#123;userSex&#125;"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;&#125;.toString();</span><br><span class="line"></span><br><span class="line">    log.info(<span class="string">"getCount sql is :"</span> + sql);</span><br><span class="line">    <span class="keyword">return</span> sql;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以上便是以注解的方式操作数据库，其实根据个人的使用经验，我个人倾向于XML的方式，因为XML方法是可以痛快的写SQL语句，结构化清晰，并且sql语句不会过度的耦合到java代码中。注解版本对于业务逻辑不是很复杂的可以采用，但是像一些比较复杂的sql注解也就不太好处理。</p>
+</li>
+</ul>
+<h3 id="项目源码-6"><a href="#项目源码-6" class="headerlink" title="项目源码"></a>项目源码</h3><ul>
+<li>xml方式：<a href="https://github.com/wangleeyom/spring-boot-learning/tree/master/spring-boot-mybatis-xml" target="_blank" rel="noopener">spring-boot-mybatis-xml</a></li>
+<li>注解方式: <a href="https://github.com/wangleeyom/spring-boot-learning/tree/master/spring-boot-mybatis-annotation" target="_blank" rel="noopener">spring-boot-mybatis-annotation</a></li>
+</ul>
+<h2 id="第三方组件包使用"><a href="#第三方组件包使用" class="headerlink" title="第三方组件包使用"></a>第三方组件包使用</h2><h3 id="集成-mybatis-generator"><a href="#集成-mybatis-generator" class="headerlink" title="集成 mybatis generator"></a>集成 mybatis generator</h3><h3 id="集成分页插件-PageHelper"><a href="#集成分页插件-PageHelper" class="headerlink" title="集成分页插件 PageHelper"></a>集成分页插件 PageHelper</h3><h3 id="集成通用-Mapper-插件"><a href="#集成通用-Mapper-插件" class="headerlink" title="集成通用 Mapper 插件"></a>集成通用 Mapper 插件</h3><h3 id="项目源码-7"><a href="#项目源码-7" class="headerlink" title="项目源码"></a>项目源码</h3>]]></content>
       
         <categories>
             

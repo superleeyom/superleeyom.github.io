@@ -82,7 +82,7 @@
 <meta name="description" content="锤粉，理想主义者，程序员">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Leeyom的个人站">
-<meta property="og:url" content="http://leeyom.top/tags/hexo/index.html">
+<meta property="og:url" content="http://leeyom.top/tags/Hexo/index.html">
 <meta property="og:site_name" content="Leeyom的个人站">
 <meta property="og:description" content="锤粉，理想主义者，程序员">
 <meta property="og:locale" content="zh-Hans">
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://leeyom.top/tags/hexo/"/>
+  <link rel="canonical" href="http://leeyom.top/tags/Hexo/"/>
 
 
 
 
 
-  <title>标签: hexo | Leeyom的个人站</title>
+  <title>标签: Hexo | Leeyom的个人站</title>
   
 
 
@@ -278,7 +278,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>hexo<small>标签</small>
+        <h1>Hexo<small>标签</small>
         </h1>
       </div>
 
@@ -290,37 +290,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/09/26/tech-hexo-error/" itemprop="url">
+            <a class="post-title-link" href="/2017/06/17/tech-hexo-theme-change/" itemprop="url">
               
-                <span itemprop="name">hexo指令错误修复记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-26T22:58:04+08:00"
-              content="2017-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/05/tech-hexo-github-error/" itemprop="url">
-              
-                <span itemprop="name">Hexo+Github博客css和js404导致博客页面空白</span>
+                <span itemprop="name">Hexo主题更换记</span>
               
             </a>
         
@@ -328,65 +300,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-05T08:16:44+08:00"
-              content="2016-11-05" >
-          11-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/29/tech-hexo-advance/" itemprop="url">
-              
-                <span itemprop="name">hexo博客进阶教程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-29T16:10:15+08:00"
-              content="2016-09-29" >
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/25/tech-hexo-github/" itemprop="url">
-              
-                <span itemprop="name">hexo+github搭建个人博客网站</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-25T20:41:19+08:00"
-              content="2016-09-25" >
-          09-25
+              datetime="2017-06-17T22:36:24+08:00"
+              content="2017-06-17" >
+          06-17
         </time>
       </div>
 
@@ -1153,6 +1069,88 @@
                 $element.find('.leancloud-visitors-count').text(counter.get('time'));
               },
               error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- add gitter on sidebar -->
+  <script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'leeyom-blog-space/Lobby'
+  };
+</script>
+<script src="http://image.leeyom.top/sidecar.v1.js" async defer></script>
+</html>
+</body>
+</html>
+
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
