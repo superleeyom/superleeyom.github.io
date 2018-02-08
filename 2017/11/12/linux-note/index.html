@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://image.leeyom.top/blog/171130/ic63aiB8gg.png?imageslim">
 <meta property="og:image" content="http://image.leeyom.top/blog/171130/D26kDhB916.png?imageslim">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20171112151049907266113.png">
-<meta property="og:updated_time" content="2018-01-29T14:10:22.000Z">
+<meta property="og:updated_time" content="2018-02-08T04:25:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux折腾笔记">
 <meta name="twitter:description" content="由于主要是做服务端开发，总会少不了和linux打交道，鉴于我老容易健忘的习惯，我决定还是专门用一篇文章来记录自己在使用linux的一些笔记，主要是哪天记不起来了，可以再翻出来看看，免得再花时间在网上找教程，主要使用的linux版本为centOS，Ubuntu这两个版本，如果有不对的地方，还希望大家指出。">
@@ -397,6 +397,17 @@
       
         <p>由于主要是做服务端开发，总会少不了和linux打交道，鉴于我老容易健忘的习惯，我决定还是专门用一篇文章来记录自己在使用linux的一些笔记，主要是哪天记不起来了，可以再翻出来看看，免得再花时间在网上找教程，主要使用的linux版本为centOS，Ubuntu这两个版本，如果有不对的地方，还希望大家指出。</p>
 <a id="more"></a>
+<h2 id="卸载CentOS7自带的jdk"><a href="#卸载CentOS7自带的jdk" class="headerlink" title="卸载CentOS7自带的jdk"></a>卸载CentOS7自带的jdk</h2><p>CentOS7自带的是openjdk，而我们平常开发用的jdk是sunjdk，所以需要卸载掉它自带的jdk，整个过程如下：</p>
+<ul>
+<li><p>使用命令：<code>rpm -qa|grep java</code>，查询系统自带的jdk，查询的结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@centos-linux ~]# rpm -qa|grep java</span><br><span class="line">java-1.7.0-openjdk-headless-1.7.0.91-2.6.2.3.el7.x86_64</span><br><span class="line">javapackages-tools-3.4.1-11.el7.noarch</span><br><span class="line">java-1.7.0-openjdk-1.7.0.91-2.6.2.3.el7.x86_64</span><br><span class="line">tzdata-java-2015g-1.el7.noarch</span><br><span class="line">python-javapackages-3.4.1-11.el7.noarch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用命令：<code>rpm -e --nodeps xxx</code>，xxx代表系统自带的jdk名，这个命令删除系统自带的jdk，这里需要注意的就是，卸载的是带<code>java</code>、<code>openjdk</code>关键字的包，其他的比方<code>tzdata-java-2015g-1.el7.noarch</code>是不能删除的，下面是完整的删除命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.91-2.6.2.3.el7.x86_64  </span><br><span class="line">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.91-2.6.2.3.el7.x86_64</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>java -version</code>命令，查看是否卸载成功，若找不到这个命令，说明是卸载成功了，否则卸载失败。 </p>
+</li>
+</ul>
 <h2 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h2><ul>
 <li>linux版本为centOS 6.7。</li>
 <li>下载地址：<a href="http://redis.io/download" target="_blank" rel="noopener">http://redis.io/download</a>，下载最新版本。</li>
@@ -817,7 +828,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装redis"><span class="nav-number">1.</span> <span class="nav-text">安装redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装搜狗输入法"><span class="nav-number">2.</span> <span class="nav-text">安装搜狗输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat端口占用问题"><span class="nav-number">3.</span> <span class="nav-text">Tomcat端口占用问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题美化"><span class="nav-number">4.</span> <span class="nav-text">主题美化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装JDK"><span class="nav-number">5.</span> <span class="nav-text">安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装zookeeper"><span class="nav-number">6.</span> <span class="nav-text">安装zookeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VMware安装ubuntu问题"><span class="nav-number">7.</span> <span class="nav-text">VMware安装ubuntu问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VMware-tools-无法安装问题"><span class="nav-number">7.1.</span> <span class="nav-text">VMware tools 无法安装问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu登陆后花屏"><span class="nav-number">7.2.</span> <span class="nav-text">Ubuntu登陆后花屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示器分辨率问题"><span class="nav-number">7.3.</span> <span class="nav-text">显示器分辨率问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SSH"><span class="nav-number">8.</span> <span class="nav-text">安装SSH</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载CentOS7自带的jdk"><span class="nav-number">1.</span> <span class="nav-text">卸载CentOS7自带的jdk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装redis"><span class="nav-number">2.</span> <span class="nav-text">安装redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装搜狗输入法"><span class="nav-number">3.</span> <span class="nav-text">安装搜狗输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat端口占用问题"><span class="nav-number">4.</span> <span class="nav-text">Tomcat端口占用问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题美化"><span class="nav-number">5.</span> <span class="nav-text">主题美化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装JDK"><span class="nav-number">6.</span> <span class="nav-text">安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装zookeeper"><span class="nav-number">7.</span> <span class="nav-text">安装zookeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VMware安装ubuntu问题"><span class="nav-number">8.</span> <span class="nav-text">VMware安装ubuntu问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VMware-tools-无法安装问题"><span class="nav-number">8.1.</span> <span class="nav-text">VMware tools 无法安装问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu登陆后花屏"><span class="nav-number">8.2.</span> <span class="nav-text">Ubuntu登陆后花屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示器分辨率问题"><span class="nav-number">8.3.</span> <span class="nav-text">显示器分辨率问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SSH"><span class="nav-number">9.</span> <span class="nav-text">安装SSH</span></a></li></ol></div>
             
 
           </div>
