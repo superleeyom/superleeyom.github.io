@@ -89,13 +89,13 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://image.leeyom.top/20180209151818165842106.png">
 <meta property="og:image" content="http://image.leeyom.top/blog/180124/cmb3jcC32F.png">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/gEhm4IF65L.png?imageslim">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/BLKjjJ20Ei.png?imageslim">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/5GHl00hm24.png?imageslim">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/ic63aiB8gg.png?imageslim">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/D26kDhB916.png?imageslim">
+<meta property="og:image" content="http://image.leeyom.top/blog/171130/gEhm4IF65L.png">
+<meta property="og:image" content="http://image.leeyom.top/blog/171130/BLKjjJ20Ei.png">
+<meta property="og:image" content="http://image.leeyom.top/blog/171130/5GHl00hm24.png">
+<meta property="og:image" content="http://image.leeyom.top/blog/171130/ic63aiB8gg.png">
+<meta property="og:image" content="http://image.leeyom.top/blog/171130/D26kDhB916.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20171112151049907266113.png">
-<meta property="og:updated_time" content="2018-02-09T13:12:20.000Z">
+<meta property="og:updated_time" content="2018-02-09T13:15:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux折腾笔记">
 <meta name="twitter:description" content="由于主要是做服务端开发，总会少不了和linux打交道，鉴于我老容易健忘的习惯，我决定还是专门用一篇文章来记录自己在使用linux的一些笔记，主要是哪天记不起来了，可以再翻出来看看，免得再花时间在网上找教程，主要使用的linux版本为centOS，Ubuntu这两个版本，如果有不对的地方，还希望大家指出。">
@@ -522,16 +522,31 @@
 <h2 id="Tomcat端口占用问题"><a href="#Tomcat端口占用问题" class="headerlink" title="Tomcat端口占用问题"></a>Tomcat端口占用问题</h2><ol>
 <li><p>linux环境下解决tomcat 8080端口被占用的方法：</p>
 <ul>
-<li>先查看是否有tomcat在运行，执行命令：<code>ps -ef |grep tomcat</code>，若出现如下的内容，说明tomcat正在运行<br><img src="http://image.leeyom.top/blog/171130/gEhm4IF65L.png?imageslim" alt="mark"></li>
-<li>输入命令：<code>netstat -anp|grep 8080</code>，找到这个端口对应的进程(PID)<br><img src="http://image.leeyom.top/blog/171130/BLKjjJ20Ei.png?imageslim" alt="mark"></li>
+<li>先查看是否有tomcat在运行，执行命令：<code>ps -ef |grep tomcat</code>，若出现如下的内容，说明tomcat正在运行<ul>
+<li><img src="http://image.leeyom.top/blog/171130/gEhm4IF65L.png" alt="mark"></li>
+</ul>
+</li>
+<li>输入命令：<code>netstat -anp|grep 8080</code>，找到这个端口对应的进程(PID)<ul>
+<li><img src="http://image.leeyom.top/blog/171130/BLKjjJ20Ei.png" alt="mark"></li>
+</ul>
+</li>
 <li>杀死该进程：<code>kill -9 51379</code></li>
 </ul>
 </li>
 <li><p>windows下解决tomcat 8080端口被占用的方法：</p>
 <ul>
-<li>输入命令：<code>netstat -aon|findstr &quot;8080&quot;</code>，找到了这个端口对应的进程(PID)<br><img src="http://image.leeyom.top/blog/171130/5GHl00hm24.png?imageslim" alt="mark"></li>
-<li>查看什么应用占用了该端口，输入命令：<code>tasklist|findstr &quot;12956&quot;</code><br><img src="http://image.leeyom.top/blog/171130/ic63aiB8gg.png?imageslim" alt="mark"></li>
-<li>杀死该进程，输入命令：<code>taskkill /pid 12956 /f</code><br><img src="http://image.leeyom.top/blog/171130/D26kDhB916.png?imageslim" alt="mark"></li>
+<li>输入命令：<code>netstat -aon|findstr &quot;8080&quot;</code>，找到了这个端口对应的进程(PID)<ul>
+<li><img src="http://image.leeyom.top/blog/171130/5GHl00hm24.png" alt="mark"></li>
+</ul>
+</li>
+<li>查看什么应用占用了该端口，输入命令：<code>tasklist|findstr &quot;12956&quot;</code><ul>
+<li><img src="http://image.leeyom.top/blog/171130/ic63aiB8gg.png" alt="mark"></li>
+</ul>
+</li>
+<li>杀死该进程，输入命令：<code>taskkill /pid 12956 /f</code><ul>
+<li><img src="http://image.leeyom.top/blog/171130/D26kDhB916.png" alt="mark"></li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>

@@ -522,16 +522,31 @@
 <h2 id="Tomcat端口占用问题"><a href="#Tomcat端口占用问题" class="headerlink" title="Tomcat端口占用问题"></a>Tomcat端口占用问题</h2><ol>
 <li><p>linux环境下解决tomcat 8080端口被占用的方法：</p>
 <ul>
-<li>先查看是否有tomcat在运行，执行命令：<code>ps -ef |grep tomcat</code>，若出现如下的内容，说明tomcat正在运行<br><img src="http://image.leeyom.top/blog/171130/gEhm4IF65L.png?imageslim" alt="mark"></li>
-<li>输入命令：<code>netstat -anp|grep 8080</code>，找到这个端口对应的进程(PID)<br><img src="http://image.leeyom.top/blog/171130/BLKjjJ20Ei.png?imageslim" alt="mark"></li>
+<li>先查看是否有tomcat在运行，执行命令：<code>ps -ef |grep tomcat</code>，若出现如下的内容，说明tomcat正在运行<ul>
+<li><img src="http://image.leeyom.top/blog/171130/gEhm4IF65L.png" alt="mark"></li>
+</ul>
+</li>
+<li>输入命令：<code>netstat -anp|grep 8080</code>，找到这个端口对应的进程(PID)<ul>
+<li><img src="http://image.leeyom.top/blog/171130/BLKjjJ20Ei.png" alt="mark"></li>
+</ul>
+</li>
 <li>杀死该进程：<code>kill -9 51379</code></li>
 </ul>
 </li>
 <li><p>windows下解决tomcat 8080端口被占用的方法：</p>
 <ul>
-<li>输入命令：<code>netstat -aon|findstr &quot;8080&quot;</code>，找到了这个端口对应的进程(PID)<br><img src="http://image.leeyom.top/blog/171130/5GHl00hm24.png?imageslim" alt="mark"></li>
-<li>查看什么应用占用了该端口，输入命令：<code>tasklist|findstr &quot;12956&quot;</code><br><img src="http://image.leeyom.top/blog/171130/ic63aiB8gg.png?imageslim" alt="mark"></li>
-<li>杀死该进程，输入命令：<code>taskkill /pid 12956 /f</code><br><img src="http://image.leeyom.top/blog/171130/D26kDhB916.png?imageslim" alt="mark"></li>
+<li>输入命令：<code>netstat -aon|findstr &quot;8080&quot;</code>，找到了这个端口对应的进程(PID)<ul>
+<li><img src="http://image.leeyom.top/blog/171130/5GHl00hm24.png" alt="mark"></li>
+</ul>
+</li>
+<li>查看什么应用占用了该端口，输入命令：<code>tasklist|findstr &quot;12956&quot;</code><ul>
+<li><img src="http://image.leeyom.top/blog/171130/ic63aiB8gg.png" alt="mark"></li>
+</ul>
+</li>
+<li>杀死该进程，输入命令：<code>taskkill /pid 12956 /f</code><ul>
+<li><img src="http://image.leeyom.top/blog/171130/D26kDhB916.png" alt="mark"></li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
