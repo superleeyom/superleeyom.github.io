@@ -89,13 +89,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://image.leeyom.top/20180209151818165842106.png">
 <meta property="og:image" content="http://image.leeyom.top/blog/180124/cmb3jcC32F.png">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/gEhm4IF65L.png">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/BLKjjJ20Ei.png">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/5GHl00hm24.png">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/ic63aiB8gg.png">
-<meta property="og:image" content="http://image.leeyom.top/blog/171130/D26kDhB916.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20171112151049907266113.png">
-<meta property="og:updated_time" content="2018-02-09T13:15:02.000Z">
+<meta property="og:updated_time" content="2018-02-09T13:37:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux折腾笔记">
 <meta name="twitter:description" content="由于主要是做服务端开发，总会少不了和linux打交道，鉴于我老容易健忘的习惯，我决定还是专门用一篇文章来记录自己在使用linux的一些笔记，主要是哪天记不起来了，可以再翻出来看看，免得再花时间在网上找教程，主要使用的linux版本为centOS，Ubuntu这两个版本，如果有不对的地方，还希望大家指出。">
@@ -522,30 +517,26 @@
 <h2 id="Tomcat端口占用问题"><a href="#Tomcat端口占用问题" class="headerlink" title="Tomcat端口占用问题"></a>Tomcat端口占用问题</h2><ol>
 <li><p>linux环境下解决tomcat 8080端口被占用的方法：</p>
 <ul>
-<li>先查看是否有tomcat在运行，执行命令：<code>ps -ef |grep tomcat</code>，若出现如下的内容，说明tomcat正在运行<ul>
-<li><img src="http://image.leeyom.top/blog/171130/gEhm4IF65L.png" alt="mark"></li>
-</ul>
+<li><p>先查看是否有tomcat在运行，执行命令：<code>ps -ef |grep tomcat</code>，若出现如下的内容，说明tomcat正在运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@1 ocalhost bin] # ps -ef |grep tomcat</span><br><span class="line">root 51379 10 Nov29 pts/0 OO:03: 03</span><br><span class="line">/usr/java/jdk1.8.0_121/bin/java-Djava.uti]; 1 oggi ng. Config. Fi le=/opt/tomcat /conf/ logging.</span><br><span class="line">Properties -Djava. Uti1. Logging. Manager=org. Apache. Ju1 i. Clas sLoaderLogManager-djdk. T1 s.</span><br><span class="line">EphemeralDHKeySi ze=2048-Djava. Protoco1. Handler. Pkgs=org. Apache. Catal in a.</span><br><span class="line">Webresources-classpath /opt/tomcat /bin/bootstrap.jar: /opt/tomcat /bin/tomcat-ju1 i.jar.-Dcata] ina.</span><br><span class="line">base=/opt/tomcat-Dcata lina.home=/opt/tomcat-Djava.iO.tmpdi r=/opt/ton cat/temp org. Apache. Cata</span><br><span class="line">lina. Startup. Bootstrap start root 71250118237 0 11: 39 pts/0 OO: OO:00 grep--color=autotomcat</span><br></pre></td></tr></table></figure>
 </li>
-<li>输入命令：<code>netstat -anp|grep 8080</code>，找到这个端口对应的进程(PID)<ul>
-<li><img src="http://image.leeyom.top/blog/171130/BLKjjJ20Ei.png" alt="mark"></li>
-</ul>
+<li><p>输入命令：<code>netstat -anp|grep 8080</code>，找到这个端口对应的进程(PID)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@loca1 host bin] # netstat -anp|grep 8080</span><br><span class="line">tcp6 0 0:::8080 LISTEN 51379/java</span><br></pre></td></tr></table></figure>
 </li>
-<li>杀死该进程：<code>kill -9 51379</code></li>
+<li><p>杀死该进程：<code>kill -9 51379</code></p>
+</li>
 </ul>
 </li>
 <li><p>windows下解决tomcat 8080端口被占用的方法：</p>
 <ul>
-<li>输入命令：<code>netstat -aon|findstr &quot;8080&quot;</code>，找到了这个端口对应的进程(PID)<ul>
-<li><img src="http://image.leeyom.top/blog/171130/5GHl00hm24.png" alt="mark"></li>
-</ul>
+<li><p>输入命令：<code>netstat -aon|findstr &quot;8080&quot;</code>，找到了这个端口对应的进程(PID)，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C: \Users\lwang&gt; netstat -aon|findstr &quot;8080&quot;</span><br><span class="line"></span><br><span class="line">TCP O. O. O. O:8080 O. O. O. O:0 LISTENING 12956</span><br><span class="line"></span><br><span class="line">TCP  [::]:8080  [::]:0 LISTENING 12956</span><br></pre></td></tr></table></figure>
 </li>
-<li>查看什么应用占用了该端口，输入命令：<code>tasklist|findstr &quot;12956&quot;</code><ul>
-<li><img src="http://image.leeyom.top/blog/171130/ic63aiB8gg.png" alt="mark"></li>
-</ul>
+<li><p>查看什么应用占用了该端口，输入命令：<code>tasklist|findstr &quot;12956&quot;</code>，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C: \Users\lwang&gt; tasklist|findstr &quot;12956&quot;</span><br><span class="line"></span><br><span class="line">javaw. Exe 12956 Console 286,212 K</span><br></pre></td></tr></table></figure>
 </li>
-<li>杀死该进程，输入命令：<code>taskkill /pid 12956 /f</code><ul>
-<li><img src="http://image.leeyom.top/blog/171130/D26kDhB916.png" alt="mark"></li>
-</ul>
+<li><p>杀死该进程，输入命令：<code>taskkill /pid 12956 /f</code>，如下图所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C: \Users\lwang&gt; taskkill /pid 12956 /f</span><br><span class="line">成功：已终止 PID 为 12956 的进程。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
