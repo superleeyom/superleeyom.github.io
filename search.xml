@@ -443,11 +443,11 @@
 </ul>
 </li>
 <li>浏览器访问：<code>http://192.168.1.114:15672</code> 默认管理员账号：guest 默认管理员密码：guest，出现如下图，恭喜，安装成功！<ul>
-<li><img src="http://image.leeyom.top/20180209151818165842106.png" alt="20180209151818165842106.png"><h2 id="卸载CentOS7自带的jdk"><a href="#卸载CentOS7自带的jdk" class="headerlink" title="卸载CentOS7自带的jdk"></a>卸载CentOS7自带的jdk</h2></li>
+<li><img src="http://image.leeyom.top/20180209151818165842106.png" alt="20180209151818165842106.png"></li>
 </ul>
 </li>
 </ul>
-<p>CentOS7自带的是openjdk，而我们平常开发用的jdk是sunjdk，所以需要卸载掉它自带的jdk，整个过程如下：</p>
+<h2 id="卸载CentOS7自带的jdk"><a href="#卸载CentOS7自带的jdk" class="headerlink" title="卸载CentOS7自带的jdk"></a>卸载CentOS7自带的jdk</h2><p>CentOS7自带的是openjdk，而我们平常开发用的jdk是sunjdk，所以需要卸载掉它自带的jdk，整个过程如下：</p>
 <ul>
 <li><p>使用命令：<code>rpm -qa|grep java</code>，查询系统自带的jdk，查询的结果如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@centos-linux ~]# rpm -qa|grep java</span><br><span class="line">java-1.7.0-openjdk-headless-1.7.0.91-2.6.2.3.el7.x86_64</span><br><span class="line">javapackages-tools-3.4.1-11.el7.noarch</span><br><span class="line">java-1.7.0-openjdk-1.7.0.91-2.6.2.3.el7.x86_64</span><br><span class="line">tzdata-java-2015g-1.el7.noarch</span><br><span class="line">python-javapackages-3.4.1-11.el7.noarch</span><br></pre></td></tr></table></figure>
