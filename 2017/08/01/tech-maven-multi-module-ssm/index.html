@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/15017730044316.jpg">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/15017730986546.jpg">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/15017732128821.jpg">
-<meta property="og:updated_time" content="2018-02-11T03:32:01.000Z">
+<meta property="og:updated_time" content="2018-02-11T03:39:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建">
 <meta name="twitter:description" content="我想大多数做java开发的同学对SSM框架的搭建已经都轻车熟路了，但是大家搭建的大多数是单模块的，网上也有非常多的例子，但是如何用maven去构建多module的ssm项目呢？下面来手把手的，利用IntelliJ IDEA搭建一次多module的ssm项目，给大家一个参考。">
@@ -454,8 +454,9 @@
 <li><code>ssm-web</code>依赖于<code>ssm-service</code>。</li>
 <li><code>ssm-service</code> 继承了父级的pom，同时还依赖<code>ssm-dao</code>模块。</li>
 <li><code>ssm-dao</code>模块依赖于<code>ssm-pojo</code>。</li>
-<li>父级pom依赖<code>ssm-common</code>。<br>这样一来，就不会出现循环依赖，而导致jar包非常的臃肿。</li>
+<li>父级pom依赖<code>ssm-common</code>。</li>
 </ul>
+<p>这样一来，就不会出现循环依赖，而导致jar包非常的臃肿。</p>
 </li>
 </ul>
 <h1 id="SSM框架的整合"><a href="#SSM框架的整合" class="headerlink" title="SSM框架的整合"></a>SSM框架的整合</h1><p>通过上面搭建maven好的maven多模块项目的骨架，现在就可以开始ssm项目的整合了，我的开发环境和所用的三大框架的版本如下：</p>
