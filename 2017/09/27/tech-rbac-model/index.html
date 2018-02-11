@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="csdn上一篇很好的讲解权限模型的文章，特地摘抄下来，供大家阅读参考。">
+<meta name="description" content="RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般者是多对多的关系。（如下图）">
 <meta name="keywords" content="权限模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RBAC权限模型">
 <meta property="og:url" content="http://leeyom.top/2017/09/27/tech-rbac-model/index.html">
 <meta property="og:site_name" content="Leeyom的个人站">
-<meta property="og:description" content="csdn上一篇很好的讲解权限模型的文章，特地摘抄下来，供大家阅读参考。">
+<meta property="og:description" content="RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般者是多对多的关系。（如下图）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/BDUYwPp.jpg">
 <meta property="og:image" content="https://i.imgur.com/UPW1hAj.jpg">
 <meta property="og:image" content="https://i.imgur.com/l951rjd.jpg">
 <meta property="og:image" content="https://i.imgur.com/NoJhB1e.jpg">
-<meta property="og:updated_time" content="2017-12-19T14:14:56.000Z">
+<meta property="og:updated_time" content="2018-02-11T05:20:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RBAC权限模型">
-<meta name="twitter:description" content="csdn上一篇很好的讲解权限模型的文章，特地摘抄下来，供大家阅读参考。">
+<meta name="twitter:description" content="RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般者是多对多的关系。（如下图）">
 <meta name="twitter:image" content="https://i.imgur.com/BDUYwPp.jpg">
 
 
@@ -392,11 +392,10 @@
       
 
       
-        <p>csdn上一篇很好的讲解权限模型的文章，特地摘抄下来，供大家阅读参考。</p>
+        <p>RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般者是多对多的关系。（如下图）</p>
 <a id="more"></a>
-<p>RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般者是多对多的关系。（如下图）</p>
 <p><img src="https://i.imgur.com/BDUYwPp.jpg" alt="RBAC权限模型"></p>
-<p>角色是什么？可以理解为一定数量的权限的集合，权限的载体。例如：一个论坛系统，“超级管理员”、“版主”都是角色。版主可管理版内的帖子、可管理版内的用户等，这些是权限。要给某个用户授予这些权限，不需要直接将权限授予用户，可将“版主”这个角色赋予该用户。 </p>
+<p>角色是什么？可以理解为一定数量的权限的集合，权限的载体。例如：一个论坛系统，“超级管理员”、“版主”都是角色。版主可管理版内的帖子、可管理版内的用户等，这些是权限。要给某个用户授予这些权限，不需要直接将权限授予用户，可将“版主”这个角色赋予该用户。</p>
 <p>当用户的数量非常大时，要给系统每个用户逐一授权（授角色），是件非常烦琐的事情。这时，就需要给用户分组，每个用户组内有多个用户。除了可给用户授权外，还可以给用户组授权。这样一来，用户拥有的所有权限，就是用户个人拥有的权限与该用户所在用户组拥有的权限之和。（下图为用户组、用户与角色三者的关联关系）</p>
 <p><img src="https://i.imgur.com/UPW1hAj.jpg" alt="引入用户组"></p>
 <p>在应用系统中，权限表现成什么？对功能模块的操作，对上传文件的删改，菜单的访问，甚至页面上某个按钮、某个图片的可见性控制，都可属于权限的范畴。有些权限设计，会把功能操作作为一类，而把文件、菜单、页面元素等作为另一类，这样构成“用户-角色-权限-资源”的授权模型。而在做数据表建模时，可把功能操作和资源统一管理，也就是都直接与权限表进行关联，这样可能更具便捷性和易扩展性。（见下图）</p>
@@ -440,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/26/tech-hexo-error/" rel="next" title="hexo指令错误修复记录">
-                <i class="fa fa-chevron-left"></i> hexo指令错误修复记录
+              <a href="/2017/09/25/tech-swagger-annotation/" rel="next" title="swagger注解总结">
+                <i class="fa fa-chevron-left"></i> swagger注解总结
               </a>
             
           </div>
@@ -529,7 +528,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -551,7 +550,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

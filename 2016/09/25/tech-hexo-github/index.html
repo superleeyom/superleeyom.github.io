@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://leeyom.top/img/sshSetting.png">
 <meta property="og:image" content="http://leeyom.top/img/SSHkeys2.png">
 <meta property="og:image" content="http://leeyom.top/img/mistake_2.png">
-<meta property="og:updated_time" content="2017-12-19T14:12:11.000Z">
+<meta property="og:updated_time" content="2018-02-11T05:47:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github搭建个人博客网站">
 <meta name="twitter:description" content="之前一直想搭建一个自己的个人博客，用来记录一些自己的个技术笔记，但是因为种种原因被耽搁了，趁周末有时间，终于把博客搭建好了，下面记录一下整个搭建的过程，也给想搭建博客的同学一个参考。">
@@ -408,36 +408,40 @@
 <p>桌面鼠标右击，选择Git Bash Here ，打开git命令行窗口，如下图</p>
 <p><img src="/img/gitbash.png" alt="Git Bash Here"></p>
 <p>输入安装命令，回车</p>
-<p><code>npm install -g hexo</code></p>
-<p>然后在指定的盘新建一个hexo文件夹，进入到新建的这个文件夹内，点击鼠标右键，选择Git Bash Here，输入初始化指令，回车，就会看到生成一系列的文件：</p>
-<p><code>hexo init</code></p>
-<p>安装相关的依赖包，输入下面的指令，回车</p>
-<p><code>npm install</code></p>
-<blockquote>
-<p>下面来解说一下各个文件夹的作用，指定文件夹的目录如下：</p>
-</blockquote>
-<p><img src="/img/direction.png" alt="hexo文件目录"></p>
-<blockquote>
 <ul>
-<li>_config.yml：用来配置站点信息，大多数配置都在这里进行。</li>
-<li>package.json：管理我们安装的一些插件，我们要删除某些插件的时候，可以在这里进行。</li>
-<li>scaffolds：模板文件夹。</li>
-<li>source：源文件夹是存放用户资源的地方,他下面有一个_posts，文件夹，我们发表的文件就存放在这个文件夹下。</li>
-<li>themes：主题文件夹，Hexo 会根据主题来生成静态页面。</li>
+<li><code>npm install -g hexo</code></li>
 </ul>
-</blockquote>
-<p>接着在hexo文件夹下执行</p>
-<p><code>hexo g</code></p>
-<p><code>hexo s</code></p>
+<p>然后在指定的盘新建一个hexo文件夹，进入到新建的这个文件夹内，点击鼠标右键，选择Git Bash Here，输入初始化指令，回车，就会看到生成一系列的文件：</p>
+<ul>
+<li><code>hexo init</code></li>
+</ul>
+<p>安装相关的依赖包，输入下面的指令，回车</p>
+<ul>
+<li><code>npm install</code></li>
+</ul>
+<p>下面来解说一下各个文件夹的作用，指定文件夹的目录如下：</p>
+<p><img src="/img/direction.png" alt="hexo文件目录"></p>
+<ul>
+<li><code>_config.yml</code>：用来配置站点信息，大多数配置都在这里进行。</li>
+<li><code>package.json</code>：管理我们安装的一些插件，我们要删除某些插件的时候，可以在这里进行。</li>
+<li><code>scaffolds</code>：模板文件夹。</li>
+<li><code>source</code>：源文件夹是存放用户资源的地方,他下面有一个_posts，文件夹，我们发表的文件就存放在这个文件夹下。</li>
+<li><code>themes</code>：主题文件夹，Hexo 会根据主题来生成静态页面。</li>
+</ul>
+<p>接着在hexo文件夹下执行：</p>
+<ul>
+<li><code>hexo g</code></li>
+<li><code>hexo s</code></li>
+</ul>
 <p>然后用浏览器访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>，就能看到hexo初始化界面，是不是很激动呢？但是这个界面只有我们自己可以看到，要想别人看到怎么办呢？ok，接下来我们就来完成这一步骤。</p>
 <h2 id="创建一个github账号"><a href="#创建一个github账号" class="headerlink" title="创建一个github账号"></a>创建一个github账号</h2><p>已经有账号的暂时忽略这一步，传送门：<a href="https://github.com/" target="_blank" rel="noopener">github</a>，没有的话就老老实实创建一个吧。</p>
 <h2 id="创建一个仓库"><a href="#创建一个仓库" class="headerlink" title="创建一个仓库"></a>创建一个仓库</h2><p>我们有了账号以后，便可以创建repository，中文即是仓库，如下图所示</p>
 <p><img src="/img/repository.png" alt="仓库"></p>
 <p>这里仓库的名字要注意，格式应该是：<strong>你的github账号名字.github.io</strong>，像我的就是 wangleeyom.github.io。为什么要这么设置，我也不太清楚，可能是github约定的吧</p>
-<h2 id="部署文件到github"><a href="#部署文件到github" class="headerlink" title="部署文件到github"></a>部署文件到github</h2><p>用notepad++或者sublime打开 hexo 文件夹下的 _config.yml 文件，找到关键字 deploy ，然后修改成如下，我就用我自己的做示例：</p>
+<h2 id="部署文件到github"><a href="#部署文件到github" class="headerlink" title="部署文件到github"></a>部署文件到github</h2><p>用notepad++或者sublime打开 hexo 文件夹下的 <code>_config.yml</code> 文件，找到关键字 deploy ，然后修改成如下，我就用我自己的做示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/wangleeyom/wangleeyom.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>需要注意的一点：<strong>冒号后面要有一个空格</strong>，比如 type 冒号后面要加一个空格，很多同学部署不上去就是问题出在这里，需要注意，修改完以后，保存即可。</p>
-<p>但是这样还不能连接到 github ，我们还需要配置SSH，找到路径C:\Users\leeyom.ssh，如果已经存在SSH Keys ，直接删除.ssh 文件夹下的所有的文件，如下图。 </p>
+<p>但是这样还不能连接到 github ，我们还需要配置SSH，找到路径<code>C:\Users\leeyom\.ssh</code>，如果已经存在SSH Keys ，直接删除<code>.ssh</code> 文件夹下的所有的文件，如下图。</p>
 <p><img src="/img/sshKeys.png" alt="SSH Keys"></p>
 <p>然后输入以下指令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;635709492@qq.com&quot;</span><br></pre></td></tr></table></figure>
@@ -471,15 +475,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>执行以下命令部署项目到github</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>但是输入hexo d 可能会报 <strong>ERROR Deployer not fount： git</strong>错误,这是因为没有安装hexo-deployer-git这个模块，无法识别该指令，安装该模块即可，输入如下命令：</p>
+<p>但是输入hexo d 可能会报 <strong>ERROR Deployer not fount： git</strong> 错误,这是因为没有安装<code>hexo-deployer-git</code>这个模块，无法识别该指令，安装该模块即可，输入如下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>可能网速的原因，安装该模块的时候，很慢，需要等待一会儿。我安装的时候一直没动静，以为挂掉了，试了几次都不行。后来出去有事，就执行命令后就不管他了，回来后，就安装好了。</p>
-<p>安装好以后输入 hexo d ，会有弹出框，输入github账号密码即可，就可以访问了。浏览器输入 wangleeyom.github.io 即可访问，烦人的404没有了，出现的是 hexo 默认界面。</p>
+<p>可能网速的原因，安装该模块的时候，很慢，需要等待一会儿。我安装的时候一直没动静，以为挂掉了，试了几次都不行。后来出去有事，就执行命令后就不管他了，回来后，就安装好了。<br>安装好以后输入 hexo d ，会有弹出框，输入github账号密码即可，就可以访问了。浏览器输入 <code>wangleeyom.github.io</code> 即可访问，烦人的404没有了，出现的是 hexo 默认界面。</p>
 <h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>假如一直出现如下图的错误，一直无法发布到github上</p>
 <p><img src="/img/mistake_2.png" alt=""></p>
 <p>尝试将站点配置_config.yml的deploy部分更改成:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git://github.com/wangleeyom/wangleeyom.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>也就是把https换成git试试。 </p>
+<p>也就是把https换成git试试。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>至此，hexo 的搭建就完成了，是不是很激动呢？别着急，界面是不是很丑？咋发表文章呢？哈哈。。后面有时间的话会讲解如何发布文章，添加tags，分类，更换主题，如何绑定域名，如何接入第三方的服务等一系列的问题，敬请期待。。。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li>本文章很大一部分参考的 <a href="http://www.jianshu.com/p/ba76165ca84d" target="_blank" rel="noopener">http://www.jianshu.com/p/ba76165ca84d</a> ，感谢该作者。</li>
@@ -617,7 +620,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +642,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

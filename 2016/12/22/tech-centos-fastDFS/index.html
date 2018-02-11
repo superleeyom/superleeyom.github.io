@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="centOS上搭建FastDFS图片服务器教程。">
+<meta name="description" content="FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
 <meta name="keywords" content="FastDFS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centOS上搭建FastDFS图片服务器教程">
 <meta property="og:url" content="http://leeyom.top/2016/12/22/tech-centos-fastDFS/index.html">
 <meta property="og:site_name" content="Leeyom的个人站">
-<meta property="og:description" content="centOS上搭建FastDFS图片服务器教程。">
+<meta property="og:description" content="FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223801021.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223932372.png">
@@ -106,10 +106,10 @@
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011257498nginxModule4.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011214771QQ20170112-225034@2x.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011235411QQ20170112-225350@2x.png">
-<meta property="og:updated_time" content="2017-12-19T14:05:41.000Z">
+<meta property="og:updated_time" content="2018-02-11T05:37:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centOS上搭建FastDFS图片服务器教程">
-<meta name="twitter:description" content="centOS上搭建FastDFS图片服务器教程。">
+<meta name="twitter:description" content="FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
 <meta name="twitter:image" content="http://og1m51u2s.bkt.clouddn.com/20161223801021.png">
 
 
@@ -407,8 +407,8 @@
       
 
       
-        <p>centOS上搭建FastDFS图片服务器教程。<br><a id="more"></a></p>
-<h2 id="什么是FastDFS"><a href="#什么是FastDFS" class="headerlink" title="什么是FastDFS"></a>什么是FastDFS</h2><p>FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
+        <p>FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
+<a id="more"></a>
 <p><img src="http://og1m51u2s.bkt.clouddn.com/20161223801021.png" alt="20161223801021.png"></p>
 <h2 id="文件上传流程"><a href="#文件上传流程" class="headerlink" title="文件上传流程"></a>文件上传流程</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/20161223932372.png" alt="20161223932372.png"></p>
 <h2 id="文件下载流程"><a href="#文件下载流程" class="headerlink" title="文件下载流程"></a>文件下载流程</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/20161223635383.png" alt="20161223635383.png"></p>
@@ -633,7 +633,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -655,7 +655,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -760,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是FastDFS"><span class="nav-number">1.</span> <span class="nav-text">什么是FastDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传流程"><span class="nav-number">2.</span> <span class="nav-text">文件上传流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件下载流程"><span class="nav-number">3.</span> <span class="nav-text">文件下载流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传文件的文件名"><span class="nav-number">4.</span> <span class="nav-text">上传文件的文件名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastDFS搭建"><span class="nav-number">5.</span> <span class="nav-text">FastDFS搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">5.1.</span> <span class="nav-text">搭建步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件下载"><span class="nav-number">6.</span> <span class="nav-text">文件下载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传流程"><span class="nav-number">1.</span> <span class="nav-text">文件上传流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件下载流程"><span class="nav-number">2.</span> <span class="nav-text">文件下载流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传文件的文件名"><span class="nav-number">3.</span> <span class="nav-text">上传文件的文件名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastDFS搭建"><span class="nav-number">4.</span> <span class="nav-text">FastDFS搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">4.1.</span> <span class="nav-text">搭建步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件下载"><span class="nav-number">5.</span> <span class="nav-text">文件下载</span></a></li></ol></div>
             
 
           </div>

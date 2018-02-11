@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="最近项目中用到了反向代理服务器nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。">
+<meta name="description" content="是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。最近项目中用到了反向代理服务器 nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在centOS上安装nginx教程">
 <meta property="og:url" content="http://leeyom.top/2016/12/08/tech-centOS-nginx/index.html">
 <meta property="og:site_name" content="Leeyom的个人站">
-<meta property="og:description" content="最近项目中用到了反向代理服务器nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。">
+<meta property="og:description" content="是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。最近项目中用到了反向代理服务器 nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016120810700QQ20161208-0@2x.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016120852810QQ20161208-1@2x.png">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016121586546nginxConf.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016121520476dns.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016121556448QQ20161215-205921@2x.png">
-<meta property="og:updated_time" content="2017-12-19T14:13:28.000Z">
+<meta property="og:updated_time" content="2018-02-11T05:38:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在centOS上安装nginx教程">
-<meta name="twitter:description" content="最近项目中用到了反向代理服务器nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。">
+<meta name="twitter:description" content="是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。最近项目中用到了反向代理服务器 nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx">
 <meta name="twitter:image" content="http://og1m51u2s.bkt.clouddn.com/2016120810700QQ20161208-0@2x.png">
 
 
@@ -394,9 +394,7 @@
       
 
       
-        <p>最近项目中用到了反向代理服务器<strong>nginx</strong>，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。</p>
-<a id="more"></a>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。</p>
+        <p>是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。最近项目中用到了反向代理服务器 nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。</p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
 <li>http服务器。Nginx是一个http服务可以独立提供http服务。可以做网页静态服务器。</li>
 <li>虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。</li>
@@ -436,9 +434,9 @@
 </ol>
 <h2 id="nginx启动与停止"><a href="#nginx启动与停止" class="headerlink" title="nginx启动与停止"></a>nginx启动与停止</h2><ol>
 <li><p>启动：进入到/usr/local/nginx/sbin，终端输入 ./nginx 就可以启动。浏览器访问 输入linux 主机 ip出现如下图，说明配置安装成功。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016120852810QQ20161208-1@2x.png" alt="2016120852810QQ20161208-1@2x.png"> </p>
+<p><img src="http://og1m51u2s.bkt.clouddn.com/2016120852810QQ20161208-1@2x.png" alt="2016120852810QQ20161208-1@2x.png"></p>
 <p>中间有遇到过一个小问题，就是在centOS上本机可以访问，但是我在mac机器上却无法访问，后来上网寻找到解决办法，是centOS防火墙的原因，执行如下的命令，即可解决.</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016120855490QQ20161208-2@2x.png" alt="2016120855490QQ20161208-2@2x.png">    </p>
+<p><img src="http://og1m51u2s.bkt.clouddn.com/2016120855490QQ20161208-2@2x.png" alt="2016120855490QQ20161208-2@2x.png"></p>
 </li>
 <li><p>关闭nginx：在sbin目录下执行命令：<strong>./nginx -s stop</strong></p>
 </li>
@@ -458,7 +456,7 @@
 <p>这样在浏览器输入<code>test.taotao.com</code>、<code>test2.taotao.com</code>、<code>test3.taotao.com</code>，都会访问linux 主机80端口。</p>
 </li>
 <li><p>配置基于域名的虚拟主机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;  </span><br><span class="line">		listen       80;  </span><br><span class="line">		server_name  域名;  </span><br><span class="line">		</span><br><span class="line">		#charset koi8-r;  </span><br><span class="line">		</span><br><span class="line">		#access_log  logs/host.access.log  main;  </span><br><span class="line">		</span><br><span class="line">		location / &#123;  </span><br><span class="line">			root   html-test3;  </span><br><span class="line">			index  index.html index.htm;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;  </span><br><span class="line">		listen       80;  </span><br><span class="line">		server_name  域名;  </span><br><span class="line"></span><br><span class="line">		#charset koi8-r;  </span><br><span class="line"></span><br><span class="line">		#access_log  logs/host.access.log  main;  </span><br><span class="line"></span><br><span class="line">		location / &#123;  </span><br><span class="line">			root   html-test3;  </span><br><span class="line">			index  index.html index.htm;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <p>修改后要重新刷新<code>ngin.conf</code>配置文件。</p>
 </li>
 </ol>
@@ -591,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -613,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -718,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">3.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">4.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nginx依赖的包"><span class="nav-number">5.</span> <span class="nav-text">安装nginx依赖的包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gcc"><span class="nav-number">5.1.</span> <span class="nav-text">gcc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCRE"><span class="nav-number">5.2.</span> <span class="nav-text">PCRE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zlib"><span class="nav-number">5.3.</span> <span class="nav-text">zlib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#openssl"><span class="nav-number">5.4.</span> <span class="nav-text">openssl</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">6.</span> <span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx启动与停止"><span class="nav-number">7.</span> <span class="nav-text">nginx启动与停止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Niginx的配置"><span class="nav-number">8.</span> <span class="nav-text">Niginx的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用nginx配置虚拟机"><span class="nav-number">9.</span> <span class="nav-text">使用nginx配置虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过端口区分虚拟机"><span class="nav-number">9.1.</span> <span class="nav-text">通过端口区分虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过域名区分虚拟主机"><span class="nav-number">9.2.</span> <span class="nav-text">通过域名区分虚拟主机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过域名如何访问web服务器"><span class="nav-number">9.2.1.</span> <span class="nav-text">通过域名如何访问web服务器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">3.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nginx依赖的包"><span class="nav-number">4.</span> <span class="nav-text">安装nginx依赖的包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gcc"><span class="nav-number">4.1.</span> <span class="nav-text">gcc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCRE"><span class="nav-number">4.2.</span> <span class="nav-text">PCRE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zlib"><span class="nav-number">4.3.</span> <span class="nav-text">zlib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#openssl"><span class="nav-number">4.4.</span> <span class="nav-text">openssl</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">5.</span> <span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx启动与停止"><span class="nav-number">6.</span> <span class="nav-text">nginx启动与停止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Niginx的配置"><span class="nav-number">7.</span> <span class="nav-text">Niginx的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用nginx配置虚拟机"><span class="nav-number">8.</span> <span class="nav-text">使用nginx配置虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过端口区分虚拟机"><span class="nav-number">8.1.</span> <span class="nav-text">通过端口区分虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过域名区分虚拟主机"><span class="nav-number">8.2.</span> <span class="nav-text">通过域名区分虚拟主机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过域名如何访问web服务器"><span class="nav-number">8.2.1.</span> <span class="nav-text">通过域名如何访问web服务器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

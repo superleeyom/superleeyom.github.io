@@ -944,9 +944,8 @@
     <entry>
       <title><![CDATA[Java开发工程师进阶书单]]></title>
       <url>/2017/10/15/tech-java-book-list/</url>
-      <content type="html"><![CDATA[<p>不想做架构师的程序员不是好程序员，希望这份书单能帮到你。</p>
+      <content type="html"><![CDATA[<p>在做了一年多的开发后，感觉自己一直在停留在只会用的水平，但是要深究到某项技术的核心原理，自己也答不上个所以然来。每个程序员都是从最简单的CRUD写起，但是简单的业务逻辑代码写多了的时候，就会让人陷入一个麻木的状态，会让人安于现状。如何才能脱离这个怪圈，让自己成为一名合格的程序员呢？书籍是人类最好的精神粮食，程序员除了写代码，也应该静下心来，多阅读些技术相关的书籍。这样可以帮助我们更深层次的理解某个知识点。下面我自己从网上收集到的一些Java开发的进阶书籍，均为高清的pdf文档，重点都是有书签目录的，方便可以定位查阅。文档我都上传到百度云，如果经济允许的话，可以购买纸质实体书支持原作者。</p>
 <a id="more"></a>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在做了一年多的开发后，感觉自己一直在停留在只会用的水平，但是要深究到某项技术的核心原理，自己也答不上个所以然来。每个程序员都是从最简单的CRUD写起，但是简单的业务逻辑代码写多了的时候，就会让人陷入一个麻木的状态，会让人安于现状。如何才能脱离这个怪圈，让自己成为一名合格的程序员呢？书籍是人类最好的精神粮食，程序员除了写代码，也应该静下心来，多阅读些技术相关的书籍。这样可以帮助我们更深层次的理解某个知识点。下面我自己从网上收集到的一些Java开发的进阶书籍，均为高清的pdf文档，重点都是有书签目录的，方便可以定位查阅。文档我都上传到百度云，如果经济允许的话，可以购买纸质实体书支持原作者。</p>
 <h1 id="书籍列表"><a href="#书籍列表" class="headerlink" title="书籍列表"></a>书籍列表</h1><h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><ol>
 <li><a href="https://pan.baidu.com/s/1c1653Ug" target="_blank" rel="noopener">Java多线程编程核心技术.pdf</a> ，提取密码：xxck</li>
 <li><a href="https://pan.baidu.com/s/1dFxWjU5" target="_blank" rel="noopener">Java面试宝典2016版.pdf</a>，提取密码：31hp</li>
@@ -1003,11 +1002,10 @@
     <entry>
       <title><![CDATA[RBAC权限模型]]></title>
       <url>/2017/09/27/tech-rbac-model/</url>
-      <content type="html"><![CDATA[<p>csdn上一篇很好的讲解权限模型的文章，特地摘抄下来，供大家阅读参考。</p>
+      <content type="html"><![CDATA[<p>RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般者是多对多的关系。（如下图）</p>
 <a id="more"></a>
-<p>RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般者是多对多的关系。（如下图）</p>
 <p><img src="https://i.imgur.com/BDUYwPp.jpg" alt="RBAC权限模型"></p>
-<p>角色是什么？可以理解为一定数量的权限的集合，权限的载体。例如：一个论坛系统，“超级管理员”、“版主”都是角色。版主可管理版内的帖子、可管理版内的用户等，这些是权限。要给某个用户授予这些权限，不需要直接将权限授予用户，可将“版主”这个角色赋予该用户。 </p>
+<p>角色是什么？可以理解为一定数量的权限的集合，权限的载体。例如：一个论坛系统，“超级管理员”、“版主”都是角色。版主可管理版内的帖子、可管理版内的用户等，这些是权限。要给某个用户授予这些权限，不需要直接将权限授予用户，可将“版主”这个角色赋予该用户。</p>
 <p>当用户的数量非常大时，要给系统每个用户逐一授权（授角色），是件非常烦琐的事情。这时，就需要给用户分组，每个用户组内有多个用户。除了可给用户授权外，还可以给用户组授权。这样一来，用户拥有的所有权限，就是用户个人拥有的权限与该用户所在用户组拥有的权限之和。（下图为用户组、用户与角色三者的关联关系）</p>
 <p><img src="https://i.imgur.com/UPW1hAj.jpg" alt="引入用户组"></p>
 <p>在应用系统中，权限表现成什么？对功能模块的操作，对上传文件的删改，菜单的访问，甚至页面上某个按钮、某个图片的可见性控制，都可属于权限的范畴。有些权限设计，会把功能操作作为一类，而把文件、菜单、页面元素等作为另一类，这样构成“用户-角色-权限-资源”的授权模型。而在做数据表建模时，可把功能操作和资源统一管理，也就是都直接与权限表进行关联，这样可能更具便捷性和易扩展性。（见下图）</p>
@@ -1033,35 +1031,6 @@
         <tags>
             
             <tag> 权限模型 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[hexo指令错误修复记录]]></title>
-      <url>/2017/09/26/tech-hexo-error/</url>
-      <content type="html"><![CDATA[<p>最近不知道为什么，反正只要终端执行 hexo 命令，都会报一个莫名奇妙的错误，但是又不影响程序的运行。作为一名强迫症患者，实在无法忍受，经过无数次实验，最终将此问题进行解决。</p>
-<a id="more"></a>
-<p>此错误如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123; Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;</span><br><span class="line">    at Function.Module._resolveFilename (module.js:485:15)</span><br><span class="line">    at Function.Module._load (module.js:437:25)</span><br><span class="line">    at Module.require (module.js:513:17)</span><br><span class="line">    at require (internal/module.js:11:18)</span><br><span class="line">    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo-cli/node_modules/dtrace-provider/dtrace-provider.js:18:23)</span><br><span class="line">    at Module._compile (module.js:569:30)</span><br><span class="line">    at Object.Module._extensions..js (module.js:580:10)</span><br><span class="line">    at Module.load (module.js:503:32)</span><br><span class="line">    at tryModuleLoad (module.js:466:12)</span><br><span class="line">    at Function.Module._load (module.js:458:3)</span><br><span class="line">    at Module.require (module.js:513:17)</span><br><span class="line">    at require (internal/module.js:11:18)</span><br><span class="line">    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo-cli/node_modules/bunyan/lib/bunyan.js:79:18)</span><br><span class="line">    at Module._compile (module.js:569:30)</span><br><span class="line">    at Object.Module._extensions..js (module.js:580:10)</span><br><span class="line">    at Module.load (module.js:503:32) code: &apos;MODULE_NOT_FOUND&apos; &#125;</span><br></pre></td></tr></table></figure>
-<p>具体的意思应该是什么模块找不到，我试了网上各种办法，什么重装 hexo，安装简洁版的 hexo，将 npm 镜像换成淘宝镜像，hexo 重装不知道多少次还是报同样的错误，但是他报错就报错，又不影响程序运行，就很奇怪。搞得我快疯了，最后我没办法了，根据异常，找到出错的文件：<code>/usr/local/lib/node_modules/hexo-cli/node_modules/dtrace-provider/dtrace-provider.js</code>。定位到如下的代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> builds) &#123;</span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="keyword">var</span> binding = <span class="built_in">require</span>(<span class="string">'./build/'</span> + builds[i] + <span class="string">'/DTraceProviderBindings'</span>);</span><br><span class="line">         DTraceProvider = binding.DTraceProvider;</span><br><span class="line">         <span class="keyword">break</span>;</span><br><span class="line">     &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">         <span class="keyword">if</span> (err === <span class="literal">null</span>) &#123;</span><br><span class="line">             err = e;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!DTraceProvider) &#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * If the platform looks like it _should_ have DTrace</span></span><br><span class="line"><span class="comment">     * available, log a failure to load the bindings.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (process.platform === <span class="string">'darwin'</span> ||</span><br><span class="line">        process.platform === <span class="string">'sunos'</span> ||</span><br><span class="line">        process.platform === <span class="string">'freebsd'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(err);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    DTraceProvider = DTraceProviderStub;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个异常不就是从这里 console 打印的出来的吗？我把你注释掉，眼不见心不烦，反正你又不影响程序运行，注释如下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for (var i in builds) &#123;</span></span><br><span class="line"><span class="comment">//     try &#123;</span></span><br><span class="line"><span class="comment">//         var binding = require('./build/' + builds[i] + '/DTraceProviderBindings');</span></span><br><span class="line"><span class="comment">//         DTraceProvider = binding.DTraceProvider;</span></span><br><span class="line"><span class="comment">//         break;</span></span><br><span class="line"><span class="comment">//     &#125; catch (e) &#123;</span></span><br><span class="line"><span class="comment">//         if (err === null) &#123;</span></span><br><span class="line"><span class="comment">//             err = e;</span></span><br><span class="line"><span class="comment">//         &#125;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!DTraceProvider) &#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * If the platform looks like it _should_ have DTrace</span></span><br><span class="line"><span class="comment">     * available, log a failure to load the bindings.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (process.platform === <span class="string">'darwin'</span> ||</span><br><span class="line">        process.platform === <span class="string">'sunos'</span> ||</span><br><span class="line">        process.platform === <span class="string">'freebsd'</span>) &#123;</span><br><span class="line">        <span class="comment">// console.error(err);</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    DTraceProvider = DTraceProviderStub;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后随便运行一个 hexo 指令，发现错误确实没有了~ 终于治好了我的强迫症~ </p>
-]]></content>
-      
-        <categories>
-            
-            <category> 资源 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> hexo </tag>
             
         </tags>
         
@@ -1761,10 +1730,10 @@
     <entry>
       <title><![CDATA[Java消息中间件ActiveMQ学习笔记]]></title>
       <url>/2017/07/23/tech-java-activemq-note/</url>
-      <content type="html"><![CDATA[<p>一篇关于ActiveMQ学习笔记.</p>
+      <content type="html"><![CDATA[<p>消息队列有两个基本的的用法，一个是作为服务内部的缓冲区，防流量高峰，也能达到异步处理的作用，一个是用于分布式系统，各个不同的进程(同一台机器或者不同机器)通过消息队列进行通信，最近闲着没事，就关于消息中间件ActiveMQ做了个简单的学习。</p>
 <a id="more"></a>
 <h2 id="什么是ActiveMQ？"><a href="#什么是ActiveMQ？" class="headerlink" title="什么是ActiveMQ？"></a>什么是ActiveMQ？</h2><ul>
-<li>术语定义 <ul>
+<li>术语定义<ul>
 <li>维基百科：<a href="https://zh.wikipedia.org/wiki/Apache_ActiveMQ" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Apache_ActiveMQ</a><blockquote>
 <p>Apache ActiveMQ是Apache软件基金会所研发的开放源代码消息中间件；由于ActiveMQ是一个纯Java程序，因此只需要操作系统支持Java虚拟机，ActiveMQ便可运行。</p>
 </blockquote>
@@ -1825,7 +1794,7 @@
 <li><code>Session</code>代表一个单线程的上下文，用于发送和接收消息。</li>
 <li><code>MessageConsumer</code>由会话创建，用于接收发送到目标的消息。</li>
 <li><code>MessageProducer</code>由会话创建，用于发送消息到目标。</li>
-<li><code>Message</code>是消费者和生产者之间传送的消息对象，消息头，一组消息属性，一个消息体。 </li>
+<li><code>Message</code>是消费者和生产者之间传送的消息对象，消息头，一组消息属性，一个消息体。</li>
 <li>编码接口关系示意图<img src="/img/15008010925844.jpg" alt=""></li>
 </ul>
 </li>
@@ -1853,7 +1822,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.leeyom.jms<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jms-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>jms-test Maven Webapp<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.activemq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>activemq-all<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.12.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>jms-test<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>项目结构</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">├── jms-test </span><br><span class="line">|    ├── java</span><br><span class="line">|    |   ├──com.leeyom.jms.queue <span class="comment">-- 队列模式</span></span><br><span class="line">|    |   |   ├── AppConsumer.java <span class="comment">-- 队列模式消费者</span></span><br><span class="line">|    |   |   ├── AppProducer.java <span class="comment">-- 队列模式生产者</span></span><br><span class="line">|    |   ├──com.leeyom.jms.topic <span class="comment">-- 主题模式</span></span><br><span class="line">|    |   |   ├── AppConsumer.java <span class="comment">-- 主题模式订阅者</span></span><br><span class="line">|    |   |   ├── AppProducer.java <span class="comment">-- 主题模式发布者</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">├── jms-test</span><br><span class="line">|    ├── java</span><br><span class="line">|    |   ├──com.leeyom.jms.queue <span class="comment">-- 队列模式</span></span><br><span class="line">|    |   |   ├── AppConsumer.java <span class="comment">-- 队列模式消费者</span></span><br><span class="line">|    |   |   ├── AppProducer.java <span class="comment">-- 队列模式生产者</span></span><br><span class="line">|    |   ├──com.leeyom.jms.topic <span class="comment">-- 主题模式</span></span><br><span class="line">|    |   |   ├── AppConsumer.java <span class="comment">-- 主题模式订阅者</span></span><br><span class="line">|    |   |   ├── AppProducer.java <span class="comment">-- 主题模式发布者</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="队列模式的消息演示"><a href="#队列模式的消息演示" class="headerlink" title="队列模式的消息演示"></a>队列模式的消息演示</h3><ol>
@@ -1962,51 +1931,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Hexo主题更换记]]></title>
-      <url>/2017/06/17/tech-hexo-theme-change/</url>
-      <content type="html"><![CDATA[<p>突然发现已经好久没有更博客了，一直忙着赶项目进度。这个月深圳真是多雨季节，已经连续下了好几天的雨了，非常不喜欢这种下雨的天气，潮湿闷热。今天下了一整天的雨，一直宅在宿舍，趁有时间，准备把hexo博客的主题换一下。因为之前用的是NexT的主题，由于改的面目全非，导致手机端的出现各种问题，加上之前多说评论关闭，干脆换个主题，换个心情。</p>
-<a id="more"></a>
-<h2 id="1-下载Yelee主题"><a href="#1-下载Yelee主题" class="headerlink" title="1. 下载Yelee主题"></a>1. 下载Yelee主题</h2><ul>
-<li>那前面也说了为什么要更换主题，这个主题是在Hexo官网的主题列表里面看到，整体的风格很简约，很喜欢这个style。整体的风格如下截图：<br><img src="http://og1m51u2s.bkt.clouddn.com/20170617149771105338719.png" alt="Yelee主题"></li>
-<li>将项目克隆到本地：<code>git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee</code></li>
-<li>将克隆下来的项目放到 <code>/hexo/themes/</code>文件夹下面</li>
-<li>修改站点配置文件<code>_config.yml</code>，将属性theme修改为<code>theme: yelee</code></li>
-</ul>
-<h2 id="2-将评论更换为友言"><a href="#2-将评论更换为友言" class="headerlink" title="2. 将评论更换为友言"></a>2. 将评论更换为友言</h2><p>因为多说已经关闭，所以没办法，只能更换评论系统，该主题主目前支持 Disqus，友言评论，这里我采用友言评论。</p>
-<ul>
-<li>去友言官网(<a href="http://www.uyan.cc/index.php" target="_blank" rel="noopener">http://www.uyan.cc/index.php</a>) 注册账号，会生成一个友言的数字ID</li>
-<li>打开主题配置文件，找到<code>youyan</code>属性，修改为：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">youyan:</span><br><span class="line">  on: true</span><br><span class="line">  id: 你的友言账号数字ID</span><br></pre></td></tr></table></figure>
-<ul>
-<li>更换评论后，需要部署后才能测试是否可以评论回复</li>
-<li>不知道为什么，明明友言的官网是支持将多说的评论导入进去，然而我把之前备份的多说评论json数据导入，始终导入失败。所以导致我的好多<strong><code>评论丢失</code></strong>！</li>
-</ul>
-<h2 id="3-参考资料"><a href="#3-参考资料" class="headerlink" title="3. 参考资料"></a>3. 参考资料</h2><ul>
-<li>Yelee主题作者Blog：<a href="http://moxfive.xyz/" target="_blank" rel="noopener">http://moxfive.xyz/</a> (感谢其无私的开源精神)</li>
-<li>Yelee主题使用说明：<a href="http://moxfive.xyz/yelee/" target="_blank" rel="noopener">http://moxfive.xyz/yelee/</a></li>
-</ul>
-]]></content>
-      
-        <categories>
-            
-            <category> 资源 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[触发器与存储过程讲义]]></title>
       <url>/2017/04/27/tech-trigger-procedure-note/</url>
-      <content type="html"><![CDATA[<p>什么是触发器？什么是存储过程？因为用的少，对这两块的知识有点模糊，趁着公司每周三技术分享，通过网上资料和看书，将这两块的知识点梳理了下，做成了一个讲义。</p>
+      <content type="html"><![CDATA[<p>什么是触发器？什么是存储过程？因为用的少，对这两块的知识有点模糊，趁着公司每周三技术分享，通过网上资料和看书，将这两块的知识点梳理了下，做成了一个讲义，顺便就放到博客上来了，随便看看就好，因为如果不是专业的DBA，平常也很难涉及到触发器和存储过程，而且在阿里巴巴的java开发手册中，明确的表示，尽量避免使用存储过程，所以，看看就好。</p>
 <a id="more"></a>
 <h1 id="TRIGGER-触发器"><a href="#TRIGGER-触发器" class="headerlink" title="TRIGGER(触发器)"></a>TRIGGER(触发器)</h1><h2 id="1-什么是触发器"><a href="#1-什么是触发器" class="headerlink" title="1. 什么是触发器?"></a>1. 什么是触发器?</h2><p>触发器，从字面来理解，一触即发的一个器，简称触发器（哈哈，个人理解），举个例子吧，好比天黑了，你开灯了，你看到东西了。你放炮仗，点燃了，一会就炸了。在MySQL Server里面也就是对某一个表的一定的操作，触发某种条件（Insert,Update,Delete 等），从而自动执行的一段程序，这就是触发器。</p>
 <p>支持触发器的语句有:</p>
@@ -2027,7 +1954,7 @@
 <p>在MySQL5中，触发器名必须在每个表中唯一，但不是在每个数据库中唯一。这表示同一数据库中的两个表可具有相同名字的触发器。</p>
 </blockquote>
 <p>示例:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> newproduct </span><br><span class="line"><span class="keyword">AFTER</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> products </span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">INSERT</span> <span class="keyword">INTO</span> message(message) <span class="keyword">VALUES</span>(<span class="string">'Product added'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> newproduct</span><br><span class="line"><span class="keyword">AFTER</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> products</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">INSERT</span> <span class="keyword">INTO</span> message(message) <span class="keyword">VALUES</span>(<span class="string">'Product added'</span>);</span><br></pre></td></tr></table></figure>
 <p>分析:</p>
 <p><code>CREATE TRIGGER</code> 用来创建名为 <code>newproduct</code> 的新触发器。触发器可在一个操作发生之前或之后执行，这里给出了 <code>AFTER INSERT</code>，所以此触发器将在 <code>INSERT</code> 语句成功执行后执行。这个触发器还指定 <code>FOR EACH ROW</code>，因此代码对每个插入行执行。在这个例子中， 将每次products插入一行的时候，同时往message的表中插入文本 <code>Product added</code>。</p>
 <p>注意：</p>
@@ -2046,7 +1973,7 @@
 <p>学生表</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`StudentInfo`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`StudentInfo`</span> (</span><br><span class="line">  <span class="string">`StuName`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`StuNo`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`StuClass`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Sex`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`StuNo`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
 <p>创建触发器</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> T_addStudent</span><br><span class="line"></span><br><span class="line"><span class="keyword">AFTER</span> <span class="keyword">INSERT</span> </span><br><span class="line">  </span><br><span class="line">  <span class="keyword">ON</span> StudentInfo <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">UPDATE</span> classInfo</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">SET</span> TotalNum = TotalNum + <span class="number">1</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">WHERE</span> ClassNo = (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> ClassNo</span><br><span class="line">                   </span><br><span class="line">                   <span class="keyword">FROM</span> StudentInfo);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> T_addStudent</span><br><span class="line"></span><br><span class="line"><span class="keyword">AFTER</span> <span class="keyword">INSERT</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">ON</span> StudentInfo <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">UPDATE</span> classInfo</span><br><span class="line"></span><br><span class="line">  <span class="keyword">SET</span> TotalNum = TotalNum + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">WHERE</span> ClassNo = (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> ClassNo</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">FROM</span> StudentInfo);</span><br></pre></td></tr></table></figure>
 <p>上面这段代码就是建立了一个插入触发器</p>
 <p><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fex17cloyrj30vm0c2myw.jpg" alt=""></p>
 <p>如上图所示</p>
@@ -2061,11 +1988,11 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> totalNum</span><br><span class="line"><span class="keyword">FROM</span> ClassInfo</span><br><span class="line"><span class="keyword">WHERE</span> ClassNo = <span class="string">'002'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> StudentInfo <span class="keyword">VALUES</span> (<span class="string">'小明'</span>, <span class="string">'003'</span>, <span class="string">'002'</span>, <span class="string">'男'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> StudentInfo <span class="keyword">VALUES</span> (<span class="string">'小花'</span>, <span class="string">'002'</span>, <span class="string">'002'</span>, <span class="string">'女'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> StudentInfo <span class="keyword">VALUES</span> (<span class="string">'小高'</span>, <span class="string">'004'</span>, <span class="string">'002'</span>, <span class="string">'女'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> totalNum</span><br><span class="line"><span class="keyword">FROM</span> ClassInfo</span><br><span class="line"><span class="keyword">WHERE</span> ClassNo = <span class="string">'002'</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="4-2-DELETE触发器"><a href="#4-2-DELETE触发器" class="headerlink" title="4.2 DELETE触发器"></a>4.2 DELETE触发器</h3><p>当数据库运行DELETE语句时，就会激活DELETE触发器，DELETE触发器用于约束用户能够从数据库中删除的数据，因为这些数据中，有些数据是不希望用户轻易删除的。</p>
 <p>接下来我们创建一个TeacherInfoFor(老师信息)表，如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`TeacherInfoFor`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`TeacherInfoFor`</span> (</span><br><span class="line">  <span class="string">`TeacherID`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`TeacherName`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Sex`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Age`</span> <span class="built_in">int</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Telephone`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`TeacherID`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`TeacherInfoFor`</span> <span class="keyword">VALUES</span> </span><br><span class="line">(<span class="string">'001'</span>, <span class="string">'王芳'</span>, <span class="string">'女'</span>, <span class="string">'23'</span>, <span class="string">'158'</span>), </span><br><span class="line">(<span class="string">'003'</span>, <span class="string">'张丽'</span>, <span class="string">'女'</span>, <span class="string">'28'</span>, <span class="string">'152'</span>), </span><br><span class="line">(<span class="string">'004'</span>, <span class="string">'张明'</span>, <span class="string">'男'</span>, <span class="string">'30'</span>, <span class="string">'138'</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`TeacherInfoFor`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`TeacherInfoFor`</span> (</span><br><span class="line">  <span class="string">`TeacherID`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`TeacherName`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Sex`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Age`</span> <span class="built_in">int</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Telephone`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`TeacherID`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`TeacherInfoFor`</span> <span class="keyword">VALUES</span></span><br><span class="line">(<span class="string">'001'</span>, <span class="string">'王芳'</span>, <span class="string">'女'</span>, <span class="string">'23'</span>, <span class="string">'158'</span>),</span><br><span class="line">(<span class="string">'003'</span>, <span class="string">'张丽'</span>, <span class="string">'女'</span>, <span class="string">'28'</span>, <span class="string">'152'</span>),</span><br><span class="line">(<span class="string">'004'</span>, <span class="string">'张明'</span>, <span class="string">'男'</span>, <span class="string">'30'</span>, <span class="string">'138'</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
 <p>创建Stu_Teacher(学生教师表)，如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`Stu_Teacher`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Stu_Teacher`</span> (</span><br><span class="line">  <span class="string">`StuNo`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`TeacherID`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`StuName`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`ID`</span> <span class="built_in">int</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`ID`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Stu_Teacher`</span> <span class="keyword">VALUES</span> </span><br><span class="line">(<span class="string">'001'</span>, <span class="string">'004'</span>, <span class="string">'二丫'</span>, <span class="string">'1'</span>), </span><br><span class="line">(<span class="string">'002'</span>, <span class="string">'004'</span>, <span class="string">'王小二'</span>, <span class="string">'2'</span>), </span><br><span class="line">(<span class="string">'003'</span>, <span class="string">'004'</span>, <span class="string">'花花'</span>, <span class="string">'3'</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`Stu_Teacher`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Stu_Teacher`</span> (</span><br><span class="line">  <span class="string">`StuNo`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`TeacherID`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`StuName`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`ID`</span> <span class="built_in">int</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`ID`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Stu_Teacher`</span> <span class="keyword">VALUES</span></span><br><span class="line">(<span class="string">'001'</span>, <span class="string">'004'</span>, <span class="string">'二丫'</span>, <span class="string">'1'</span>),</span><br><span class="line">(<span class="string">'002'</span>, <span class="string">'004'</span>, <span class="string">'王小二'</span>, <span class="string">'2'</span>),</span><br><span class="line">(<span class="string">'003'</span>, <span class="string">'004'</span>, <span class="string">'花花'</span>, <span class="string">'3'</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 <p>创建触发器：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> T_DELETETEACHERon </span><br><span class="line"><span class="keyword">AFTER</span> <span class="keyword">DELETE</span> <span class="keyword">ON</span> TeacherInfoFor </span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">DELETE</span> <span class="keyword">FROM</span> Stu_Teacher</span><br><span class="line"><span class="keyword">WHERE</span> TeacherID = old.TeacherID;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> T_DELETETEACHERon</span><br><span class="line"><span class="keyword">AFTER</span> <span class="keyword">DELETE</span> <span class="keyword">ON</span> TeacherInfoFor</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span> <span class="keyword">DELETE</span> <span class="keyword">FROM</span> Stu_Teacher</span><br><span class="line"><span class="keyword">WHERE</span> TeacherID = old.TeacherID;</span><br></pre></td></tr></table></figure>
 <p>该触发器的作用是，当删除某个教师的信息的时候，这个老师下面的学生信息也将一并的删除掉。</p>
 <p>测试：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> TeacherInfoFor <span class="keyword">WHERE</span> TeacherID = <span class="string">'004'</span>;</span><br></pre></td></tr></table></figure>
@@ -2089,8 +2016,6 @@
 <li><p>触发器语法</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">create</span> <span class="keyword">trigger</span> triggerName  </span><br><span class="line"><span class="keyword">after</span>/<span class="keyword">before</span> <span class="keyword">insert</span>/<span class="keyword">update</span>/<span class="keyword">delete</span> <span class="keyword">on</span> 表名  </span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span>   </span><br><span class="line"><span class="keyword">begin</span>  </span><br><span class="line">        <span class="keyword">sql</span>语句;  </span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<ol>
 <li><p>个人理解</p>
 <p>我的一般理解就是触发器是一个隐藏的存储过程，因为它不需要参数，不需要显示调用，往往在你不知情的情况下已经做了很多操作。</p>
 </li>
@@ -2120,10 +2045,10 @@
 <p>调用存储过程</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> getTotalById(<span class="string">'004'</span>, @total);</span><br><span class="line"><span class="keyword">select</span> @total;</span><br></pre></td></tr></table></figure>
 <h2 id="6-为什么不推荐使用Mysql触发器而用存储过程？"><a href="#6-为什么不推荐使用Mysql触发器而用存储过程？" class="headerlink" title="6. 为什么不推荐使用Mysql触发器而用存储过程？"></a>6. 为什么不推荐使用Mysql触发器而用存储过程？</h2><ol>
-<li>存储过程和触发器二者是有很大的联系的，我的一般理解就是触发器是一个隐藏的存储过程，因为它不需要参数，不需要显示调用，往往在你不知情的情况下已经做了很多操作。从这个角度来说，<span style="background:yellow;">由于是隐藏的，无形中增加了系统的复杂性，非DBA人员理解起来数据库就会有困难，因为它不执行根本感觉不到它的存在</span>。</li>
-<li>再有，涉及到复杂的逻辑的时候，触发器的嵌套是避免不了的，如果再涉及几个存储过程，再加上事务等等，很容易出现死锁现象，再调试的时候也会经常性的从一个触发器转到另外一个，级联关系的不断追溯，很容易使人头大。其实，从性能上，触发器并没有提升多少性能，只是从代码上来说，可能在coding的时候很容易实现业务，所以我的观点是：<span style="background:red;">摒弃触发器！触发器的功能基本都可以用存储过程来实现。</span></li>
+<li>存储过程和触发器二者是有很大的联系的，我的一般理解就是触发器是一个隐藏的存储过程，因为它不需要参数，不需要显示调用，往往在你不知情的情况下已经做了很多操作。从这个角度来说，<strong>由于是隐藏的，无形中增加了系统的复杂性，非DBA人员理解起来数据库就会有困难，因为它不执行根本感觉不到它的存在</strong>。</li>
+<li>再有，涉及到复杂的逻辑的时候，触发器的嵌套是避免不了的，如果再涉及几个存储过程，再加上事务等等，很容易出现死锁现象，再调试的时候也会经常性的从一个触发器转到另外一个，级联关系的不断追溯，很容易使人头大。其实，从性能上，触发器并没有提升多少性能，只是从代码上来说，可能在coding的时候很容易实现业务，所以我的观点是：<strong>摒弃触发器！触发器的功能基本都可以用存储过程来实现。</strong></li>
 <li>在编码中存储过程显示调用很容易阅读代码，触发器隐式调用容易被忽略。<br>存储过程也有他的致命伤↓</li>
-<li><span style="background:yellow;">存储过程的致命伤在于移植性，存储过程不能跨库移植，比如事先是在mysql数据库的存储过程，考虑性能要移植到oracle上面那么所有的存储过程都需要被重写一遍。</span></li>
+<li>存储过程的致命伤在于移植性，存储过程不能跨库移植，比如事先是在mysql数据库的存储过程，考虑性能要移植到oracle上面那么所有的存储过程都需要被重写一遍。</li>
 </ol>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li>《MySQL必知必会》: 链接: <a href="http://pan.baidu.com/s/1kVoNfGN" target="_blank" rel="noopener">http://pan.baidu.com/s/1kVoNfGN</a> 密码: 9acp</li>
@@ -2149,11 +2074,11 @@
     <entry>
       <title><![CDATA[数据库三范式]]></title>
       <url>/2017/04/04/tech-db-three/</url>
-      <content type="html"><![CDATA[<p>如何去理解数据库的三范式呢？下面是根据知乎上面的一些解答，总结出来的。</p>
+      <content type="html"><![CDATA[<p>设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。如何去理解数据库的三范式呢？下面是根据知乎上面的一些解答，总结出来的。</p>
 <a id="more"></a>
-<h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p><span style="color:red"><strong>属性不可分割</strong></span>。所谓的属性，就是我们说的字段，就比如学生信息表由姓名、年龄、性别、学号等组成，<span style="background-color:yellow">不可分割的意思按照字面理解就是不能拆分成最小的单位</span>。但是在国外，姓名是要分开的，也就是说姓名这个字段可以在分为 first name 和 last name，那么我们设计的这个表是不符合第一范式的。</p>
-<h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p>第二范式就是<span style="color:red"><strong>主键依赖</strong></span>，其他的字段都依赖主键。<span style="background-color:yellow">通过主键，我就可以获取到其他字段的值</span>。如果不依赖主键，我们就找不到他们。就像为什么学生信息表里面姓名不可以做主键，因为姓名存在同名，就违背了第二范式，学号是唯一的，是可以做为主键。</p>
-<h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p>第三范式就是要<span style="color:red"><strong>消除传递依赖</strong></span>，<span style="background-color:yellow">通俗一点就是消除冗余</span>。消除冗余应该比较好理解一些，就是各种信息只在一个地方存储，不出现在多张表中。就好比如说一个大学分了很多的系（计算机系、中文系、英语系。。。），这个系别管理表信息有以下字段组成：系编号，系主任，系简介，系架构。学生信息表中已经有姓名、年龄、学号、性别等字段，那能不能把系编号、系主任、系简介等字段一起存在学生信息表中呢？因为我们已经有系别管理表去存放系相关信息，再放到学生信息表中，就出现冗余，也就是传递依赖。这样就不符合第三范式，那么正确的做法是我们只需要添加一个系编号字段就行，根据该系编号字段，就可以获取到具体的系别信息，这就是第三范式。</p>
+<h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p><strong>属性不可分割</strong>。所谓的属性，就是我们说的字段，就比如学生信息表由姓名、年龄、性别、学号等组成，不可分割的意思按照字面理解就是不能拆分成最小的单位。但是在国外，姓名是要分开的，也就是说姓名这个字段可以在分为 first name 和 last name，那么我们设计的这个表是不符合第一范式的。</p>
+<h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p>第二范式就是 <strong>主键依赖</strong>，其他的字段都依赖主键。通过主键，我就可以获取到其他字段的值。如果不依赖主键，我们就找不到他们。就像为什么学生信息表里面姓名不可以做主键，因为姓名存在同名，就违背了第二范式，学号是唯一的，是可以做为主键。</p>
+<h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p>第三范式就是要 <strong>消除传递依赖</strong>，通俗一点就是消除冗余。消除冗余应该比较好理解一些，就是各种信息只在一个地方存储，不出现在多张表中。就好比如说一个大学分了很多的系（计算机系、中文系、英语系。。。），这个系别管理表信息有以下字段组成：系编号，系主任，系简介，系架构。学生信息表中已经有姓名、年龄、学号、性别等字段，那能不能把系编号、系主任、系简介等字段一起存在学生信息表中呢？因为我们已经有系别管理表去存放系相关信息，再放到学生信息表中，就出现冗余，也就是传递依赖。这样就不符合第三范式，那么正确的做法是我们只需要添加一个系编号字段就行，根据该系编号字段，就可以获取到具体的系别信息，这就是第三范式。</p>
 ]]></content>
       
         <categories>
@@ -2174,8 +2099,7 @@
     <entry>
       <title><![CDATA[《深入理解Java虚拟机》总结笔记]]></title>
       <url>/2017/02/10/tech-jvm-summary-note/</url>
-      <content type="html"><![CDATA[<p>一直对JVM的内部原理不是很清楚，今天抽空看了下周志明先生的《深入理解Java虚拟机》一书，有了一点了解，做了个如下的笔记，方便日后翻看。</p>
-<a id="more"></a>
+      <content type="html"><![CDATA[<p>周志明先生的《深入理解Java虚拟机》一书，乃java进阶必看的书籍，对java内存模型，JVM工作原理，基本JVM调优和内存溢出排查有很大的帮。以前对于JVM运行机制不是很了解，遇到很多问题都无从下手，即便解决了也不懂其原理，读此书上述问题就游刃而解，以下是个人的一个简单笔记，方便日后查阅。<br><a id="more"></a></p>
 <p><img src="/img/QQ20170210-0@2x.png" alt="笔记"></p>
 ]]></content>
       
@@ -2189,33 +2113,6 @@
         <tags>
             
             <tag> JVM </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Spring注解异常'sessionFactory' or 'hibernateTemplate' is required的解决方法]]></title>
-      <url>/2017/01/19/tech-spring-hibernateTemplate-solution/</url>
-      <content type="html"><![CDATA[<p>今天在做用户的注册的时候，因为采用的spring mvc ，在debug发现无法注入公共的dao这个bean。后来在网上找到解决解决方案。具体解决方案如下。</p>
-<a id="more"></a>
-<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>调试时出现异常：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalArgumentException: &apos;sessionFactory&apos; or &apos;hibernateTemplate&apos; is required    </span><br><span class="line">        at org.springframework.orm.hibernate3.support.HibernateDaoSupport.checkDaoConfig(HibernateDaoSupport.java:118)    </span><br><span class="line">        at org.springframework.dao.support.DaoSupport.afterPropertiesSet(DaoSupport.java:44)    </span><br><span class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1477)    </span><br><span class="line">        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1417)    </span><br><span class="line">        ... 26 more</span><br></pre></td></tr></table></figure>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>项目中所有Dao实现类都继承了自定义的<code>BaseServiceSupport</code>，而<code>BaseServiceSupport</code>中注入<code>DaoSupport</code>这个bean。<code>DaoSupport</code>的实现类<code>DaoSupportImpl</code>又继承了<code>HibernateDaoSupport</code>，以前写配置文件时，<code>sessionFactory</code>需要单独配置，现在全注解方式，如何设置<code>sessionFactory</code>呢？</p>
-<p>在<code>DaoSupportImpl</code>中增加如下方法，使用<code>@Autowired</code>, 自动装配<code>SessionFactory</code>，代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Autowired    </span><br><span class="line">public void setSessionFactoryOverride(SessionFactory sessionFactory)&#123;    </span><br><span class="line">  super.setSessionFactory(sessionFactory);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> 编程 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Excepition </tag>
             
         </tags>
         
@@ -2275,8 +2172,8 @@
     <entry>
       <title><![CDATA[centOS上搭建FastDFS图片服务器教程]]></title>
       <url>/2016/12/22/tech-centos-fastDFS/</url>
-      <content type="html"><![CDATA[<p>centOS上搭建FastDFS图片服务器教程。<br><a id="more"></a></p>
-<h2 id="什么是FastDFS"><a href="#什么是FastDFS" class="headerlink" title="什么是FastDFS"></a>什么是FastDFS</h2><p>FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
+      <content type="html"><![CDATA[<p>FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
+<a id="more"></a>
 <p><img src="http://og1m51u2s.bkt.clouddn.com/20161223801021.png" alt="20161223801021.png"></p>
 <h2 id="文件上传流程"><a href="#文件上传流程" class="headerlink" title="文件上传流程"></a>文件上传流程</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/20161223932372.png" alt="20161223932372.png"></p>
 <h2 id="文件下载流程"><a href="#文件下载流程" class="headerlink" title="文件下载流程"></a>文件下载流程</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/20161223635383.png" alt="20161223635383.png"></p>
@@ -2393,7 +2290,7 @@
     <entry>
       <title><![CDATA[nginx的反向代理与负载均衡总结]]></title>
       <url>/2016/12/15/tech-nginx-summary/</url>
-      <content type="html"><![CDATA[<p>nginx有两个非常重要的功能就是反向代理和负载均衡，今天就这两个重要的功能做个总结。</p>
+      <content type="html"><![CDATA[<p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。nginx有两个非常重要的功能就是反向代理和负载均衡，今天就这两个重要的功能做个简单总结。</p>
 <a id="more"></a>
 <h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><img src="http://og1m51u2s.bkt.clouddn.com/2016121747446nginx.png" alt="2016121747446nginx.png"></p>
 <p>从图中可以看出，当用户发送一个请求后，<code>nginx</code>会把请求随机转发给不同的服务器，<code>nginx</code>在当中担任一个<strong>请求转发</strong>的功能。</p>
@@ -2445,64 +2342,6 @@ server {
         <tags>
             
             <tag> 反向代理 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[IntelliJ IDEA 使用技巧汇总(长期更新)]]></title>
-      <url>/2016/12/12/tech-intellij-idea/</url>
-      <content type="html"><![CDATA[<p>主要用来记录自己在使用 IntelliJ IDEA 遇到的一些问题</p>
-<a id="more"></a>
-<h2 id="web项目打war包"><a href="#web项目打war包" class="headerlink" title="web项目打war包"></a>web项目打war包</h2><p>在Project Structure里选择 <code>Artifact</code> ，新建一个 <code>Web Application: Archive --&gt; for XXX exploded</code> ，选择保存war包的路径，确定。然后 <code>Build--&gt;Build Artifact</code> ，在我们之前设置的路径下便可以找到已经打好的war包。</p>
-<h2 id="IDEA导入多个eclipse项目到同一个workspace下"><a href="#IDEA导入多个eclipse项目到同一个workspace下" class="headerlink" title="IDEA导入多个eclipse项目到同一个workspace下"></a>IDEA导入多个eclipse项目到同一个workspace下</h2><p>首先先要明确，<code>eclipse</code> 中的 <code>workspace</code> 对应 <code>IDEA</code> 中的 <code>project</code> ，<code>eclipse</code> 中的 <code>project</code> 对应 <code>IDEA</code> 中的 <code>module</code>。</p>
-<ol>
-<li>先创建一个空的 <code>project</code>,<code>File --&gt; new Project --&gt; Empty Project</code>。</li>
-<li>创建好新的 <code>project</code> 后，<code>File --&gt; new module from Existing source</code>，导入已经存在的 <code>Eclipse project</code>，一次只能导入一个<code>Eclipse project</code>，多个<code>Eclipse project</code>就导入多次即可。</li>
-<li><p>点击 <code>file --&gt; project structure --&gt; artifacts</code>，创建部署包，方便部署到 <code>tomact</code> 上面。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016122293256QQ20161222-0@2x.png" alt="2016122293256QQ20161222-0@2x.png"></p>
-</li>
-<li><p><code>tomact</code> 部署 <code>artifact</code>即可。</p>
-</li>
-</ol>
-<h2 id="一个Tomact中启动多个项目"><a href="#一个Tomact中启动多个项目" class="headerlink" title="一个Tomact中启动多个项目"></a>一个Tomact中启动多个项目</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/2016121287326WX20161212-145750@2x.png" alt="2016121287326WX20161212-145750@2x.png"></p>
-<ol>
-<li>将 <code>Deploy application configured in Tomact Instance</code> 挑选上，他的意思是部署应用的时候启动不同的tomact实例。</li>
-<li>更改tomact端口，这个跟eclipse中有点不太一样，eclipse中一个tomact部署多个项目的时候，只要一个端口即可，但是这里有多个项目的时候，需为每一个项目配置端口号。</li>
-<li>如果启动，报 <code>java.lang.OutOfMemoryError: PermGen space</code>，在VM options中添加 <code>-Xms256m -Xmx1024m -XX:PermSize=128M -XX:MaxPermSize=512m -Dfile.encoding=UTF8</code> ，增加tomact内存。</li>
-</ol>
-<h2 id="修改IDEA内存"><a href="#修改IDEA内存" class="headerlink" title="修改IDEA内存"></a>修改IDEA内存</h2><p>选中intellij IDEA并右击后点击显示包内容，路径：<code>/Applications/IntelliJ IDEA 15.app/Contents/bin/idea.vmoptions</code>打开idea.vmoptions，修改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-Xms128m</span><br><span class="line">-Xmx2048m</span><br><span class="line">-XX:MaxPermSize=1024m</span><br><span class="line">-XX:ReservedCodeCacheSize=700m</span><br><span class="line">-XX:+UseCompressedOops</span><br></pre></td></tr></table></figure>
-<h2 id="IDEA自带svn与本地安装的svn客户端不匹配"><a href="#IDEA自带svn与本地安装的svn客户端不匹配" class="headerlink" title="IDEA自带svn与本地安装的svn客户端不匹配"></a>IDEA自带svn与本地安装的svn客户端不匹配</h2><p>用IDEA的时候，之前其实是有遇到过这个问题，但是当时没在意，直接用的<code>SnailSVN</code>（<strong>花了60大洋</strong>）这个软件提交代码，但是今天我把IDEA升级到<code>IDEA 15</code>这个版本的时候，依旧出现<code>SVN: E155021: this client is too old to work with the working copy</code>这个问题，没法使用IDEA的svn提交代码，就决定一定要把这个问题解决。</p>
-<p>经过Google，最后发现，其实是我的本地安装的svn客户端太新，我安装的是1.9的版本，不是<code>too old</code>，按理说是<code>too new</code>。知道原因后，就准备安装1.8版本的svn，本来想<code>homebrew</code>安装，但是不晓得用它安装指定版本的svn，改用其他方法。经过网上查找，在<a href="https://www.wandisco.com/subversion/download#osx" target="_blank" rel="noopener">https://www.wandisco.com/subversion/download#osx</a> 找到相应的安装包。在下载的时候遇到一个比较蛋疼的问题，点击下载对应的按钮后，弹出如下的弹出框：</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016121264349QQ20161212-211419@2x.png" alt="2016121264349QQ20161212-211419@2x.png"></p>
-<p>然后点击submit，啥也没了，按理说就可以下载了，后来蛋疼的发现，<strong>他把下载连接发到你填写的邮箱中去了</strong>，实在让人摸不着头脑。</p>
-<p>接下来更改如下图所示：</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016121224619svn.png" alt="2016121224619svn.png"></p>
-<p>重启idea，打开项目，就不会再出现这个错误了！</p>
-<h2 id="IDEA中使用svn提交代码时忽略class等文件"><a href="#IDEA中使用svn提交代码时忽略class等文件" class="headerlink" title="IDEA中使用svn提交代码时忽略class等文件"></a>IDEA中使用svn提交代码时忽略class等文件</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/2016122185555QQ20161221-114348@2x.png" alt="2016122185555QQ20161221-114348@2x.png"></p>
-<h2 id="“found-duplicate-code”-黄色下划线提示关闭"><a href="#“found-duplicate-code”-黄色下划线提示关闭" class="headerlink" title="“found duplicate code” 黄色下划线提示关闭"></a>“found duplicate code” 黄色下划线提示关闭</h2><p>打开 Settings → Editor → Inspections. 在出现的搜索栏处搜索 Duplicated Code ，回车，取消掉Duplicated Code后面的钩钩，然后OK即可取消提示。</p>
-<h2 id="IDEA-maven项目导入本地jar包"><a href="#IDEA-maven项目导入本地jar包" class="headerlink" title="IDEA maven项目导入本地jar包"></a>IDEA maven项目导入本地jar包</h2><p>首先需要利用maven命令手动添加jar包到本地仓库，执行如下的命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -Dfile=jar包的位置 -DgroupId=jar包的groupId -DartifactId=jar包的artifactId -Dversion=jar包的version -Dpackaging=jar</span><br></pre></td></tr></table></figure>
-<p>执行该命令后，出现如下图，便说明已经将jar添加到本地仓库。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011560594QQ20170115-190506@2x.png" alt="2017011560594QQ20170115-190506@2x.png"></p>
-<p>接下来就是到项目的pom.xml配置文件中添加如下的配置，添加相关依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>fastdfs_client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastdfs_client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.25<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>参考：</p>
-<p><a href="http://stackoverflow.com/questions/27660888/intellij-14-on-osx-how-to-specify-version-of-svn-client-used-through-the-ide" target="_blank" rel="noopener">http://stackoverflow.com/questions/27660888/intellij-14-on-osx-how-to-specify-version-of-svn-client-used-through-the-ide</a><br><a href="https://www.zhihu.com/question/35224913" target="_blank" rel="noopener">https://www.zhihu.com/question/35224913</a><br><a href="http://stackoverflow.com/questions/32062819/subversion-command-line-client-version-is-too-old-error-in-android-studio" target="_blank" rel="noopener">http://stackoverflow.com/questions/32062819/subversion-command-line-client-version-is-too-old-error-in-android-studio</a><br><a href="https://www.wandisco.com/subversion/download#osx" target="_blank" rel="noopener">https://www.wandisco.com/subversion/download#osx</a><br><a href="http://blog.csdn.net/jeepxiaozi/article/details/39856081" target="_blank" rel="noopener">http://blog.csdn.net/jeepxiaozi/article/details/39856081</a><br><a href="https://segmentfault.com/a/1190000005686920" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005686920</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 资源 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> IntelliJ IDEA </tag>
             
         </tags>
         
@@ -2569,9 +2408,7 @@ server {
     <entry>
       <title><![CDATA[在centOS上安装nginx教程]]></title>
       <url>/2016/12/08/tech-centOS-nginx/</url>
-      <content type="html"><![CDATA[<p>最近项目中用到了反向代理服务器<strong>nginx</strong>，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。</p>
-<a id="more"></a>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。</p>
+      <content type="html"><![CDATA[<p>是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。最近项目中用到了反向代理服务器 nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。</p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
 <li>http服务器。Nginx是一个http服务可以独立提供http服务。可以做网页静态服务器。</li>
 <li>虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。</li>
@@ -2611,9 +2448,9 @@ server {
 </ol>
 <h2 id="nginx启动与停止"><a href="#nginx启动与停止" class="headerlink" title="nginx启动与停止"></a>nginx启动与停止</h2><ol>
 <li><p>启动：进入到/usr/local/nginx/sbin，终端输入 ./nginx 就可以启动。浏览器访问 输入linux 主机 ip出现如下图，说明配置安装成功。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016120852810QQ20161208-1@2x.png" alt="2016120852810QQ20161208-1@2x.png"> </p>
+<p><img src="http://og1m51u2s.bkt.clouddn.com/2016120852810QQ20161208-1@2x.png" alt="2016120852810QQ20161208-1@2x.png"></p>
 <p>中间有遇到过一个小问题，就是在centOS上本机可以访问，但是我在mac机器上却无法访问，后来上网寻找到解决办法，是centOS防火墙的原因，执行如下的命令，即可解决.</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016120855490QQ20161208-2@2x.png" alt="2016120855490QQ20161208-2@2x.png">    </p>
+<p><img src="http://og1m51u2s.bkt.clouddn.com/2016120855490QQ20161208-2@2x.png" alt="2016120855490QQ20161208-2@2x.png"></p>
 </li>
 <li><p>关闭nginx：在sbin目录下执行命令：<strong>./nginx -s stop</strong></p>
 </li>
@@ -2633,7 +2470,7 @@ server {
 <p>这样在浏览器输入<code>test.taotao.com</code>、<code>test2.taotao.com</code>、<code>test3.taotao.com</code>，都会访问linux 主机80端口。</p>
 </li>
 <li><p>配置基于域名的虚拟主机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;  </span><br><span class="line">		listen       80;  </span><br><span class="line">		server_name  域名;  </span><br><span class="line">		</span><br><span class="line">		#charset koi8-r;  </span><br><span class="line">		</span><br><span class="line">		#access_log  logs/host.access.log  main;  </span><br><span class="line">		</span><br><span class="line">		location / &#123;  </span><br><span class="line">			root   html-test3;  </span><br><span class="line">			index  index.html index.htm;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;  </span><br><span class="line">		listen       80;  </span><br><span class="line">		server_name  域名;  </span><br><span class="line"></span><br><span class="line">		#charset koi8-r;  </span><br><span class="line"></span><br><span class="line">		#access_log  logs/host.access.log  main;  </span><br><span class="line"></span><br><span class="line">		location / &#123;  </span><br><span class="line">			root   html-test3;  </span><br><span class="line">			index  index.html index.htm;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <p>修改后要重新刷新<code>ngin.conf</code>配置文件。</p>
 </li>
 </ol>
@@ -2658,7 +2495,7 @@ server {
     <entry>
       <title><![CDATA[mybatis 分页插件PageHelper使用及总结]]></title>
       <url>/2016/12/05/tech-mybatis-pagehelper/</url>
-      <content type="html"><![CDATA[<p>今天在看视频教程的时候，遇到了mybatis的分页插件PaheHelper，感觉很好用，它支持主流的数据库，该插件目前支持Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库分页。所以在这里总结下。</p>
+      <content type="html"><![CDATA[<p>今天在看视频教程的时候，遇到了mybatis的分页插件<code>PaheHelper</code>，感觉很好用，它支持主流的数据库，该插件目前支持<code>Oracle</code>,<code>Mysql</code>,<code>MariaDB</code>,<code>SQLite</code>,<code>Hsqldb</code>,<code>PostgreSQL</code>六种数据库分页。</p>
 <a id="more"></a>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/2016120556503mybatis分页查询原理.png" alt="2016120556503mybatis分页查询原理.png"></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
@@ -2671,11 +2508,11 @@ server {
 <h3 id="修改SqlMapConfig-xml"><a href="#修改SqlMapConfig-xml" class="headerlink" title="修改SqlMapConfig.xml"></a>修改SqlMapConfig.xml</h3><p>在mubatis配置文件中添加插件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">		"http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 配置分页插件 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugin</span> <span class="attr">interceptor</span>=<span class="string">"com.github.pagehelper.PageHelper"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 指定数据库方言 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dialect"</span> <span class="attr">value</span>=<span class="string">"mysql"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="前台"><a href="#前台" class="headerlink" title="前台"></a>前台</h3><p>前台采用easyUI的dataGrid组件：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"easyui-datagrid"</span> <span class="attr">id</span>=<span class="string">"itemList"</span> <span class="attr">title</span>=<span class="string">"商品列表"</span> </span></span><br><span class="line"><span class="tag">       <span class="attr">data-options</span>=<span class="string">"singleSelect:false,collapsible:true,pagination:true,url:'/item/list',method:'get',pageSize:30,toolbar:toolbar"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'ck',checkbox:true"</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'id',width:60"</span>&gt;</span>商品ID<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'title',width:200"</span>&gt;</span>商品标题<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'cid',width:100"</span>&gt;</span>叶子类目<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'sellPoint',width:100"</span>&gt;</span>卖点<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'price',width:70,align:'right',formatter:TAOTAO.formatPrice"</span>&gt;</span>价格<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'num',width:70,align:'right'"</span>&gt;</span>库存数量<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'barcode',width:100"</span>&gt;</span>条形码<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'status',width:60,align:'center',formatter:TAOTAO.formatItemStatus"</span>&gt;</span>状态<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'created',width:130,align:'center',formatter:TAOTAO.formatDateTime"</span>&gt;</span>创建日期<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'updated',width:130,align:'center',formatter:TAOTAO.formatDateTime"</span>&gt;</span>更新日期<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"easyui-datagrid"</span> <span class="attr">id</span>=<span class="string">"itemList"</span> <span class="attr">title</span>=<span class="string">"商品列表"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">data-options</span>=<span class="string">"singleSelect:false,collapsible:true,pagination:true,url:'/item/list',method:'get',pageSize:30,toolbar:toolbar"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'ck',checkbox:true"</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'id',width:60"</span>&gt;</span>商品ID<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'title',width:200"</span>&gt;</span>商品标题<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'cid',width:100"</span>&gt;</span>叶子类目<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'sellPoint',width:100"</span>&gt;</span>卖点<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'price',width:70,align:'right',formatter:TAOTAO.formatPrice"</span>&gt;</span>价格<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'num',width:70,align:'right'"</span>&gt;</span>库存数量<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'barcode',width:100"</span>&gt;</span>条形码<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'status',width:60,align:'center',formatter:TAOTAO.formatItemStatus"</span>&gt;</span>状态<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'created',width:130,align:'center',formatter:TAOTAO.formatDateTime"</span>&gt;</span>创建日期<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span> <span class="attr">data-options</span>=<span class="string">"field:'updated',width:130,align:'center',formatter:TAOTAO.formatDateTime"</span>&gt;</span>更新日期<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h3><h4 id="pojo实体"><a href="#pojo实体" class="headerlink" title="pojo实体"></a>pojo实体</h4><p>我们需要一个实体去封装我们获取到分页信息，这个实体被解析为json字符串，必须符合dataGrid的数据格式：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.taotao.pojo;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EasyUIDataGridResult</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * easyUI dataGrid 返回结果封装</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="comment">// 总的记录数</span></span><br><span class="line">	Long total;</span><br><span class="line">	<span class="comment">// 数据集</span></span><br><span class="line">	List&lt;?&gt; rows;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Long <span class="title">getTotal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> total;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTotal</span><span class="params">(Long total)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.total = total;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> List&lt;?&gt; getRows() &#123;</span><br><span class="line">		<span class="keyword">return</span> rows;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRows</span><span class="params">(List&lt;?&gt; rows)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.rows = rows;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="dao层"><a href="#dao层" class="headerlink" title="dao层"></a>dao层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;TbItem&gt; <span class="title">selectByExample</span><span class="params">(TbItemExample example)</span></span>;</span><br></pre></td></tr></table></figure>
-<h4 id="service层"><a href="#service层" class="headerlink" title="service层"></a>service层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> EasyUIDataGridResult <span class="title">getItemList</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> rows)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//分页处理</span></span><br><span class="line">		PageHelper.startPage(page, rows);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//查询结果</span></span><br><span class="line">		TbItemExample example = <span class="keyword">new</span> TbItemExample();</span><br><span class="line">		List&lt;TbItem&gt; list = itemMapper.selectByExample(example);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//获取分页信息</span></span><br><span class="line">		PageInfo&lt;TbItem&gt; info = <span class="keyword">new</span> PageInfo&lt;&gt;(list);</span><br><span class="line">		EasyUIDataGridResult result = <span class="keyword">new</span> EasyUIDataGridResult();</span><br><span class="line">		<span class="keyword">long</span> total = info.getTotal();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//封装分页信息</span></span><br><span class="line">		List&lt;TbItem&gt; row = info.getList();</span><br><span class="line">		result.setRows(row);</span><br><span class="line">		result.setTotal(total);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="service层"><a href="#service层" class="headerlink" title="service层"></a>service层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> EasyUIDataGridResult <span class="title">getItemList</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> rows)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//分页处理</span></span><br><span class="line">		PageHelper.startPage(page, rows);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//查询结果</span></span><br><span class="line">		TbItemExample example = <span class="keyword">new</span> TbItemExample();</span><br><span class="line">		List&lt;TbItem&gt; list = itemMapper.selectByExample(example);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//获取分页信息</span></span><br><span class="line">		PageInfo&lt;TbItem&gt; info = <span class="keyword">new</span> PageInfo&lt;&gt;(list);</span><br><span class="line">		EasyUIDataGridResult result = <span class="keyword">new</span> EasyUIDataGridResult();</span><br><span class="line">		<span class="keyword">long</span> total = info.getTotal();</span><br><span class="line"></span><br><span class="line">		<span class="comment">//封装分页信息</span></span><br><span class="line">		List&lt;TbItem&gt; row = info.getList();</span><br><span class="line">		result.setRows(row);</span><br><span class="line">		result.setTotal(total);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="controller层"><a href="#controller层" class="headerlink" title="controller层"></a>controller层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 商品列表，分页</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> page</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> rows</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/item/list"</span>)</span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> EasyUIDataGridResult <span class="title">getItemList</span><span class="params">(Integer page,Integer rows)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> itemService.getItemList(page, rows);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/2016120579015QQ20161205-1@2x.png" alt="2016120579015QQ20161205-1@2x.png"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>pageHelper会使用ThreadLocal获取到同一线程中的变量信息，<strong>各个线程之间的Threadlocal不会相互干扰</strong>，也就是Thread1中的ThreadLocal1之后获取到Tread1中的变量的信息，不会获取到Thread2中的信息。<br>所以在多线程环境下，各个Threadlocal之间相互隔离，可以实现，不同thread使用不同的数据源或不同的Thread中执行不同的SQL语句。所以，<strong>PageHelper利用这一点通过拦截器获取到同一线程中的预编译好的SQL语句之后将SQL语句包装成具有分页功能的SQL语句，并将其再次赋值给下一步操作，所以实际执行的SQL语句就是有了分页功能的SQL语句</strong></p>
@@ -2706,7 +2543,7 @@ server {
 <a id="more"></a>
 <h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>点击左侧的配置项名称，右侧生成统计报表，报表可以是一维的，也可能是二维的，表头动态变化的，如下面所示：</p>
 <p><img src="http://og1m51u2s.bkt.clouddn.com/2016112619244QQ20161126-0@2x.png" alt="2016112619244QQ20161126-0@2x.png"></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从后台读取列名称，在$(“#dg2”).datagrid({})时，并不指定url属性，不向服务器端发送请求，在datagrid之后，通过ajax向服务器发送请求，并接收绑定列名称，和内容的json。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从后台读取列名称，在<code>$(&quot;#dg2&quot;).datagrid({})</code>时，并不指定url属性，不向服务器端发送请求，在datagrid之后，通过ajax向服务器发送请求，并接收绑定列名称，和内容的json。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="前台"><a href="#前台" class="headerlink" title="前台"></a>前台</h3><ol>
 <li><p>jsp页面</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">title</span>=<span class="string">"表格统计结果"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">table</span> <span class="attr">id</span>=<span class="string">"dg2"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -2795,59 +2632,17 @@ server {
     </entry>
     
     <entry>
-      <title><![CDATA[Hexo+Github博客css和js404导致博客页面空白]]></title>
-      <url>/2016/11/05/tech-hexo-github-error/</url>
-      <content type="html"><![CDATA[<p>就在昨天晚上，发生了一件比较奇怪的事情，我在网上看到一些关于hexo博客的优化的文章，便想在自己的博客上尝试一下，然后跟往常一样，先hexo g，然后在hexo s，本地测试一切都正常，然后项发布到github上测试下效果，结果打开博客地址，发现博客首页一片空白，但是该有的链接都可以点击，就是页面不显示。这是时候我在想是不是之前的添加的效果造成的，便删除掉之前的测试配置项，重新发布，也是出现同样的问题。后面各种尝试，甚至把 github 上仓库重新删掉，再到本机把之前备份的重新发布，问题依旧，折腾来折腾去。已经到1点半，实在有点困了，就先睡觉了。</p>
-<a id="more"></a>
-<p>早上八点，“叮咚。。。”，手机传来qq的通知声，此时已经没有睡意，打开qq一看，是技术直播群的一位兄弟@゜。。。在@我，然后跟我说他遇到同样，并且已经找到解决方案，我点击他给的链接，恍然大悟，原来是 <strong>github pages</strong> 更新所造成的。然后赶紧打开电脑修改，发布，问题解决！下面记录下解决的办法：</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>(我就是采用这个方法解决的)</p>
-<ol>
-<li><p>首先修改source/vendors为source/lib，然后修改_config.yml， 将 _internal: vendors修改为_internal:lib </p>
-</li>
-<li><p>然后修改next底下所有引用source/vendors路径为source/lib。这些地方可以通过文件查找找出来。主要集中在这几个文件中。</p>
-<ul>
-<li>Hexo\themes\next\ .bowerrc </li>
-<li>Hexo\themes\next\ .gitignore </li>
-<li>Hexo\themes\next\ .javascript_ignore </li>
-<li><p>Hexo\themes\next\bower.json </p>
-<p>修改完毕后，刷新重新g一遍就ok啦,但这里要注意的是，.开头的文件是默认隐藏掉的，所以有的同学找不到对应的文件，只要打开隐藏文件即可。</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>更新next主题，不过听过最新的next主题对第三方例如多说删除了，具体不清楚，不敢亲易尝试，毕竟更新一次主题引来的问题太多，很多配置可能都要改，代价太高，所以推荐第一种方法。</p>
-<blockquote>
-<p>参考文章：<a href="http://m.blog.csdn.net/article/details?id=53038679" target="_blank" rel="noopener">http://m.blog.csdn.net/article/details?id=53038679</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 资源 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Hibernate SQL查询addScalar()和addEntity()区别]]></title>
       <url>/2016/11/02/tech-Hibernate-addScalar-addEntity/</url>
       <content type="html"><![CDATA[<p>Hibernate除了支持HQL查询外，还支持原生SQL查询。对原生SQL查询执行的控制是通过SQLQuery接口进行的，通过执行Session.createSQLQuery()获取这个接口。该接口是Query接口的子接口。</p>
 <a id="more"></a>
 <h2 id="SQL查询步骤"><a href="#SQL查询步骤" class="headerlink" title="SQL查询步骤"></a>SQL查询步骤</h2><ol>
-<li>获取Hibernate Session对象 </li>
-<li>编写SQL语句 </li>
-<li>通过Session的createSQLQuery方法创建查询对象 </li>
-<li>调用SQLQuery对象的<strong>addScalar()</strong>或<strong>addEntity()</strong>方法将选出的结果与标量值或实体进行关联，分别用于进行标量查询或实体查询 </li>
-<li>如果SQL语句包含参数，调用Query的setXxxx方法为参数赋值 </li>
-<li>调用Query的list方法返回查询的结果集 </li>
+<li>获取Hibernate Session对象</li>
+<li>编写SQL语句</li>
+<li>通过Session的createSQLQuery方法创建查询对象</li>
+<li>调用SQLQuery对象的 <strong>addScalar()</strong> 或 <strong>addEntity()</strong> 方法将选出的结果与标量值或实体进行关联，分别用于进行标量查询或实体查询</li>
+<li>如果SQL语句包含参数，调用Query的setXxxx方法为参数赋值</li>
+<li>调用Query的list方法返回查询的结果集</li>
 </ol>
 <h2 id="标量查询"><a href="#标量查询" class="headerlink" title="标量查询"></a>标量查询</h2><p>最基本的SQL查询就是获得一个标量的列表：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session.createSQLQuery(<span class="string">"select * from person_inf"</span>).list();   </span><br><span class="line">session.createSQLQuery(<span class="string">"select id,name,age from person_inf"</span>).list();</span><br></pre></td></tr></table></figure>
@@ -2866,33 +2661,33 @@ server {
 <p>它仍然会返回Object数组,但是此时不再使用<strong>ResultSetMetdata</strong>,而是明确的将name和age按照String和int类型从resultset中取出。同时，也指明了就算query是使用*来查询的，可能获得超过列出的这三个字段，也仅仅会返回这三个字段。如果仅仅只需要选出某个字段的值，而不需要明确指定该字段的数据类型，则可以使用addScalar(String columnAlias)。</p>
 <p>实例如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">scalarQuery</span><span class="params">()</span></span>&#123;  </span><br><span class="line">        Session session = HibernateUtil.getSession();  </span><br><span class="line">        Transaction tx = session.beginTransaction();  </span><br><span class="line">        String sql = <span class="string">"select * from person_inf"</span>;  </span><br><span class="line">        List list = session.createSQLQuery(sql).  </span><br><span class="line">                    addScalar(<span class="string">"person_id"</span>,StandardBasicTypes.INTEGER).  </span><br><span class="line">                    addScalar(<span class="string">"name"</span>, StandardBasicTypes.STRING).  </span><br><span class="line">                    addScalar(<span class="string">"age"</span>,StandardBasicTypes.INTEGER).list();  </span><br><span class="line">        <span class="keyword">for</span>(Iterator iterator = list.iterator();iterator.hasNext();)&#123;  </span><br><span class="line">            <span class="comment">//每个集合元素都是一个数组，数组元素师person_id,person_name,person_age三列值  </span></span><br><span class="line">            Object[] objects = (Object[]) iterator.next();  </span><br><span class="line">            System.out.println(<span class="string">"id="</span>+objects[<span class="number">0</span>]);  </span><br><span class="line">            System.out.println(<span class="string">"name="</span>+objects[<span class="number">1</span>]);  </span><br><span class="line">            System.out.println(<span class="string">"age="</span>+objects[<span class="number">2</span>]);  </span><br><span class="line">            System.out.println(<span class="string">"----------------------------"</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        tx.commit();  </span><br><span class="line">        session.close();  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>从上面可以看出。标量查询中addScalar()方法有两个作用： </p>
+<p>从上面可以看出。标量查询中addScalar()方法有两个作用：</p>
 <ol>
-<li>指定查询结果包含哪些数据列—没有被addScalar选出的列将不会包含在查询结果中。 </li>
+<li>指定查询结果包含哪些数据列—没有被addScalar选出的列将不会包含在查询结果中。</li>
 <li>指定查询结果中数据列的数据类型。</li>
 </ol>
 <h2 id="实体查询"><a href="#实体查询" class="headerlink" title="实体查询"></a>实体查询</h2><p>上面的标量查询返回的标量结果集，也就是从resultset中返回的“裸”数据。如果我们想要的结果是某个对象的实体，这是就可以通过addEntity()方法来实现。addEntity()方法可以讲结果转换为实体。但是在转换的过程中要注意几个问题：</p>
 <ol>
-<li>查询返回的是某个数据表的全部数据列 </li>
+<li>查询返回的是某个数据表的全部数据列</li>
 <li>该数据表有对应的持久化类映射</li>
 </ol>
 <p>这时才可以通过addEntity()方法将查询结果转换成实体。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session.createSQLQuery(<span class="string">"select * from perons_inf"</span>).addEntity(Person.class).list;    </span><br><span class="line">session.createSQLQuery(<span class="string">"select id,name,age from person_inf"</span>).addEntity(Person.class).list();</span><br></pre></td></tr></table></figure>
 <p>这个查询指定：</p>
 <ol>
-<li>SQL查询字符串 </li>
-<li>要返回的实体 </li>
+<li>SQL查询字符串</li>
+<li>要返回的实体</li>
 </ol>
 <p>假设Person被映射为拥有id,name和age三个字段的类，以上的两个查询都返回一个List，每个元素都是一个Person实体。</p>
-<p>假若实体在映射时有一个many-to-one的关联指向另外一个实体，在查询时必须也返回那个实体（获取映射的外键列），否则会导致发生一个”column not found”的数据库错误。这些附加的字段可以使用*标注来自动返回，但我们希望还是明确指明，看下面这个具有指向teacher的many-to-one的例子： </p>
+<p>假若实体在映射时有一个many-to-one的关联指向另外一个实体，在查询时必须也返回那个实体（获取映射的外键列），否则会导致发生一个”column not found”的数据库错误。这些附加的字段可以使用*标注来自动返回，但我们希望还是明确指明，看下面这个具有指向teacher的many-to-one的例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.createSQLQuery(<span class="string">"select id, name, age, teacherID from person_inf"</span>).addEntity(Person.class).list();</span><br></pre></td></tr></table></figure>
-<p>这样就可以通过person.getTeacher()获得teacher了。 </p>
+<p>这样就可以通过person.getTeacher()获得teacher了。</p>
 <p>实例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">entityQuery</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    Session session = HibernateUtil.getSession();  </span><br><span class="line">    Transaction tx = session.beginTransaction();  </span><br><span class="line">    String sql = <span class="string">"select * from person_inf"</span>;  </span><br><span class="line">    List list = session.createSQLQuery(sql).  </span><br><span class="line">    addEntity(Person.class).    <span class="comment">//指定将查询的记录行转换成Person实体  </span></span><br><span class="line">     list();       </span><br><span class="line">    <span class="keyword">for</span> (Iterator iterator = list.iterator();iterator.hasNext();) &#123;  </span><br><span class="line">        Person person = (Person) iterator.next();<span class="comment">//集合的每个元素都是一个Person对象  </span></span><br><span class="line">        System.out.println(<span class="string">"name="</span>+person.getName());  </span><br><span class="line">       System.out.println(<span class="string">"age="</span>+person.getAge());  </span><br><span class="line">  	&#125;  </span><br><span class="line">    tx.commit();  </span><br><span class="line">    session.close();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的都是单表查询，如果我们在SQL语句中使用了多表连接，则SQL语句可以选出多个数据表的数据。Hibernate支持将查询结果转换成多个实体。如果要将查询结果转换成多个实体，则SQL字符串中应该为不同数据表指定不同别名，并且调用addEntity()方法将不同数据表转换成不同实体。如下 </p>
+<p>上面的都是单表查询，如果我们在SQL语句中使用了多表连接，则SQL语句可以选出多个数据表的数据。Hibernate支持将查询结果转换成多个实体。如果要将查询结果转换成多个实体，则SQL字符串中应该为不同数据表指定不同别名，并且调用addEntity()方法将不同数据表转换成不同实体。如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">multiEntityQuery</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    Session session = HibernateUtil.getSession();  </span><br><span class="line">    Transaction tx = session.beginTransaction();  </span><br><span class="line">    String sql = <span class="string">"select p.*,e.* from person_inf as p inner join event_inf as e"</span> +  </span><br><span class="line">                 <span class="string">" on p.person_id=e.person_id"</span>;  </span><br><span class="line">    List list = session.createSQLQuery(sql)  </span><br><span class="line">                .addEntity(<span class="string">"p"</span>,Person.class)  </span><br><span class="line">                .addEntity(<span class="string">"e"</span>, MyEvent.class)  </span><br><span class="line">                .list();  </span><br><span class="line">    <span class="keyword">for</span>(Iterator iterator = list.iterator();iterator.hasNext();)&#123;  </span><br><span class="line">        <span class="comment">//每个集合元素都是Person、MyEvent所组成的数组  </span></span><br><span class="line">        Object[] objects = (Object[]) iterator.next();  </span><br><span class="line">        Person person = (Person) objects[<span class="number">0</span>];  </span><br><span class="line">        MyEvent event = (MyEvent) objects[<span class="number">1</span>];  </span><br><span class="line">        System.out.println(<span class="string">"person_id="</span>+person.getId()+<span class="string">" person_name="</span>+person.getName()+<span class="string">" title="</span>+event.getTitle());        </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>转载自：<a href="http://blog.csdn.net/vacblog/article/details/7769976" target="_blank" rel="noopener">http://blog.csdn.net/vacblog/article/details/7769976</a> </p>
+<p>转载自：<a href="http://blog.csdn.net/vacblog/article/details/7769976" target="_blank" rel="noopener">http://blog.csdn.net/vacblog/article/details/7769976</a></p>
 </blockquote>
 ]]></content>
       
@@ -2914,8 +2709,9 @@ server {
     <entry>
       <title><![CDATA[sqlserver、oracle、MySQL 递归查询的区别]]></title>
       <url>/2016/11/01/tech-sqlserver-oracle-recursion-diff/</url>
-      <content type="html"><![CDATA[<p>经常在项目中遇到递归查询，但是因为数据库方言的不同，三种数据库的递归查询语句都不相同，在这里做一下总结，方便后期查看。</p>
+      <content type="html"><![CDATA[<p>程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。</p>
 <a id="more"></a>
+<p>以上是摘自百度百科对于递归的定义，由于经常在项目中遇到递归查询，但是因为数据库方言的不同，三种数据库的递归查询语句都不相同，所以就做个简单的总结。</p>
 <h2 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/2016121052968QQ20161210-095910@2x.png" alt="2016121052968QQ20161210-095910@2x.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id --主键</span><br><span class="line">name --区域名称</span><br><span class="line">topgrid_id --上级区域id</span><br></pre></td></tr></table></figure>
 <h2 id="oracle-写法"><a href="#oracle-写法" class="headerlink" title="oracle 写法"></a>oracle 写法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ID</span>,<span class="keyword">NAME</span>,TOPGRID_ID</span><br><span class="line"><span class="keyword">FROM</span> GRID <span class="keyword">START</span> <span class="keyword">WITH</span> <span class="keyword">id</span> = <span class="number">1715</span> <span class="keyword">CONNECT</span> <span class="keyword">BY</span> <span class="keyword">PRIOR</span> <span class="keyword">ID</span> = TOPGRID_ID;</span><br></pre></td></tr></table></figure>
@@ -2954,18 +2750,18 @@ server {
       <url>/2016/10/27/tech-pc-multi-tomact/</url>
       <content type="html"><![CDATA[<p>之前一直在myeclipse上进行开发，但是myeclipse10非常的卡顿，实在受不了，就换IDEA 进行开发。但是换到IDEA后，把项目部署后，也能够跑起来，但是却发现无论如何都无法调取到接口。后来在终端用命令行启动tomact，只要把其中一个项目启动的时候，再启动第二个tomact的时候，总是启动后，又马上关闭了，有人说是在mac系统下权限的问题，但是改了后依旧无果。后来冷静的想了下，http端口改了，会不会两个tomact有其他的端口冲突呢？果不其然，上网查了下，确实有这个问题，所以特意记录下。</p>
 <a id="more"></a>
-<p>如果需要在一台机子上启动多个Tomcat服务器，在默认设置下肯定会发生端口冲突。为解决这个问题，只需修改conf子目录中的server.xml文件即可。共需修改三处： </p>
-<ol>
-<li><p>修改http访问端口（默认为8080端口）: </p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">”8080”</span> <span class="attr">protocol</span>=<span class="string">”HTTP/1.1″</span> </span></span><br><span class="line"><span class="tag"><span class="attr">connectionTimeout</span>=<span class="string">”20000″</span> </span></span><br><span class="line"><span class="tag"><span class="attr">redirectPort</span>=<span class="string">”8443″</span> <span class="attr">URIEncoding</span>=<span class="string">”gb2312″/</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果需要在一台机子上启动多个Tomcat服务器，在默认设置下肯定会发生端口冲突。为解决这个问题，只需修改conf子目录中的server.xml文件即可。共需修改三处：</p>
+<ul>
+<li><p>修改http访问端口（默认为8080端口）:</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">”8080”</span> <span class="attr">protocol</span>=<span class="string">”HTTP/1.1″</span></span></span><br><span class="line"><span class="tag"><span class="attr">connectionTimeout</span>=<span class="string">”20000″</span></span></span><br><span class="line"><span class="tag"><span class="attr">redirectPort</span>=<span class="string">”8443″</span> <span class="attr">URIEncoding</span>=<span class="string">”gb2312″/</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改Shutdown端口（默认为8005端口）: </p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">”8005”</span> <span class="attr">shutdown</span>=<span class="string">”SHUTDOWN”</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>修改Shutdown端口（默认为8005端口）:</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">”8005”</span> <span class="attr">shutdown</span>=<span class="string">”SHUTDOWN”</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改JVM启动端口（默认为8009端口）: </p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">”8009”</span> <span class="attr">protocol</span>=<span class="string">”AJP/1.3″</span> <span class="attr">redirectPort</span>=<span class="string">”8443″</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>修改JVM启动端口（默认为8009端口）:</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">”8009”</span> <span class="attr">protocol</span>=<span class="string">”AJP/1.3″</span> <span class="attr">redirectPort</span>=<span class="string">”8443″</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
+</ul>
 ]]></content>
       
         <categories>
@@ -2986,7 +2782,7 @@ server {
     <entry>
       <title><![CDATA[easyUI tree组件的构建以及异步加载]]></title>
       <url>/2016/10/21/tech-easyui-tree/</url>
-      <content type="html"><![CDATA[<p>在我们平常的编写的web的应用中，很多时候都会用到 tree，比如一些功能树，一些有层级关系的树等等，之前一直搞不明白这种树结构是如何编写出来的，通过在项目中的实际操作，总算有了些初步的认识，下面来好好总结下easyUI tree 的构成。</p>
+      <content type="html"><![CDATA[<p>在我们平常的编写的web的应用中，很多时候都会用到 tree，比如一些功能树，一些有层级关系的树等等，之前一直搞不明白这种树结构是如何编写出来的，通过在项目中的实际操作，总算有了些初步的认识，下面来好好总结下 easyUI tree 的构成。</p>
 <a id="more"></a>
 <h2 id="相关表"><a href="#相关表" class="headerlink" title="相关表"></a>相关表</h2><p>我要构建的这颗树所相关的表BookOrg结构如下</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">BOOKORGID     NUMBER           <span class="comment">--主键                       </span></span><br><span class="line">ORGID         NUMBER        Y                         </span><br><span class="line">BOO_BOOKORGID NUMBER        Y  <span class="comment">--上级机构的id                       </span></span><br><span class="line">ORGCODE       VARCHAR2(500) Y                         </span><br><span class="line">ORGCNNAME     VARCHAR2(200) Y  <span class="comment">--机构中文名称                       </span></span><br><span class="line">ORGENNAME     VARCHAR2(100) Y                         </span><br><span class="line">ORGCNSHORT    VARCHAR2(50)  Y                         </span><br><span class="line">ORGCNSPELL    VARCHAR2(500) Y                         </span><br><span class="line">ORGENSHORT    VARCHAR2(20)  Y                         </span><br><span class="line">ORGENSPELL    VARCHAR2(500) Y                         </span><br><span class="line">ORGLEVEL      INTEGER       Y                         </span><br><span class="line">ORGCHARGER    VARCHAR2(50)  Y                         </span><br><span class="line">ORGEMAIL      VARCHAR2(100) Y                         </span><br><span class="line">ORGADDRESS    VARCHAR2(200) Y  <span class="comment">--地址                       </span></span><br><span class="line">ORGREMARK     VARCHAR2(200) Y  <span class="comment">--备注                       </span></span><br><span class="line">ORGSORTID     INTEGER       Y  <span class="comment">--机构排序id                       </span></span><br><span class="line">ORGCANCELFLAG CHAR(1)       Y  <span class="comment">--用于逻辑删除的字段</span></span><br></pre></td></tr></table></figure>
@@ -3003,7 +2799,7 @@ server {
 </ul>
 <p>ok，明白了树节点的相关属性，我们便可以来构建树节点信息相关的实体类</p>
 <p><strong>TreeNode.java</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="comment">//显示节点的id  </span></span><br><span class="line">    <span class="keyword">private</span> Object id;  </span><br><span class="line">    <span class="comment">//节点状态 </span></span><br><span class="line">    <span class="keyword">private</span> String state;</span><br><span class="line">    <span class="comment">//显示节点的名称</span></span><br><span class="line">    <span class="keyword">private</span> String text;</span><br><span class="line">    <span class="comment">//显示节点的图标</span></span><br><span class="line">    <span class="keyword">private</span> String icon;</span><br><span class="line">    <span class="comment">//额外的需要用名</span></span><br><span class="line">    <span class="keyword">private</span> String externName;</span><br><span class="line">    <span class="comment">//显示节点的父节点</span></span><br><span class="line">    <span class="keyword">private</span> Object parentId;</span><br><span class="line">    <span class="comment">//显示节点的子节点集合</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;TreeNode&gt; children;</span><br><span class="line">    <span class="comment">//添加子节点的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addChild</span><span class="params">(TreeNode node)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.children==<span class="keyword">null</span>)&#123;</span><br><span class="line">            children=<span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</span><br><span class="line">            children.add(node);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            children.add(node);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//set、get方法省略。。。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="comment">//显示节点的id  </span></span><br><span class="line">    <span class="keyword">private</span> Object id;  </span><br><span class="line">    <span class="comment">//节点状态</span></span><br><span class="line">    <span class="keyword">private</span> String state;</span><br><span class="line">    <span class="comment">//显示节点的名称</span></span><br><span class="line">    <span class="keyword">private</span> String text;</span><br><span class="line">    <span class="comment">//显示节点的图标</span></span><br><span class="line">    <span class="keyword">private</span> String icon;</span><br><span class="line">    <span class="comment">//额外的需要用名</span></span><br><span class="line">    <span class="keyword">private</span> String externName;</span><br><span class="line">    <span class="comment">//显示节点的父节点</span></span><br><span class="line">    <span class="keyword">private</span> Object parentId;</span><br><span class="line">    <span class="comment">//显示节点的子节点集合</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;TreeNode&gt; children;</span><br><span class="line">    <span class="comment">//添加子节点的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addChild</span><span class="params">(TreeNode node)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.children==<span class="keyword">null</span>)&#123;</span><br><span class="line">            children=<span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</span><br><span class="line">            children.add(node);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            children.add(node);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//set、get方法省略。。。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面是跟我们的业务相关的实体类</p>
 <p><strong>Bookorg.java</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bookorg</span>  <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;    </span><br><span class="line">     <span class="keyword">private</span> BigDecimal bookorgid;</span><br><span class="line">     <span class="keyword">private</span> Orgcandidate orgcandidate;</span><br><span class="line">     <span class="keyword">private</span> Bookorg bookorg;</span><br><span class="line">     <span class="keyword">private</span> String orgcode;</span><br><span class="line">     <span class="keyword">private</span> String orgcnname;</span><br><span class="line">     <span class="keyword">private</span> String orgenname;</span><br><span class="line">     <span class="keyword">private</span> String orgcnshort;</span><br><span class="line">     <span class="keyword">private</span> String orgcnspell;</span><br><span class="line">     <span class="keyword">private</span> String orgenshort;</span><br><span class="line">     <span class="keyword">private</span> String orgenspell;</span><br><span class="line">     <span class="keyword">private</span> BigDecimal orglevel;</span><br><span class="line">     <span class="keyword">private</span> String orgcharger;</span><br><span class="line">     <span class="keyword">private</span> String orgemail;</span><br><span class="line">     <span class="keyword">private</span> String orgaddress;</span><br><span class="line">     <span class="keyword">private</span> String orgremark;</span><br><span class="line">     <span class="keyword">private</span> BigDecimal orgsortid;</span><br><span class="line">     <span class="keyword">private</span> String orgcancelflag;</span><br><span class="line">     <span class="keyword">private</span> Set bookorgs = <span class="keyword">new</span> HashSet(<span class="number">0</span>);</span><br><span class="line">     <span class="keyword">private</span> Set bookpersons = <span class="keyword">new</span> HashSet(<span class="number">0</span>);</span><br><span class="line">     <span class="keyword">private</span> Set addressbooks = <span class="keyword">new</span> HashSet(<span class="number">0</span>);</span><br><span class="line">     <span class="comment">//get、set方法省略。。。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3038,266 +2834,57 @@ server {
     </entry>
     
     <entry>
-      <title><![CDATA[Oracle如何查询某条记录的上下两条记录]]></title>
-      <url>/2016/10/21/tech-db-find-neighbouring/</url>
-      <content type="html"><![CDATA[<p>今天在做部门和人员的排序的时候，需要根据某一条记录查询他的前一条记录和后一条记录。本来之前是想通过伪列的形式去查询，然后再循环遍历，便可以达到要求，但是，想了下，oracle是否有这样的函数可以一条sql查询呢，然后上百度查询了下，果然是有的，所以特意记录一下，方便日后查找。</p>
-<a id="more"></a>
-<p>oracle 可以使用 <strong>lead、lag</strong> 函数查询已有记录的上一条和下一条记录。</p>
-<p>表结构如下</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016121043024QQ20161210-100447@2x.png" alt="2016121043024QQ20161210-100447@2x.png"></p>
-<p>如要查询Staffno是6-1102的前一条记录：</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> staff <span class="keyword">where</span> staff_no=(<span class="keyword">select</span> c.p <span class="keyword">from</span> (<span class="keyword">select</span> staff_no,lag(staff_no,<span class="number">1</span>,<span class="number">0</span>)  <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> staff_no) <span class="keyword">as</span> p <span class="keyword">from</span> staff) c <span class="keyword">where</span> c.staff_no=<span class="string">'6-1102'</span>)
-</code></pre>
-<p>查询期后一条记录</p>
-<pre><code class="sql"><span class="keyword">select</span> * <span class="keyword">from</span> staff <span class="keyword">where</span> staff_no=(<span class="keyword">select</span> c.n <span class="keyword">from</span> (<span class="keyword">select</span> staff_no,<span class="keyword">lead</span>(staff_no,<span class="number">1</span>,<span class="number">0</span>)  <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> staff_no) <span class="keyword">as</span> n <span class="keyword">from</span> staff) c <span class="keyword">where</span> c.staff_no=<span class="string">'6-1102'</span>)
-</code></pre>
-]]></content>
-      
-        <categories>
-            
-            <category> 编程 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> oracle </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[hexo博客进阶教程]]></title>
       <url>/2016/09/29/tech-hexo-advance/</url>
       <content type="html"><![CDATA[<p>前几天写了一篇关于如何用hexo+github来搭建个人的博客网站，最近项目验收完成了，终于可以有时间把接下来的教程完成，ok，废话不多说，咱们直接开始吧！</p>
 <a id="more"></a>
-<h2 id="添加标签页"><a href="#添加标签页" class="headerlink" title="添加标签页"></a>添加标签页</h2><p>标签页需要我们自己去新建，默认是不显示的 </p>
+<h2 id="添加标签页"><a href="#添加标签页" class="headerlink" title="添加标签页"></a>添加标签页</h2><p>标签页需要我们自己去新建，默认是不显示的</p>
 <ol>
-<li><p>在终端窗口下，进入到<strong>hexo站点</strong>文件夹下，输入如下命令 </p>
-<pre><code>$ hexo new page tags
-</code></pre></li>
-<li><p>进入到hexo/source/tags/目录下，用markdown编辑器打开index.md文件，主题将自动为这个页面显示标签云。显示如下</p>
-<pre><code>title: 标签
-date: 2014-12-22 12:39:04
-type: &quot;tags&quot;
----
-</code></pre></li>
-<li><p>修改主题配置文件，添加tags到menu中，显示如下：</p>
-<pre><code>menu:
-  home: /
-  archives: /archives
-  tags: /tags
-</code></pre></li>
-</ol>
-<h2 id="添加分类页"><a href="#添加分类页" class="headerlink" title="添加分类页"></a>添加分类页</h2><p>大致的过程是跟添加标签页是一个意思，这里就不在阐述，<a href="http://theme-next.iissnan.com/theme-settings.html#categories-page" target="_blank" rel="noopener">点我</a></p>
-<blockquote>
-<p>如果有启用 多说 或者 Disqus 评论，页面也会带有评论。 若需要关闭的话，请添加字段 comments 并将值设置为 false</p>
-</blockquote>
-<h2 id="留言板"><a href="#留言板" class="headerlink" title="留言板"></a>留言板</h2><ol>
-<li><p>打开主题配置文件，即 Hexo/themes/next/_config.yml 在 menu 下添加字段，名称任意，只要自己能区分出来就行，比如我添加的是 board 字段，下面全部是以 board 为例。</p>
-<pre><code>menu:
-  home: /
-  categories: /categories
-  about: /about
-  archives: /archives
-  tags: /tags
-  commonweal: /404.html
-  board: /board
-</code></pre><p> 在 menu_icons 下为留言板设定一个图标，我用的是 book 这个图标，如果想要设定为其他图标，请访问：<a href="https://link.zhihu.com/?target=http%3A//fontawesome.io/icons/" target="_blank" rel="noopener">Font Awesome Icons</a>， 然后把自己喜欢的图标后的关键字填写到 board后面。</p>
-<pre><code>menu_icons:
-  enable: true
-  #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
-  home: home
-  about: user
-  categories: th
-  tags: tags
-  archives: archive
-  commonweal: heartbeat
-  board: book
-</code></pre></li>
-<li><p>进入 Hexo/source ，创建一个 board 文件夹</p>
-</li>
-<li><p>打开刚才创建的文件夹，新建一个 index.md 文件</p>
-</li>
-<li><p>打开创建的 index.md，在开头添加</p>
-<pre><code>title: board
-date: 2016-07-07 21:43:11
-comments: ture
----
-</code></pre></li>
-<li><p>打开 Hexo\themes\next\languages 文件夹，找到当前使用的语言<br>在 menu 下添加 borad 字段</p>
-<pre><code>menu:
-      home: 首页
-      archives: 归档
-      categories: 分类
-      tags: 标签
-      about: 关于
-      search: Search
-      commonweal: 公益404
-      board: 留言
-</code></pre></li>
-<li><p>大双引号效果，只需要在Hexo/source/border/下编辑index.md，添加</p>
-<pre><code>&lt;blockquote class=&quot;blockquote-center&quot;&gt;你想写的东西&lt;/blockquote&gt;
-</code></pre></li>
-</ol>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>hexo 默认的主题显得有些单调，那该如何才能更换hexo的主题呢？在这里推荐一款比较简约的主题<strong>next</strong></p>
-<ol>
-<li>首先下载<a href="https://github.com/iissnan/hexo-theme-next/releases" target="_blank" rel="noopener">next</a>主题安装包,下载好以后，解压该压缩文件，重命名为next</li>
-<li>然后将解压后的整个文件夹复制到F:\Hexo\themes目录下</li>
-<li>打开站点配置文件(hexo 根目录下的_config.yml文件，后面都统一称为<strong>站点配置文件</strong>)，找到theme字段，将其值改为next</li>
-<li><p>执行命令hexo -g , hexo -s,在浏览器输入 <a href="http://localhost：4000" target="_blank" rel="noopener">http://localhost：4000</a> 校验主题是否更改成功,如果显示如下的图所示，说明安装成功。</p>
-<p> <img src="/img/20160929/hexoTheme.png" alt="主题更换成功"></p>
-</li>
-<li><p>主题更换成功以后，就可以更改主题的标题、头像、菜单、侧边栏，具体参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">next主题官方文档</a>，写的很详细，在这里就不详细叙述了。</p>
+<li><p>在终端窗口下，进入到<strong>hexo站点</strong>文件夹下，输入如下命令</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	$ hexo new page tags</span><br><span class="line">	```  </span><br><span class="line"></span><br><span class="line">2. 进入到hexo/source/tags/目录下，用markdown编辑器打开index.md文件，主题将自动为这个页面显示标签云。显示如下</span><br></pre></td></tr></table></figure>
+<p> title: 标签<br> date: 2014-12-22 12:39:04</p>
+<h2 id="type-“tags”"><a href="#type-“tags”" class="headerlink" title=" type: “tags”"></a> type: “tags”</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 修改主题配置文件，添加tags到menu中，显示如下：</span><br></pre></td></tr></table></figure>
+<p> menu:<br>   home: /<br>   archives: /archives<br>   tags: /tags</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 添加分类页</span><br><span class="line"></span><br><span class="line">大致的过程是跟添加标签页是一个意思，这里就不在阐述，[点我](http://theme-next.iissnan.com/theme-settings.html#categories-page)</span><br><span class="line"></span><br><span class="line">&gt; 如果有启用 多说 或者 Disqus 评论，页面也会带有评论。 若需要关闭的话，请添加字段 comments 并将值设置为 false</span><br><span class="line"></span><br><span class="line">## 留言板</span><br><span class="line"></span><br><span class="line">1. 打开主题配置文件，即 `Hexo/themes/next/_config.yml` 在 menu 下添加字段，名称任意，只要自己能区分出来就行，比如我添加的是 board 字段，下面全部是以 board 为例。</span><br></pre></td></tr></table></figure>
+<p> menu:<br>   home: /<br>   categories: /categories<br>   about: /about<br>   archives: /archives<br>   tags: /tags<br>   commonweal: /404.html<br>   board: /board</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在 menu_icons 下为留言板设定一个图标，我用的是 book 这个图标，如果想要设定为其他图标，请访问：[Font Awesome Icons](https://link.zhihu.com/?target=http%3A//fontawesome.io/icons/)， 然后把自己喜欢的图标后的关键字填写到 board后面。</span><br></pre></td></tr></table></figure>
+<p> menu_icons:<br>   enable: true<br>   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome<br>   home: home<br>   about: user<br>   categories: th<br>   tags: tags<br>   archives: archive<br>   commonweal: heartbeat<br>   board: book</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 进入 `Hexo/source` ，创建一个 board 文件夹</span><br><span class="line"></span><br><span class="line">3. 打开刚才创建的文件夹，新建一个 index.md 文件</span><br><span class="line"></span><br><span class="line">4. 打开创建的 index.md，在开头添加</span><br></pre></td></tr></table></figure>
+<p> title: board<br> date: 2016-07-07 21:43:11</p>
+<h2 id="comments-ture"><a href="#comments-ture" class="headerlink" title=" comments: ture"></a> comments: ture</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5. 打开 `Hexo\themes\next\languages` 文件夹，找到当前使用的语言</span><br><span class="line">在 menu 下添加 borad 字段</span><br></pre></td></tr></table></figure>
+<p> menu:</p>
+<pre><code>home: 首页
+archives: 归档
+categories: 分类
+tags: 标签
+about: 关于
+search: Search
+commonweal: 公益404
+board: 留言
+</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6. 大双引号效果，只需要在`Hexo/source/border/`下编辑index.md，添加</span><br></pre></td></tr></table></figure>
+<p> <blockquote class="blockquote-center">你想写的东西</blockquote></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 更换主题</span><br><span class="line"></span><br><span class="line">hexo 默认的主题显得有些单调，那该如何才能更换hexo的主题呢？在这里推荐一款比较简约的主题**next**</span><br><span class="line"></span><br><span class="line">1. 首先下载[next](https://github.com/iissnan/hexo-theme-next/releases)主题安装包,下载好以后，解压该压缩文件，重命名为next</span><br><span class="line">2. 然后将解压后的整个文件夹复制到`F:\Hexo\themes`目录下</span><br><span class="line">3. 打开站点配置文件(hexo 根目录下的`_config.yml`文件，后面都统一称为 **站点配置文件** )，找到theme字段，将其值改为next</span><br><span class="line">4. 执行命令`hexo -g` , `hexo -s`,在浏览器输入：`http://localhost:4000` 校验主题是否更改成功,如果显示如下的图所示，说明安装成功。</span><br><span class="line"></span><br><span class="line">	![主题更换成功](/img/20160929/hexoTheme.png)</span><br><span class="line"></span><br><span class="line">5. 主题更换成功以后，就可以更改主题的标题、头像、菜单、侧边栏，具体参考[next主题官方文档](http://theme-next.iissnan.com/getting-started.html)，写的很详细，在这里就不详细叙述了。</span><br><span class="line"></span><br><span class="line">## 多说评论</span><br><span class="line"></span><br><span class="line">hexo 博客本身是不带有评论系统的，但是为了方便博主与读者之间交流，我就需要接入第三方服务----**多说评论**</span><br><span class="line"></span><br><span class="line">1. 登录[多说](http://duoshuo.com/)后在首页选择 “我要安装”。</span><br><span class="line">2. 创建站点，填写表单。多说域名 这一栏填写的即是你的 `duoshuo_shortname`，如图：</span><br><span class="line">	![多说](/img/20160929/duoshuo.png)</span><br><span class="line">3. 创建站点完成后在 站点配置文件 中新增 `duoshuo_shortname` 字段，值设置成上一步中的值。</span><br><span class="line">4. 在多说的设置界面，可以自定义文本，默认头像，外观主题，下面我贴出自己的评论框的自定义的css样式，给大家一个参考。</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="多说评论"><a href="#多说评论" class="headerlink" title="多说评论"></a>多说评论</h2><p>hexo 博客本身是不带有评论系统的，但是为了方便博主与读者之间交流，我就需要接入第三方服务—-<strong>多说评论</strong></p>
-<ol>
-<li>登录<a href="http://duoshuo.com/" target="_blank" rel="noopener">多说</a>后在首页选择 “我要安装”。</li>
-<li>创建站点，填写表单。多说域名 这一栏填写的即是你的 duoshuo_shortname，如图：<br> <img src="/img/20160929/duoshuo.png" alt="多说"></li>
-<li>创建站点完成后在 站点配置文件 中新增 duoshuo_shortname 字段，值设置成上一步中的值。</li>
-<li>在多说的设置界面，可以自定义文本，默认头像，外观主题，下面我贴出自己的评论框的自定义的css样式，给大家一个参考。</li>
-</ol>
-<pre><code>#ds-reset .ds-avatar img,
-#ds-recent-visitors .ds-avatar img {
-width: 54px;
-height: 54px;     /*设置图像的长和宽，这里要根据自己的评论框情况更改*/
-border-radius: 27px;     /*设置图像圆角效果,在这里我直接设置了超过width/2的像素，即为圆形了*/
--webkit-border-radius: 27px;     /*圆角效果：兼容webkit浏览器*/
--moz-border-radius: 27px;
-box-shadow: inset 0 -1px 0 #3333sf;     /*设置图像阴影效果*/
--webkit-box-shadow: inset 0 -1px 0 #3333sf;
--webkit-transition: 0.4s;
--webkit-transition: -webkit-transform 0.4s ease-out;
-transition: transform 0.4s ease-out;     /*变化时间设置为0.4秒(变化动作即为下面的图像旋转360读）*/
--moz-transition: -moz-transform 0.4s ease-out;
-}
-
-#ds-reset .ds-avatar img:hover,
-#ds-recent-visitors .ds-avatar img:hover {
-
-/*设置鼠标悬浮在头像时的CSS样式*/    box-shadow: 0 0 10px #fff;
-rgba(255, 255, 255, .6), inset 0 0 20px rgba(255, 255, 255, 1);
--webkit-box-shadow: 0 0 10px #fff;
-rgba(255, 255, 255, .6), inset 0 0 20px rgba(255, 255, 255, 1);
-transform: rotateZ(360deg);     /*图像旋转360度*/
--webkit-transform: rotateZ(360deg);
--moz-transform: rotateZ(360deg);
-}
-
-#ds-thread #ds-reset .ds-textarea-wrapper textarea {
-
-}
-
-#ds-recent-visitors .ds-avatar {
-float: left
-}
-/*隐藏多说底部版权*/
-#ds-thread #ds-reset .ds-powered-by {
-display: none;
-}
-</code></pre><h2 id="文章统计与站点统计"><a href="#文章统计与站点统计" class="headerlink" title="文章统计与站点统计"></a>文章统计与站点统计</h2><ol>
-<li><p>站点统计用的是<a href="http://service.ibruce.info/" target="_blank" rel="noopener">不蒜子统计</a>，传送门（<a href="http://theme-next.iissnan.com/third-party-services.html#analytics-busuanzi" target="_blank" rel="noopener">点我</a>），next主题官网写的比较详细，我这里就不在阐述了哦</p>
-<p> <img src="/img/20160929/不蒜子统计.png" alt=""></p>
-</li>
-<li><p>文章统计，再次召唤传送门(<a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#" target="_blank" rel="noopener">点我</a>)</p>
-</li>
-</ol>
-<h2 id="背景效果"><a href="#背景效果" class="headerlink" title="背景效果"></a>背景效果</h2><ol>
-<li>把 js 文件 <a href="https://github.com/ehlxr/ehlxr.github.io/blob/master/js/src/particle.js" target="_blank" rel="noopener">particle.js</a> 放在\themes\next\source\js\src文件目录下</li>
-<li><p>更新\themes\next\layout \ _layout.swig文件，在末尾（在前面引用会出现找不到的bug）添加以下 js 引入代码：</p>
+<p>#ds-reset .ds-avatar img,</p>
+<p>#ds-recent-visitors .ds-avatar img {<br>width: 54px;<br>height: 54px;     /<em>设置图像的长和宽，这里要根据自己的评论框情况更改</em>/<br>border-radius: 27px;     /<em>设置图像圆角效果,在这里我直接设置了超过width/2的像素，即为圆形了</em>/<br>-webkit-border-radius: 27px;     /<em>圆角效果：兼容webkit浏览器</em>/<br>-moz-border-radius: 27px;<br>box-shadow: inset 0 -1px 0 #3333sf;     /<em>设置图像阴影效果</em>/<br>-webkit-box-shadow: inset 0 -1px 0 #3333sf;<br>-webkit-transition: 0.4s;<br>-webkit-transition: -webkit-transform 0.4s ease-out;<br>transition: transform 0.4s ease-out;     /<em>变化时间设置为0.4秒(变化动作即为下面的图像旋转360读）</em>/<br>-moz-transition: -moz-transform 0.4s ease-out;<br>}</p>
+<p>#ds-reset .ds-avatar img:hover,</p>
+<p>#ds-recent-visitors .ds-avatar img:hover {</p>
+<p>/<em>设置鼠标悬浮在头像时的CSS样式</em>/    box-shadow: 0 0 10px #fff;<br>rgba(255, 255, 255, .6), inset 0 0 20px rgba(255, 255, 255, 1);<br>-webkit-box-shadow: 0 0 10px #fff;<br>rgba(255, 255, 255, .6), inset 0 0 20px rgba(255, 255, 255, 1);<br>transform: rotateZ(360deg);     /<em>图像旋转360度</em>/<br>-webkit-transform: rotateZ(360deg);<br>-moz-transform: rotateZ(360deg);<br>}</p>
+<p>#ds-thread #ds-reset .ds-textarea-wrapper textarea {</p>
+<p>}</p>
+<p>#ds-recent-visitors .ds-avatar {<br>float: left<br>}<br>/<em>隐藏多说底部版权</em>/</p>
+<p>#ds-thread #ds-reset .ds-powered-by {<br>display: none;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 文章统计与站点统计</span><br><span class="line"></span><br><span class="line">1. 站点统计用的是[不蒜子统计](http://service.ibruce.info/)，传送门（[点我](http://theme-next.iissnan.com/third-party-services.html#analytics-busuanzi)），next主题官网写的比较详细，我这里就不在阐述了哦</span><br><span class="line"></span><br><span class="line">	![](/img/20160929/不蒜子统计.png)</span><br><span class="line"></span><br><span class="line">2. 文章统计，再次召唤传送门([点我](https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#))</span><br><span class="line"></span><br><span class="line">## 背景效果</span><br><span class="line"></span><br><span class="line">1. 把 js 文件 [particle.js](https://github.com/ehlxr/ehlxr.github.io/blob/master/js/src/particle.js) 放在`\themes\next\source\js\src`文件目录下</span><br><span class="line">2. 更新`\themes\next\layout\_layout.swig`文件，在末尾（在前面引用会出现找不到的bug）添加以下 js 引入代码：</span><br></pre></td></tr></table></figure></p>
 <pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/particle.js&quot;&gt;&lt;/script&gt;
-</code></pre></li>
-</ol>
-<h2 id="站点搜索"><a href="#站点搜索" class="headerlink" title="站点搜索"></a>站点搜索</h2><ol>
-<li><p>安装 hexo-generator-search，在站点的根目录下执行以下命令：</p>
-<pre><code>$ npm install hexo-generator-search --save
-</code></pre></li>
-<li><p>在站点配置文件中，新增以下内容到任意位置</p>
-<pre><code>search:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 站点搜索</span><br><span class="line"></span><br><span class="line">1. 安装 `hexo-generator-search`，在站点的根目录下执行以下命令：</span><br></pre></td></tr></table></figure>
+
+$ npm install hexo-generator-search --save
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 在站点配置文件中，新增以下内容到任意位置</span><br></pre></td></tr></table></figure>
+
+search:
       path: search.xml
       field: post
-</code></pre></li>
-</ol>
-<h2 id="头像旋转"><a href="#头像旋转" class="headerlink" title="头像旋转"></a>头像旋转</h2><p>主要是修改 Hexo 目录下 \themes\next\source\css\_common\components\sidebar\sidebar-author.styl 文件，以下是我的配置文件，大家可以参考一下。</p>
-<pre><code>.site-author-image {
-  display: block;
-  margin: 0 auto;
-  padding: $site-author-image-padding;
-  max-width: $site-author-image-width;
-  height: $site-author-image-height;
-  border: $site-author-image-border-width solid $site-author-image-border-color;
-
-  /* 头像圆形 */
-  border-radius: 80px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  box-shadow: inset 0 -1px 0 #333sf;
-
-  /* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 
-    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/
-  -webkit-animation: play 2s ease-out 1s 1;
-  -moz-animation: play 2s ease-out 1s 1;
-  animation: play 2s ease-out 1s 1; 
-
-  /* 鼠标经过头像旋转360度 */
-  -webkit-transition: -webkit-transform 1.5s ease-out;
-  -moz-transition: -moz-transform 1.5s ease-out;
-  transition: transform 1.5s ease-out;
-}
-
-img:hover {
-  /* 鼠标经过停止头像旋转 
-  -webkit-animation-play-state:paused;
-  animation-play-state:paused;*/
-
-  /* 鼠标经过头像旋转360度 */
-  -webkit-transform: rotateZ(360deg);
-  -moz-transform: rotateZ(360deg);
-  transform: rotateZ(360deg);
-}
-
-/* Z 轴旋转动画 */
-@-webkit-keyframes play {
-  0% {
-    -webkit-transform: rotateZ(0deg);
-  }
-  100% {
-    -webkit-transform: rotateZ(-360deg);
-  }
-}
-@-moz-keyframes play {
-  0% {
-    -moz-transform: rotateZ(0deg);
-  }
-  100% {
-    -moz-transform: rotateZ(-360deg);
-  }
-}
-@keyframes play {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  100% {
-    transform: rotateZ(-360deg);
-  }
-}
-
-.site-author-name {
-  margin: $site-author-name-margin;
-  text-align: $site-author-name-align;
-  color: $site-author-name-color;
-  font-weight: $site-author-name-weight;
-}
-
-.site-description {
-  margin-top: $site-description-margin-top;
-  text-align: $site-description-align;
-  font-size: $site-description-font-size;
-  color: $site-description-color;
-}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 头像旋转</span><br><span class="line"></span><br><span class="line">主要是修改 Hexo 目录下 `\themes\next\source\css\\_common\components\sidebar\sidebar-author.styl` 文件，以下是我的配置文件，大家可以参考一下。</span><br><span class="line"></span><br><span class="line">```css</span><br><span class="line">.site-author-image &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: $site-author-image-padding;</span><br><span class="line">  max-width: $site-author-image-width;</span><br><span class="line">  height: $site-author-image-height;</span><br><span class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line"></span><br><span class="line">  /* 头像圆形 */</span><br><span class="line">  border-radius: 80px;</span><br><span class="line">  -webkit-border-radius: 80px;</span><br><span class="line">  -moz-border-radius: 80px;</span><br><span class="line">  box-shadow: inset 0 -1px 0 #333sf;</span><br><span class="line"></span><br><span class="line">  /* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束</span><br><span class="line">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</span><br><span class="line">  -webkit-animation: play 2s ease-out 1s 1;</span><br><span class="line">  -moz-animation: play 2s ease-out 1s 1;</span><br><span class="line">  animation: play 2s ease-out 1s 1;</span><br><span class="line"></span><br><span class="line">  /* 鼠标经过头像旋转360度 */</span><br><span class="line">  -webkit-transition: -webkit-transform 1.5s ease-out;</span><br><span class="line">  -moz-transition: -moz-transform 1.5s ease-out;</span><br><span class="line">  transition: transform 1.5s ease-out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">img:hover &#123;</span><br><span class="line">  /* 鼠标经过停止头像旋转</span><br><span class="line">  -webkit-animation-play-state:paused;</span><br><span class="line">  animation-play-state:paused;*/</span><br><span class="line"></span><br><span class="line">  /* 鼠标经过头像旋转360度 */</span><br><span class="line">  -webkit-transform: rotateZ(360deg);</span><br><span class="line">  -moz-transform: rotateZ(360deg);</span><br><span class="line">  transform: rotateZ(360deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* Z 轴旋转动画 */</span><br><span class="line">@-webkit-keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    -webkit-transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    -webkit-transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@-moz-keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    -moz-transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    -moz-transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.site-author-name &#123;</span><br><span class="line">  margin: $site-author-name-margin;</span><br><span class="line">  text-align: $site-author-name-align;</span><br><span class="line">  color: $site-author-name-color;</span><br><span class="line">  font-weight: $site-author-name-weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.site-description &#123;</span><br><span class="line">  margin-top: $site-description-margin-top;</span><br><span class="line">  text-align: $site-description-align;</span><br><span class="line">  font-size: $site-description-font-size;</span><br><span class="line">  color: $site-description-color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>ok，基本上大致的配置就这么多吧，还有些东西，比如打赏啊，公益404，友情链接，大家都可以在<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">next主题官网</a>可以看到配置教程，在这里就不多说了，有不懂得同学可以留言，我会第一时间回复你的。ok，睡觉去了，好困。。。</p>
 ]]></content>
       
@@ -3329,36 +2916,40 @@ img:hover {
 <p>桌面鼠标右击，选择Git Bash Here ，打开git命令行窗口，如下图</p>
 <p><img src="/img/gitbash.png" alt="Git Bash Here"></p>
 <p>输入安装命令，回车</p>
-<p><code>npm install -g hexo</code></p>
-<p>然后在指定的盘新建一个hexo文件夹，进入到新建的这个文件夹内，点击鼠标右键，选择Git Bash Here，输入初始化指令，回车，就会看到生成一系列的文件：</p>
-<p><code>hexo init</code></p>
-<p>安装相关的依赖包，输入下面的指令，回车</p>
-<p><code>npm install</code></p>
-<blockquote>
-<p>下面来解说一下各个文件夹的作用，指定文件夹的目录如下：</p>
-</blockquote>
-<p><img src="/img/direction.png" alt="hexo文件目录"></p>
-<blockquote>
 <ul>
-<li>_config.yml：用来配置站点信息，大多数配置都在这里进行。</li>
-<li>package.json：管理我们安装的一些插件，我们要删除某些插件的时候，可以在这里进行。</li>
-<li>scaffolds：模板文件夹。</li>
-<li>source：源文件夹是存放用户资源的地方,他下面有一个_posts，文件夹，我们发表的文件就存放在这个文件夹下。</li>
-<li>themes：主题文件夹，Hexo 会根据主题来生成静态页面。</li>
+<li><code>npm install -g hexo</code></li>
 </ul>
-</blockquote>
-<p>接着在hexo文件夹下执行</p>
-<p><code>hexo g</code></p>
-<p><code>hexo s</code></p>
+<p>然后在指定的盘新建一个hexo文件夹，进入到新建的这个文件夹内，点击鼠标右键，选择Git Bash Here，输入初始化指令，回车，就会看到生成一系列的文件：</p>
+<ul>
+<li><code>hexo init</code></li>
+</ul>
+<p>安装相关的依赖包，输入下面的指令，回车</p>
+<ul>
+<li><code>npm install</code></li>
+</ul>
+<p>下面来解说一下各个文件夹的作用，指定文件夹的目录如下：</p>
+<p><img src="/img/direction.png" alt="hexo文件目录"></p>
+<ul>
+<li><code>_config.yml</code>：用来配置站点信息，大多数配置都在这里进行。</li>
+<li><code>package.json</code>：管理我们安装的一些插件，我们要删除某些插件的时候，可以在这里进行。</li>
+<li><code>scaffolds</code>：模板文件夹。</li>
+<li><code>source</code>：源文件夹是存放用户资源的地方,他下面有一个_posts，文件夹，我们发表的文件就存放在这个文件夹下。</li>
+<li><code>themes</code>：主题文件夹，Hexo 会根据主题来生成静态页面。</li>
+</ul>
+<p>接着在hexo文件夹下执行：</p>
+<ul>
+<li><code>hexo g</code></li>
+<li><code>hexo s</code></li>
+</ul>
 <p>然后用浏览器访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>，就能看到hexo初始化界面，是不是很激动呢？但是这个界面只有我们自己可以看到，要想别人看到怎么办呢？ok，接下来我们就来完成这一步骤。</p>
 <h2 id="创建一个github账号"><a href="#创建一个github账号" class="headerlink" title="创建一个github账号"></a>创建一个github账号</h2><p>已经有账号的暂时忽略这一步，传送门：<a href="https://github.com/" target="_blank" rel="noopener">github</a>，没有的话就老老实实创建一个吧。</p>
 <h2 id="创建一个仓库"><a href="#创建一个仓库" class="headerlink" title="创建一个仓库"></a>创建一个仓库</h2><p>我们有了账号以后，便可以创建repository，中文即是仓库，如下图所示</p>
 <p><img src="/img/repository.png" alt="仓库"></p>
 <p>这里仓库的名字要注意，格式应该是：<strong>你的github账号名字.github.io</strong>，像我的就是 wangleeyom.github.io。为什么要这么设置，我也不太清楚，可能是github约定的吧</p>
-<h2 id="部署文件到github"><a href="#部署文件到github" class="headerlink" title="部署文件到github"></a>部署文件到github</h2><p>用notepad++或者sublime打开 hexo 文件夹下的 _config.yml 文件，找到关键字 deploy ，然后修改成如下，我就用我自己的做示例：</p>
+<h2 id="部署文件到github"><a href="#部署文件到github" class="headerlink" title="部署文件到github"></a>部署文件到github</h2><p>用notepad++或者sublime打开 hexo 文件夹下的 <code>_config.yml</code> 文件，找到关键字 deploy ，然后修改成如下，我就用我自己的做示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/wangleeyom/wangleeyom.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>需要注意的一点：<strong>冒号后面要有一个空格</strong>，比如 type 冒号后面要加一个空格，很多同学部署不上去就是问题出在这里，需要注意，修改完以后，保存即可。</p>
-<p>但是这样还不能连接到 github ，我们还需要配置SSH，找到路径C:\Users\leeyom.ssh，如果已经存在SSH Keys ，直接删除.ssh 文件夹下的所有的文件，如下图。 </p>
+<p>但是这样还不能连接到 github ，我们还需要配置SSH，找到路径<code>C:\Users\leeyom\.ssh</code>，如果已经存在SSH Keys ，直接删除<code>.ssh</code> 文件夹下的所有的文件，如下图。</p>
 <p><img src="/img/sshKeys.png" alt="SSH Keys"></p>
 <p>然后输入以下指令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;635709492@qq.com&quot;</span><br></pre></td></tr></table></figure>
@@ -3392,15 +2983,14 @@ img:hover {
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>执行以下命令部署项目到github</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>但是输入hexo d 可能会报 <strong>ERROR Deployer not fount： git</strong>错误,这是因为没有安装hexo-deployer-git这个模块，无法识别该指令，安装该模块即可，输入如下命令：</p>
+<p>但是输入hexo d 可能会报 <strong>ERROR Deployer not fount： git</strong> 错误,这是因为没有安装<code>hexo-deployer-git</code>这个模块，无法识别该指令，安装该模块即可，输入如下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>可能网速的原因，安装该模块的时候，很慢，需要等待一会儿。我安装的时候一直没动静，以为挂掉了，试了几次都不行。后来出去有事，就执行命令后就不管他了，回来后，就安装好了。</p>
-<p>安装好以后输入 hexo d ，会有弹出框，输入github账号密码即可，就可以访问了。浏览器输入 wangleeyom.github.io 即可访问，烦人的404没有了，出现的是 hexo 默认界面。</p>
+<p>可能网速的原因，安装该模块的时候，很慢，需要等待一会儿。我安装的时候一直没动静，以为挂掉了，试了几次都不行。后来出去有事，就执行命令后就不管他了，回来后，就安装好了。<br>安装好以后输入 hexo d ，会有弹出框，输入github账号密码即可，就可以访问了。浏览器输入 <code>wangleeyom.github.io</code> 即可访问，烦人的404没有了，出现的是 hexo 默认界面。</p>
 <h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>假如一直出现如下图的错误，一直无法发布到github上</p>
 <p><img src="/img/mistake_2.png" alt=""></p>
 <p>尝试将站点配置_config.yml的deploy部分更改成:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git://github.com/wangleeyom/wangleeyom.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>也就是把https换成git试试。 </p>
+<p>也就是把https换成git试试。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>至此，hexo 的搭建就完成了，是不是很激动呢？别着急，界面是不是很丑？咋发表文章呢？哈哈。。后面有时间的话会讲解如何发布文章，添加tags，分类，更换主题，如何绑定域名，如何接入第三方的服务等一系列的问题，敬请期待。。。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li>本文章很大一部分参考的 <a href="http://www.jianshu.com/p/ba76165ca84d" target="_blank" rel="noopener">http://www.jianshu.com/p/ba76165ca84d</a> ，感谢该作者。</li>
@@ -3430,9 +3020,9 @@ img:hover {
     <entry>
       <title><![CDATA[Hello World]]></title>
       <url>/2016/09/23/life-hello-world/</url>
-      <content type="html"><![CDATA[<p>Hello World!</p>
+      <content type="html"><![CDATA[<p>Hello, 欢迎你阅读我的博客，我是一名90后的程序员，主要从事web开发。我有一个小小的愿望。我希望凭借自己的努力，净化程序员的环境，提升程序员的层次。愿IT界再无黑心企业的剥削，无人自嘲”码农”、”码畜”，技术人员受到足够的尊重，写程序重新成为一种创造性的劳动。软件行业，重新成为令人羡慕的行业。</p>
 <a id="more"></a>
-<p>Hello, 欢迎你阅读我的博客，我是一名90后的程序员，主要从事web开发。我有一个小小的愿望。我希望凭借自己的努力，净化程序员的环境，提升程序员的层次。愿IT界再无黑心企业的剥削，无人自嘲”码农”、”码畜”，技术人员受到足够的尊重，写程序重新成为一种创造性的劳动。软件行业，重新成为令人羡慕的行业。</p>
+<p>Hello World!</p>
 ]]></content>
       
         <categories>

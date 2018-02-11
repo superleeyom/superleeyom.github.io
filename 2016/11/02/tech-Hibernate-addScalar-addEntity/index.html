@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Leeyom的个人站">
 <meta property="og:description" content="Hibernate除了支持HQL查询外，还支持原生SQL查询。对原生SQL查询执行的控制是通过SQLQuery接口进行的，通过执行Session.createSQLQuery()获取这个接口。该接口是Query接口的子接口。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-19T14:12:59.000Z">
+<meta property="og:updated_time" content="2018-02-11T05:49:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hibernate SQL查询addScalar()和addEntity()区别">
 <meta name="twitter:description" content="Hibernate除了支持HQL查询外，还支持原生SQL查询。对原生SQL查询执行的控制是通过SQLQuery接口进行的，通过执行Session.createSQLQuery()获取这个接口。该接口是Query接口的子接口。">
@@ -390,12 +390,12 @@
         <p>Hibernate除了支持HQL查询外，还支持原生SQL查询。对原生SQL查询执行的控制是通过SQLQuery接口进行的，通过执行Session.createSQLQuery()获取这个接口。该接口是Query接口的子接口。</p>
 <a id="more"></a>
 <h2 id="SQL查询步骤"><a href="#SQL查询步骤" class="headerlink" title="SQL查询步骤"></a>SQL查询步骤</h2><ol>
-<li>获取Hibernate Session对象 </li>
-<li>编写SQL语句 </li>
-<li>通过Session的createSQLQuery方法创建查询对象 </li>
-<li>调用SQLQuery对象的<strong>addScalar()</strong>或<strong>addEntity()</strong>方法将选出的结果与标量值或实体进行关联，分别用于进行标量查询或实体查询 </li>
-<li>如果SQL语句包含参数，调用Query的setXxxx方法为参数赋值 </li>
-<li>调用Query的list方法返回查询的结果集 </li>
+<li>获取Hibernate Session对象</li>
+<li>编写SQL语句</li>
+<li>通过Session的createSQLQuery方法创建查询对象</li>
+<li>调用SQLQuery对象的 <strong>addScalar()</strong> 或 <strong>addEntity()</strong> 方法将选出的结果与标量值或实体进行关联，分别用于进行标量查询或实体查询</li>
+<li>如果SQL语句包含参数，调用Query的setXxxx方法为参数赋值</li>
+<li>调用Query的list方法返回查询的结果集</li>
 </ol>
 <h2 id="标量查询"><a href="#标量查询" class="headerlink" title="标量查询"></a>标量查询</h2><p>最基本的SQL查询就是获得一个标量的列表：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session.createSQLQuery(<span class="string">"select * from person_inf"</span>).list();   </span><br><span class="line">session.createSQLQuery(<span class="string">"select id,name,age from person_inf"</span>).list();</span><br></pre></td></tr></table></figure>
@@ -414,33 +414,33 @@
 <p>它仍然会返回Object数组,但是此时不再使用<strong>ResultSetMetdata</strong>,而是明确的将name和age按照String和int类型从resultset中取出。同时，也指明了就算query是使用*来查询的，可能获得超过列出的这三个字段，也仅仅会返回这三个字段。如果仅仅只需要选出某个字段的值，而不需要明确指定该字段的数据类型，则可以使用addScalar(String columnAlias)。</p>
 <p>实例如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">scalarQuery</span><span class="params">()</span></span>&#123;  </span><br><span class="line">        Session session = HibernateUtil.getSession();  </span><br><span class="line">        Transaction tx = session.beginTransaction();  </span><br><span class="line">        String sql = <span class="string">"select * from person_inf"</span>;  </span><br><span class="line">        List list = session.createSQLQuery(sql).  </span><br><span class="line">                    addScalar(<span class="string">"person_id"</span>,StandardBasicTypes.INTEGER).  </span><br><span class="line">                    addScalar(<span class="string">"name"</span>, StandardBasicTypes.STRING).  </span><br><span class="line">                    addScalar(<span class="string">"age"</span>,StandardBasicTypes.INTEGER).list();  </span><br><span class="line">        <span class="keyword">for</span>(Iterator iterator = list.iterator();iterator.hasNext();)&#123;  </span><br><span class="line">            <span class="comment">//每个集合元素都是一个数组，数组元素师person_id,person_name,person_age三列值  </span></span><br><span class="line">            Object[] objects = (Object[]) iterator.next();  </span><br><span class="line">            System.out.println(<span class="string">"id="</span>+objects[<span class="number">0</span>]);  </span><br><span class="line">            System.out.println(<span class="string">"name="</span>+objects[<span class="number">1</span>]);  </span><br><span class="line">            System.out.println(<span class="string">"age="</span>+objects[<span class="number">2</span>]);  </span><br><span class="line">            System.out.println(<span class="string">"----------------------------"</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        tx.commit();  </span><br><span class="line">        session.close();  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>从上面可以看出。标量查询中addScalar()方法有两个作用： </p>
+<p>从上面可以看出。标量查询中addScalar()方法有两个作用：</p>
 <ol>
-<li>指定查询结果包含哪些数据列—没有被addScalar选出的列将不会包含在查询结果中。 </li>
+<li>指定查询结果包含哪些数据列—没有被addScalar选出的列将不会包含在查询结果中。</li>
 <li>指定查询结果中数据列的数据类型。</li>
 </ol>
 <h2 id="实体查询"><a href="#实体查询" class="headerlink" title="实体查询"></a>实体查询</h2><p>上面的标量查询返回的标量结果集，也就是从resultset中返回的“裸”数据。如果我们想要的结果是某个对象的实体，这是就可以通过addEntity()方法来实现。addEntity()方法可以讲结果转换为实体。但是在转换的过程中要注意几个问题：</p>
 <ol>
-<li>查询返回的是某个数据表的全部数据列 </li>
+<li>查询返回的是某个数据表的全部数据列</li>
 <li>该数据表有对应的持久化类映射</li>
 </ol>
 <p>这时才可以通过addEntity()方法将查询结果转换成实体。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">session.createSQLQuery(<span class="string">"select * from perons_inf"</span>).addEntity(Person.class).list;    </span><br><span class="line">session.createSQLQuery(<span class="string">"select id,name,age from person_inf"</span>).addEntity(Person.class).list();</span><br></pre></td></tr></table></figure>
 <p>这个查询指定：</p>
 <ol>
-<li>SQL查询字符串 </li>
-<li>要返回的实体 </li>
+<li>SQL查询字符串</li>
+<li>要返回的实体</li>
 </ol>
 <p>假设Person被映射为拥有id,name和age三个字段的类，以上的两个查询都返回一个List，每个元素都是一个Person实体。</p>
-<p>假若实体在映射时有一个many-to-one的关联指向另外一个实体，在查询时必须也返回那个实体（获取映射的外键列），否则会导致发生一个”column not found”的数据库错误。这些附加的字段可以使用*标注来自动返回，但我们希望还是明确指明，看下面这个具有指向teacher的many-to-one的例子： </p>
+<p>假若实体在映射时有一个many-to-one的关联指向另外一个实体，在查询时必须也返回那个实体（获取映射的外键列），否则会导致发生一个”column not found”的数据库错误。这些附加的字段可以使用*标注来自动返回，但我们希望还是明确指明，看下面这个具有指向teacher的many-to-one的例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.createSQLQuery(<span class="string">"select id, name, age, teacherID from person_inf"</span>).addEntity(Person.class).list();</span><br></pre></td></tr></table></figure>
-<p>这样就可以通过person.getTeacher()获得teacher了。 </p>
+<p>这样就可以通过person.getTeacher()获得teacher了。</p>
 <p>实例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">entityQuery</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    Session session = HibernateUtil.getSession();  </span><br><span class="line">    Transaction tx = session.beginTransaction();  </span><br><span class="line">    String sql = <span class="string">"select * from person_inf"</span>;  </span><br><span class="line">    List list = session.createSQLQuery(sql).  </span><br><span class="line">    addEntity(Person.class).    <span class="comment">//指定将查询的记录行转换成Person实体  </span></span><br><span class="line">     list();       </span><br><span class="line">    <span class="keyword">for</span> (Iterator iterator = list.iterator();iterator.hasNext();) &#123;  </span><br><span class="line">        Person person = (Person) iterator.next();<span class="comment">//集合的每个元素都是一个Person对象  </span></span><br><span class="line">        System.out.println(<span class="string">"name="</span>+person.getName());  </span><br><span class="line">       System.out.println(<span class="string">"age="</span>+person.getAge());  </span><br><span class="line">  	&#125;  </span><br><span class="line">    tx.commit();  </span><br><span class="line">    session.close();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的都是单表查询，如果我们在SQL语句中使用了多表连接，则SQL语句可以选出多个数据表的数据。Hibernate支持将查询结果转换成多个实体。如果要将查询结果转换成多个实体，则SQL字符串中应该为不同数据表指定不同别名，并且调用addEntity()方法将不同数据表转换成不同实体。如下 </p>
+<p>上面的都是单表查询，如果我们在SQL语句中使用了多表连接，则SQL语句可以选出多个数据表的数据。Hibernate支持将查询结果转换成多个实体。如果要将查询结果转换成多个实体，则SQL字符串中应该为不同数据表指定不同别名，并且调用addEntity()方法将不同数据表转换成不同实体。如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">multiEntityQuery</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    Session session = HibernateUtil.getSession();  </span><br><span class="line">    Transaction tx = session.beginTransaction();  </span><br><span class="line">    String sql = <span class="string">"select p.*,e.* from person_inf as p inner join event_inf as e"</span> +  </span><br><span class="line">                 <span class="string">" on p.person_id=e.person_id"</span>;  </span><br><span class="line">    List list = session.createSQLQuery(sql)  </span><br><span class="line">                .addEntity(<span class="string">"p"</span>,Person.class)  </span><br><span class="line">                .addEntity(<span class="string">"e"</span>, MyEvent.class)  </span><br><span class="line">                .list();  </span><br><span class="line">    <span class="keyword">for</span>(Iterator iterator = list.iterator();iterator.hasNext();)&#123;  </span><br><span class="line">        <span class="comment">//每个集合元素都是Person、MyEvent所组成的数组  </span></span><br><span class="line">        Object[] objects = (Object[]) iterator.next();  </span><br><span class="line">        Person person = (Person) objects[<span class="number">0</span>];  </span><br><span class="line">        MyEvent event = (MyEvent) objects[<span class="number">1</span>];  </span><br><span class="line">        System.out.println(<span class="string">"person_id="</span>+person.getId()+<span class="string">" person_name="</span>+person.getName()+<span class="string">" title="</span>+event.getTitle());        </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>转载自：<a href="http://blog.csdn.net/vacblog/article/details/7769976" target="_blank" rel="noopener">http://blog.csdn.net/vacblog/article/details/7769976</a> </p>
+<p>转载自：<a href="http://blog.csdn.net/vacblog/article/details/7769976" target="_blank" rel="noopener">http://blog.csdn.net/vacblog/article/details/7769976</a></p>
 </blockquote>
 
       
@@ -482,8 +482,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/05/tech-hexo-github-error/" rel="prev" title="Hexo+Github博客css和js404导致博客页面空白">
-                Hexo+Github博客css和js404导致博客页面空白 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/05/life-tuchuang-picu/" rel="prev" title="七牛云+U图床解决编博客插图麻烦事儿">
+                七牛云+U图床解决编博客插图麻烦事儿 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -570,7 +570,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -592,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

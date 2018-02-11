@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="一篇关于ActiveMQ学习笔记.">
+<meta name="description" content="消息队列有两个基本的的用法，一个是作为服务内部的缓冲区，防流量高峰，也能达到异步处理的作用，一个是用于分布式系统，各个不同的进程(同一台机器或者不同机器)通过消息队列进行通信，最近闲着没事，就关于消息中间件ActiveMQ做了个简单的学习。">
 <meta name="keywords" content="ActiveMQ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java消息中间件ActiveMQ学习笔记">
 <meta property="og:url" content="http://leeyom.top/2017/07/23/tech-java-activemq-note/index.html">
 <meta property="og:site_name" content="Leeyom的个人站">
-<meta property="og:description" content="一篇关于ActiveMQ学习笔记.">
+<meta property="og:description" content="消息队列有两个基本的的用法，一个是作为服务内部的缓冲区，防流量高峰，也能达到异步处理的作用，一个是用于分布式系统，各个不同的进程(同一台机器或者不同机器)通过消息队列进行通信，最近闲着没事，就关于消息中间件ActiveMQ做了个简单的学习。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://leeyom.top/img/15007971416993.jpg">
 <meta property="og:image" content="http://leeyom.top/img/15007985608005.jpg">
@@ -105,10 +105,10 @@
 <meta property="og:image" content="http://leeyom.top/img/15008077213162.jpg">
 <meta property="og:image" content="http://leeyom.top/img/15008093093543.jpg">
 <meta property="og:image" content="http://leeyom.top/img/15008093532999.jpg">
-<meta property="og:updated_time" content="2017-12-19T14:14:26.000Z">
+<meta property="og:updated_time" content="2018-02-11T05:30:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java消息中间件ActiveMQ学习笔记">
-<meta name="twitter:description" content="一篇关于ActiveMQ学习笔记.">
+<meta name="twitter:description" content="消息队列有两个基本的的用法，一个是作为服务内部的缓冲区，防流量高峰，也能达到异步处理的作用，一个是用于分布式系统，各个不同的进程(同一台机器或者不同机器)通过消息队列进行通信，最近闲着没事，就关于消息中间件ActiveMQ做了个简单的学习。">
 <meta name="twitter:image" content="http://leeyom.top/img/15007971416993.jpg">
 
 
@@ -406,10 +406,10 @@
       
 
       
-        <p>一篇关于ActiveMQ学习笔记.</p>
+        <p>消息队列有两个基本的的用法，一个是作为服务内部的缓冲区，防流量高峰，也能达到异步处理的作用，一个是用于分布式系统，各个不同的进程(同一台机器或者不同机器)通过消息队列进行通信，最近闲着没事，就关于消息中间件ActiveMQ做了个简单的学习。</p>
 <a id="more"></a>
 <h2 id="什么是ActiveMQ？"><a href="#什么是ActiveMQ？" class="headerlink" title="什么是ActiveMQ？"></a>什么是ActiveMQ？</h2><ul>
-<li>术语定义 <ul>
+<li>术语定义<ul>
 <li>维基百科：<a href="https://zh.wikipedia.org/wiki/Apache_ActiveMQ" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Apache_ActiveMQ</a><blockquote>
 <p>Apache ActiveMQ是Apache软件基金会所研发的开放源代码消息中间件；由于ActiveMQ是一个纯Java程序，因此只需要操作系统支持Java虚拟机，ActiveMQ便可运行。</p>
 </blockquote>
@@ -470,7 +470,7 @@
 <li><code>Session</code>代表一个单线程的上下文，用于发送和接收消息。</li>
 <li><code>MessageConsumer</code>由会话创建，用于接收发送到目标的消息。</li>
 <li><code>MessageProducer</code>由会话创建，用于发送消息到目标。</li>
-<li><code>Message</code>是消费者和生产者之间传送的消息对象，消息头，一组消息属性，一个消息体。 </li>
+<li><code>Message</code>是消费者和生产者之间传送的消息对象，消息头，一组消息属性，一个消息体。</li>
 <li>编码接口关系示意图<img src="/img/15008010925844.jpg" alt=""></li>
 </ul>
 </li>
@@ -498,7 +498,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.leeyom.jms<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jms-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>jms-test Maven Webapp<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.activemq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>activemq-all<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.12.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>jms-test<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>项目结构</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">├── jms-test </span><br><span class="line">|    ├── java</span><br><span class="line">|    |   ├──com.leeyom.jms.queue <span class="comment">-- 队列模式</span></span><br><span class="line">|    |   |   ├── AppConsumer.java <span class="comment">-- 队列模式消费者</span></span><br><span class="line">|    |   |   ├── AppProducer.java <span class="comment">-- 队列模式生产者</span></span><br><span class="line">|    |   ├──com.leeyom.jms.topic <span class="comment">-- 主题模式</span></span><br><span class="line">|    |   |   ├── AppConsumer.java <span class="comment">-- 主题模式订阅者</span></span><br><span class="line">|    |   |   ├── AppProducer.java <span class="comment">-- 主题模式发布者</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">├── jms-test</span><br><span class="line">|    ├── java</span><br><span class="line">|    |   ├──com.leeyom.jms.queue <span class="comment">-- 队列模式</span></span><br><span class="line">|    |   |   ├── AppConsumer.java <span class="comment">-- 队列模式消费者</span></span><br><span class="line">|    |   |   ├── AppProducer.java <span class="comment">-- 队列模式生产者</span></span><br><span class="line">|    |   ├──com.leeyom.jms.topic <span class="comment">-- 主题模式</span></span><br><span class="line">|    |   |   ├── AppConsumer.java <span class="comment">-- 主题模式订阅者</span></span><br><span class="line">|    |   |   ├── AppProducer.java <span class="comment">-- 主题模式发布者</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="队列模式的消息演示"><a href="#队列模式的消息演示" class="headerlink" title="队列模式的消息演示"></a>队列模式的消息演示</h3><ol>
@@ -654,7 +654,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -676,7 +676,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
