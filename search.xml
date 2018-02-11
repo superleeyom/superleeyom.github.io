@@ -2409,6 +2409,7 @@ server {
       <title><![CDATA[在centOS上安装nginx教程]]></title>
       <url>/2016/12/08/tech-centOS-nginx/</url>
       <content type="html"><![CDATA[<p>是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。最近项目中用到了反向代理服务器 nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。</p>
+<a id="more"></a>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ol>
 <li>http服务器。Nginx是一个http服务可以独立提供http服务。可以做网页静态服务器。</li>
 <li>虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。</li>
