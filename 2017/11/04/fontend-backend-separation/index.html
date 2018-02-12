@@ -88,7 +88,7 @@
 <meta property="og:description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://image.leeyom.top/20180212151840890546246.png">
-<meta property="og:updated_time" content="2018-02-12T04:15:50.000Z">
+<meta property="og:updated_time" content="2018-02-12T04:21:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于前后端分离的思考和总结">
 <meta name="twitter:description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
@@ -506,10 +506,8 @@
 <p>这样我们就解决了跨域的问题。</p>
 <h1 id="请求鉴权机制"><a href="#请求鉴权机制" class="headerlink" title="请求鉴权机制"></a>请求鉴权机制</h1><p>由于http请求是无状态的，我们后端写好了API接口，然后发布出去，如果不做安全控制，谁都可以调用，这很明显是非常不安全的，所以我们需要采用JWT（Json web token）鉴权机制去保护我们的API接口安全，整个的思路如下：</p>
 <ol>
-<li><p>用户登陆后，服务器端使用 jjwt(当然也可以采用其他的方式，比如时间戳，签名url) 生成 Token ，保存在 Redis 中，以用户名作为 Key，同时将此token值返回给前端。</p>
-</li>
-<li><p>通过设置 Redis 键的 TTL 来实现 Token 自动过期。</p>
-</li>
+<li>用户登陆后，服务器端使用 jjwt(当然也可以采用其他的方式，比如时间戳，签名url) 生成 Token ，保存在 Redis 中，以用户名作为 Key，同时将此token值返回给前端。</li>
+<li>通过设置 Redis 键的 TTL 来实现 Token 自动过期。</li>
 <li>前端将token值存到localStorage中，后面每次请求，都将次token放到header（请求头）中。</li>
 <li><p>服务端通过在 Filter 中拦截请求判断 Token 是否有效，如果有效，则请求通过，无效，返回401，提示此token已经失效。</p>
 </li>
