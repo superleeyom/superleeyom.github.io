@@ -857,10 +857,46 @@
 </ul>
 </li>
 <li><p>标准的RESTful API请求示例：</p>
-<p>| 请求类型 |       URL |      功能说明      |<br>| ——– | ———:|:——————:|<br>| get      |    /users |    查询用户列表    |<br>| post     |    /users |    创建一个用户    |<br>| get      | /users/id | 根据id查询一个用户 |<br>| put      | /users/id | 根据id更新一个用户 |<br>| delete   | /users/id | 根据id删除一个用户 |</p>
 </li>
-<li><p>对于controller层规范问题，我觉得有如下几点可以考虑：</p>
+</ul>
+<table>
+<thead>
+<tr>
+<th>请求类型</th>
+<th style="text-align:right">URL</th>
+<th style="text-align:center">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get</td>
+<td style="text-align:right">/users</td>
+<td style="text-align:center">查询用户列表</td>
+</tr>
+<tr>
+<td>post</td>
+<td style="text-align:right">/users</td>
+<td style="text-align:center">创建一个用户</td>
+</tr>
+<tr>
+<td>get</td>
+<td style="text-align:right">/users/id</td>
+<td style="text-align:center">根据id查询一个用户</td>
+</tr>
+<tr>
+<td>put</td>
+<td style="text-align:right">/users/id</td>
+<td style="text-align:center">根据id更新一个用户</td>
+</tr>
+<tr>
+<td>delete</td>
+<td style="text-align:right">/users/id</td>
+<td style="text-align:center">根据id删除一个用户</td>
+</tr>
+</tbody>
+</table>
 <ul>
+<li>对于controller层规范问题，我觉得有如下几点可以考虑：<ul>
 <li>controller里面的方法参数，尽量不要使用json，map去接收，因为map，json这种格式灵活，但是可读性差，如果放业务数据，每次阅读起来都比较困难，定义一个bean看着工作量多了，但代码清晰多了。</li>
 <li>controller方法统一返回ResultBean。</li>
 <li>ResultBean是controller专用的，其他层不能用。</li>
