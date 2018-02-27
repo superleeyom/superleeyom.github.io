@@ -444,7 +444,7 @@
 </li>
 </ul>
 </li>
-<li>浏览器访问：<code>http://192.168.1.114:15672</code> 默认管理员账号：guest 默认管理员密码：guest，出现如下图，恭喜，安装成功！<ul>
+<li>浏览器访问：<code>http://ip地址:15672</code> 默认管理员账号：guest 默认管理员密码：guest，出现如下图，恭喜，安装成功！<ul>
 <li><img src="http://image.leeyom.top/20180209151818165842106.png" alt="20180209151818165842106.png"></li>
 </ul>
 </li>
