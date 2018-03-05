@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://image.leeyom.top/20180209151818165842106.png">
 <meta property="og:image" content="http://image.leeyom.top/blog/180124/cmb3jcC32F.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20171112151049907266113.png">
-<meta property="og:updated_time" content="2018-03-05T15:38:16.000Z">
+<meta property="og:updated_time" content="2018-03-05T15:59:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux折腾笔记">
 <meta name="twitter:description" content="由于主要是做服务端开发，总会少不了和linux打交道，鉴于我老容易健忘的习惯，我决定还是专门用一篇文章来记录自己在使用linux的一些笔记，主要是哪天记不起来了，可以再翻出来看看，免得再花时间在网上找教程，主要使用的linux版本为centOS，Ubuntu这两个版本，如果有不对的地方，还希望大家指出。">
@@ -434,15 +434,20 @@
 <li><p>开启防火墙端口：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp -m tcp --dport 27017 -j ACCEPT</span><br><span class="line">service iptables save</span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>开启远程访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 编辑全局配置文件</span><br><span class="line">vim /etc/mongodb.conf</span><br><span class="line"># 开启远程访问</span><br><span class="line">bind_ip = 0.0.0.0</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>开启用户验证：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 编辑全局配置文件</span><br><span class="line">vim /etc/mongodb.conf</span><br><span class="line"># 新增开启用户验证</span><br><span class="line">auth=true</span><br></pre></td></tr></table></figure>
-<p>开启后，先重启下电脑，使配置生效，然后重新启动服务，下次进入客户端，如果有授权用户格式为：<code>mongo 127.0.0.1:27017/admin -u 用户名 -p 用户密码</code></p>
+<p>以上两个开启后，先重启下电脑，使配置生效，然后重新启动服务，下次进入mongod命令行，如果有授权用户格式为：<code>mongo 127.0.0.1:27017/admin -u 用户名 -p 用户密码</code></p>
 </li>
-<li><p>关于如何关闭<code>MongoDB</code>服务：</p>
+<li><p>如何关闭<code>MongoDB</code>服务：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 用超级管理员身份进入mongod命令行</span><br><span class="line">mongo 127.0.0.1:27017/admin -u root -p root</span><br><span class="line"># 切换到管理员模式</span><br><span class="line">use admin</span><br><span class="line"># 关闭mongodb服务</span><br><span class="line">db.shutdownServer()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重新启动服务：<code>mongod -f /etc/mongodb.conf</code></p>
 </li>
+<li>若客户端GUI连接不到<code>mongodb</code>，首先先查看是否开启防火墙端口，其次看开启远程访问，一般是这两个问题引起的。</li>
+<li>参考文章：<a href="https://github.com/judasn/Linux-Tutorial/blob/master/markdown-file/MongoDB-Install-And-Settings.md" target="_blank" rel="noopener">MongoDB 安装和配置</a></li>
 <li>开始使用！</li>
 </ul>
 <h2 id="安装FastDFS"><a href="#安装FastDFS" class="headerlink" title="安装FastDFS"></a>安装FastDFS</h2><p>参见文章：<a href="http://www.leeyom.top/2016/12/22/tech-centos-fastDFS/" target="_blank" rel="noopener">centOS上搭建FastDFS图片服务器教程</a></p>
