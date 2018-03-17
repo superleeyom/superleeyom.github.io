@@ -3,8 +3,8 @@
   
     
     <entry>
-      <title><![CDATA[spring cloud 服务注册与发现（Eureka和Consul）]]></title>
-      <url>/2018/03/15/service-discovery/</url>
+      <title><![CDATA[Spring Cloud 服务注册与发现（Eureka和Consul）]]></title>
+      <url>/2018/03/15/server-discovery/</url>
       <content type="html"><![CDATA[<p>Spring Cloud 是一个基于 Spring Boot 实现的云应用开发工具，它为基于JVM的云应用开发中涉及的配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。它下面有很多的子项目，比如：Spring Cloud Config、Spring Cloud Netflix、Spring Cloud Bus、Spring Cloud for Cloud Foundry、Spring Cloud Open Service Broker、Spring Cloud Cluster、Spring Cloud Consul等等，本篇主要简单使用 Spring Cloud 的子项目 Spring Cloud Consul 和 Spring Cloud Netflix 模块 Eureka 实现简单的服务注册与发现。</p>
 <a id="more"></a>
 <h1 id="Spring-Cloud-版本简介"><a href="#Spring-Cloud-版本简介" class="headerlink" title="Spring Cloud 版本简介"></a>Spring Cloud 版本简介</h1><p>去 Spring Cloud 的官网瞅了一眼，Spring Cloud 目前最新的版本是 Finchley.M7 。由于 Spring Cloud 下面的子项目太多，他的命名方式采用：版本名+版本号。另外其中需要注意一点的就是，由于 Spring Cloud 是基于 Spring Boot ，所以不同版本的 Spring Cloud 需要搭配不同版本的 Spring Boot，否则可能会出现不兼容的情况。下面是<a href="http://projects.spring.io/spring-cloud/" target="_blank" rel="noopener">官网</a>的一些建议：</p>
