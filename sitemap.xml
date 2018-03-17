@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://leeyom.top/2018/03/15/sc-service-discovery/</loc>
+    <loc>http://leeyom.top/2018/03/07/dubbo-jar-server/</loc>
+    
+    <lastmod>2018-03-17T15:28:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://leeyom.top/2018/03/15/service-discovery/</loc>
     
     <lastmod>2018-03-17T15:23:42.000Z</lastmod>
     
@@ -19,13 +26,6 @@
     <loc>http://leeyom.top/2017/11/12/linux-note/</loc>
     
     <lastmod>2018-03-15T13:36:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://leeyom.top/2018/03/07/dubbo-jar-server/</loc>
-    
-    <lastmod>2018-03-08T12:17:56.000Z</lastmod>
     
   </url>
   
