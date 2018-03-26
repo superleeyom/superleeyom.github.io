@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title><![CDATA[读《JVM调优总结》文章笔记]]></title>
+      <url>/2018/03/26/jvm-adjust/</url>
+      <content type="html"><![CDATA[<p>看了下《JVM调优总结》文章，里面有很多很实在的干货，总结的非常的棒。在此文章的基础上，提取出一些核心的知识点，然后加上之前看的《深入理解Java虚拟机》这一书的笔记，所以我就用幕布整理成一个大纲式的笔记，方便日后查阅复习。</p>
+<a id="more"></a>
+<ul>
+<li>幕布地址：<a href="https://mubu.com/doc/CfKYLv1hg" target="_blank" rel="noopener">https://mubu.com/doc/CfKYLv1hg</a></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Spring Cloud 服务注册与发现（Eureka和Consul）]]></title>
       <url>/2018/03/15/server-discovery/</url>
       <content type="html"><![CDATA[<p>Spring Cloud 是一个基于 Spring Boot 实现的云应用开发工具，它为基于JVM的云应用开发中涉及的配置管理、服务发现、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。它下面有很多的子项目，比如：Spring Cloud Config、Spring Cloud Netflix、Spring Cloud Bus、Spring Cloud for Cloud Foundry、Spring Cloud Open Service Broker、Spring Cloud Cluster、Spring Cloud Consul等等，本篇主要简单使用 Spring Cloud 的子项目 Spring Cloud Consul 和 Spring Cloud Netflix 模块 Eureka 实现简单的服务注册与发现。</p>
