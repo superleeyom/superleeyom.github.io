@@ -7,6 +7,8 @@
       <url>/2018/03/26/jvm-adjust/</url>
       <content type="html"><![CDATA[<p>看了下《JVM调优总结》文章，里面有很多很实在的干货，总结的非常的棒。在此文章的基础上，提取出一些核心的知识点，然后加上之前看的《深入理解Java虚拟机》这一书的笔记，所以我就用幕布整理成一个大纲式的笔记，方便日后查阅复习。</p>
 <a id="more"></a>
+<iframe src="https://mubu.com/doc/CfKYLv1hg" width="100%" height="1000px"></iframe>
+
 <ul>
 <li>幕布地址：<a href="https://mubu.com/doc/CfKYLv1hg" target="_blank" rel="noopener">https://mubu.com/doc/CfKYLv1hg</a></li>
 <li><a href="http://www.leeyom.top/2017/02/10/tech-jvm-summary-note/" target="_blank" rel="noopener">《深入理解Java虚拟机》总结笔记</a></li>
