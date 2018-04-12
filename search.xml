@@ -204,7 +204,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Dubbo服务启动方式浅析]]></title>
+      <title><![CDATA[Dubbo 服务启动方式浅析]]></title>
       <url>/2018/03/07/dubbo-jar-server/</url>
       <content type="html"><![CDATA[<p>Dubbo是阿里巴巴公司开源的一个高性能优秀的服务框架，使得应用可通过高性能的RPC实现服务的输出和输入功能，可以和Spring框架无缝集成。最近这段时间，参与了公司一个项目的重构，最主要的就是使用Dubbo将其拆分成微服务架构。本篇中不细说如何使用Dubbo进行rpc服务的调用，主要是浅析下基于Dubbo的微服务的打包以及启动方式。</p>
 <a id="more"></a>
