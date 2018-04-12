@@ -3,6 +3,39 @@
   
     
     <entry>
+      <title><![CDATA[Dubbo 异常的处理浅析]]></title>
+      <url>/2018/04/12/dubbo-exception/</url>
+      <content type="html"><![CDATA[<p>在使用 Dubbo 进行服务治理的时候，如果消费者调用提供者的接口，接口内部出现异常，如果没有做处理的话，提供者会直接把异常抛给消费者，这样会出现的问题是，消费方无法反序列化相应异常，从而无法定位问题。而且关于这个问题，Dubbo 的官方文档也明确表示，应在服务实现中对消费方不关心的异常进行包装。</p>
+<a id="more"></a>
+<p>我们知道 Dubbo 的服务分为消费者和提供者，而消费者和提供者往往都不在一个系统中，所以消费者一般在调用服务端的接口时，通常会返回一个结果实体，来标明这一次请求操作是否成功。那这个实体的设计可以为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseResultDTO</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否操作成功</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> success;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 提示信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 操作结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> T result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那消费者调用提供者的接口的时候，就可以从返回的结果中得知此次调用是否成功，以及调用的结果是什么。但是这样会有一个问题，如果服务端抛异常了，这个时候就会将异常抛给消费者，那抛给消费者的时候，这里就出现给消费者一些迷惑性的异常。为什么这么说呢？</p>
+<ul>
+<li>服务端与客户端，很可能不在同一个应用中，所以各自会依赖不同的 jar 包，比方说：服务端抛出了个 spring 的 <code>duplicateKeyException</code> ，但是客户端并没用引用 spring 的相关 jar 包，这样就会导致：抛出异常后，由于客户端没有依赖这个类，最终抛出个 <code>ClassNotDefError</code>，注意是 Error 不是 Exception。如果客户端只对 Exception 进行捕获的话，会导致直接抛到最顶层。可能日志、重试等都没了，这样无法准确通过日志去定位问题。</li>
+</ul>
+<p>那最好的解决方案是，服务端对异常进行捕获，如果出现异常后，把异常信息转换成字符串，然后把异常信息返回到消费者，这个时候，这个实体可以设计为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseResultDTO</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否操作成功</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> success;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 提示信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 操作结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> T result;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 异常堆栈信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String errorTrace;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>提供者的接口方法内部可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> BaseResultDTO <span class="title">getUserById</span><span class="params">(Long userId)</span> </span>&#123;</span><br><span class="line">        BaseResultDTO&lt;User&gt; baseResultDTO = <span class="keyword">new</span> BaseResultDTO&lt;&gt;();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// do something</span></span><br><span class="line">            User user = userService.getUserById(userId);</span><br><span class="line">            baseResultDTO.setResult(user);</span><br><span class="line">            baseResultDTO.setSuccess(<span class="keyword">true</span>);</span><br><span class="line">            baseResultDTO.setMsg(<span class="string">"请求成功！"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            baseResultDTO.setErrorTrace(e.getMessage());</span><br><span class="line">            baseResultDTO.setMsg(<span class="string">"请求失败！"</span>);</span><br><span class="line">            baseResultDTO.setSuccess(<span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> baseResultDTO;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>errorTrace 就是存储异常堆栈信息的属性，这样如果客户端检测到 success 为 false，这样就可以直接把 errorTrace 打到 log 中，方便定位问题。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Dubbo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[读《JVM调优总结》文章笔记]]></title>
       <url>/2018/03/26/jvm-adjust/</url>
       <content type="html"><![CDATA[<p>看了下《JVM调优总结》文章，里面有很多很实在的干货，总结的非常的棒。在此文章的基础上，提取出一些核心的知识点，然后加上之前看的《深入理解Java虚拟机》这一书的笔记，所以我就用幕布整理成一个大纲式的笔记，方便日后查阅复习。</p>
