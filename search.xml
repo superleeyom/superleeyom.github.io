@@ -1060,10 +1060,10 @@
 <li><p>单机模式：</p>
 <ul>
 <li>进入到zookeeper的安装目录下的<code>bin</code>目录下。</li>
-<li>执行命令：<code>bash zkServer.sh start</code></li>
+<li>执行命令：<code>./zkServer.sh start</code></li>
 <li><p>若出现如下的内容，不要以为就启动成功了：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /home/leeyom/develop-tools/zookeeper-3.4.10/bin/../conf/zoo.cfg</span><br><span class="line">Starting zookeeper ... STARTED</span><br></pre></td></tr></table></figure>
-<p>继续执行：<code>bash zkServer.sh status</code>，查看启动状态，若出现如下内容，才说明zookeeper服务才是真的启动成功，否则都是启动失败：</p>
+<p>继续执行：<code>./zkServer.sh status</code>，查看启动状态，若出现如下内容，才说明zookeeper服务才是真的启动成功，否则都是启动失败：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /home/leeyom/develop-tools/zookeeper-3.4.10/bin/../conf zoo.cfg</span><br><span class="line">Mode: standalone</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -1073,15 +1073,17 @@
 <li><p>在集群伪分布模式下，按先后顺序依次启动<code>Server1</code>、<code>Server2</code>、<code>Server3</code>。这里拿<code>Server1</code>示例。</p>
 <ul>
 <li>进入到<code>server1/bin</code>目录下。</li>
-<li>执行<code>bash zkServer.sh start</code>命令。</li>
+<li>执行<code>./zkServer.sh start</code>命令。</li>
 <li>出现<code>Starting zookeeper ...STARTED</code>提示，说明服务启动成功。</li>
 </ul>
 </li>
 <li><p>其他命令，需要进入到<code>zookeeper-3.4.10/bin</code>目录下，然后执行如下命令：</p>
 <ul>
-<li>查看ZK服务状态: <code>bash zkServer.sh status</code></li>
-<li>停止ZK服务：<code>bash zkServer.sh stop</code></li>
-<li>重启ZK服务：<code>bash zkServer.sh restart</code></li>
+<li>查看ZK服务状态: <code>./zkServer.sh status</code></li>
+<li>停止ZK服务：<code>./zkServer.sh stop</code></li>
+<li>重启ZK服务：<code>./zkServer.sh restart</code></li>
+<li>客户端连接：<code>./zkCli.sh</code></li>
+<li>客户端退出：<code>quit</code></li>
 </ul>
 </li>
 </ol>
@@ -1095,7 +1097,7 @@
 </li>
 <li>方式二：将zookeeper安装到<code>/home/leeyom/</code>目录下面，这样zookeeper不会出现读写权限的问题。</li>
 </ul>
-<p>所以我们在启动zookeeper服务的时候，最好要用<code>bash zkServer.sh status</code>命令检查下zookeeper服务状态，确保zookeeper服务启动。</p>
+<p>所以我们在启动zookeeper服务的时候，最好要用<code>./zkServer.sh status</code>命令检查下zookeeper服务状态，确保zookeeper服务启动。</p>
 ]]></content>
       
         <categories>
