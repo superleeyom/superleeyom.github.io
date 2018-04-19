@@ -89,8 +89,10 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://image.leeyom.top/20180209151818165842106.png">
 <meta property="og:image" content="http://image.leeyom.top/blog/180124/cmb3jcC32F.png">
+<meta property="og:image" content="http://image.leeyom.top/20180419152412426675410.png">
+<meta property="og:image" content="http://image.leeyom.top/20180419152412482277272.png">
 <meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20171112151049907266113.png">
-<meta property="og:updated_time" content="2018-03-15T13:36:45.000Z">
+<meta property="og:updated_time" content="2018-04-19T08:04:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux折腾笔记">
 <meta name="twitter:description" content="由于主要是做服务端开发，总会少不了和linux打交道，鉴于我老容易健忘的习惯，我决定还是专门用一篇文章来记录自己在使用linux的一些笔记，主要是哪天记不起来了，可以再翻出来看看，免得再花时间在网上找教程，主要使用的linux版本为centOS，Ubuntu这两个版本，如果有不对的地方，还希望大家指出。">
@@ -336,8 +338,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-15T21:36:45+08:00">
-                2018-03-15
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-19T16:04:01+08:00">
+                2018-04-19
               </time>
             
           </span>
@@ -540,14 +542,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd src</span><br><span class="line">$ ./redis-server</span><br></pre></td></tr></table></figure>
 <p><img src="http://image.leeyom.top/blog/180124/cmb3jcC32F.png" alt="启动redis服务"></p>
 </li>
-<li><p>默认情况，Redis不是在后台运行，我们需要把redis放在后台运行，编辑redis的配置文件<code>redis.conf</code>。</p>
+<li><p>默认情况，Redis不是在后台运行，我们需要把redis放在后台运行，编辑redis的配置文件<code>redis.conf</code>，该配置文件路径在 <code>redis-4.0.6/</code> 目录下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim redis.conf</span><br><span class="line">将daemonize的值改为yes</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>默认情况下，Redis默认的连接密码为null，但是为了安全我们需要设置一个密码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim redis.conf</span><br><span class="line">将requirepass前面的注释去掉，然后设置密码，比如设置为root</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>让reids开机自启。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br><span class="line">加入</span><br><span class="line">/usr/local/redis-4.0.6/src/redis-server /usr/local/redis-4.0.6/redis.conf</span><br></pre></td></tr></table></figure>
+<li><p>默认情况下 redis 服务只能本机访问，将 <code>redis.conf</code> 配置文件中的 <code>bind 127.0.0.1</code> 注释掉，不注释掉的话，只能本机访问，其他的IP将无法访问 reids。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># IF YOU ARE SURE YOU WANT YOUR INSTANCE TO LISTEN TO ALL THE INTERFACES</span><br><span class="line"># JUST COMMENT THE FOLLOWING LINE.</span><br><span class="line"># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span><br><span class="line"># bind 127.0.0.1</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动redis后台服务。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/local/redis-4.0.6/src/redis-server /usr/local/redis-4.0.6/redis.conf</span><br></pre></td></tr></table></figure>
@@ -556,8 +558,15 @@
 <p>最好检测下redis进程是否已经启动，若出现redis-server等关键字，说明服务启动成功。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep redis</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>服务启动后，还需要将<code>redis.conf</code>配置文件中的 <code>bind 127.0.0.1</code> 注释掉，不注释掉的话，只能本机访问，其他的IP将无法访问reids。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># IF YOU ARE SURE YOU WANT YOUR INSTANCE TO LISTEN TO ALL THE INTERFACES</span><br><span class="line"># JUST COMMENT THE FOLLOWING LINE.</span><br><span class="line"># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span><br><span class="line"># bind 127.0.0.1</span><br></pre></td></tr></table></figure>
+<li><p>设置 redis 开机启动：<br>首先将 <code>redis-4.0.6/utils</code> 目录下的 <code>redis_init_script</code> 脚本拷贝到 <code>/etc/init.d</code> 下修改名字为 redis ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp redis_init_script /etc/init.d/redis</span><br></pre></td></tr></table></figure>
+<p>然后编辑刚刚拷贝的文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/init.d/redis</span><br></pre></td></tr></table></figure>
+<p>将一段注释加到文件的头部：<br><img src="http://image.leeyom.top/20180419152412426675410.png" alt="20180419152412426675410.png"><br>同时还要注意 redis 客户端和服务端的路径问题，改成你自己的即可：<br><img src="http://image.leeyom.top/20180419152412482277272.png" alt="20180419152412482277272.png"><br>接着拷贝 <code>redis.conf</code> 文件到 <code>/etc/redis</code> 目录下，并重命名为 <code>6379.conf</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /etc/redis</span><br><span class="line">$ cp redis.conf /etc/redis/6379.conf</span><br></pre></td></tr></table></figure>
+<p>设置读写权限并设置开机自启：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x /etc/init.d/redis</span><br><span class="line">$ chkconfig redis on</span><br></pre></td></tr></table></figure>
+<p>这样，以后便可以开机自启动 redis 服务了。</p>
 </li>
 <li><p>停止Redis服务。<br>如果有启动过redis客户端，执行如下的命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/local/redis-4.0.6/src/redis-cli shutdown</span><br></pre></td></tr></table></figure>

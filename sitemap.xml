@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://leeyom.top/2017/11/12/linux-note/</loc>
+    
+    <lastmod>2018-04-19T08:04:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://leeyom.top/2017/11/08/zookeeper-install/</loc>
     
     <lastmod>2018-04-17T03:00:17.000Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://leeyom.top/2018/03/14/svse-iron-man/</loc>
     
     <lastmod>2018-03-15T13:36:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://leeyom.top/2017/11/12/linux-note/</loc>
-    
-    <lastmod>2018-03-15T13:36:45.000Z</lastmod>
     
   </url>
   
