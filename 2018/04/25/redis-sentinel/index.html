@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://image.leeyom.top/20180425152462854435905.png">
 <meta property="og:image" content="http://image.leeyom.top/20180425152462948012671.png">
 <meta property="og:image" content="http://image.leeyom.top/20180425152463904923751.png">
-<meta property="og:updated_time" content="2018-04-25T07:29:58.000Z">
+<meta property="og:updated_time" content="2018-04-25T08:08:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis Sentinel 的安装与部署">
 <meta name="twitter:description" content="Redis 的主从复制可以支撑住大并发量的读写操作，但是主从复制也会带来如下的的问题，一旦主节点出现故障，需要手动将一个从节点晋升为主节点，同时需要修改应用方的主节点地址，还需要命令其他从节点去复制新的主节点，整个过程都需要人工干预，无论对于 Redis 的应用方还是运维方都带来了很大的不便。Redis Sentinel 正是用于解决这些问题，当主节点出现故障时，Redis Sentinel 能自">
@@ -337,7 +337,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-25T15:29:58+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-25T16:08:41+08:00">
                 2018-04-25
               </time>
             
@@ -499,15 +499,15 @@
 <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><p>Sentinel 节点是一个特殊的 Redis 节点，它有自己专属的 API，常用的 API 如下：</p>
 <ul>
 <li><code>sentinel masters</code>：展示所有被监控的主节点状态以及相关的统计信息。</li>
-<li><code>sentinel master &lt;master name&gt;</code>：展示指定 <master name=""> 的主节点状态以及相关的统计信息。</master></li>
-<li><code>sentinel slaves &lt;master name&gt;</code>：展示指定 <master name=""> 的从节点状态以及相关的统计信息。</master></li>
-<li><code>sentinel sentinels &lt;master name&gt;</code>：展示指定 <master name=""> 的 Sentinel 节点集合（不包含当前 Sentinel 节点）。</master></li>
-<li><code>sentinel get-master-addr-by-name &lt;master name&gt;</code>：返回指定 <master name=""> 主节点的 IP 地址和端口。</master></li>
-<li><code>sentinel reset &lt;pattern&gt;</code>：当前 Sentinel 节点对符合 <pattern>（通配符风格）主节点的配置进行重置，包含清除主节点的相关状态（例如故障转移），重新发现从节点和 Sentinel 节点。</pattern></li>
-<li><code>sentinel failover &lt;master name&gt;</code>：对指定 <master name=""> 主节点进行强制故障转移（没有和其他 Sentinel 节点“协商”），当故障转移完成后，其他 Sentinel 节点按照故障转移的结果更新自身配置，这个命令在 Redis Sentinel 的日常运维中非常有用。</master></li>
-<li><code>sentinel ckquorum &lt;master name&gt;</code>：检测当前可达的 Sentinel 节点总数是否达到 <quorum> 的个数，如果 quorum = 2，将无法实现故障转移。</quorum></li>
+<li><code>sentinel master &lt;master name&gt;</code>：展示指定 \<master name\=""> 的主节点状态以及相关的统计信息。</master></li>
+<li><code>sentinel slaves &lt;master name&gt;</code>：展示指定 \<master name\=""> 的从节点状态以及相关的统计信息。</master></li>
+<li><code>sentinel sentinels &lt;master name&gt;</code>：展示指定 \<master name\=""> 的 Sentinel 节点集合（不包含当前 Sentinel 节点）。</master></li>
+<li><code>sentinel get-master-addr-by-name &lt;master name&gt;</code>：返回指定 \<master name\=""> 主节点的 IP 地址和端口。</master></li>
+<li><code>sentinel reset &lt;pattern&gt;</code>：当前 Sentinel 节点对符合 \<pattern\>（通配符风格）主节点的配置进行重置，包含清除主节点的相关状态（例如故障转移），重新发现从节点和 Sentinel 节点。</pattern\></li>
+<li><code>sentinel failover &lt;master name&gt;</code>：对指定 \<master name\=""> 主节点进行强制故障转移（没有和其他 Sentinel 节点“协商”），当故障转移完成后，其他 Sentinel 节点按照故障转移的结果更新自身配置，这个命令在 Redis Sentinel 的日常运维中非常有用。</master></li>
+<li><code>sentinel ckquorum &lt;master name&gt;</code>：检测当前可达的 Sentinel 节点总数是否达到 \<quorum\> 的个数，如果 quorum = 2，将无法实现故障转移。</quorum\></li>
 <li><code>sentinel flushconfig</code>：将 Sentinel 节点的配置强制刷到磁盘上。</li>
-<li><code>sentinel remove &lt;master name&gt;</code>：取消当前 Sentinel 节点对于指定 <master name=""> 主节点的监控。</master></li>
+<li><code>sentinel remove &lt;master name&gt;</code>：取消当前 Sentinel 节点对于指定 \<master name\=""> 主节点的监控。</master></li>
 <li><code>sentinel monitor &lt;master name&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt;</code>：监控指定的主节点，跟配置文件中的 sentinel monitor mymaster 127.0.0.1 6379 2 一个道理。</li>
 <li><code>sentinel is-master-down-by-addr</code>：Sentinel 节点之间用来交换对主节点是否下线的判断，根据参数的不同，还可以作为 Sentinel 领导者选举的通信方式。</li>
 <li><code>sentinel set &lt;master name&gt;</code>：动态修改 Sentinel 节点配置选项，跟配置文件中那些配置是一个道理。</li>
