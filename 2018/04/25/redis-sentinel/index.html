@@ -91,7 +91,9 @@
 <meta property="og:image" content="http://image.leeyom.top/20180425152462854435905.png">
 <meta property="og:image" content="http://image.leeyom.top/20180425152462948012671.png">
 <meta property="og:image" content="http://image.leeyom.top/20180425152463904923751.png">
-<meta property="og:updated_time" content="2018-04-25T08:12:03.000Z">
+<meta property="og:image" content="http://image.leeyom.top/20180425152464762421022.png">
+<meta property="og:image" content="http://image.leeyom.top/20180425152464786244796.png">
+<meta property="og:updated_time" content="2018-04-25T09:21:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis Sentinel 的安装与部署">
 <meta name="twitter:description" content="Redis 的主从复制可以支撑住大并发量的读写操作，但是主从复制也会带来如下的的问题，一旦主节点出现故障，需要手动将一个从节点晋升为主节点，同时需要修改应用方的主节点地址，还需要命令其他从节点去复制新的主节点，整个过程都需要人工干预，无论对于 Redis 的应用方还是运维方都带来了很大的不便。Redis Sentinel 正是用于解决这些问题，当主节点出现故障时，Redis Sentinel 能自">
@@ -337,7 +339,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-25T16:12:03+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-25T17:21:40+08:00">
                 2018-04-25
               </time>
             
@@ -496,6 +498,13 @@
 <li>部署至少三个且奇数个的 Sentinel 节点。</li>
 <li>如果 Sentinel 节点集合监控的是同一个业务的多个主节点集合，那么只需要一套 Sentinel，让他监控多个主节点，否则的话，就为每个主节点配置一套 Sentinel。</li>
 </ul>
+<h1 id="从节点高可用"><a href="#从节点高可用" class="headerlink" title="从节点高可用"></a>从节点高可用</h1><p>从节点一般可以起到两个作用：</p>
+<ul>
+<li>第一，当主节点出现故障时，作为主节点的后备“顶”上来实现故障转移，Redis Sentinel 已经实现了该功能的自动化，实现了真正的高可用。</li>
+<li>第二，扩展主节点的读能力，尤其是在读多写少的场景非常适用。</li>
+</ul>
+<p>模型图如下：<br><img src="http://image.leeyom.top/20180425152464762421022.png" title="一般读写分离模型"><br>但是上述从节点不是高可用的，如果 slave-1 节点出现故障，首先客户端 client-1 将与其失联，其次 Sentinel 节点只会对该节点做主观下线，因为 Redis Sentinel 的故障转移是针对主节点的。所以很多时候，Redis Sentinel 中的从节点仅仅是作为主节点一个热备，不让它参与客户端的读操作，就是为了保证整体高可用性，但实际上这种使用方法还是有一些浪费，尤其是在有很多从节点或者确实需要读写分离的场景，所以如何实现从节点的高可用是非常有必要的。</p>
+<p>所以在设计 Redis Sentinel 的从节点高可用时，只要能够实时掌握所有从节点的状态，把所有从节点看做一个资源池（如图下图所示），无论是上线还是下线从节点，客户端都能及时感知到（将其从资源池中添加或者删除），这样从节点的高可用目标就达到了。<br><img src="http://image.leeyom.top/20180425152464786244796.png" title="高可用的读写分离"></p>
 <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><p>Sentinel 节点是一个特殊的 Redis 节点，它有自己专属的 API，常用的 API 如下：</p>
 <ul>
 <li><code>sentinel masters</code>：展示所有被监控的主节点状态以及相关的统计信息。</li>
@@ -763,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高可用性"><span class="nav-number">1.</span> <span class="nav-text">高可用性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装与部署"><span class="nav-number">2.</span> <span class="nav-text">安装与部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#部署-Redis-节点"><span class="nav-number">2.1.</span> <span class="nav-text">部署 Redis 节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备"><span class="nav-number">2.1.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主节点"><span class="nav-number">2.1.2.</span> <span class="nav-text">主节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从节点"><span class="nav-number">2.1.3.</span> <span class="nav-text">从节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确认主从关系"><span class="nav-number">2.1.4.</span> <span class="nav-text">确认主从关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署-Sentinel-节点"><span class="nav-number">2.2.</span> <span class="nav-text">部署 Sentinel 节点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署技巧"><span class="nav-number">3.</span> <span class="nav-text">部署技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">4.</span> <span class="nav-text">API</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高可用性"><span class="nav-number">1.</span> <span class="nav-text">高可用性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装与部署"><span class="nav-number">2.</span> <span class="nav-text">安装与部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#部署-Redis-节点"><span class="nav-number">2.1.</span> <span class="nav-text">部署 Redis 节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备"><span class="nav-number">2.1.1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主节点"><span class="nav-number">2.1.2.</span> <span class="nav-text">主节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从节点"><span class="nav-number">2.1.3.</span> <span class="nav-text">从节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确认主从关系"><span class="nav-number">2.1.4.</span> <span class="nav-text">确认主从关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署-Sentinel-节点"><span class="nav-number">2.2.</span> <span class="nav-text">部署 Sentinel 节点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署技巧"><span class="nav-number">3.</span> <span class="nav-text">部署技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从节点高可用"><span class="nav-number">4.</span> <span class="nav-text">从节点高可用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">5.</span> <span class="nav-text">API</span></a></li></ol></div>
             
 
           </div>
