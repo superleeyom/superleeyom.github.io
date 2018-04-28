@@ -317,6 +317,9 @@
 <li><code>sentinel is-master-down-by-addr</code>：Sentinel 节点之间用来交换对主节点是否下线的判断，根据参数的不同，还可以作为 Sentinel 领导者选举的通信方式。</li>
 <li><code>sentinel set &lt;master name&gt;</code>：动态修改 Sentinel 节点配置选项，跟配置文件中那些配置是一个道理。</li>
 </ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li><a href="https://github.com/wangleeyom/code-grocery-shop/tree/master/%E6%90%AD%E5%BB%BA%20Redis%20Sentinel%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" target="_blank" rel="noopener">跟示例相关的配置文件</a></li>
+</ul>
 ]]></content>
       
         <categories>

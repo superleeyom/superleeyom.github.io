@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://leeyom.top/2018/04/20/redis-sentinel/</loc>
+    
+    <lastmod>2018-04-28T04:06:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://leeyom.top/2018/04/28/redis-cluster/</loc>
     
     <lastmod>2018-04-28T03:53:27.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://leeyom.top/2018/04/28/dis-storage/</loc>
     
     <lastmod>2018-04-28T03:48:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://leeyom.top/2018/04/20/redis-sentinel/</loc>
-    
-    <lastmod>2018-04-28T03:47:13.000Z</lastmod>
     
   </url>
   
