@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://leeyom.top/about/index.html</loc>
+    
+    <lastmod>2018-04-28T04:18:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://leeyom.top/2018/04/20/redis-sentinel/</loc>
     
     <lastmod>2018-04-28T04:06:37.000Z</lastmod>
@@ -299,13 +306,6 @@
     <loc>http://leeyom.top/2017/09/09/tech-java-Integer-cache-problem/</loc>
     
     <lastmod>2017-12-19T14:02:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://leeyom.top/about/index.html</loc>
-    
-    <lastmod>2017-10-12T11:56:57.000Z</lastmod>
     
   </url>
   
