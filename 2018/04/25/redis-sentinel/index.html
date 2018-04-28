@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://image.leeyom.top/20180425152463904923751.png">
 <meta property="og:image" content="http://image.leeyom.top/20180425152464762421022.png">
 <meta property="og:image" content="http://image.leeyom.top/20180425152464786244796.png">
-<meta property="og:updated_time" content="2018-04-25T09:21:40.000Z">
+<meta property="og:updated_time" content="2018-04-27T09:57:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis Sentinel 的安装与部署">
 <meta name="twitter:description" content="Redis 的主从复制可以支撑住大并发量的读写操作，但是主从复制也会带来如下的的问题，一旦主节点出现故障，需要手动将一个从节点晋升为主节点，同时需要修改应用方的主节点地址，还需要命令其他从节点去复制新的主节点，整个过程都需要人工干预，无论对于 Redis 的应用方还是运维方都带来了很大的不便。Redis Sentinel 正是用于解决这些问题，当主节点出现故障时，Redis Sentinel 能自">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-25T17:21:40+08:00">
-                2018-04-25
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-27T17:57:34+08:00">
+                2018-04-27
               </time>
             
           </span>
@@ -443,7 +443,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp redis.conf /etc/redis/redis-6379.conf</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置 <code>redis-6379.conf</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 端口</span><br><span class="line">port 6379</span><br><span class="line"># 后台运行</span><br><span class="line">daemonize yes</span><br><span class="line"># 日志名称</span><br><span class="line">logfile &quot;6379.log&quot;</span><br><span class="line"># 持久化文件</span><br><span class="line">dbfilename &quot;dump-6379.rdb&quot;</span><br><span class="line"># 日志和持久化文件所在目录</span><br><span class="line">dir &quot;/opt/soft/redis/data/&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 端口</span><br><span class="line">port 6379</span><br><span class="line"># 后台运行</span><br><span class="line">daemonize yes</span><br><span class="line"># 日志名称</span><br><span class="line">logfile &quot;6379.log&quot;</span><br><span class="line"># 持久化文件</span><br><span class="line">dbfilename &quot;dump-6379.rdb&quot;</span><br><span class="line"># 工作目录，日志和数据持久化默认存放位置</span><br><span class="line">dir &quot;/opt/soft/redis/data/&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动主节点：<code>redis-server /etc/redis/redis-6379.conf</code>。</p>
 </li>
@@ -460,7 +460,7 @@
 <p>意思是，该节点为主节点，他有两个从节点，分别是 127.0.0.1:6380 和 127.0.0.1:6381。</p>
 <p>站在从节点的角度，执行：<code>redis-cli -h 127.0.0.1 -p 6380 info replication</code>，该节点为从节点，它的主节点是 127.0.0.1：6379。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># Replication</span><br><span class="line">role:slave</span><br><span class="line">master_host:127.0.0.1</span><br><span class="line">master_port:6379</span><br><span class="line">master_link_status:up</span><br><span class="line">master_last_io_seconds_ago:1</span><br><span class="line">master_sync_in_progress:0</span><br><span class="line">slave_repl_offset:9356524</span><br><span class="line">slave_priority:100</span><br><span class="line">slave_read_only:1</span><br><span class="line">connected_slaves:0</span><br><span class="line">master_replid:24598661a0fd73cae32cb59c017b1056c6433272</span><br><span class="line">master_replid2:0000000000000000000000000000000000000000</span><br><span class="line">master_repl_offset:9356524</span><br><span class="line">second_repl_offset:-1</span><br><span class="line">repl_backlog_active:1</span><br><span class="line">repl_backlog_size:1048576</span><br><span class="line">repl_backlog_first_byte_offset:8307949</span><br><span class="line">repl_backlog_histlen:1048576</span><br></pre></td></tr></table></figure></p>
 <p>到此我们的一主两从的结构搭建好了，下面就是部署 Sentinel 节点。</p>
-<h2 id="部署-Sentinel-节点"><a href="#部署-Sentinel-节点" class="headerlink" title="部署 Sentinel 节点"></a>部署 Sentinel 节点</h2><p>3个 Sentinel 节点的部署方法是完全一致的（端口不同），下面以 sentinel-1 节点的部署为例子进行说明。</p>
+<h2 id="部署-Sentinel-节点"><a href="#部署-Sentinel-节点" class="headerlink" title="部署 Sentinel 节点"></a>部署 Sentinel 节点</h2><p>3 个 Sentinel 节点的部署方法是完全一致的（端口不同），下面以 sentinel-1 节点的部署为例子进行说明。</p>
 <ul>
 <li>将 <code>sentinel.conf</code> 复制一份到 <code>/etc/redis/</code>，并重命名为 <code>redis-sentinel-26379.conf</code>。</li>
 <li><p>配置 Sentinel 节点：</p>
@@ -561,6 +561,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/04/26/distributed-storage/" rel="prev" title="分布式数据存储算法浅析">
+                分布式数据存储算法浅析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -645,7 +649,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -667,7 +671,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

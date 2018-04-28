@@ -3,6 +3,49 @@
   
     
     <entry>
+      <title><![CDATA[分布式数据存储算法浅析]]></title>
+      <url>/2018/04/26/distributed-storage/</url>
+      <content type="html"><![CDATA[<p>分布式数据库首先要解决把整个数据集按照分区规则映射到多个节点的问题，即把数据集划分到多个节点上，每个节点负责整体数据的一个子集。需要重点关注的是数据分区算法，通常的分区算法有 hash 算法、一致性 hash 算法、hash slot 算法，下面就这几种常见的数据分区算法进行简单的浅析。</p>
+<a id="more"></a>
+<h1 id="hash-算法"><a href="#hash-算法" class="headerlink" title="hash 算法"></a>hash 算法</h1><p>使用特定的数据，如 Redis 的键或用户 ID，再根据节点数量 N 使用公式： hash（key）% N 取模，用来决定数据映射到哪一个节点上。比如，这个时候来了一个 key = hello_world，hash(hello_world) = 11111，这时，集群中一共 3 个节点，11111 % 3 = 2，这个时候，这个 key-value 会打到第 2 个节点上去。 但是这种方案存在一个问题：<strong>当节点数量变化时，如扩容或收缩节点，数据节点映射关系需要重新计算，会导致数据的重新迁移</strong>。</p>
+<p><img src="http://image.leeyom.top/20180426152471241969981.png" title="hash 算法"></p>
+<p>假如其中的某台机器宕机了，就导致 1/3 的数据全部失效，需要重新对两台节点进行取模运算，再分布到其他的节点上去，如果后台逻辑没有处理好，高并发情况下，1/3 的流量可能直接越过缓存，访问数据库，将数据库压垮。</p>
+<h1 id="一致性-hash-算法"><a href="#一致性-hash-算法" class="headerlink" title="一致性 hash 算法"></a>一致性 hash 算法</h1><p>一致性哈希算法实现思路是为系统中每个节点分配一个 token，范围一般在 0~2^32 ，这些 token 构成一个哈希环。数据读写执行节点查找操作时，先根据 key 计算 hash 值，然后顺时针找到第一个大于等于该哈希值的 token 节点，如图所示：</p>
+<p><img src="http://image.leeyom.top/2018042615247231671201.png" title="一致性 hash 算法"></p>
+<p>这种方式相比 hash 算法最大的好处在于加入和删除节点只影响哈希环中相邻的节点，对其他节点无影响。但是也会存在如下的问题：</p>
+<ul>
+<li>加减节点会造成哈希环中部分数据无法命中，需要手动处理或者忽略这部分数据。</li>
+<li>当使用节点比较少时，节点变化将大范围影响哈希环中数据映射，因此这种方式不适合少量数据节点的分布式方案。</li>
+<li>普通的一致性哈希分区在增减节点时需要增加一倍或减去一半节点才能保证数据和负载的均衡。</li>
+<li>任何一个 master 宕机，只有之前的在那个master 上的数据会受到影响，因为照这顺时针走，会去找下一个相邻的 master，如果这样一直下去，都没有找到，那就会直接访问数据库，造成数据库流量暴增。</li>
+</ul>
+<h1 id="hash-slot-算法"><a href="#hash-slot-算法" class="headerlink" title="hash slot 算法"></a>hash slot 算法</h1><p>hash slot 算法巧妙地使用了哈希空间，使用分散度良好的哈希函数把所有数据映射到一个固定范围的整数集合中，整数定义为槽（slot）。Redis Cluster 就是采用此算法， Redis Cluster 有固定的 <strong>16384</strong> 个 hash slot，槽是集群内数据管理和迁移的基本单位，采用大范围槽的主要目的是为了方便数据拆分和集群扩展。每个节点会负责一定数量的槽，比如说当前集群有 5 个节点，每个节点平均大约负责 3276 个槽，如下所示：</p>
+<p><img src="http://image.leeyom.top/20180426152472452118930.png" title="hash slot 与节点分配关系"></p>
+<p>hash slot 的计算公式：<strong>slot = CRC16（key）% 16383</strong> ，对每个 key 计算 CRC16 值，然后对 16384 取模，可以获取 key 对应的hash slot，根据 solt 值就可以该 key 将存放到哪个节点上去。</p>
+<p>hash slot 让 node 的增加和移除很简单，增加一个 master，就将其他master 的 hash slot 移动部分过去，减少一个 master，就将它的 hash slot 移动到其他 master 上去，移动 hash slot 的成本是非常低的。hash slot 的特点总结如下：</p>
+<ul>
+<li>解耦数据和节点之间的关系，简化了节点扩容和收缩难度。</li>
+<li>节点自身维护槽的映射关系，不需要客户端或者代理服务维护槽分区元数据。</li>
+<li>支持节点、槽、键之间的映射查询，用于数据路由、在线伸缩等场景。</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 分布式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Redis Sentinel 的安装与部署]]></title>
       <url>/2018/04/25/redis-sentinel/</url>
       <content type="html"><![CDATA[<p>Redis 的主从复制可以支撑住大并发量的读写操作，但是主从复制也会带来如下的的问题，一旦主节点出现故障，需要手动将一个从节点晋升为主节点，同时需要修改应用方的主节点地址，还需要命令其他从节点去复制新的主节点，整个过程都需要人工干预，无论对于 Redis 的应用方还是运维方都带来了很大的不便。Redis Sentinel 正是用于解决这些问题，当主节点出现故障时，Redis Sentinel 能自动完成故障发现和故障转移， 并通知应用方，从而实现真正的高可用。</p>
@@ -42,7 +85,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp redis.conf /etc/redis/redis-6379.conf</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置 <code>redis-6379.conf</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 端口</span><br><span class="line">port 6379</span><br><span class="line"># 后台运行</span><br><span class="line">daemonize yes</span><br><span class="line"># 日志名称</span><br><span class="line">logfile &quot;6379.log&quot;</span><br><span class="line"># 持久化文件</span><br><span class="line">dbfilename &quot;dump-6379.rdb&quot;</span><br><span class="line"># 日志和持久化文件所在目录</span><br><span class="line">dir &quot;/opt/soft/redis/data/&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 端口</span><br><span class="line">port 6379</span><br><span class="line"># 后台运行</span><br><span class="line">daemonize yes</span><br><span class="line"># 日志名称</span><br><span class="line">logfile &quot;6379.log&quot;</span><br><span class="line"># 持久化文件</span><br><span class="line">dbfilename &quot;dump-6379.rdb&quot;</span><br><span class="line"># 工作目录，日志和数据持久化默认存放位置</span><br><span class="line">dir &quot;/opt/soft/redis/data/&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>启动主节点：<code>redis-server /etc/redis/redis-6379.conf</code>。</p>
 </li>
@@ -59,7 +102,7 @@
 <p>意思是，该节点为主节点，他有两个从节点，分别是 127.0.0.1:6380 和 127.0.0.1:6381。</p>
 <p>站在从节点的角度，执行：<code>redis-cli -h 127.0.0.1 -p 6380 info replication</code>，该节点为从节点，它的主节点是 127.0.0.1：6379。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># Replication</span><br><span class="line">role:slave</span><br><span class="line">master_host:127.0.0.1</span><br><span class="line">master_port:6379</span><br><span class="line">master_link_status:up</span><br><span class="line">master_last_io_seconds_ago:1</span><br><span class="line">master_sync_in_progress:0</span><br><span class="line">slave_repl_offset:9356524</span><br><span class="line">slave_priority:100</span><br><span class="line">slave_read_only:1</span><br><span class="line">connected_slaves:0</span><br><span class="line">master_replid:24598661a0fd73cae32cb59c017b1056c6433272</span><br><span class="line">master_replid2:0000000000000000000000000000000000000000</span><br><span class="line">master_repl_offset:9356524</span><br><span class="line">second_repl_offset:-1</span><br><span class="line">repl_backlog_active:1</span><br><span class="line">repl_backlog_size:1048576</span><br><span class="line">repl_backlog_first_byte_offset:8307949</span><br><span class="line">repl_backlog_histlen:1048576</span><br></pre></td></tr></table></figure></p>
 <p>到此我们的一主两从的结构搭建好了，下面就是部署 Sentinel 节点。</p>
-<h2 id="部署-Sentinel-节点"><a href="#部署-Sentinel-节点" class="headerlink" title="部署 Sentinel 节点"></a>部署 Sentinel 节点</h2><p>3个 Sentinel 节点的部署方法是完全一致的（端口不同），下面以 sentinel-1 节点的部署为例子进行说明。</p>
+<h2 id="部署-Sentinel-节点"><a href="#部署-Sentinel-节点" class="headerlink" title="部署 Sentinel 节点"></a>部署 Sentinel 节点</h2><p>3 个 Sentinel 节点的部署方法是完全一致的（端口不同），下面以 sentinel-1 节点的部署为例子进行说明。</p>
 <ul>
 <li>将 <code>sentinel.conf</code> 复制一份到 <code>/etc/redis/</code>，并重命名为 <code>redis-sentinel-26379.conf</code>。</li>
 <li><p>配置 Sentinel 节点：</p>
