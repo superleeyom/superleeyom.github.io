@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://leeyom.top/2018/04/25/redis-sentinel/</loc>
+    <loc>http://leeyom.top/2018/04/27/dis-storage/</loc>
     
-    <lastmod>2018-04-27T09:57:34.000Z</lastmod>
+    <lastmod>2018-04-28T01:58:27.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://leeyom.top/2018/04/26/dis-storage/</loc>
+    <loc>http://leeyom.top/2018/04/26/redis-cluster/</loc>
     
-    <lastmod>2018-04-26T08:41:39.000Z</lastmod>
+    <lastmod>2018-04-28T01:58:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://leeyom.top/2018/04/25/redis-sentinel/</loc>
+    
+    <lastmod>2018-04-27T09:57:34.000Z</lastmod>
     
   </url>
   
