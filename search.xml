@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[分布式数据存储算法浅析]]></title>
-      <url>/2018/04/26/distributed-storage/</url>
+      <url>/2018/04/26/dis-storage/</url>
       <content type="html"><![CDATA[<p>分布式数据库首先要解决把整个数据集按照分区规则映射到多个节点的问题，即把数据集划分到多个节点上，每个节点负责整体数据的一个子集。需要重点关注的是数据分区算法，通常的分区算法有 hash 算法、一致性 hash 算法、hash slot 算法，下面就这几种常见的数据分区算法进行简单的浅析。</p>
 <a id="more"></a>
 <h1 id="hash-算法"><a href="#hash-算法" class="headerlink" title="hash 算法"></a>hash 算法</h1><p>使用特定的数据，如 Redis 的键或用户 ID，再根据节点数量 N 使用公式： hash（key）% N 取模，用来决定数据映射到哪一个节点上。比如，这个时候来了一个 key = hello_world，hash(hello_world) = 11111，这时，集群中一共 3 个节点，11111 % 3 = 2，这个时候，这个 key-value 会打到第 2 个节点上去。 但是这种方案存在一个问题：<strong>当节点数量变化时，如扩容或收缩节点，数据节点映射关系需要重新计算，会导致数据的重新迁移</strong>。</p>
