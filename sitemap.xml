@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://leeyom.top/2018/04/28/dis-storage/</loc>
+    
+    <lastmod>2018-05-09T00:42:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://leeyom.top/2018/05/05/close-fcircle/</loc>
     
     <lastmod>2018-05-05T01:15:12.000Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://leeyom.top/2018/04/28/redis-cluster/</loc>
     
     <lastmod>2018-04-28T03:53:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://leeyom.top/2018/04/28/dis-storage/</loc>
-    
-    <lastmod>2018-04-28T03:48:06.000Z</lastmod>
     
   </url>
   
