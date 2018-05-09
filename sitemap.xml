@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://leeyom.top/2018/05/09/redis-failover/</loc>
+    
+    <lastmod>2018-05-09T10:22:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://leeyom.top/2018/04/28/dis-storage/</loc>
     
     <lastmod>2018-05-09T00:42:12.000Z</lastmod>
