@@ -100,7 +100,7 @@
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis Cluster 集群搭建和部署">
-<meta property="og:url" content="http://leeyom.top/2018/04/28/redis-cluster/index.html">
+<meta property="og:url" content="https://www.leeyom.top/2018/04/28/redis-cluster/index.html">
 <meta property="og:site_name" content="王前奔的个人站">
 <meta property="og:description" content="Redis Cluster 是 Redis 的分布式解决方案，在 3.0 版本正式推出，有效地解决了 Redis 分布式方面的需求。当遇到单机内存、并发、流量等瓶颈时，可以采用 Cluster 架构方案达到负载均衡的目的。之前，Redis 分布式方案一般客户端分区和代理，但是这些方案都有部署复杂度、性能损耗、无法高可用等等缺陷。Redis Cluster 它非常优雅地解决了 Redis 集群方面的">
 <meta property="og:locale" content="zh-CN">
@@ -117,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://leeyom.top/2018/04/28/redis-cluster/"/>
+  <link rel="canonical" href="https://www.leeyom.top/2018/04/28/redis-cluster/"/>
 
 
 
@@ -388,7 +388,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2018/04/28/redis-cluster/"/>
+    <link itemprop="mainEntityOfPage" href="https://www.leeyom.top/2018/04/28/redis-cluster/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王前奔"/>
@@ -505,7 +505,7 @@
       
         <p>Redis Cluster 是 Redis 的分布式解决方案，在 3.0 版本正式推出，有效地解决了 Redis 分布式方面的需求。当遇到单机内存、并发、流量等瓶颈时，可以采用 Cluster 架构方案达到负载均衡的目的。之前，Redis 分布式方案一般客户端分区和代理，但是这些方案都有部署复杂度、性能损耗、无法高可用等等缺陷。Redis Cluster 它非常优雅地解决了 Redis 集群方面的问题，因此理解应用好 Redis Cluster 将极大地解放我们使用分布式 Redis 的工作量，同时它也是学习分布式存储的绝佳案例。</p>
 <a id="more"></a>
-<p>Redis 集群一般由多个节点组成，节点数量至少为 6 个才能保证组成完整高可用的集群。作为举例，本文将搭建一个 6（3主3从）个节点的集群，主备关系如下图所示，其中 M 代码 Master 节点，S 代表 Slave 节点，A-M 和 A-S 为一对主备节点，麻雀虽小，五脏俱全。先手动搭建，然后再尝试用 Redis 集群管理工具 redis-trib 搭建，这样就能更加理解 Redis Cluster 的<a href="http://www.leeyom.top/2018/04/28/dis-storage/" target="_blank" rel="noopener">工作原理</a>。</p>
+<p>Redis 集群一般由多个节点组成，节点数量至少为 6 个才能保证组成完整高可用的集群。作为举例，本文将搭建一个 6（3主3从）个节点的集群，主备关系如下图所示，其中 M 代码 Master 节点，S 代表 Slave 节点，A-M 和 A-S 为一对主备节点，麻雀虽小，五脏俱全。先手动搭建，然后再尝试用 Redis 集群管理工具 redis-trib 搭建，这样就能更加理解 Redis Cluster 的<a href="http://www.leeyom.top/2018/04/28/dis-storage/">工作原理</a>。</p>
 <p><img src="http://image.leeyom.top/20180427152481315320882.png" title="示意图"></p>
 <h1 id="准备节点"><a href="#准备节点" class="headerlink" title="准备节点"></a>准备节点</h1><p>建议为集群内所有节点统一目录，一般划分三个目录：conf、 data、log，分别存放配置、数据和日志相关文件。把 6 个节点配置统一放在 conf 目录下，在解压文件夹 redis-4.0.9 中有一个 Redis 配置文件 redis.conf，其中一些默认的配置项需要修改（配置项较多，本文仅为举例，修改一些必要的配置）。以下仅以 6379 端口为例进行配置，6380，6381 等端口配置操作类似。配置文件命名规则 <code>redis-{port}.conf</code>，将修改后的配置文件分别放入 conf 文件夹下面，核心要修改的配置项如下：</p>
 <table>
@@ -554,7 +554,7 @@
 </tr>
 </tbody>
 </table>
-<p><a href="http://www.leeyom.top/2018/04/25/redis-sentinel/#%E5%87%86%E5%A4%87" target="_blank" rel="noopener">准备</a>好后，启动所有的节点，一个一个启动有点麻烦，创建一个启动脚本和停止脚本，批量拉起和停止 redis 服务，脚本内容如下：</p>
+<p><a href="http://www.leeyom.top/2018/04/25/redis-sentinel/#%E5%87%86%E5%A4%87">准备</a>好后，启动所有的节点，一个一个启动有点麻烦，创建一个启动脚本和停止脚本，批量拉起和停止 redis 服务，脚本内容如下：</p>
 <ul>
 <li><p>启动脚本，start.sh</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis-server /usr/local/redis-cluster/conf/redis-6379.conf &amp;</span><br><span class="line">redis-server /usr/local/redis-cluster/conf/redis-6380.conf &amp;</span><br><span class="line">redis-server /usr/local/redis-cluster/conf/redis-6381.conf &amp;</span><br><span class="line">redis-server /usr/local/redis-cluster/conf/redis-6382.conf &amp;</span><br><span class="line">redis-server /usr/local/redis-cluster/conf/redis-6383.conf &amp;</span><br><span class="line">redis-server /usr/local/redis-cluster/conf/redis-6384.conf &amp;</span><br></pre></td></tr></table></figure>
