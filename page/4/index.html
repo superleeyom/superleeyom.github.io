@@ -2,26 +2,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -38,37 +36,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="leeyom,Java developer,跑步,开源" />
 
 
 
@@ -77,35 +44,42 @@
 
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-<meta name="description" content="理想主义者，程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leeyom 的个人站">
-<meta property="og:url" content="http://leeyom.top/page/4/index.html">
-<meta property="og:site_name" content="Leeyom 的个人站">
-<meta property="og:description" content="理想主义者，程序员">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leeyom 的个人站">
-<meta name="twitter:description" content="理想主义者，程序员">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -117,14 +91,39 @@
 </script>
 
 
+  
 
+
+
+
+  <meta name="description" content="程序员">
+<meta property="og:type" content="website">
+<meta property="og:title" content="王前奔的个人站">
+<meta property="og:url" content="http://leeyom.top/page/4/index.html">
+<meta property="og:site_name" content="王前奔的个人站">
+<meta property="og:description" content="程序员">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="王前奔的个人站">
+<meta name="twitter:description" content="程序员">
+
+
+
+
+
+  
+  
   <link rel="canonical" href="http://leeyom.top/page/4/"/>
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>Leeyom 的个人站</title>
+  <title>王前奔的个人站</title>
   
 
 
@@ -134,9 +133,38 @@
 
 
 
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -149,23 +177,26 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leeyom 的个人站</span>
+        <span class="site-title">王前奔的个人站</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">永远年轻，永远热泪盈眶</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -173,66 +204,124 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签<span class="badge">43</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类<span class="badge">3</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档<span class="badge">46</span></a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -263,12 +352,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -281,21 +378,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/02/10/tech-jvm-summary-note/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/02/10/tech-jvm-summary-note/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -305,11 +404,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/10/tech-jvm-summary-note/" itemprop="url">《深入理解Java虚拟机》总结笔记</a></h1>
+                
+                <a href="/2017/02/10/tech-jvm-summary-note/" class="post-title-link" itemprop="url">《深入理解Java虚拟机》总结笔记</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -317,30 +425,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-10T10:54:56+08:00">
-                2017-02-10
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-02-10 10:54:56" itemprop="dateCreated datePublished" datetime="2017-02-10T10:54:56+08:00">2017-02-10</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T13:38:51+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -351,11 +448,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -365,20 +458,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/02/10/tech-jvm-summary-note/" class="leancloud_visitors" data-flag-title="《深入理解Java虚拟机》总结笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/02/10/tech-jvm-summary-note/" class="leancloud_visitors" data-flag-title="《深入理解Java虚拟机》总结笔记">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -403,21 +497,29 @@
         
           <p>周志明先生的《深入理解Java虚拟机》一书，乃java进阶必看的书籍，对java内存模型，JVM工作原理，基本JVM调优和内存溢出排查有很大的帮。以前对于JVM运行机制不是很了解，遇到很多问题都无从下手，即便解决了也不懂其原理，读此书上述问题就游刃而解，以下是个人的一个简单笔记，方便日后查阅。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/10/tech-jvm-summary-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/02/10/tech-jvm-summary-note/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -450,21 +552,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/31/life-2016-summary/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/31/life-2016-summary/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -474,11 +578,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/31/life-2016-summary/" itemprop="url">我的2016</a></h1>
+                
+                <a href="/2016/12/31/life-2016-summary/" class="post-title-link" itemprop="url">我的2016</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -486,30 +599,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-31T09:09:01+08:00">
-                2016-12-31
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-31 09:09:01" itemprop="dateCreated datePublished" datetime="2016-12-31T09:09:01+08:00">2016-12-31</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-19T22:13:50+08:00">
-                2017-12-19
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -520,11 +622,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
 
                 
                 
@@ -534,20 +632,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/12/31/life-2016-summary/" class="leancloud_visitors" data-flag-title="我的2016">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/12/31/life-2016-summary/" class="leancloud_visitors" data-flag-title="我的2016">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -572,21 +671,29 @@
         
           <p>今天是2016年的最后一天，心中感慨颇多，趁着年末，记录一下今年这一年的心路历程，写一份年终总结，给自己一份交代。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/31/life-2016-summary/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/31/life-2016-summary/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -619,21 +726,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/22/tech-centos-fastDFS/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/22/tech-centos-fastDFS/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -643,11 +752,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/22/tech-centos-fastDFS/" itemprop="url">centOS上搭建FastDFS图片服务器教程</a></h1>
+                
+                <a href="/2016/12/22/tech-centos-fastDFS/" class="post-title-link" itemprop="url">centOS上搭建FastDFS图片服务器教程</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -655,30 +773,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-22T22:27:06+08:00">
-                2016-12-22
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-22 22:27:06" itemprop="dateCreated datePublished" datetime="2016-12-22T22:27:06+08:00">2016-12-22</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T13:37:26+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -689,11 +796,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/资源/" itemprop="url" rel="index"><span itemprop="name">资源</span></a></span>
 
                 
                 
@@ -703,20 +806,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/12/22/tech-centos-fastDFS/" class="leancloud_visitors" data-flag-title="centOS上搭建FastDFS图片服务器教程">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/12/22/tech-centos-fastDFS/" class="leancloud_visitors" data-flag-title="centOS上搭建FastDFS图片服务器教程">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -741,21 +845,29 @@
         
           <p>FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/22/tech-centos-fastDFS/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/22/tech-centos-fastDFS/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -788,21 +900,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/15/tech-nginx-summary/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/15/tech-nginx-summary/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -812,11 +926,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/15/tech-nginx-summary/" itemprop="url">nginx的反向代理与负载均衡总结</a></h1>
+                
+                <a href="/2016/12/15/tech-nginx-summary/" class="post-title-link" itemprop="url">nginx的反向代理与负载均衡总结</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -824,30 +947,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-15T22:23:55+08:00">
-                2016-12-15
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-15 22:23:55" itemprop="dateCreated datePublished" datetime="2016-12-15T22:23:55+08:00">2016-12-15</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T13:23:16+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -858,11 +970,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -872,20 +980,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/12/15/tech-nginx-summary/" class="leancloud_visitors" data-flag-title="nginx的反向代理与负载均衡总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/12/15/tech-nginx-summary/" class="leancloud_visitors" data-flag-title="nginx的反向代理与负载均衡总结">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -910,21 +1019,29 @@
         
           <p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。nginx有两个非常重要的功能就是反向代理和负载均衡，今天就这两个重要的功能做个简单总结。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/15/tech-nginx-summary/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/15/tech-nginx-summary/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -957,21 +1074,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/09/life-chrome-plugin/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/09/life-chrome-plugin/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -981,11 +1100,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/09/life-chrome-plugin/" itemprop="url">chrome浏览器插件推荐</a></h1>
+                
+                <a href="/2016/12/09/life-chrome-plugin/" class="post-title-link" itemprop="url">chrome浏览器插件推荐</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -993,30 +1121,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-09T22:24:06+08:00">
-                2016-12-09
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-09 22:24:06" itemprop="dateCreated datePublished" datetime="2016-12-09T22:24:06+08:00">2016-12-09</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-19T22:06:05+08:00">
-                2017-12-19
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1027,11 +1144,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/资源/" itemprop="url" rel="index"><span itemprop="name">资源</span></a></span>
 
                 
                 
@@ -1041,20 +1154,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/12/09/life-chrome-plugin/" class="leancloud_visitors" data-flag-title="chrome浏览器插件推荐">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/12/09/life-chrome-plugin/" class="leancloud_visitors" data-flag-title="chrome浏览器插件推荐">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1079,21 +1193,29 @@
         
           <p>作为一名java开发者，自然离不开浏览器，要问到我最喜欢用哪个浏览器，我可以毫不犹豫的告诉你，chrome！chrome浏览器简洁，启动速度快，兼容性好，最最最重要的一点，它拥有丰富的插件，有了这些插件，从此上网变成一件愉悦的事情，你再也不用忍受各种烦人的弹窗广告，以及恶心的某度公司的搜索置顶。下面我就我自己使用的一些chrome插件做一个总结。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/09/life-chrome-plugin/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/09/life-chrome-plugin/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1126,21 +1248,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/08/tech-centOS-nginx/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/08/tech-centOS-nginx/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1150,11 +1274,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/08/tech-centOS-nginx/" itemprop="url">在centOS上安装nginx教程</a></h1>
+                
+                <a href="/2016/12/08/tech-centOS-nginx/" class="post-title-link" itemprop="url">在centOS上安装nginx教程</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1162,30 +1295,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-08T21:56:13+08:00">
-                2016-12-08
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-08 21:56:13" itemprop="dateCreated datePublished" datetime="2016-12-08T21:56:13+08:00">2016-12-08</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T14:05:50+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1196,11 +1318,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/资源/" itemprop="url" rel="index"><span itemprop="name">资源</span></a></span>
 
                 
                 
@@ -1210,20 +1328,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/12/08/tech-centOS-nginx/" class="leancloud_visitors" data-flag-title="在centOS上安装nginx教程">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/12/08/tech-centOS-nginx/" class="leancloud_visitors" data-flag-title="在centOS上安装nginx教程">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1248,21 +1367,29 @@
         
           <p>是一个使用c语言开发的高性能的http服务器及反向代理服务器。Nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师Igor Sysoev所开发，官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。最近项目中用到了反向代理服务器 nginx，没用过这玩意儿，自己就尝试着在虚拟机中安装nginx，下面就把整个安装过程中遇到的问题以及安装过程记录一下。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/08/tech-centOS-nginx/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/08/tech-centOS-nginx/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1295,21 +1422,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/05/tech-mybatis-pagehelper/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/12/05/tech-mybatis-pagehelper/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1319,11 +1448,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/05/tech-mybatis-pagehelper/" itemprop="url">mybatis 分页插件PageHelper使用及总结</a></h1>
+                
+                <a href="/2016/12/05/tech-mybatis-pagehelper/" class="post-title-link" itemprop="url">mybatis 分页插件PageHelper使用及总结</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1331,30 +1469,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-05T22:27:09+08:00">
-                2016-12-05
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-05 22:27:09" itemprop="dateCreated datePublished" datetime="2016-12-05T22:27:09+08:00">2016-12-05</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T13:40:25+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1365,11 +1492,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1379,20 +1502,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/12/05/tech-mybatis-pagehelper/" class="leancloud_visitors" data-flag-title="mybatis 分页插件PageHelper使用及总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/12/05/tech-mybatis-pagehelper/" class="leancloud_visitors" data-flag-title="mybatis 分页插件PageHelper使用及总结">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1417,21 +1541,29 @@
         
           <p>今天在看视频教程的时候，遇到了mybatis的分页插件<code>PaheHelper</code>，感觉很好用，它支持主流的数据库，该插件目前支持<code>Oracle</code>,<code>Mysql</code>,<code>MariaDB</code>,<code>SQLite</code>,<code>Hsqldb</code>,<code>PostgreSQL</code>六种数据库分页。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/05/tech-mybatis-pagehelper/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/05/tech-mybatis-pagehelper/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1464,21 +1596,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/11/26/tech-easyui-datagrid/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/11/26/tech-easyui-datagrid/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1488,11 +1622,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/26/tech-easyui-datagrid/" itemprop="url">easyUI datagrid 动态表头的实现</a></h1>
+                
+                <a href="/2016/11/26/tech-easyui-datagrid/" class="post-title-link" itemprop="url">easyUI datagrid 动态表头的实现</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1500,30 +1643,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-26T19:46:09+08:00">
-                2016-11-26
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-26 19:46:09" itemprop="dateCreated datePublished" datetime="2016-11-26T19:46:09+08:00">2016-11-26</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T13:55:26+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1534,11 +1666,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1548,20 +1676,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/11/26/tech-easyui-datagrid/" class="leancloud_visitors" data-flag-title="easyUI datagrid 动态表头的实现">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/11/26/tech-easyui-datagrid/" class="leancloud_visitors" data-flag-title="easyUI datagrid 动态表头的实现">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1586,21 +1715,29 @@
         
           <p>最近在项目中，需要用easyUI 的datagrid组件去实现一个表报的功能。我们以前用datagrid都是前台约定好字段，然后我们返回的json字符串与前台字段相对应便可以生成数据表格，但是这次却不同，datagrid的表头是动态的，为了实现这个功能，琢磨了些时间，然后在此总结一下。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/26/tech-easyui-datagrid/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/11/26/tech-easyui-datagrid/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1633,21 +1770,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/11/05/life-tuchuang-picu/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/11/05/life-tuchuang-picu/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1657,11 +1796,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/05/life-tuchuang-picu/" itemprop="url">七牛云+U图床解决编博客插图麻烦事儿</a></h1>
+                
+                <a href="/2016/11/05/life-tuchuang-picu/" class="post-title-link" itemprop="url">七牛云+U图床解决编博客插图麻烦事儿</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1669,30 +1817,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-05T18:40:50+08:00">
-                2016-11-05
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-05 18:40:50" itemprop="dateCreated datePublished" datetime="2016-11-05T18:40:50+08:00">2016-11-05</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-19T22:13:08+08:00">
-                2017-12-19
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1703,11 +1840,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/资源/" itemprop="url" rel="index"><span itemprop="name">资源</span></a></span>
 
                 
                 
@@ -1717,20 +1850,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/11/05/life-tuchuang-picu/" class="leancloud_visitors" data-flag-title="七牛云+U图床解决编博客插图麻烦事儿">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/11/05/life-tuchuang-picu/" class="leancloud_visitors" data-flag-title="七牛云+U图床解决编博客插图麻烦事儿">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1755,21 +1889,29 @@
         
           <p>喜欢用hexo写博客的同学不知道有没有遇到这么一个情况，每次要插入图片的时候，我们都要先把要插入的图片放到hexo/source/img/目录下，然后再写上markdown格式的图片链接，这样来来回回，会把人整疯掉的！今天就教大家怎么样便捷的在文章中快速的插入图片，这样就可以愉快的写文章啦。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/05/life-tuchuang-picu/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/11/05/life-tuchuang-picu/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1802,21 +1944,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/11/02/tech-Hibernate-addScalar-addEntity/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2016/11/02/tech-Hibernate-addScalar-addEntity/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1826,11 +1970,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/02/tech-Hibernate-addScalar-addEntity/" itemprop="url">Hibernate SQL查询addScalar()和addEntity()区别</a></h1>
+                
+                <a href="/2016/11/02/tech-Hibernate-addScalar-addEntity/" class="post-title-link" itemprop="url">Hibernate SQL查询addScalar()和addEntity()区别</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1838,30 +1991,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-02T14:57:08+08:00">
-                2016-11-02
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-02 14:57:08" itemprop="dateCreated datePublished" datetime="2016-11-02T14:57:08+08:00">2016-11-02</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T13:49:48+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1872,11 +2014,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1886,20 +2024,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2016/11/02/tech-Hibernate-addScalar-addEntity/" class="leancloud_visitors" data-flag-title="Hibernate SQL查询addScalar()和addEntity()区别">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2016/11/02/tech-Hibernate-addScalar-addEntity/" class="leancloud_visitors" data-flag-title="Hibernate SQL查询addScalar()和addEntity()区别">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1924,21 +2063,29 @@
         
           <p>Hibernate除了支持HQL查询外，还支持原生SQL查询。对原生SQL查询执行的控制是通过SQLQuery接口进行的，通过执行Session.createSQLQuery()获取这个接口。该接口是Query接口的子接口。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/02/tech-Hibernate-addScalar-addEntity/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/11/02/tech-Hibernate-addScalar-addEntity/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1967,15 +2114,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1991,89 +2135,211 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="Leeyom" />
+                alt="王前奔"/>
             
-              <p class="site-author-name" itemprop="name">Leeyom</p>
-              <p class="site-description motion-element" itemprop="description">理想主义者，程序员</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          <div class="links-of-author motion-element">
-            
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/wangleeyom/" target="_blank" title="Github">
-                    
-                      <i class="fa fa-fw fa-github"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:leeyomwang@163.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i></a>
-                </span>
-              
-            
+              <p class="site-author-name" itemprop="name">王前奔</p>
+              <div class="site-description motion-element" itemprop="description">程序员</div>
           </div>
 
           
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/wangleeyom" title="GitHub &rarr; https://github.com/wangleeyom" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:leeyomwang@163.com" title="E-Mail &rarr; mailto:leeyomwang@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/1816623124" title="Weibo &rarr; https://weibo.com/1816623124" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/super_leeyom" title="Telegram &rarr; https://t.me/super_leeyom" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i></a>
+                </span>
+              
+            </div>
+          
+
           
 
           
@@ -2086,43 +2352,27 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.sfantree.com/" title="番茄小窝" target="_blank">番茄小窝</a>
+                    <a href="https://www.sfantree.com" title="https://www.sfantree.com" rel="noopener" target="_blank">番茄小窝</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://ehlxr.me/" title="小桥流水人家" target="_blank">小桥流水人家</a>
+                    <a href="http://ehlxr.me" title="http://ehlxr.me" rel="noopener" target="_blank">ehlxr</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://blog.mapan.win/" title="马攀博客" target="_blank">马攀博客</a>
+                    <a href="http://linyy.name" title="http://linyy.name" rel="noopener" target="_blank">林洋洋</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://linyy.name/" title="林洋洋博客" target="_blank">林洋洋博客</a>
+                    <a href="http://lzplzp.cn" title="http://lzplzp.cn" rel="noopener" target="_blank">刘中坡</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.belongwithme.com" title="文兵的博客" target="_blank">文兵的博客</a>
+                    <a href="http://www.imain.net" title="http://www.imain.net" rel="noopener" target="_blank">曾小晨</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://lzplzp.cn/" title="中坡博客" target="_blank">中坡博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.imain.net/" title="曾小晨" target="_blank">曾小晨</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.artisanbox.org/" title="工匠盒子" target="_blank">工匠盒子</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://yzlee666.github.io/" title="肥胖的猪" target="_blank">肥胖的猪</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://darrenliuwei.com" title="刘伟的博客" target="_blank">刘伟的博客</a>
+                    <a href="https://www.artisanbox.org" title="https://www.artisanbox.org" rel="noopener" target="_blank">工匠盒子</a>
                   </li>
                 
               </ul>
@@ -2130,9 +2380,12 @@
           
 
           
+            
+          
+          
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -2140,6 +2393,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -2148,12 +2402,14 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备17147440号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Leeyom</span>
-  <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17147440号</a> 
+  <span class="author" itemprop="copyrightHolder">王前奔</span>
+
+  
+
   
 </div>
 
@@ -2170,21 +2426,28 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -2206,11 +2469,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2224,7 +2490,6 @@
 
 
 
-  
 
 
 
@@ -2232,91 +2497,6 @@
 
 
 
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -2328,16 +2508,52 @@
 
 
   
-    
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
   
 
 
 
-
-
   
-
-  <script type="text/javascript">
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -2386,6 +2602,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -2419,8 +2637,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2589,9 +2808,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2659,23 +2878,19 @@
 
 
   
-
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz", "XNpsyrKHDD9eTFLsnMN9og8S");</script>
   <script>
+    
     function showTime(Counter) {
-      var query = new AV.Query(Counter);
       var entries = [];
-      var $visitors = $(".leancloud_visitors");
+      var $visitors = $('.leancloud_visitors');
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
+      $visitors.each(function() {
+        entries.push( $(this).attr('id').trim() );
       });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+        .done(function({ results }) {
           var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
           if (results.length === 0) {
@@ -2685,83 +2900,48 @@
 
           for (var i = 0; i < results.length; i++) {
             var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
+            var url = item.url;
+            var time = item.time;
             var element = document.getElementById(url);
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
-          for(var i = 0; i < entries.length; i++) {
+          for (var i = 0; i < entries.length; i++) {
             var url = entries[i];
             var element = document.getElementById(url);
             var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
+            if (countSpan.text() == '') {
               countSpan.text(0);
             }
           }
         })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
         });
     }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
+    
 
     $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz',
+                'X-LC-Key': 'XNpsyrKHDD9eTFLsnMN9og8S',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            if ($('.post-title-link').length >= 1) {
+              showTime(Counter);
+            }
+          
+        });
     });
   </script>
 
@@ -2770,23 +2950,13 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
+
+  
+
+  
+
   
 
   
@@ -2795,6 +2965,13 @@
 
   
 
-</html>
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

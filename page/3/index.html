@@ -2,26 +2,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -38,37 +36,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="leeyom,Java developer,跑步,开源" />
 
 
 
@@ -77,35 +44,42 @@
 
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-<meta name="description" content="理想主义者，程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leeyom 的个人站">
-<meta property="og:url" content="http://leeyom.top/page/3/index.html">
-<meta property="og:site_name" content="Leeyom 的个人站">
-<meta property="og:description" content="理想主义者，程序员">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leeyom 的个人站">
-<meta name="twitter:description" content="理想主义者，程序员">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -117,14 +91,39 @@
 </script>
 
 
+  
 
+
+
+
+  <meta name="description" content="程序员">
+<meta property="og:type" content="website">
+<meta property="og:title" content="王前奔的个人站">
+<meta property="og:url" content="http://leeyom.top/page/3/index.html">
+<meta property="og:site_name" content="王前奔的个人站">
+<meta property="og:description" content="程序员">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="王前奔的个人站">
+<meta name="twitter:description" content="程序员">
+
+
+
+
+
+  
+  
   <link rel="canonical" href="http://leeyom.top/page/3/"/>
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>Leeyom 的个人站</title>
+  <title>王前奔的个人站</title>
   
 
 
@@ -134,9 +133,38 @@
 
 
 
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -149,23 +177,26 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leeyom 的个人站</span>
+        <span class="site-title">王前奔的个人站</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">永远年轻，永远热泪盈眶</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -173,66 +204,124 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签<span class="badge">43</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类<span class="badge">3</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档<span class="badge">46</span></a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -263,12 +352,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -281,21 +378,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/27/tech-rbac-model/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/27/tech-rbac-model/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -305,11 +404,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/27/tech-rbac-model/" itemprop="url">RBAC权限模型</a></h1>
+                
+                <a href="/2017/09/27/tech-rbac-model/" class="post-title-link" itemprop="url">RBAC权限模型</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -317,30 +425,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T21:42:00+08:00">
-                2017-09-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-27 21:42:00" itemprop="dateCreated datePublished" datetime="2017-09-27T21:42:00+08:00">2017-09-27</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T13:20:42+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -351,11 +448,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -365,20 +458,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/09/27/tech-rbac-model/" class="leancloud_visitors" data-flag-title="RBAC权限模型">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/09/27/tech-rbac-model/" class="leancloud_visitors" data-flag-title="RBAC权限模型">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -403,21 +497,29 @@
         
           <p>RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般者是多对多的关系。（如下图）</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/27/tech-rbac-model/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/09/27/tech-rbac-model/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -450,21 +552,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/25/tech-swagger-annotation/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/25/tech-swagger-annotation/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -474,11 +578,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/25/tech-swagger-annotation/" itemprop="url">swagger注解总结</a></h1>
+                
+                <a href="/2017/09/25/tech-swagger-annotation/" class="post-title-link" itemprop="url">swagger注解总结</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -486,30 +599,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T22:35:59+08:00">
-                2017-09-25
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-25 22:35:59" itemprop="dateCreated datePublished" datetime="2017-09-25T22:35:59+08:00">2017-09-25</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-24T22:32:22+08:00">
-                2018-01-24
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -520,11 +622,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -534,20 +632,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/09/25/tech-swagger-annotation/" class="leancloud_visitors" data-flag-title="swagger注解总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/09/25/tech-swagger-annotation/" class="leancloud_visitors" data-flag-title="swagger注解总结">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -572,21 +671,29 @@
         
           <p>随着互联网技术的发展，现在的网站架构基本都由原来的后端渲染，变成了前端渲染、先后端分离的形态，而且前端技术和后端技术在各自的道路上越走越远。前端和后端的唯一联系，变成了API接口，API文档变成了前后端开发人员联系的纽带，变得越来越重要，swagger就是一款让你更好的书写API文档的框架，本篇主要总结常用的swagger注解。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/25/tech-swagger-annotation/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/09/25/tech-swagger-annotation/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -619,21 +726,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/23/tech-spring-mvc-swagger2/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/23/tech-spring-mvc-swagger2/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -643,11 +752,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/23/tech-spring-mvc-swagger2/" itemprop="url">Spring MVC中使用Swagger2构建Restful API</a></h1>
+                
+                <a href="/2017/09/23/tech-spring-mvc-swagger2/" class="post-title-link" itemprop="url">Spring MVC中使用Swagger2构建Restful API</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -655,30 +773,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T20:50:45+08:00">
-                2017-09-23
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-23 20:50:45" itemprop="dateCreated datePublished" datetime="2017-09-23T20:50:45+08:00">2017-09-23</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-19T22:11:13+08:00">
-                2017-12-19
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -689,11 +796,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -703,20 +806,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/09/23/tech-spring-mvc-swagger2/" class="leancloud_visitors" data-flag-title="Spring MVC中使用Swagger2构建Restful API">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/09/23/tech-spring-mvc-swagger2/" class="leancloud_visitors" data-flag-title="Spring MVC中使用Swagger2构建Restful API">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -741,21 +845,29 @@
         
           <p>不知道写后台的同学有没有这样的烦劳，每次写完相关的接口，都要写相关的接口文档，然后跟前端小伙伴进行联调，过程很是繁琐和费时间。那为了解决这些问题，Swagger2 就是一个很好的解决方案，它与 spring mvc 整合后，我们只需要少量的注解，它便可以自动的帮我们生成一份 RESTful API 文档，大大的减轻了劳动力。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/23/tech-spring-mvc-swagger2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/09/23/tech-spring-mvc-swagger2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -788,21 +900,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/20/tech-spring-boot-note/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/20/tech-spring-boot-note/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -812,11 +926,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/20/tech-spring-boot-note/" itemprop="url">spring boot 学习笔记</a></h1>
+                
+                <a href="/2017/09/20/tech-spring-boot-note/" class="post-title-link" itemprop="url">spring boot 学习笔记</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -824,30 +947,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T21:26:27+08:00">
-                2017-09-20
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-20 21:26:27" itemprop="dateCreated datePublished" datetime="2017-09-20T21:26:27+08:00">2017-09-20</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T10:20:28+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -858,11 +970,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -872,20 +980,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/09/20/tech-spring-boot-note/" class="leancloud_visitors" data-flag-title="spring boot 学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/09/20/tech-spring-boot-note/" class="leancloud_visitors" data-flag-title="spring boot 学习笔记">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -910,21 +1019,29 @@
         
           <p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域成为领导者。之前有写过spring boot的一些笔记，但是感觉写的很乱，所以重新整理了下，方便他人和自己查看。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/20/tech-spring-boot-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/09/20/tech-spring-boot-note/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -957,21 +1074,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/09/tech-java-Integer-cache-problem/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/09/09/tech-java-Integer-cache-problem/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -981,11 +1100,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/09/tech-java-Integer-cache-problem/" itemprop="url">java 中 Integer 的缓存问题</a></h1>
+                
+                <a href="/2017/09/09/tech-java-Integer-cache-problem/" class="post-title-link" itemprop="url">java 中 Integer 的缓存问题</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -993,30 +1121,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T16:59:39+08:00">
-                2017-09-09
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-09 16:59:39" itemprop="dateCreated datePublished" datetime="2017-09-09T16:59:39+08:00">2017-09-09</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-19T22:02:24+08:00">
-                2017-12-19
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1027,11 +1144,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1041,20 +1154,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/09/09/tech-java-Integer-cache-problem/" class="leancloud_visitors" data-flag-title="java 中 Integer 的缓存问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/09/09/tech-java-Integer-cache-problem/" class="leancloud_visitors" data-flag-title="java 中 Integer 的缓存问题">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1079,21 +1193,29 @@
         
           <p>曾在微信群里跟同学讨论一道关于 java 包装类 Integer 的面试题, 这个道题目虽然看似很简单, 但是如果没有仔细研读过 jdk 源码的人, 是很容易答错的, 那肯定自然我也是答错了的, 所以才有了今天这篇文章.</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/09/tech-java-Integer-cache-problem/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/09/09/tech-java-Integer-cache-problem/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1126,21 +1248,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/08/01/tech-maven-multi-module-ssm/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/08/01/tech-maven-multi-module-ssm/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1150,11 +1274,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/01/tech-maven-multi-module-ssm/" itemprop="url">Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建</a></h1>
+                
+                <a href="/2017/08/01/tech-maven-multi-module-ssm/" class="post-title-link" itemprop="url">Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1162,30 +1295,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T20:48:51+08:00">
-                2017-08-01
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-08-01 20:48:51" itemprop="dateCreated datePublished" datetime="2017-08-01T20:48:51+08:00">2017-08-01</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T11:45:15+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1196,11 +1318,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1210,20 +1328,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/08/01/tech-maven-multi-module-ssm/" class="leancloud_visitors" data-flag-title="Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/08/01/tech-maven-multi-module-ssm/" class="leancloud_visitors" data-flag-title="Maven的多模块 Spring MVC + Spring + Mybatis 项目的搭建">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1248,21 +1367,29 @@
         
           <p>我想大多数做java开发的同学对SSM框架的搭建已经都轻车熟路了，但是大家搭建的大多数是单模块的，网上也有非常多的例子，但是如何用maven去构建多module的ssm项目呢？下面来手把手的，利用IntelliJ IDEA搭建一次多module的ssm项目，给大家一个参考。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/01/tech-maven-multi-module-ssm/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/08/01/tech-maven-multi-module-ssm/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1295,21 +1422,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/07/23/tech-java-activemq-note/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/07/23/tech-java-activemq-note/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1319,11 +1448,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/23/tech-java-activemq-note/" itemprop="url">Java消息中间件ActiveMQ学习笔记</a></h1>
+                
+                <a href="/2017/07/23/tech-java-activemq-note/" class="post-title-link" itemprop="url">Java消息中间件ActiveMQ学习笔记</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1331,30 +1469,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T13:39:20+08:00">
-                2017-07-23
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-07-23 13:39:20" itemprop="dateCreated datePublished" datetime="2017-07-23T13:39:20+08:00">2017-07-23</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T13:30:07+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1365,11 +1492,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1379,20 +1502,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/07/23/tech-java-activemq-note/" class="leancloud_visitors" data-flag-title="Java消息中间件ActiveMQ学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/07/23/tech-java-activemq-note/" class="leancloud_visitors" data-flag-title="Java消息中间件ActiveMQ学习笔记">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1417,21 +1541,29 @@
         
           <p>消息队列有两个基本的的用法，一个是作为服务内部的缓冲区，防流量高峰，也能达到异步处理的作用，一个是用于分布式系统，各个不同的进程(同一台机器或者不同机器)通过消息队列进行通信，最近闲着没事，就关于消息中间件ActiveMQ做了个简单的学习。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/23/tech-java-activemq-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/07/23/tech-java-activemq-note/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1464,21 +1596,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/06/20/tech-shutdown-tomcat-oom-error/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/06/20/tech-shutdown-tomcat-oom-error/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1488,11 +1622,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/20/tech-shutdown-tomcat-oom-error/" itemprop="url">Tomcat关闭报内存溢出异解决方案</a></h1>
+                
+                <a href="/2017/06/20/tech-shutdown-tomcat-oom-error/" class="post-title-link" itemprop="url">Tomcat关闭报内存溢出异解决方案</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1500,30 +1643,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T21:13:20+08:00">
-                2017-06-20
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-06-20 21:13:20" itemprop="dateCreated datePublished" datetime="2017-06-20T21:13:20+08:00">2017-06-20</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-19T22:14:20+08:00">
-                2017-12-19
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1534,11 +1666,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1548,20 +1676,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/06/20/tech-shutdown-tomcat-oom-error/" class="leancloud_visitors" data-flag-title="Tomcat关闭报内存溢出异解决方案">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/06/20/tech-shutdown-tomcat-oom-error/" class="leancloud_visitors" data-flag-title="Tomcat关闭报内存溢出异解决方案">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1586,21 +1715,29 @@
         
           <p>在项目开发的时候，每次关闭Tomcat控制台都会报内存溢出的异常，因为是warning级别的警告，并且开发阶段也并不影响项目的运行，所以呢也就没有去在意。但是当把项目打包部署到Linux服务器上后，启动Tomcat，然后再停止，又出现内存溢出的情况，然后再启动，发现Tomcat启动再也无法启动，只能重启服务器，才意识到这个问题是比较严重的问题。通过查找一系列的资料，终于把这个问题解决了，所以记录一下这个问题解决过程，给以后可能会遇到这个问题的朋友一个解决方案。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/20/tech-shutdown-tomcat-oom-error/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/06/20/tech-shutdown-tomcat-oom-error/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1633,21 +1770,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/04/27/tech-trigger-procedure-note/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/04/27/tech-trigger-procedure-note/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1657,11 +1796,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/27/tech-trigger-procedure-note/" itemprop="url">触发器与存储过程讲义</a></h1>
+                
+                <a href="/2017/04/27/tech-trigger-procedure-note/" class="post-title-link" itemprop="url">触发器与存储过程讲义</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1669,30 +1817,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T10:54:56+08:00">
-                2017-04-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-04-27 10:54:56" itemprop="dateCreated datePublished" datetime="2017-04-27T10:54:56+08:00">2017-04-27</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-11T12:25:17+08:00">
-                2018-02-11
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1703,11 +1840,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1717,20 +1850,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/04/27/tech-trigger-procedure-note/" class="leancloud_visitors" data-flag-title="触发器与存储过程讲义">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/04/27/tech-trigger-procedure-note/" class="leancloud_visitors" data-flag-title="触发器与存储过程讲义">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1755,21 +1889,29 @@
         
           <p>什么是触发器？什么是存储过程？因为用的少，对这两块的知识有点模糊，趁着公司每周三技术分享，通过网上资料和看书，将这两块的知识点梳理了下，做成了一个讲义，顺便就放到博客上来了，随便看看就好，因为如果不是专业的DBA，平常也很难涉及到触发器和存储过程，而且在阿里巴巴的java开发手册中，明确的表示，尽量避免使用存储过程，所以，看看就好。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/27/tech-trigger-procedure-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/04/27/tech-trigger-procedure-note/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1802,21 +1944,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/04/04/tech-db-three/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/04/04/tech-db-three/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -1826,11 +1970,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/04/tech-db-three/" itemprop="url">数据库三范式</a></h1>
+                
+                <a href="/2017/04/04/tech-db-three/" class="post-title-link" itemprop="url">数据库三范式</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1838,30 +1991,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T20:28:14+08:00">
-                2017-04-04
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-04-04 20:28:14" itemprop="dateCreated datePublished" datetime="2017-04-04T20:28:14+08:00">2017-04-04</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-03T21:01:33+08:00">
-                2018-04-03
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1872,11 +2014,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -1886,20 +2024,21 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/04/04/tech-db-three/" class="leancloud_visitors" data-flag-title="数据库三范式">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/04/04/tech-db-three/" class="leancloud_visitors" data-flag-title="数据库三范式">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
           
@@ -1924,21 +2063,29 @@
         
           <p>设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。如何去理解数据库的三范式呢？下面是根据知乎上面的一些解答，总结出来的。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/04/tech-db-three/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/04/04/tech-db-three/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1967,15 +2114,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1991,89 +2135,211 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="Leeyom" />
+                alt="王前奔"/>
             
-              <p class="site-author-name" itemprop="name">Leeyom</p>
-              <p class="site-description motion-element" itemprop="description">理想主义者，程序员</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          <div class="links-of-author motion-element">
-            
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/wangleeyom/" target="_blank" title="Github">
-                    
-                      <i class="fa fa-fw fa-github"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:leeyomwang@163.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i></a>
-                </span>
-              
-            
+              <p class="site-author-name" itemprop="name">王前奔</p>
+              <div class="site-description motion-element" itemprop="description">程序员</div>
           </div>
 
           
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/wangleeyom" title="GitHub &rarr; https://github.com/wangleeyom" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:leeyomwang@163.com" title="E-Mail &rarr; mailto:leeyomwang@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/1816623124" title="Weibo &rarr; https://weibo.com/1816623124" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/super_leeyom" title="Telegram &rarr; https://t.me/super_leeyom" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i></a>
+                </span>
+              
+            </div>
+          
+
           
 
           
@@ -2086,43 +2352,27 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.sfantree.com/" title="番茄小窝" target="_blank">番茄小窝</a>
+                    <a href="https://www.sfantree.com" title="https://www.sfantree.com" rel="noopener" target="_blank">番茄小窝</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://ehlxr.me/" title="小桥流水人家" target="_blank">小桥流水人家</a>
+                    <a href="http://ehlxr.me" title="http://ehlxr.me" rel="noopener" target="_blank">ehlxr</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://blog.mapan.win/" title="马攀博客" target="_blank">马攀博客</a>
+                    <a href="http://linyy.name" title="http://linyy.name" rel="noopener" target="_blank">林洋洋</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://linyy.name/" title="林洋洋博客" target="_blank">林洋洋博客</a>
+                    <a href="http://lzplzp.cn" title="http://lzplzp.cn" rel="noopener" target="_blank">刘中坡</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.belongwithme.com" title="文兵的博客" target="_blank">文兵的博客</a>
+                    <a href="http://www.imain.net" title="http://www.imain.net" rel="noopener" target="_blank">曾小晨</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://lzplzp.cn/" title="中坡博客" target="_blank">中坡博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.imain.net/" title="曾小晨" target="_blank">曾小晨</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.artisanbox.org/" title="工匠盒子" target="_blank">工匠盒子</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://yzlee666.github.io/" title="肥胖的猪" target="_blank">肥胖的猪</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://darrenliuwei.com" title="刘伟的博客" target="_blank">刘伟的博客</a>
+                    <a href="https://www.artisanbox.org" title="https://www.artisanbox.org" rel="noopener" target="_blank">工匠盒子</a>
                   </li>
                 
               </ul>
@@ -2130,9 +2380,12 @@
           
 
           
+            
+          
+          
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -2140,6 +2393,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -2148,12 +2402,14 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备17147440号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Leeyom</span>
-  <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17147440号</a> 
+  <span class="author" itemprop="copyrightHolder">王前奔</span>
+
+  
+
   
 </div>
 
@@ -2170,21 +2426,28 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -2206,11 +2469,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2224,7 +2490,6 @@
 
 
 
-  
 
 
 
@@ -2232,91 +2497,6 @@
 
 
 
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -2328,16 +2508,52 @@
 
 
   
-    
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
   
 
 
 
-
-
   
-
-  <script type="text/javascript">
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -2386,6 +2602,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -2419,8 +2637,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2589,9 +2808,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2659,23 +2878,19 @@
 
 
   
-
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz", "XNpsyrKHDD9eTFLsnMN9og8S");</script>
   <script>
+    
     function showTime(Counter) {
-      var query = new AV.Query(Counter);
       var entries = [];
-      var $visitors = $(".leancloud_visitors");
+      var $visitors = $('.leancloud_visitors');
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
+      $visitors.each(function() {
+        entries.push( $(this).attr('id').trim() );
       });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+        .done(function({ results }) {
           var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
           if (results.length === 0) {
@@ -2685,83 +2900,48 @@
 
           for (var i = 0; i < results.length; i++) {
             var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
+            var url = item.url;
+            var time = item.time;
             var element = document.getElementById(url);
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
-          for(var i = 0; i < entries.length; i++) {
+          for (var i = 0; i < entries.length; i++) {
             var url = entries[i];
             var element = document.getElementById(url);
             var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
+            if (countSpan.text() == '') {
               countSpan.text(0);
             }
           }
         })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
         });
     }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
+    
 
     $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz',
+                'X-LC-Key': 'XNpsyrKHDD9eTFLsnMN9og8S',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            if ($('.post-title-link').length >= 1) {
+              showTime(Counter);
+            }
+          
+        });
     });
   </script>
 
@@ -2770,23 +2950,13 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
+
+  
+
+  
+
   
 
   
@@ -2795,6 +2965,13 @@
 
   
 
-</html>
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

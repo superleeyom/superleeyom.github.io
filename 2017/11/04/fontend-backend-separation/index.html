@@ -2,26 +2,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -38,37 +36,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="前后端分离," />
 
 
 
@@ -77,39 +44,42 @@
 
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-<meta name="description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
-<meta name="keywords" content="前后端分离">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于前后端分离的思考和总结">
-<meta property="og:url" content="http://leeyom.top/2017/11/04/fontend-backend-separation/index.html">
-<meta property="og:site_name" content="Leeyom 的个人站">
-<meta property="og:description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://image.leeyom.top/20180212151840890546246.png">
-<meta property="og:updated_time" content="2018-02-12T04:21:19.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于前后端分离的思考和总结">
-<meta name="twitter:description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
-<meta name="twitter:image" content="http://image.leeyom.top/20180212151840890546246.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -121,14 +91,43 @@
 </script>
 
 
+  
 
+
+
+
+  <meta name="description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
+<meta name="keywords" content="前后端分离">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于前后端分离的思考和总结">
+<meta property="og:url" content="http://leeyom.top/2017/11/04/fontend-backend-separation/index.html">
+<meta property="og:site_name" content="王前奔的个人站">
+<meta property="og:description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.leeyom.top/20180212151840890546246.png">
+<meta property="og:updated_time" content="2018-02-12T04:21:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于前后端分离的思考和总结">
+<meta name="twitter:description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
+<meta name="twitter:image" content="http://image.leeyom.top/20180212151840890546246.png">
+
+
+
+
+
+  
+  
   <link rel="canonical" href="http://leeyom.top/2017/11/04/fontend-backend-separation/"/>
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>关于前后端分离的思考和总结 | Leeyom 的个人站</title>
+  <title>关于前后端分离的思考和总结 | 王前奔的个人站</title>
   
 
 
@@ -138,9 +137,38 @@
 
 
 
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -152,23 +180,26 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leeyom 的个人站</span>
+        <span class="site-title">王前奔的个人站</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">永远年轻，永远热泪盈眶</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -176,66 +207,124 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签<span class="badge">43</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类<span class="badge">3</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档<span class="badge">46</span></a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -266,12 +355,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -284,21 +381,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/11/04/fontend-backend-separation/">
+    <link itemprop="mainEntityOfPage" href="http://leeyom.top/2017/11/04/fontend-backend-separation/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leeyom">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="王前奔"/>
+      <meta itemprop="description" content="程序员"/>
+      <meta itemprop="image" content="/images/avatar.png"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leeyom 的个人站">
+      <meta itemprop="name" content="王前奔的个人站"/>
     </span>
 
     
@@ -306,11 +405,20 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于前后端分离的思考和总结</h1>
+          <h1 class="post-title" itemprop="name headline">关于前后端分离的思考和总结
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -318,30 +426,19 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-04T20:43:51+08:00">
-                2017-11-04
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-04 20:43:51" itemprop="dateCreated datePublished" datetime="2017-11-04T20:43:51+08:00">2017-11-04</time>
             
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-12T12:21:19+08:00">
-                2018-02-12
-              </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -352,11 +449,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -366,22 +459,31 @@
 
           
             
+            
           
 
           
           
-             <span id="/2017/11/04/fontend-backend-separation/" class="leancloud_visitors" data-flag-title="关于前后端分离的思考和总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
+            <span id="/2017/11/04/fontend-backend-separation/" class="leancloud_visitors" data-flag-title="关于前后端分离的思考和总结">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -542,12 +644,18 @@
 
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -597,22 +705,14 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
           
 
-
-          
-
   
-    <div class="comments" id="comments">
-      <div id="gitalk-container"></div>
+    <div class="comments" id="gitalk-container">
     </div>
 
   
@@ -632,7 +732,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -648,82 +747,205 @@
         </ul>
       
 
-      <section class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
                 src="/images/avatar.png"
-                alt="Leeyom" />
+                alt="王前奔"/>
             
-              <p class="site-author-name" itemprop="name">Leeyom</p>
-              <p class="site-description motion-element" itemprop="description">理想主义者，程序员</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          <div class="links-of-author motion-element">
-            
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/wangleeyom/" target="_blank" title="Github">
-                    
-                      <i class="fa fa-fw fa-github"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:leeyomwang@163.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i></a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/u/1816623124?refer_flag=1001030201_&is_hot=1" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i></a>
-                </span>
-              
-            
+              <p class="site-author-name" itemprop="name">王前奔</p>
+              <div class="site-description motion-element" itemprop="description">程序员</div>
           </div>
 
           
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/wangleeyom" title="GitHub &rarr; https://github.com/wangleeyom" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:leeyomwang@163.com" title="E-Mail &rarr; mailto:leeyomwang@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/1816623124" title="Weibo &rarr; https://weibo.com/1816623124" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/super_leeyom" title="Telegram &rarr; https://t.me/super_leeyom" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i></a>
+                </span>
+              
+            </div>
+          
+
           
 
           
@@ -736,43 +958,27 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.sfantree.com/" title="番茄小窝" target="_blank">番茄小窝</a>
+                    <a href="https://www.sfantree.com" title="https://www.sfantree.com" rel="noopener" target="_blank">番茄小窝</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://ehlxr.me/" title="小桥流水人家" target="_blank">小桥流水人家</a>
+                    <a href="http://ehlxr.me" title="http://ehlxr.me" rel="noopener" target="_blank">ehlxr</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://blog.mapan.win/" title="马攀博客" target="_blank">马攀博客</a>
+                    <a href="http://linyy.name" title="http://linyy.name" rel="noopener" target="_blank">林洋洋</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://linyy.name/" title="林洋洋博客" target="_blank">林洋洋博客</a>
+                    <a href="http://lzplzp.cn" title="http://lzplzp.cn" rel="noopener" target="_blank">刘中坡</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.belongwithme.com" title="文兵的博客" target="_blank">文兵的博客</a>
+                    <a href="http://www.imain.net" title="http://www.imain.net" rel="noopener" target="_blank">曾小晨</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://lzplzp.cn/" title="中坡博客" target="_blank">中坡博客</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://www.imain.net/" title="曾小晨" target="_blank">曾小晨</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.artisanbox.org/" title="工匠盒子" target="_blank">工匠盒子</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://yzlee666.github.io/" title="肥胖的猪" target="_blank">肥胖的猪</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://darrenliuwei.com" title="刘伟的博客" target="_blank">刘伟的博客</a>
+                    <a href="https://www.artisanbox.org" title="https://www.artisanbox.org" rel="noopener" target="_blank">工匠盒子</a>
                   </li>
                 
               </ul>
@@ -780,17 +986,21 @@
           
 
           
+            
+          
+          
 
         </div>
-      </section>
+      </div>
 
       
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
 
             
-              
+            
+            
             
 
             
@@ -798,7 +1008,7 @@
             
 
           </div>
-        </section>
+        </div>
       <!--/noindex-->
       
 
@@ -806,6 +1016,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -814,12 +1025,14 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备17147440号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Leeyom</span>
-  <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17147440号</a> 
+  <span class="author" itemprop="copyrightHolder">王前奔</span>
+
+  
+
   
 </div>
 
@@ -836,21 +1049,28 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
+    <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -872,11 +1092,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -890,7 +1113,6 @@
 
 
 
-  
 
 
 
@@ -903,43 +1125,27 @@
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+
+
+
+
 
   
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
 
@@ -947,83 +1153,65 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
+  <script src="/js/next-boot.js?v=7.1.1"></script>
 
 
   
 
-
-
-
-	
-
-
-
-
+  
 
   
 
-
-
-
-
   
-
-
-
-
-
-
-
-
 
 
   
     
-      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-      <script type="text/javascript">
-        const gitalk = new Gitalk({
-          clientID: '792c881ac9c6bffd043b',
-          clientSecret: 'fe521e533e11c59225a69ab40869ccab18328fff',
-          repo: 'blog-comment-system',
-          owner: 'wangleeyom',
-          admin: 'wangleeyom'.split(','),
-          pagerDirection: 'last',
-          // facebook-like distraction free mode
-          distractionFreeMode: false
-        })
-        gitalk.render('gitalk-container')
-      </script>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"/>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '792c881ac9c6bffd043b',
+    clientSecret: 'fe521e533e11c59225a69ab40869ccab18328fff',
+    repo: 'wangleeyom.github.io',
+    owner: 'wangleeyom',
+    admin: ['wangleeyom'],
+    id: md5(location.pathname),
     
+      language: 'zh-CN',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
   
 
 
-
-
-
   
-
-  <script type="text/javascript">
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1072,6 +1260,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1105,8 +1295,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -1275,9 +1466,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -1345,109 +1536,62 @@
 
 
   
-
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz", "XNpsyrKHDD9eTFLsnMN9og8S");</script>
   <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
+    
     function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
+      var $visitors = $('.leancloud_visitors');
       var url = $visitors.attr('id').trim();
       var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
           if (results.length > 0) {
             var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
           }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
     }
+    
 
     $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz',
+                'X-LC-Key': 'XNpsyrKHDD9eTFLsnMN9og8S',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
     });
   </script>
 
@@ -1456,23 +1600,13 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
+
+  
+
+  
+
   
 
   
@@ -1481,6 +1615,13 @@
 
   
 
-</html>
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
