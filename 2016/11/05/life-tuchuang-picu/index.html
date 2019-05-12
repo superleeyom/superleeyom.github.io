@@ -466,6 +466,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2016/11/05/life-tuchuang-picu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/11/05/life-tuchuang-picu/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -610,7 +623,7 @@
           
 
   
-    <div class="comments" id="gitalk-container">
+    <div class="comments" id="comments">
     </div>
 
   
@@ -1074,36 +1087,37 @@
   
 
   
-
-
   
-    
 
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-
-
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"/>
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
 
 
 
-<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  var gitalk = new Gitalk({
-    clientID: '792c881ac9c6bffd043b',
-    clientSecret: 'fe521e533e11c59225a69ab40869ccab18328fff',
-    repo: 'blog-comment-system',
-    owner: 'wangleeyom',
-    admin: ['wangleeyom'],
-    id: md5(location.pathname),
-    
-      language: 'zh-CN',
-    
-    distractionFreeMode: 'true'
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
   });
-  gitalk.render('gitalk-container');
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'WRvW8uqfyOaIEe0loocebRuL-gzGzoHsz',
+    appKey: 'BbWKSr3QhVQQ7GTjy7907eiP',
+    placeholder: '说点什么吧？',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
+  });
 </script>
+
+
+
 
   
 
