@@ -96,38 +96,18 @@
 
 
 
-  <meta name="description" content="FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
-<meta name="keywords" content="FastDFS">
+  <meta name="description" content="索引是对数据库表中一列或多列的值进行排序的一种结构，使用索引可快速访问数据库表中的特定信息。数据库索引本质上是一种数据结构(存储结构+算法)，目的是为了加快目标数据检索的速度。当使用关联查询（inner 、left、right  join）等进行查询时候，关联条件都已建立索引，但查看执行计划发现并未走索引，总结下实际开发中，遇到的索引失效的情况。">
+<meta name="keywords" content="索引">
 <meta property="og:type" content="article">
-<meta property="og:title" content="centOS上搭建FastDFS图片服务器教程">
-<meta property="og:url" content="https://www.leeyom.top/2016/12/22/tech-centos-fastDFS/index.html">
+<meta property="og:title" content="mysql 索引失效的情况">
+<meta property="og:url" content="https://www.leeyom.top/2019/07/27/mysql-index-invalid/index.html">
 <meta property="og:site_name" content="王前奔的个人站">
-<meta property="og:description" content="FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
+<meta property="og:description" content="索引是对数据库表中一列或多列的值进行排序的一种结构，使用索引可快速访问数据库表中的特定信息。数据库索引本质上是一种数据结构(存储结构+算法)，目的是为了加快目标数据检索的速度。当使用关联查询（inner 、left、right  join）等进行查询时候，关联条件都已建立索引，但查看执行计划发现并未走索引，总结下实际开发中，遇到的索引失效的情况。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223801021.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223932372.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223635383.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223506684.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223488205.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223411366.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223669197.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/201612234318.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/20161223979359.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/201612231068010.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/201612235555411.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011282674nginxModule.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011223778QQ20170112-225927@2x.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011266710nginxModule1.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011232614nginxModule2.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011279200nginxModule3.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011257498nginxModule4.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011214771QQ20170112-225034@2x.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2017011235411QQ20170112-225350@2x.png">
-<meta property="og:updated_time" content="2018-02-11T05:37:26.000Z">
+<meta property="og:updated_time" content="2019-07-27T09:08:31.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centOS上搭建FastDFS图片服务器教程">
-<meta name="twitter:description" content="FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。">
-<meta name="twitter:image" content="http://og1m51u2s.bkt.clouddn.com/20161223801021.png">
+<meta name="twitter:title" content="mysql 索引失效的情况">
+<meta name="twitter:description" content="索引是对数据库表中一列或多列的值进行排序的一种结构，使用索引可快速访问数据库表中的特定信息。数据库索引本质上是一种数据结构(存储结构+算法)，目的是为了加快目标数据检索的速度。当使用关联查询（inner 、left、right  join）等进行查询时候，关联条件都已建立索引，但查看执行计划发现并未走索引，总结下实际开发中，遇到的索引失效的情况。">
 
 
 
@@ -135,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://www.leeyom.top/2016/12/22/tech-centos-fastDFS/"/>
+  <link rel="canonical" href="https://www.leeyom.top/2019/07/27/mysql-index-invalid/"/>
 
 
 
@@ -145,7 +125,7 @@
   };
 </script>
 
-  <title>centOS上搭建FastDFS图片服务器教程 | 王前奔的个人站</title>
+  <title>mysql 索引失效的情况 | 王前奔的个人站</title>
   
 
 
@@ -406,7 +386,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.leeyom.top/2016/12/22/tech-centos-fastDFS/"/>
+    <link itemprop="mainEntityOfPage" href="https://www.leeyom.top/2019/07/27/mysql-index-invalid/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王前奔"/>
@@ -423,7 +403,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">centOS上搭建FastDFS图片服务器教程
+          <h1 class="post-title" itemprop="name headline">mysql 索引失效的情况
 
               
             
@@ -449,7 +429,7 @@
                 
               
 
-              <time title="创建时间：2016-12-22 22:27:06" itemprop="dateCreated datePublished" datetime="2016-12-22T22:27:06+08:00">2016-12-22</time>
+              <time title="创建时间：2019-07-27 16:15:09" itemprop="dateCreated datePublished" datetime="2019-07-27T16:15:09+08:00">2019-07-27</time>
             
 
             
@@ -467,7 +447,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/资源/" itemprop="url" rel="index"><span itemprop="name">资源</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -486,8 +466,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2016/12/22/tech-centos-fastDFS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/12/22/tech-centos-fastDFS/" itemprop="commentCount"></span>
+                <a href="/2019/07/27/mysql-index-invalid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/27/mysql-index-invalid/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -495,7 +475,7 @@
 
           
           
-            <span id="/2016/12/22/tech-centos-fastDFS/" class="leancloud_visitors" data-flag-title="centOS上搭建FastDFS图片服务器教程">
+            <span id="/2019/07/27/mysql-index-invalid/" class="leancloud_visitors" data-flag-title="mysql 索引失效的情况">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -526,104 +506,25 @@
       
 
       
-        <p>FastDFS是用c语言编写的一款开源的分布式文件系统。FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
+        <p>索引是对数据库表中一列或多列的值进行排序的一种结构，使用索引可快速访问数据库表中的特定信息。数据库索引本质上是一种数据结构(存储结构+算法)，目的是为了加快目标数据检索的速度。当使用关联查询（inner 、left、right  join）等进行查询时候，关联条件都已建立索引，但查看执行计划发现并未走索引，总结下实际开发中，遇到的索引失效的情况。</p>
 <a id="more"></a>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/20161223801021.png" alt="20161223801021.png"></p>
-<h2 id="文件上传流程"><a href="#文件上传流程" class="headerlink" title="文件上传流程"></a>文件上传流程</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/20161223932372.png" alt="20161223932372.png"></p>
-<h2 id="文件下载流程"><a href="#文件下载流程" class="headerlink" title="文件下载流程"></a>文件下载流程</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/20161223635383.png" alt="20161223635383.png"></p>
-<h2 id="上传文件的文件名"><a href="#上传文件的文件名" class="headerlink" title="上传文件的文件名"></a>上传文件的文件名</h2><p>客户端上传文件后存储服务器将文件ID返回给客户端，此文件ID用于以后访问该文件的索引信息。文件索引信息包括：组名，虚拟磁盘路径，数据两级目录，文件名。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/20161223506684.png" alt="20161223506684.png"></p>
+<p>执行如下的 sql 语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">EXPLAIN SELECT</span><br><span class="line">	t.ticket_id,</span><br><span class="line">	t.product_id ,</span><br><span class="line">	cp.product_name</span><br><span class="line">FROM</span><br><span class="line">	ticket t</span><br><span class="line">LEFT JOIN config_product cp ON t.product_id = cp.product_id</span><br><span class="line">WHERE</span><br><span class="line">	t.ticket_id = 1446400;</span><br></pre></td></tr></table></figure>
+<p>发现 config_product 并未用到 product_id 字段的索引，经过分析，索引失效的原因的主要原因有如下几种：</p>
 <ul>
-<li>组名：文件上传后所在的storage组名称，在文件上传成功后有storage服务器返回，需要客户端自行保存。</li>
-<li>虚拟磁盘路径：storage配置的虚拟路径，与磁盘选项store_path*对应。如果配置了store_path0则是M00，如果配置了store_path1则是M01，以此类推。</li>
-<li>数据两级目录：storage服务器在每个虚拟磁盘路径下创建的两级目录，用于存储数据文件。</li>
-<li>文件名：与文件上传时不同。是由存储服务器根据特定信息生成，文件名包含：源存储服务器IP地址、文件创建时间戳、文件大小、随机数和文件拓展名等信息。</li>
-</ul>
-<h2 id="FastDFS搭建"><a href="#FastDFS搭建" class="headerlink" title="FastDFS搭建"></a>FastDFS搭建</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/20161223488205.png" alt="20161223488205.png"></p>
-<p>可以使用一台虚拟机来模拟，只有一个Tracker、一个Storage服务。配置nginx访问图片。</p>
-<h3 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h3><ol>
-<li>第一步：把fastDFS源码上传到linux系统。</li>
-<li>第二步：安装FastDFS之前，先安装libevent工具包。命令：<code>yum -y install libevent</code>。</li>
-<li><p>第三步：安装libfastcommonV1.0.7工具包。</p>
-<ul>
-<li>将libfastcommonV1.0.7源码解压缩</li>
-<li><code>./make.sh</code></li>
-<li><code>./make.sh install</code></li>
-<li>把<code>/usr/lib64/libfastcommon.so</code>文件向<code>/usr/lib/</code>下复制一份</li>
+<li>索引列字段的数据类型不相同</li>
+<li>索引列字段的字符集不相同</li>
+<li>对索引列进行运算，包括(+，-，*，/，! 等) </li>
+<li>数据库中的数据太少也会导致索引失效<ul>
+<li>如果索引列所在的表数据量非常小，比如 10 条以下，索引不会生效，多加几条记录就可以生效</li>
 </ul>
 </li>
-<li><p>第四步：安装Tracker服务。</p>
-<ul>
-<li>fastDFS源码解压缩</li>
-<li><code>./make.sh</code></li>
-<li><code>./make.sh install</code></li>
-<li>把<code>/root/FastDFS/conf</code>目录下的所有的配置文件都复制到<code>/etc/fdfs</code>下。</li>
-<li>配置<code>tracker</code>服务。修改<code>/etc/fdfs/tracker.conf</code>文件。配置<code>tracker</code>日志文件路径。</li>
+<li>没有查询条件，或者查询条件没有建立索引</li>
+<li>查询条件包含 or</li>
+<li>模糊查询</li>
+<li>组合索引，不是使用第一列索引，索引失效</li>
 </ul>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/20161223411366.png" alt="20161223411366.png"></p>
-<ul>
-<li>启动tracker，执行命令：<code>/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf</code>，重启命令：<code>/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf restart</code>。</li>
-</ul>
-</li>
-<li><p>第五步：安装storage服务。</p>
-<ul>
-<li>如果storage是按照在其他的服务器上面，第四步的1~4需要重新执行。</li>
-<li>配置storage服务。修改<code>/etc/fdfs/storage.conf</code>文件。</li>
-</ul>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/20161223669197.png" alt="20161223669197.png"></p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/201612234318.png" alt="201612234318.png"></p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/20161223979359.png" alt="20161223979359.png"></p>
-<ul>
-<li>启动storage服务。<code>/usr/bin/fdfs_storaged /etc/fdfs/storage.conf</code></li>
-</ul>
-</li>
-<li><p>第六步：测试服务。修改客户端配置文件<code>/etc/fdfs/client.conf</code>。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/201612231068010.png" alt="201612231068010.png"></p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/201612235555411.png" alt="201612235555411.png"></p>
-<p>执行命令：<code>/usr/bin/fdfs_test /etc/fdfs/client.conf upload anti-steal.jpg</code></p>
-</li>
-<li><p>第七步：搭建nginx提供http服务</p>
-<p>使用官方提供的nginx插件，<code>fastdfs-nginx-module_v1.16.tar.gz</code>，添加该插件后，nginx则需要重新编译。</p>
-<ul>
-<li>将源码包上传到root根目录，然后解压缩。</li>
-<li><p>修改/root/fastdfs-nginx-module/src/config文件，把其中的local去掉。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011282674nginxModule.png" alt="2017011282674nginxModule.png"></p>
-</li>
-<li><p>对nginx重新config，进入到<code>/root/nginx-1.8.0/</code>，在终端执行如下代码：</p>
-</li>
-</ul>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011223778QQ20170112-225927@2x.png" alt="2017011223778QQ20170112-225927@2x.png"></p>
-<blockquote>
-<p>不晓得是markdown格式不对还是怎么，这贴上去老是打乱整个文章格式，无奈只能截图。</p>
-</blockquote>
-<ul>
-<li><code>make</code></li>
-<li><code>make install</code></li>
-<li>把/root/fastdfs-nginx-module/src/mod_fastdfs.conf文件复制到/etc/fdfs目录下。并编辑该文件，修改如下几个地方：</li>
-</ul>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011266710nginxModule1.png" alt="2017011266710nginxModule1.png"></p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011232614nginxModule2.png" alt="2017011232614nginxModule2.png"></p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011279200nginxModule3.png" alt="2017011279200nginxModule3.png"></p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011257498nginxModule4.png" alt="2017011257498nginxModule4.png"></p>
-<ul>
-<li>修改<code>/usr/local/nginx/conf/nginx.conf</code>nginx配置文件，修改server节点，如下所示</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        location /group1/M00/&#123;</span><br><span class="line">                ngx_fastdfs_module;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>将libfdfsclient.so拷贝至/usr/lib下，执行命令：<code>cp /usr/lib64/libfdfsclient.so /usr/lib/</code></p>
-</li>
-<li><p>启动nginx,启动tracker，启动storage。</p>
-</li>
-</ul>
-</li>
-<li><p>第八步：测试</p>
-</li>
-</ol>
-<p><code>cd /etc/fdfs/</code>,然后执行上传命令：<code>/usr/bin/fdfs_test /etc/fdfs/client.conf upload anti-steal.jpg</code>，假如出现如下的图，说明是上传成功的。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011214771QQ20170112-225034@2x.png" alt="2017011214771QQ20170112-225034@2x.png"></p>
-<p>然后再浏览器访问生成的链接，假如能访问到我们刚上传的图片，就说明完整搭建好FastDFS。中间我一直上传不了，后来才发现自己没有启动tracker和storage，这里需要注意一下。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2017011235411QQ20170112-225350@2x.png" alt="2017011235411QQ20170112-225350@2x.png"></p>
-<h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><p>链接: <a href="https://pan.baidu.com/s/1mipA8QG" target="_blank" rel="noopener">https://pan.baidu.com/s/1mipA8QG</a> 密码: yd6r</p>
+<p>遇到的问题是第一种，<code>ticket.product_id</code> 字段的数据类型为 bigint，而 <code>config_product.product_id</code> 字段的数据类型为 varchar，就导致索引失效，将 <code>ticket.product_id</code> 字段的数据类型改为 varchar，索引便生效。</p>
 
       
     </div>
@@ -647,7 +548,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/FastDFS/" rel="tag"># FastDFS</a>
+            <a href="/tags/索引/" rel="tag"># 索引</a>
           
         </div>
       
@@ -660,8 +561,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/15/tech-nginx-summary/" rel="next" title="nginx的反向代理与负载均衡总结">
-                <i class="fa fa-chevron-left"></i> nginx的反向代理与负载均衡总结
+              <a href="/2019/07/08/notes-2019-7-8/" rel="next" title="2019/07/08 读书记录">
+                <i class="fa fa-chevron-left"></i> 2019/07/08 读书记录
               </a>
             
           </div>
@@ -669,10 +570,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/31/life-2016-summary/" rel="prev" title="我的2016">
-                我的2016 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -720,17 +617,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -984,23 +872,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传流程"><span class="nav-number">1.</span> <span class="nav-text">文件上传流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件下载流程"><span class="nav-number">2.</span> <span class="nav-text">文件下载流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传文件的文件名"><span class="nav-number">3.</span> <span class="nav-text">上传文件的文件名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastDFS搭建"><span class="nav-number">4.</span> <span class="nav-text">FastDFS搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建步骤"><span class="nav-number">4.1.</span> <span class="nav-text">搭建步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件下载"><span class="nav-number">5.</span> <span class="nav-text">文件下载</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
