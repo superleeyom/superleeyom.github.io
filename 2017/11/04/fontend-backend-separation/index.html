@@ -105,7 +105,7 @@
 <meta property="og:description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://image.leeyom.top/20180212151840890546246.png">
-<meta property="og:updated_time" content="2018-02-12T04:21:19.000Z">
+<meta property="og:updated_time" content="2020-01-01T02:11:18.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于前后端分离的思考和总结">
 <meta name="twitter:description" content="对目前的web来说，前后端分离已经变得越来越流行了，越来越多的企业/网站都开始往这个方向靠拢。那么，为什么要选择前后端分离呢？前后端分离对实际开发有什么好处呢?我之前一直对前后端分离的思想一直很模糊，最近恰好碰上公司的项目进行重构，也采用前后端分离。所以就根据自己在实际项目中的开发，总结自己对于前后端分离中遇到的一些疑惑。">
@@ -626,8 +626,10 @@
 <h1 id="请求鉴权机制"><a href="#请求鉴权机制" class="headerlink" title="请求鉴权机制"></a>请求鉴权机制</h1><p>由于http请求是无状态的，我们后端写好了API接口，然后发布出去，如果不做安全控制，谁都可以调用，这很明显是非常不安全的，所以我们需要采用JWT（Json web token）鉴权机制去保护我们的API接口安全，整个的思路如下：</p>
 <ol>
 <li>用户登陆后，服务器端使用 jjwt(当然也可以采用其他的方式，比如时间戳，签名url) 生成 Token ，保存在 Redis 中，以用户名作为 Key，同时将此token值返回给前端。</li>
-<li>通过设置 Redis 键的 TTL 来实现 Token 自动过期。</li>
-<li>前端将token值存到localStorage中，后面每次请求，都将次token放到header（请求头）中。</li>
+<li><p>通过设置 Redis 键的 TTL 来实现 Token 自动过期。</p>
+</li>
+<li><p>前端将token值存到localStorage中，后面每次请求，都将次token放到header（请求头）中。</p>
+</li>
 <li><p>服务端通过在 Filter 中拦截请求判断 Token 是否有效，如果有效，则请求通过，无效，返回401，提示此token已经失效。</p>
 </li>
 <li><p>由于 Redis 是基于 Key-Value 进行存储，因此可以实现新的 Token 将覆盖旧的 Token ，保证一个用户在一个时间段只有一个可用 Token，但是如果有些系统允许当前用户可以多处登陆，则不需要处理这一步。</p>
@@ -645,7 +647,7 @@
 <p>最后还需要在<code>web.xml</code>中添加Access-Token。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>allowHeaders<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Content-Type,Access-Token<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>ok，这样我们的后端的API接口就有安全保障，这个只是鉴权，如果涉及到权限管理的话，还需要进行授权操作，这个以后有时间，再整理下，这里就不阐述了。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上便是我自己在实际开发中对于前后端分离的一些思考，可能有些地方考虑的不够周全，但是也算是一个基础的RESTful API接口平台了，文章相关的示例代码我已经整理成了一个基本的项目，托管在github，大家可以自由下载，github地址：<a href="https://github.com/wangleeyom/code-artisan" target="_blank" rel="noopener">https://github.com/wangleeyom/code-artisan</a>，如果对你有帮助的话，就点个star，有疑惑的地方，就在文章下面评论吧，大家一起讨论。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上便是我自己在实际开发中对于前后端分离的一些思考，可能有些地方考虑的不够周全，但是也算是一个基础的RESTful API接口平台了，文章相关的示例代码我已经整理成了一个基本的项目，托管在github，大家可以自由下载，github地址：<a href="https://github.com/superleeyom/code-artisan" target="_blank" rel="noopener">https://github.com/superleeyom/code-artisan</a>，如果对你有帮助的话，就点个star，有疑惑的地方，就在文章下面评论吧，大家一起讨论。</p>
 
       
     </div>
@@ -926,7 +928,7 @@
                   
                     
                   
-                  <a href="https://github.com/wangleeyom" title="GitHub &rarr; https://github.com/wangleeyom" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                  <a href="https://github.com/superleeyom" title="GitHub &rarr; https://github.com/superleeyom" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -1038,7 +1040,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备17147440号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备17147440号 </a>&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
