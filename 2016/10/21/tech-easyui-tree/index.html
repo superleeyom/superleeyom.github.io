@@ -15,11 +15,11 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -44,9 +44,9 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=7.1.1">
@@ -117,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://www.leeyom.top/2016/10/21/tech-easyui-tree/"/>
+  <link rel="canonical" href="https://www.leeyom.top/2016/10/21/tech-easyui-tree/">
 
 
 
@@ -229,7 +229,7 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -248,7 +248,7 @@
       
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
         
@@ -267,7 +267,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签<span class="badge">46</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">47</span></a>
 
   </li>
         
@@ -286,7 +286,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">4</span></a>
 
   </li>
         
@@ -305,7 +305,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档<span class="badge">49</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">50</span></a>
 
   </li>
 
@@ -316,7 +316,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
@@ -339,9 +339,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -388,16 +386,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.leeyom.top/2016/10/21/tech-easyui-tree/"/>
+    <link itemprop="mainEntityOfPage" href="https://www.leeyom.top/2016/10/21/tech-easyui-tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王前奔"/>
-      <meta itemprop="description" content="程序员"/>
-      <meta itemprop="image" content="/images/avatar.png"/>
+      <meta itemprop="name" content="王前奔">
+      <meta itemprop="description" content="程序员">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王前奔的个人站"/>
+      <meta itemprop="name" content="王前奔的个人站">
     </span>
 
     
@@ -540,7 +538,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;Bookorg&gt; <span class="title">getTreeNode</span><span class="params">(String pid)</span> </span>&#123;</span><br><span class="line">		StringBuffer hql=<span class="keyword">new</span> StringBuffer();</span><br><span class="line">		hql=hql.append(<span class="string">"from Bookorg b where  "</span>);</span><br><span class="line">		<span class="keyword">if</span> (pid == <span class="keyword">null</span> || <span class="string">""</span>.equals(pid)) &#123;</span><br><span class="line">			<span class="comment">//返回跟节点</span></span><br><span class="line">			hql=hql.append(<span class="string">" b.bookorg is null and b.orgcancelflag = 1 order by b.orgsortid asc "</span>);</span><br><span class="line">			<span class="keyword">return</span> departmentDao.getTreeNode(hql,<span class="keyword">new</span> Object[]&#123;&#125;);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">//异步加载当前id下的子节点</span></span><br><span class="line">			hql=hql.append(<span class="string">" b.bookorg.bookorgid= ? and b.orgcancelflag = 1  order by b.orgsortid asc "</span>);</span><br><span class="line">			<span class="keyword">return</span> departmentDao.getTreeNode(hql,<span class="keyword">new</span> Object[]&#123;<span class="keyword">new</span> BigDecimal(pid)&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p>Dao层</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List <span class="title">getTreeNode</span><span class="params">(String hql, Object[] values)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (hql != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">super</span>.getHibernateTemplate().find(hql, values);</span><br><span class="line">    &#125;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="/img/20161021/2.png" alt=""></p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="/img/20161021/2.png" alt></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>到此为止树的构建基本上就结束了，其实树的构建本质上就是字符串的拼接，只要我们理解了树节点的相关属性，根据自己的业务需求就可以很快的构建一颗树出来，ok，今天就到此为止了。</p>
 
       
@@ -652,9 +650,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="王前奔"/>
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="王前奔">
             
               <p class="site-author-name" itemprop="name">王前奔</p>
               <div class="site-description motion-element" itemprop="description">程序员</div>
@@ -667,7 +663,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -801,7 +797,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

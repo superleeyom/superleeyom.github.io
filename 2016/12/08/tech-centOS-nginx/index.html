@@ -15,11 +15,11 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -44,9 +44,9 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180x180.png?v=7.1.1">
@@ -122,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="https://www.leeyom.top/2016/12/08/tech-centOS-nginx/"/>
+  <link rel="canonical" href="https://www.leeyom.top/2016/12/08/tech-centOS-nginx/">
 
 
 
@@ -234,7 +234,7 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -253,7 +253,7 @@
       
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
         
@@ -272,7 +272,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签<span class="badge">46</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">47</span></a>
 
   </li>
         
@@ -291,7 +291,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">4</span></a>
 
   </li>
         
@@ -310,7 +310,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档<span class="badge">49</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">50</span></a>
 
   </li>
 
@@ -321,7 +321,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
@@ -344,9 +344,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -393,16 +391,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.leeyom.top/2016/12/08/tech-centOS-nginx/"/>
+    <link itemprop="mainEntityOfPage" href="https://www.leeyom.top/2016/12/08/tech-centOS-nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王前奔"/>
-      <meta itemprop="description" content="程序员"/>
-      <meta itemprop="image" content="/images/avatar.png"/>
+      <meta itemprop="name" content="王前奔">
+      <meta itemprop="description" content="程序员">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王前奔的个人站"/>
+      <meta itemprop="name" content="王前奔的个人站">
     </span>
 
     
@@ -531,7 +529,7 @@
 <h3 id="zlib"><a href="#zlib" class="headerlink" title="zlib"></a>zlib</h3><p>zlib库提供了很多种压缩和解压缩的方式，nginx使用zlib对http包的内容进行gzip，所以需要在linux上安装zlib库。安装指令：<strong>yum install -y zlib zlib-devel</strong></p>
 <h3 id="openssl"><a href="#openssl" class="headerlink" title="openssl"></a>openssl</h3><p>OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议，并提供丰富的应用程序供测试或其它目的使用。nginx不仅支持http协议，还支持https（即在ssl协议上传输http），所以需要在linux安装openssl库。安装指令：<strong>yum install -y openssl openssl-devel</strong></p>
 <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
-<li><p>用iTerm2 ssh 远程连接终端，输入 <strong>ssh -p 22 root@10.211.55.6</strong></p>
+<li><p>用iTerm2 ssh 远程连接终端，输入 <strong>ssh -p 22 <a href="mailto:root@10.211.55.6" target="_blank" rel="noopener">root@10.211.55.6</a></strong></p>
 </li>
 <li><p>将nginx源码上传到centOS</p>
 <p><img src="http://og1m51u2s.bkt.clouddn.com/2016120810700QQ20161208-0@2x.png" alt="2016120810700QQ20161208-0@2x.png"></p>
@@ -691,9 +689,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="王前奔"/>
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="王前奔">
             
               <p class="site-author-name" itemprop="name">王前奔</p>
               <div class="site-description motion-element" itemprop="description">程序员</div>
@@ -706,7 +702,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -840,7 +836,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">46</span>
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
