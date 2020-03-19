@@ -99,7 +99,7 @@
   <meta name="description" content="程序员">
 <meta property="og:type" content="website">
 <meta property="og:title" content="王前奔的个人站">
-<meta property="og:url" content="https://www.leeyom.top/tags/dubbo/index.html">
+<meta property="og:url" content="https://www.leeyom.top/tags/Dubbo/index.html">
 <meta property="og:site_name" content="王前奔的个人站">
 <meta property="og:description" content="程序员">
 <meta property="og:locale" content="zh-CN">
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="https://www.leeyom.top/tags/dubbo/">
+  <link rel="canonical" href="https://www.leeyom.top/tags/Dubbo/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>标签: dubbo | 王前奔的个人站</title>
+  <title>标签: Dubbo | 王前奔的个人站</title>
   
 
 
@@ -395,7 +395,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>dubbo<small>标签</small>
+        <h1>Dubbo<small>标签</small>
         </h1>
       </div>
 
@@ -407,17 +407,17 @@
 
       <h2 class="post-title">
         
-          <a class="post-title-link" href="/2018/03/07/dubbo-jar-server/" itemprop="url">
+          <a class="post-title-link" href="/2018/04/12/dubbo-exception/" itemprop="url">
             
-              <span itemprop="name">Dubbo 服务启动方式浅析</span>
+              <span itemprop="name">Dubbo 异常的处理浅析</span>
             
           </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-03-07T21:33:09+08:00" content="2018-03-07">
-          03-07
+        <time class="post-time" itemprop="dateCreated" datetime="2018-04-12T11:33:40+08:00" content="2018-04-12">
+          04-12
         </time>
       </div>
 
@@ -1234,74 +1234,6 @@
 
 
   
-  
-  <script>
-    
-    function showTime(Counter) {
-      var entries = [];
-      var $visitors = $('.leancloud_visitors');
-
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
-        .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
-        });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz')
-        .done(function({ api_server }) {
-          var Counter = function(method, url, data) {
-            return $.ajax({
-              method: method,
-              url: 'https://' + api_server + '/1.1' + url,
-              headers: {
-                'X-LC-Id': 'q2iaLIQPGhH796tNA8yRhMdK-gzGzoHsz',
-                'X-LC-Key': 'XNpsyrKHDD9eTFLsnMN9og8S',
-                'Content-Type': 'application/json',
-              },
-              data: data
-            });
-          };
-          
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
-          
-        });
-    });
-  </script>
-
-
 
   
 
@@ -1331,3 +1263,4 @@
 
 </body>
 </html>
+ml>
