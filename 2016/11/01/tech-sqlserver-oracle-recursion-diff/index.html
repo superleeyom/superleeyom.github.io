@@ -104,12 +104,12 @@
 <meta property="og:site_name" content="王前奔的个人站">
 <meta property="og:description" content="程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。一般来说，递归需要有边界条">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016121052968QQ20161210-095910@2x.png">
-<meta property="og:updated_time" content="2018-02-11T06:09:30.000Z">
+<meta property="og:image" content="http://image.leeyom.top/2016121052968QQ20161210-095910@2x.png">
+<meta property="og:updated_time" content="2020-05-07T14:07:41.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlserver、oracle、MySQL 递归查询的区别">
 <meta name="twitter:description" content="程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。一般来说，递归需要有边界条">
-<meta name="twitter:image" content="http://og1m51u2s.bkt.clouddn.com/2016121052968QQ20161210-095910@2x.png">
+<meta name="twitter:image" content="http://image.leeyom.top/2016121052968QQ20161210-095910@2x.png">
 
 
 
@@ -498,7 +498,7 @@
         <p>程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。</p>
 <a id="more"></a>
 <p>以上是摘自百度百科对于递归的定义，由于经常在项目中遇到递归查询，但是因为数据库方言的不同，三种数据库的递归查询语句都不相同，所以就做个简单的总结。</p>
-<h2 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h2><p><img src="http://og1m51u2s.bkt.clouddn.com/2016121052968QQ20161210-095910@2x.png" alt="2016121052968QQ20161210-095910@2x.png"></p>
+<h2 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h2><p><img src="http://image.leeyom.top/2016121052968QQ20161210-095910@2x.png" alt="2016121052968QQ20161210-095910@2x.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id --主键</span><br><span class="line">name --区域名称</span><br><span class="line">topgrid_id --上级区域id</span><br></pre></td></tr></table></figure>
 <h2 id="oracle-写法"><a href="#oracle-写法" class="headerlink" title="oracle 写法"></a>oracle 写法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ID</span>,<span class="keyword">NAME</span>,TOPGRID_ID</span><br><span class="line"><span class="keyword">FROM</span> GRID <span class="keyword">START</span> <span class="keyword">WITH</span> <span class="keyword">id</span> = <span class="number">1715</span> <span class="keyword">CONNECT</span> <span class="keyword">BY</span> <span class="keyword">PRIOR</span> <span class="keyword">ID</span> = TOPGRID_ID;</span><br></pre></td></tr></table></figure>
 <ul>

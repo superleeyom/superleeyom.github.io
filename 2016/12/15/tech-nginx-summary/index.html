@@ -104,16 +104,16 @@
 <meta property="og:site_name" content="王前奔的个人站">
 <meta property="og:description" content="Nginx (engine x) 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。nginx有两个非常重要的功能就是反向代理和负载均衡，今天就这两个重要的功能做个简单总结。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016121747446nginx.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016121798219QQ20161217-171057@2x.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016121758263QQ20161217-171319@2x.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/201612174195QQ20161217-172130@2x.png">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016121714181QQ20161217-180240@2x.png">
-<meta property="og:updated_time" content="2018-02-11T05:23:16.000Z">
+<meta property="og:image" content="http://image.leeyom.top/2016121747446nginx.png">
+<meta property="og:image" content="http://image.leeyom.top/2016121798219QQ20161217-171057@2x.png">
+<meta property="og:image" content="http://image.leeyom.top/2016121758263QQ20161217-171319@2x.png">
+<meta property="og:image" content="http://image.leeyom.top/201612174195QQ20161217-172130@2x.png">
+<meta property="og:image" content="http://image.leeyom.top/2016121714181QQ20161217-180240@2x.png">
+<meta property="og:updated_time" content="2020-05-07T14:09:05.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx的反向代理与负载均衡总结">
 <meta name="twitter:description" content="Nginx (engine x) 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。nginx有两个非常重要的功能就是反向代理和负载均衡，今天就这两个重要的功能做个简单总结。">
-<meta name="twitter:image" content="http://og1m51u2s.bkt.clouddn.com/2016121747446nginx.png">
+<meta name="twitter:image" content="http://image.leeyom.top/2016121747446nginx.png">
 
 
 
@@ -501,7 +501,7 @@
       
         <p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。nginx有两个非常重要的功能就是反向代理和负载均衡，今天就这两个重要的功能做个简单总结。</p>
 <a id="more"></a>
-<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><img src="http://og1m51u2s.bkt.clouddn.com/2016121747446nginx.png" alt="2016121747446nginx.png"></p>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><img src="http://image.leeyom.top/2016121747446nginx.png" alt="2016121747446nginx.png"></p>
 <p>从图中可以看出，当用户发送一个请求后，<code>nginx</code>会把请求随机转发给不同的服务器，<code>nginx</code>在当中担任一个<strong>请求转发</strong>的功能。</p>
 <h3 id="哪些场景要用反向代理"><a href="#哪些场景要用反向代理" class="headerlink" title="哪些场景要用反向代理"></a>哪些场景要用反向代理</h3><p>当用户访问的数据量比较大的时候，一台服务器无法承受如此大的数据量的时候，需要多台服务器去处理，而nginx就负责把这些请求转发给不同的服务器。</p>
 <h3 id="模拟反向代理实例"><a href="#模拟反向代理实例" class="headerlink" title="模拟反向代理实例"></a>模拟反向代理实例</h3><p>在这里我在centOS虚拟机上部署两个tomact来模拟两台服务器，这两台服务器部署了同一套代码。然后我在本机用<code>switchHost</code>来修改hosts，用浏览器访问<code>tomact.taotao.com</code>来模拟用户请求，然后观察相对应的处理结果。</p>
@@ -527,17 +527,17 @@ server {
 </ol>
 <h4 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h4><ol>
 <li><p>第一次请求，界面结果，显示<code>8080</code>界面，说明<code>nginx</code>将请求转发给了<code>tomact-1</code>。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016121798219QQ20161217-171057@2x.png" alt="2016121798219QQ20161217-171057@2x.png"></p>
+<p><img src="http://image.leeyom.top/2016121798219QQ20161217-171057@2x.png" alt="2016121798219QQ20161217-171057@2x.png"></p>
 </li>
 <li><p>第二次请求，界面结果，显示<code>8081</code>，说明<code>nginx</code>将请求转发给了<code>tomact-2</code>。</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016121758263QQ20161217-171319@2x.png" alt="2016121758263QQ20161217-171319@2x.png"></p>
+<p><img src="http://image.leeyom.top/2016121758263QQ20161217-171319@2x.png" alt="2016121758263QQ20161217-171319@2x.png"></p>
 </li>
 </ol>
-<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p><img src="http://og1m51u2s.bkt.clouddn.com/201612174195QQ20161217-172130@2x.png" alt="201612174195QQ20161217-172130@2x.png"></p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p><img src="http://image.leeyom.top/201612174195QQ20161217-172130@2x.png" alt="201612174195QQ20161217-172130@2x.png"></p>
 <p>从图中可以看出，用户发起请求后，<code>nginx</code>检测到，服务器1出现宕机，立马将请求转移给服务器4，将压力转移到服务器4上面，从而实现负载均衡。</p>
 <h3 id="哪些场景要用到负载均衡"><a href="#哪些场景要用到负载均衡" class="headerlink" title="哪些场景要用到负载均衡"></a>哪些场景要用到负载均衡</h3><p>如果我们的服务器的配置各有不同，那么我们就可以通过<code>nginx</code>为每台服务器设置权重，配置好的服务器可以承受更多请求，配置差一点的承担的压力要少一点，从而实现负载均衡。</p>
 <h3 id="模拟负载均衡实例"><a href="#模拟负载均衡实例" class="headerlink" title="模拟负载均衡实例"></a>模拟负载均衡实例</h3><p>在之前配置的基础上，再次配置<code>nginx.conf</code>配置文件，为每台服务器添加权重<code>weight</code>，<code>weight</code>的值默认为1，<code>weight</code>的值越大，<code>nginx</code>将请求转发到该服务器的概率也就越大，然后启动<code>nginx</code>。如下：</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016121714181QQ20161217-180240@2x.png" alt="2016121714181QQ20161217-180240@2x.png">        </p>
+<p><img src="http://image.leeyom.top/2016121714181QQ20161217-180240@2x.png" alt="2016121714181QQ20161217-180240@2x.png">        </p>
 <p>发起请求，发现界面显示的是<code>8080</code>，再次发起请求，界面依旧显示的是<code>8080</code>，第三次刷新的时候，界面才显示<code>8081</code>，由此可见，权重越大，nginx将请求转发给该服务器的概率越大，这就是负载均衡。</p>
 
       

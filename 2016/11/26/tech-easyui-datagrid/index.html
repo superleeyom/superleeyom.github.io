@@ -104,12 +104,12 @@
 <meta property="og:site_name" content="王前奔的个人站">
 <meta property="og:description" content="最近在项目中，需要用easyUI 的datagrid组件去实现一个表报的功能。我们以前用datagrid都是前台约定好字段，然后我们返回的json字符串与前台字段相对应便可以生成数据表格，但是这次却不同，datagrid的表头是动态的，为了实现这个功能，琢磨了些时间，然后在此总结一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://og1m51u2s.bkt.clouddn.com/2016112619244QQ20161126-0@2x.png">
-<meta property="og:updated_time" content="2018-02-11T05:55:26.000Z">
+<meta property="og:image" content="http://image.leeyom.top/2016112619244QQ20161126-0@2x.png">
+<meta property="og:updated_time" content="2020-05-07T14:08:43.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="easyUI datagrid 动态表头的实现">
 <meta name="twitter:description" content="最近在项目中，需要用easyUI 的datagrid组件去实现一个表报的功能。我们以前用datagrid都是前台约定好字段，然后我们返回的json字符串与前台字段相对应便可以生成数据表格，但是这次却不同，datagrid的表头是动态的，为了实现这个功能，琢磨了些时间，然后在此总结一下。">
-<meta name="twitter:image" content="http://og1m51u2s.bkt.clouddn.com/2016112619244QQ20161126-0@2x.png">
+<meta name="twitter:image" content="http://image.leeyom.top/2016112619244QQ20161126-0@2x.png">
 
 
 
@@ -498,7 +498,7 @@
         <p>最近在项目中，需要用easyUI 的datagrid组件去实现一个表报的功能。我们以前用datagrid都是前台约定好字段，然后我们返回的json字符串与前台字段相对应便可以生成数据表格，但是这次却不同，datagrid的表头是动态的，为了实现这个功能，琢磨了些时间，然后在此总结一下。</p>
 <a id="more"></a>
 <h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>点击左侧的配置项名称，右侧生成统计报表，报表可以是一维的，也可能是二维的，表头动态变化的，如下面所示：</p>
-<p><img src="http://og1m51u2s.bkt.clouddn.com/2016112619244QQ20161126-0@2x.png" alt="2016112619244QQ20161126-0@2x.png"></p>
+<p><img src="http://image.leeyom.top/2016112619244QQ20161126-0@2x.png" alt="2016112619244QQ20161126-0@2x.png"></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>从后台读取列名称，在<code>$(&quot;#dg2&quot;).datagrid({})</code>时，并不指定url属性，不向服务器端发送请求，在datagrid之后，通过ajax向服务器发送请求，并接收绑定列名称，和内容的json。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="前台"><a href="#前台" class="headerlink" title="前台"></a>前台</h3><ol>
 <li><p>jsp页面</p>
