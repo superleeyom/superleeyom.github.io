@@ -22,18 +22,15 @@
 
 # 主题
 
-- ~~采用的是[hexo-theme-spfk](https://github.com/luuman/hexo-theme-spfk)主题，稍微做了点小修改，在此基础上将字体的颜色由黑色改成蓝色。~~
 - 由于spfk主题的图片缩放有问题，文章不好排版，所以换回了[NexT](https://github.com/iissnan/hexo-theme-next)主题。
 
 # 评论
 
-- ~~评论系统采用的是[gitment](https://github.com/imsun/gitment)，采用的当前博客的仓库的issue作为评论系统，请不要添加新的 issues，可以在任意 issues区添加评论以交流，thanks。:satisfied:~~
-- ~~评论系统已经切换为[gitalk](https://github.com/gitalk/gitalk)~~。
 - 评论系统已切换为[Valine](https://valine.js.org/)。
 
 # 图床
 
-现阶段采用的是[七牛云](https://portal.qiniu.com/)，~~由于博客没有备案，就暂时先把图片放到当前博客的仓库里面了，另外推荐一个工具，叫[外链工厂](http://www.wailian.work/)，可以用他来做图床外链，但是记得自己在电脑上备份一份，要是网站挂了，图片找不回就麻烦了。图片压缩工具推荐：[TinyPNG4Mac](https://github.com/kyleduo/TinyPNG4Mac)，适合在mac平台使用。~~已经备案了，可以将图片上传到七牛云的对象存储中，工具使用[PicGo](https://github.com/Molunerfinn/PicGo)。
+现阶段采用的是[七牛云](https://portal.qiniu.com/)，已经备案了，将图片上传到七牛云的对象存储中，工具使用[PicGo](https://github.com/Molunerfinn/PicGo)。
 
 # 总结
 
