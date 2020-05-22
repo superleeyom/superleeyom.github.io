@@ -96,16 +96,18 @@
 
 
 
-  <meta name="description" content="程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="王前奔的个人站">
-<meta property="og:url" content="https://www.leeyom.top/tags/easyUI/index.html">
+  <meta name="description" content="在应用系统中，尤其在联机事务处理系统中，对数据查询及处理的速度已成为衡量应用系统成败的标准。而采用索引来加快数据处理速度也成为广大数据库用户所接受的优化方法。在良好的数据库设计基础上，有效地使用索引是取得高性能的基础。最近就在实际的开发中遇到了关于错误使用索引，导致请求访问超时的问题，这里记录下。">
+<meta name="keywords" content="MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB查询缓慢问题处理">
+<meta property="og:url" content="https://www.leeyom.top/2020/05/22/mongodb-slow-query/index.html">
 <meta property="og:site_name" content="王前奔的个人站">
-<meta property="og:description" content="程序员">
+<meta property="og:description" content="在应用系统中，尤其在联机事务处理系统中，对数据查询及处理的速度已成为衡量应用系统成败的标准。而采用索引来加快数据处理速度也成为广大数据库用户所接受的优化方法。在良好的数据库设计基础上，有效地使用索引是取得高性能的基础。最近就在实际的开发中遇到了关于错误使用索引，导致请求访问超时的问题，这里记录下。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-22T13:32:28.709Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王前奔的个人站">
-<meta name="twitter:description" content="程序员">
+<meta name="twitter:title" content="MongoDB查询缓慢问题处理">
+<meta name="twitter:description" content="在应用系统中，尤其在联机事务处理系统中，对数据查询及处理的速度已成为衡量应用系统成败的标准。而采用索引来加快数据处理速度也成为广大数据库用户所接受的优化方法。在良好的数据库设计基础上，有效地使用索引是取得高性能的基础。最近就在实际的开发中遇到了关于错误使用索引，导致请求访问超时的问题，这里记录下。">
 
 
 
@@ -113,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://www.leeyom.top/tags/easyUI/">
+  <link rel="canonical" href="https://www.leeyom.top/2020/05/22/mongodb-slow-query/">
 
 
 
@@ -123,7 +125,7 @@
   };
 </script>
 
-  <title>标签: easyUI | 王前奔的个人站</title>
+  <title>MongoDB查询缓慢问题处理 | 王前奔的个人站</title>
   
 
 
@@ -171,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,7 +253,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -321,28 +323,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -388,83 +368,243 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>easyUI<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.leeyom.top/2020/05/22/mongodb-slow-query/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王前奔">
+      <meta itemprop="description" content="程序员">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王前奔的个人站">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2016/11/26/tech-easyui-datagrid/" itemprop="url">
-            
-              <span itemprop="name">easyUI datagrid 动态表头的实现</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">MongoDB查询缓慢问题处理
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-11-26T19:46:09+08:00" content="2016-11-26">
-          11-26
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-22 21:17:25" itemprop="dateCreated datePublished" datetime="2020-05-22T21:17:25+08:00">2020-05-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/05/22/mongodb-slow-query/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/22/mongodb-slow-query/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2016/10/21/tech-easyui-tree/" itemprop="url">
-            
-              <span itemprop="name">easyUI tree组件的构建以及异步加载</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-10-21T14:57:08+08:00" content="2016-10-21">
-          10-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>在应用系统中，尤其在联机事务处理系统中，对数据查询及处理的速度已成为衡量应用系统成败的标准。而采用索引来加快数据处理速度也成为广大数据库用户所接受的优化方法。在良好的数据库设计基础上，有效地使用索引是取得高性能的基础。最近就在实际的开发中遇到了关于错误使用索引，导致请求访问超时的问题，这里记录下。</p>
+<a id="more"></a>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>因为业务需要，需要将 一张表的数据由 MySQL 迁移到 MongoDB，迁移完毕后，出现了外部调用接口的时候出现了大面积的超时，并且 MongoDB 所在的机器 cpu 被打到100%。</p>
+<h2 id="几种常见的索引"><a href="#几种常见的索引" class="headerlink" title="几种常见的索引"></a>几种常见的索引</h2><p>解决问题之前需要了解 MongoDB 的里面常见的几种索引：</p>
+<ul>
+<li><strong>基础索引</strong>：MongoDB基础索引的概念跟其他数据库产品一样，即在表上为某一列建立索引，并指定表数据是按这一列升序排列还是降序排列，比如我在 out_message 表上的 serviceNo 字段加上索引： <code>db.out_message.ensureIndex({serviceNo:1})</code> ，serviceNo 后面的“1”说明表数据是按age列升序排列还是降序排列。“1”为升序排列，“-1”为降序排列。</li>
+<li><strong>文档索引</strong>：索引不仅可以建立在普通字段上，还可以建立在嵌入式文档类型的字段上。例如，数据库中有一个factories表，这张表的addr字段是一个嵌入式文档类型。希望在addr字段上建立索引，可以使用下面的代码：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 插入数据</span><br><span class="line">db.factories.insert(&#123; name: "wwl", addr: &#123; city: "Beijing", state: "BJ" &#125; &#125; );</span><br><span class="line">// 创建文档索引</span><br><span class="line">db.factories.ensureIndex( &#123; addr : 1 &#125; );</span><br><span class="line">// 走索引</span><br><span class="line">db.factories.find(&#123; addr: &#123; city: "Beijing", state: "BJ" &#125; &#125; );</span><br><span class="line">// 走索引</span><br><span class="line">db.factories.find( &#123; addr: &#123; state: "BJ" , city: "Beijing"&#125; &#125; );</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>第一个 find，在addr列上的查询顺序跟此列的嵌入式字段定义顺序相同，即先city再state，所以这个查询会用到索引；第二个 find，应用查询命令  <code>db.factories.find( { addr: { state: &quot;BJ&quot; , city: &quot;Beijing&quot;} } )</code>  检索数据，此时在addr列上的查询顺序跟此列的嵌入式字段定义顺序不一致，有书上说无法使用索引，但是实际实验也会使用索引；</p>
+<ul>
+<li><strong>组合索引</strong>：当索引包含多个列时，称为组合索引或复合索引。组合索引的好处是，假如查询语句需要返回的数据字段都在组合索引的索引字段中，数据库将不会访问数据页，而直接返回索引中的字段值，以加快查询速度。假如查询语句不满足这个条件，组合索引就是没有意义的，反而浪费存储空间。例如如下代码所示：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 创建索引</span><br><span class="line">db.factories.ensureIndex( &#123; "addr.city" : 1, "addr.state" : 1 &#125; )</span><br><span class="line">// 走索引</span><br><span class="line">db.factories.find( &#123; "addr.city" : "Beijing", "addr.state" : "BJ" &#125; );</span><br><span class="line">// 走索引</span><br><span class="line">db.factories.find( &#123; "addr.city" : "Beijing" &#125; ）; </span><br><span class="line">// 不走索引                  </span><br><span class="line">db.factories.find().sort（ &#123; "addr.state" : 1, "addr.city" : 1 &#125; );</span><br><span class="line">// 走索引</span><br><span class="line">db.factories.find(&#123;  "addr.state" : "BJ","addr.city" : "Beijing" &#125; );</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我在factories表的addr.city和addr.state列上建立组合索引，然后执行第一个 find 查询数据，由于查询条件中字段的顺序与组合索引定义的字段顺序相同，所以此查询会使用到索引，第二个 find，由于查询条件中只指定了addr.city列，而且这个字段的定义也是factories表的组合索引的第1个字段，所以此查询会使用到索引，第三个 find比较特殊，通过实际实验，sort 中由于查询条件中先使用addr.state，后使用addr.city，与factories表字段顺序的定义不一致，所以此查询不会使用索引，第四个 find，在 find 中索引字段的顺序调换了一下，此查询还是会使用索引的，所以总结：</p>
+<blockquote>
+<ol>
+<li><p>建立复合索引，索引中两字段前后顺序与查询条件字段在数量一致的情况下，顺序不影响使用索引查询；</p>
+</li>
+<li><p>当复合索引中的字段数量与查询条件字段数量不一致情况下，以复合索引字段前置优先规则；</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li><strong>唯一索引</strong>：这个很容易理解，跟 MySQL 数据库里面的唯一索引一个意思，如果索引声明为唯一的，就不允许出现多个索引值相同的行。唯一索引可以确保只有两行数据里所有索引字段的值都相同的时候，插入数据时才被拒绝，即保证索引字段唯一性。比如可以使用 <code>db.t4.ensureIndex（{firstname: 1, lastname: 1}, {unique: true}）</code> 命令创建唯一索引。</li>
+</ul>
+<h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><p>当时是将 MySQL 的数据迁移到 MongoDB 的 out_message 表上，数据量其实不大，大概在 58w 的数据，但是发现大量的查询超时，每个查询的接口耗时 10s 以上。起初我在 out_message 这个表上，加了两个基础索引，分别是 providerId 和 serviceNo，这两个字段用于下游的安装商拉取 MongoDB 里的工单数据用的，出现超时后，分析对应的查询语句：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.getCollection('out_message').find(&#123; "providerId" : "530",  "type" : "SERVICE", </span><br><span class="line">"syncState" : "Y", "_class" : &#123; "$in" : ["com.lumi.retail.base.common.entity.ticket</span><br><span class="line">.OutMessage"] &#125; &#125;).sort(&#123;"_id": -1&#125;).limit(100).explain()</span><br></pre></td></tr></table></figure></p>
+<p>外部查询条件： <code>request = /providerApi/connectTaskList?providerId=455&amp;pageSize=60&amp;type=EXCEPTION&amp;pageNum=1&amp;status=N</code> ，发现其实是有命中 providerId 索引，indexBounds表示使用的索引，这里只截取部分：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"indexBounds" : &#123;</span><br><span class="line">  "providerId" : [ </span><br><span class="line">    <span class="string">"[\"530\", \"530\"]"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>虽然 providerId 是命中索引了，但是命中的数据超过了30多万，每次都加载这么多数据，查询起来肯定是非常慢的。所以根据用户的查询条件，创建一个组合索引和一个基础索引：</p>
+<ul>
+<li><p>组合索引 idx_providerid_type_syncstate：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"providerId"</span> : <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"type"</span> : <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"syncState"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基础索引serviceNo：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"serviceNo"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>因为 serviceNo 这个字段是非必填项，所以给他单独设置一个索引，而 providerId、type、syncState是查询必填字段，组成一个组合索引，那么在查询的时候，能很大几率命中复合索引，查询到的数据范围也进一步的缩小，提高了查询的效率，再次访问服务，就基本上已经正常了，目前测试环境（120w 数据）接口响应时间维持在10-50毫秒左右。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">"indexBounds" : &#123;</span><br><span class="line">  "providerId" : [ </span><br><span class="line">    <span class="string">"[\"413\", \"413\"]"</span></span><br><span class="line">  ],</span><br><span class="line">  "type" : [ </span><br><span class="line">    <span class="string">"[\"SERVICE\", \"SERVICE\"]"</span></span><br><span class="line">  ],</span><br><span class="line">  "syncState" : [ </span><br><span class="line">    <span class="string">"[\"Y\", \"Y\"]"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于MongoDB来说，如果查询语句的执行计划中nscanned（扫描的记录数）远大于nreturned（返回结果的记录数），那么就要考虑通过创建索引来优化记录定位了。对于创建索引的建议：如果很少读，那么尽量不要添加索引，因为索引越多，插入和更新操作会越慢。如果读的操作很多，那么创建索引还是比较合适的。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/10/java-generic/" rel="next" title="Java 泛型回忆录">
+                <i class="fa fa-chevron-left"></i> Java 泛型回忆录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -484,8 +624,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -744,6 +893,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几种常见的索引"><span class="nav-number">2.</span> <span class="nav-text">几种常见的索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何解决"><span class="nav-number">3.</span> <span class="nav-text">如何解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -891,6 +1057,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -936,6 +1106,8 @@
 
 
 
+
+  
 
 
   
