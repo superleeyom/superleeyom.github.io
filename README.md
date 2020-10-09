@@ -12,28 +12,28 @@
   <a href="#"><img src="https://img.shields.io/badge/framework-hexo-orange.svg" alt=""></a>  
 </p>
 
-# 目的
+## 目的
 
 分享，记录，开源，总结。
 
-# 框架
+## 框架
 
 采用快速、简洁且高效的博客框架-[Hexo](https://hexo.io/zh-cn/)。
 
-# 主题
+## 主题
 
 - 由于spfk主题的图片缩放有问题，文章不好排版，所以换回了[NexT](https://github.com/iissnan/hexo-theme-next)主题。
 
-# 评论
+## 评论
 
 - 评论系统已切换为[Valine](https://valine.js.org/)。
 
-# 图床
+## 图床
 
 现阶段采用的是[七牛云](https://portal.qiniu.com/)，已经备案了，将图片上传到七牛云的对象存储中，工具使用[PicGo](https://github.com/Molunerfinn/PicGo)。
 
-# 总结
+## 新站点
 
-博客注重的是内容，安安心心写东西，其他的就别折腾啦。
+后期新的文章准备都放到[issue](https://github.com/superleeyom/blog)，此站点后期不再更新，但是会保留。
 
 
