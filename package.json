@@ -1,0 +1,31 @@
+{
+  "name": "mirror",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A blog tool powered by GitHub issues",
+  "scripts": {
+    "start": "falco -c -m src/index.js",
+    "prebuild": "rm -rf docs",
+    "build": "NODE_ENV=docs falco -c -o docs -m src/index.js",
+    "postbuild": "node ./build.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/LoeiFy/Mirror.git"
+  },
+  "author": "LoeiFy <LoeiFy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LoeiFy/Mirror/issues"
+  },
+  "homepage": "https://github.com/LoeiFy/Mirror",
+  "devDependencies": {
+    "@fratercula/falco": "^1.5.12",
+    "archiver": "^3.0.0",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "fs-extra": "^7.0.1"
+  }
+}
