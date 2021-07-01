@@ -1,13 +1,5 @@
 
-## 目的
+[![image](https://user-images.githubusercontent.com/22115219/124114197-e107ba00-da9e-11eb-8f5a-778218dbded5.png)](https://blog.leeyom.top)
 
-分享，记录，开源，总结。
-
-## 网址
-
-访问地址：[https://blog.leeyom.top](https://blog.leeyom.top)
-
-## 参考
-
-参考项目：[Mirror](https://github.com/LoeiFy/Mirror)，感谢！！！
+**<p align="center">分享，记录，生活，总结</p>**
 
