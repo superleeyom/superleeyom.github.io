@@ -1,9 +1,5 @@
 
-## 目的
+[![image](https://user-images.githubusercontent.com/22115219/124114197-e107ba00-da9e-11eb-8f5a-778218dbded5.png)](https://blog.leeyom.top)
 
-分享，记录，开源，总结。
-
-## 新站点
-
-后期新的文章准备都放到这个仓库 [issue](https://github.com/superleeyom/blog)，旧站点后期不再更新，但是会保留。
+**<p align="center">分享，记录，生活，总结</p>**
 
