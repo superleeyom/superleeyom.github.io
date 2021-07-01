@@ -3,7 +3,11 @@
 
 分享，记录，开源，总结。
 
-## 新站点
+## 网址
 
-后期新的文章准备都放到这个仓库 [issue](https://github.com/superleeyom/blog)，旧站点后期不再更新，但是会保留。
+访问地址：[https://blog.leeyom.top](https://blog.leeyom.top)
+
+## 参考
+
+参考项目：[Mirror](https://github.com/LoeiFy/Mirror)，感谢！！！
 
